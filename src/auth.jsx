@@ -45,7 +45,7 @@ export default function Auth() {
 
 
   return (
-    <div className="w-1/2 h-full bg-Amber-400 flex  flex-col justify-center shadow-2xl rounded align-center items-center">
+    <div className="w-full lg:w-1/2 p-5 h-full bg-Amber-400 flex  flex-col justify-center shadow-2xl rounded align-center items-center">
       <div style={ isLogged ? { display:'block'} : {display : 'none'} }   className="flex items-around flex-col m-1" aria-live="polite">
         <h1 className="text-5xl">Supabase + React</h1>
         <p className="text-8xl">Sign to cafe</p>
