@@ -1,18 +1,19 @@
 import { useState } from "react";
-import Auth from "./auth";
-import reactLogo from "./assets/react.svg";
+// import Auth from "./components/auth";
 import "./App.css";
-import Navbar from "./navbar";
+import Navbar from "./components/navbar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="w-screen h-screen bg-pink-100">
+    <div className="w-screen h-full  ">
       <Navbar></Navbar>
-      <div className="flex w-full h-full justify-center align-center">
-        <Auth></Auth>
+      <div className="flex w-screen h-screen bg-mainYellow justify-center align-center">
+        {/* <Auth></Auth> */}
       </div>
+      <div className="flex w-screen h-screen bg-mainPink justify-center align-center"></div>
+      <div className="flex w-screen h-screen bg-mainGreen justify-center align-center"></div>
     </div>
   );
 }

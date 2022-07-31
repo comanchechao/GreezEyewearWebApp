@@ -1,3 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Lato:wght@900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "LaleZar";
+  src: url("../src/assets/fonts/Qs_Iranyekan.ttf");
+  font-style: normal;
+  font-display: swap;
+
+  unicode-range: U+0600-06FF;
+
+  font-display: swap;
+}
+
+* {
+  font-family: "LaleZar", "Lato";
+}
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ff595e #6a4c93;
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+@media only screen and (max-width: 767px) {
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 3px;
+  }
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #6a4c93;
+  border: 0px none #ffffff;
+  border-radius: 86px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d8425b;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ff7a90;
+}
+::-webkit-scrollbar-track {
+  background: #1982c4;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #f8ddd9;
+}
+::-webkit-scrollbar-track:active {
+  background: #3b3b3b;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

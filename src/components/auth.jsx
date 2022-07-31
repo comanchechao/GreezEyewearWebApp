@@ -1,4 +1,4 @@
-import { supabase } from "./supabaseClient";
+import { supabase } from "../supabaseClient";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
@@ -9,8 +9,8 @@ export default function Auth() {
   const [signUp, showSignUp] = useState(false);
   const [isLogged, logState] = useState(false);
   const [loggedState, checkLog] = useState(false);
-  const [emailSignUp , setEmailSignUp] = useState('')
-  const [passwordSignUp , setPasswordSignUp]= useState('')
+  const [emailSignUp, setEmailSignUp] = useState("");
+  const [passwordSignUp, setPasswordSignUp] = useState("");
 
   let [isOpen, setIsOpen] = useState(false);
 
@@ -27,7 +27,10 @@ export default function Auth() {
 
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signUp({ email: emailSignUp, password: passwordSignUp });
+      const { error } = await supabase.auth.signUp({
+        email: emailSignUp,
+        password: passwordSignUp,
+      });
       if (error) throw error;
       alert("Check your email for confirmation!");
     } catch (error) {
@@ -87,14 +90,13 @@ export default function Auth() {
                   >
                     <div className="flex w-full h-full flex-col align-center items-center justify-center">
                       <h1 className="text-5xl">Supabase + React</h1>
-                    <p className="text-8xl">Sign to cafe</p>
+                      <p className="text-8xl">Sign to cafe</p>
                     </div>
                   </Dialog.Title>
                   <div
                     className="flex items-around flex-col m-1"
                     aria-live="polite"
                   >
-                    
                     {loading ? (
                       "signing up..."
                     ) : (
@@ -130,7 +132,7 @@ export default function Auth() {
                               event.preventDefault();
                               logState(false);
                               setIsOpen(false);
-                              closeModal()
+                              closeModal();
                             }}
                           >
                             back
@@ -139,8 +141,6 @@ export default function Auth() {
                       </form>
                     )}
                   </div>
-
-                 
                 </Dialog.Panel>
               </Transition.Child>
             </div>
