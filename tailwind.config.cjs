@@ -21,6 +21,7 @@ module.exports = {
       },
       fontFamily: {
         mainFont: ["LaleZar"],
+        SultanFont: ["SultanFont"],
       },
       fontSize: {
         "10xl": "14rem",

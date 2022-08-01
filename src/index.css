@@ -14,6 +14,16 @@
 
   font-display: swap;
 }
+@font-face {
+  font-family: "SultanFont";
+  src: url("../src/assets/fonts/SultanFont.ttf");
+  font-style: normal;
+  font-display: swap;
+
+  unicode-range: U+0600-06FF;
+
+  font-display: swap;
+}
 
 * {
   font-family: "LaleZar", "Lato";
