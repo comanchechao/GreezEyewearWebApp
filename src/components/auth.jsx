@@ -57,7 +57,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="w-full lg:w-1/2 p-5 h-full bg-Amber-400 flex  flex-col justify-center shadow-2xl rounded align-center items-center">
+    <div className="w-full p-5 h-full bg-gradient-to-r from-mainYellow to-mainGreen flex  flex-col justify-center shadow-2xl rounded align-center items-center">
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -83,14 +83,14 @@ export default function Auth() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full bg-purple-500 text-gray-200 max-w-md transform overflow-hidden rounded-2xl  p-6 text-center align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full bg-mainPurple text-gray-200 max-w-md transform overflow-hidden rounded-2xl  p-6 text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg self-center font-medium leading-6 text-white"
                   >
-                    <div className="flex w-full h-full flex-col align-center items-center justify-center">
-                      <h1 className="text-5xl">Supabase + React</h1>
-                      <p className="text-8xl">Sign to cafe</p>
+                    <div className="flex w-full p-5 space-y-2 h-full flex-col align-center items-center justify-center">
+                      <h1 className="text-5xl">ثبت نام </h1>
+                      <p className="text-7xl font-bold">کافه پینت</p>
                     </div>
                   </Dialog.Title>
                   <div
@@ -100,22 +100,20 @@ export default function Auth() {
                     {loading ? (
                       "signing up..."
                     ) : (
-                      <form className="flex flex-col" onSubmit={handleSignUp}>
-                        <label htmlFor="email">Email</label>
+                      <form className="flex flex-col space-y-2 mt-5" onSubmit={handleSignUp}>
                         <input
                           id="email"
-                          className="inputField text-gray-900 p-2 rounded "
+                          className="inputField  text-right text-gray-900 p-2 rounded "
                           type="email"
-                          placeholder="Your email"
+                          placeholder="آدرس ایمیل"
                           value={emailSignUp}
                           onChange={(e) => setEmailSignUp(e.target.value)}
                         />
-                        <label htmlFor="email">Password</label>
                         <input
                           id="password"
-                          className="inputField text-gray-900 p-2 rounded"
+                          className="inputField  text-right text-gray-900 p-2 rounded"
                           type="password"
-                          placeholder="Your password"
+                          placeholder="پسوورد"
                           value={passwordSignUp}
                           onChange={(e) => setPasswordSignUp(e.target.value)}
                         />
@@ -124,7 +122,7 @@ export default function Auth() {
                             className="button mb-2 block p-4 rounded bg-pink-500 text-white"
                             aria-live="polite"
                           >
-                            signup
+                            ثبت نام
                           </button>
                           <button
                             className="bg-mainBlue text-white rounded shadow-2xl p-2"
@@ -135,7 +133,7 @@ export default function Auth() {
                               closeModal();
                             }}
                           >
-                            back
+                            برگرد
                           </button>
                         </div>
                       </form>
@@ -153,27 +151,27 @@ export default function Auth() {
         className="flex items-around flex-col m-1"
         aria-live="polite"
       >
-        <h1 className="text-5xl">Supabase + React</h1>
-        <p className="text-8xl">login to cafe</p>
+        <div className="flex w-full text-white space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
+          <h1 className="text-5xl">ورود  </h1>
+          <p className="text-8xl">کافه پینت</p>
+        </div>
         {loading ? (
           "login in..."
         ) : (
-          <form className="flex flex-col" onSubmit={handleLogin}>
-            <label htmlFor="email">Email</label>
+          <form className="flex flex-col mt-4" onSubmit={handleLogin}>
             <input
               id="email"
-              className="inputField p-2 rounded"
+              className="inputField my-2 text-right p-2 rounded"
               type="email"
-              placeholder="Your email"
+              placeholder="آدرس ایمیل"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label htmlFor="email">Password</label>
             <input
               id="password"
-              className="inputField p-2 rounded"
+              className="inputField my-2 text-right p-2 rounded"
               type="password"
-              placeholder="Your password"
+              placeholder="پسوورد"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -182,7 +180,7 @@ export default function Auth() {
                 className="button block p-5 mb-2 rounded bg-pink-500 text-white"
                 aria-live="polite"
               >
-                login
+                ورود
               </button>
               <button
                 className="p-2 bg-mainBlue text-white"
@@ -191,7 +189,7 @@ export default function Auth() {
                   openModal();
                 }}
               >
-                don't have an account?
+                میخوای اکانت جدید درست کنی؟
               </button>
             </div>
           </form>
