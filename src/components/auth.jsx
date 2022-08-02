@@ -57,7 +57,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="w-full p-5 h-full bg-gradient-to-r from-mainYellow to-mainGreen flex  flex-col justify-center shadow-2xl rounded align-center items-center">
+    <div className="w-full p-5 h-full bg-mainPurple flex  flex-col justify-center shadow-2xl rounded align-center items-center">
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -100,7 +100,10 @@ export default function Auth() {
                     {loading ? (
                       "signing up..."
                     ) : (
-                      <form className="flex flex-col space-y-2 mt-5" onSubmit={handleSignUp}>
+                      <form
+                        className="flex flex-col space-y-2 mt-5"
+                        onSubmit={handleSignUp}
+                      >
                         <input
                           id="email"
                           className="inputField  text-right text-gray-900 p-2 rounded "
@@ -152,7 +155,7 @@ export default function Auth() {
         aria-live="polite"
       >
         <div className="flex w-full text-white space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
-          <h1 className="text-5xl">ورود  </h1>
+          <h1 className="text-5xl">ورود </h1>
           <p className="text-8xl">کافه پینت</p>
         </div>
         {loading ? (
