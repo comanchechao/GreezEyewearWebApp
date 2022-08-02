@@ -1,6 +1,7 @@
 import Auth from "./auth";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { SignIn, House } from "phosphor-react";
 
 export default function navbar() {
   let [isOpen, setIsOpen] = useState(true);
@@ -14,20 +15,18 @@ export default function navbar() {
   }
 
   return (
-    <div className="w-screen bg-mainPurple z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl border-b border-gray-200">
+    <div className="w-screen bg-mainPurple z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl  ">
       <div className="flex align-center h-full justify-around flex-row items-center">
         <button className="text-white font-extrabold hidden lg:flex align-center">
-          <h1 className="text-2xl mr-2">خونه</h1>
-        </button>
-        <button className="text-white font-extrabold hidden lg:flex align-center">
-          <h1 className="text-2xl mr-2">خرید</h1>
+          <House size={40} />{" "}
         </button>
 
         <button
           onClick={openModal}
-          className="text-white font-extrabold hidden lg:flex align-center"
+          className="text-white font-medium hidden flex-col lg:flex my-10 items-center"
         >
-          <h1 className="text-2xl mr-2">عضویت</h1>
+          <SignIn size={40} />
+          {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
         </button>
 
         <Transition appear show={isOpen} as={Fragment}>

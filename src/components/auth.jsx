@@ -57,7 +57,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="w-full p-5 h-full bg-mainPurple flex  flex-col justify-center shadow-2xl rounded align-center items-center">
+    <div className="w-full p-24 h-full bg-mainPurple rounded-2xl flex  flex-col justify-center shadow-2xl rounded align-center items-center">
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -83,14 +83,14 @@ export default function Auth() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full bg-mainPurple text-gray-200 max-w-md transform overflow-hidden rounded-2xl  p-6 text-center align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full p-28 bg-Indigo-700 text-gray-200 max-w-md transform overflow-hidden rounded-2xl   text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg self-center font-medium leading-6 text-white"
                   >
                     <div className="flex w-full p-5 space-y-2 h-full flex-col align-center items-center justify-center">
                       <h1 className="text-5xl">ثبت نام </h1>
-                      <p className="text-7xl font-bold">کافه پینت</p>
+                      {/* <p className="text-7xl font-bold">کافه پینت</p> */}
                     </div>
                   </Dialog.Title>
                   <div
@@ -156,7 +156,7 @@ export default function Auth() {
       >
         <div className="flex w-full text-white space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
           <h1 className="text-5xl">ورود </h1>
-          <p className="text-8xl">کافه پینت</p>
+          {/* <p className="text-8xl">کافه پینت</p> */}
         </div>
         {loading ? (
           "login in..."
