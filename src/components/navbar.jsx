@@ -2,6 +2,7 @@ import Auth from "./auth";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { SignIn, House } from "phosphor-react";
+import logo from "../assets/images/cateLogo.webp";
 
 export default function navbar() {
   let [isOpen, setIsOpen] = useState(true);
@@ -20,7 +21,9 @@ export default function navbar() {
         <button className="text-white font-extrabold hidden lg:flex align-center">
           <House size={40} />{" "}
         </button>
-
+        <button>
+          <img src={logo} alt="" />
+        </button>
         <button
           onClick={openModal}
           className="text-white font-medium hidden flex-col lg:flex my-10 items-center"
