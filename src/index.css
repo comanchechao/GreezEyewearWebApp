@@ -6,15 +6,13 @@
 
 @font-face {
   font-family: "LaleZar";
-  src: url("../src/assets/fonts/Qs_Iranyekan.ttf");
+  src: url("../src/assets/fonts/CormorantGaramond-Medium.ttf");
   font-style: normal;
   font-display: swap;
 
-  unicode-range: U+0600-06FF;
-
   font-display: swap;
 }
-@font-face {
+/* @font-face {
   font-family: "SultanFont";
   src: url("../src/assets/fonts/SultanFont.ttf");
   font-style: normal;
@@ -23,10 +21,10 @@
   unicode-range: U+0600-06FF;
 
   font-display: swap;
-}
+} */
 
 * {
-  font-family: "LaleZar", "Lato";
+  font-family: "LaleZar";
 }
 * {
   scroll-behavior: smooth;

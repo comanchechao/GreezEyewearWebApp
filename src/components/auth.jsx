@@ -89,7 +89,7 @@ export default function Auth() {
                     className="text-lg self-center font-medium leading-6 text-white"
                   >
                     <div className="flex w-full p-5 space-y-2 h-full flex-col align-center items-center justify-center">
-                      <h1 className="text-5xl">ثبت نام </h1>
+                      <h1 className="text-5xl">Sign Up</h1>
                       {/* <p className="text-7xl font-bold">کافه پینت</p> */}
                     </div>
                   </Dialog.Title>
@@ -155,7 +155,7 @@ export default function Auth() {
         aria-live="polite"
       >
         <div className="flex w-full text-white space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
-          <h1 className="text-5xl">ورود </h1>
+          <h1 className="text-7xl capitalize font-extralight">login </h1>
           {/* <p className="text-8xl">کافه پینت</p> */}
         </div>
         {loading ? (
@@ -180,10 +180,10 @@ export default function Auth() {
             />
             <div className="p-5 flex flex-col">
               <button
-                className="button block p-5 mb-2 rounded bg-pink-500 text-white"
+                className="button block p-5 mb-2 capitalize rounded bg-pink-500 text-white"
                 aria-live="polite"
               >
-                ورود
+                login
               </button>
               <button
                 className="p-2 bg-mainBlue text-white"
