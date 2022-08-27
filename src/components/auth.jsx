@@ -57,7 +57,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="w-full p-24 h-full bg-mainPurple rounded-2xl flex  flex-col justify-center shadow-2xl rounded align-center items-center">
+    <div className="w-full p-24 h-full bg-mainWhite rounded-2xl flex  flex-col justify-center shadow-2xl rounded align-center items-center">
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -86,7 +86,7 @@ export default function Auth() {
                 <Dialog.Panel className="w-full p-28 bg-Indigo-700 text-gray-200 max-w-md transform overflow-hidden rounded-2xl   text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg self-center font-medium leading-6 text-white"
+                    className="text-lg self-center font-medium leading-6 "
                   >
                     <div className="flex w-full p-5 space-y-2 h-full flex-col align-center items-center justify-center">
                       <h1 className="text-5xl">Sign Up</h1>
@@ -122,13 +122,13 @@ export default function Auth() {
                         />
                         <div className="p-5 flex flex-col ">
                           <button
-                            className="button mb-2 block p-4 rounded bg-pink-500 text-white"
+                            className="button mb-2 block text-black p-4 rounded bg-pink-500"
                             aria-live="polite"
                           >
                             ثبت نام
                           </button>
                           <button
-                            className="bg-mainBlue text-white rounded shadow-2xl p-2"
+                            className="bg-mainBlue rounded text-black shadow-2xl p-2"
                             onClick={(event) => {
                               event.preventDefault();
                               logState(false);
@@ -154,7 +154,7 @@ export default function Auth() {
         className="flex items-around flex-col m-1"
         aria-live="polite"
       >
-        <div className="flex w-full text-white space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
+        <div className="flex w-full  space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
           <h1 className="text-7xl capitalize font-extralight">login </h1>
           {/* <p className="text-8xl">کافه پینت</p> */}
         </div>
@@ -180,19 +180,19 @@ export default function Auth() {
             />
             <div className="p-5 flex flex-col">
               <button
-                className="button block p-5 mb-2 capitalize rounded bg-pink-500 text-white"
+                className="button block p-5 mb-2 capitalize rounded font-bold text-2xl bg-pink-500"
                 aria-live="polite"
               >
                 login
               </button>
               <button
-                className="p-2 bg-mainBlue text-white"
+                className="p-2 bg-mainBlue"
                 onClick={(event) => {
                   event.preventDefault();
                   openModal();
                 }}
               >
-                میخوای اکانت جدید درست کنی؟
+                create a new account? 
               </button>
             </div>
           </form>
