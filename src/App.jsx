@@ -19,7 +19,7 @@ function App() {
         </div> */}
       </div>
       <div className="flex w-screen h-screen bg-green-100 justify-around items-center">
-        <div className=" h-3/6 w-2/5 bg-mainBlue flex flex-col px-7 text-left items-start justify-center">
+        <div className=" h-3/6 w-2/5 bg-mainBlue flex flex-col px-10 text-left items-start justify-center">
           <h4 className="text-2xl">Special Offer</h4>
           <h1
             style={{ lineHeight: 0.8 }}
@@ -34,7 +34,7 @@ function App() {
             Show Me
           </button>
         </div>
-        <div className=" h-3/6 w-2/5 bg-white flex flex-col p-7 items-start justify-center">
+        <div className=" h-3/6 w-2/5 bg-white flex flex-col p-10 items-start justify-center">
           {" "}
           <h4 className="text-2xl">Special Offer</h4>
           <h1
