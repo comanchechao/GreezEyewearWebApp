@@ -16,7 +16,7 @@ export default function navbar() {
   }
 
   return (
-    <div className="w-screen bg-mainBlue z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl  ">
+    <div className="w-screen bg-transparent z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl  ">
       <div className="flex align-center h-full justify-around flex-row items-center">
         <button className="text-white font-extrabold hidden lg:flex align-center">
           <House size={40} />{" "}
