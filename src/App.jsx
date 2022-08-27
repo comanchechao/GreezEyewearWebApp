@@ -23,7 +23,7 @@ function App() {
           <h4 className="text-2xl">Special Offer</h4>
           <h1
             style={{ lineHeight: 0.8 }}
-            className="capitalize text-7xl w-48 h-auto my-1"
+            className="capitalize text-6xl w-72 h-auto my-1"
           >
             best selling men glasses
           </h1>
@@ -39,7 +39,7 @@ function App() {
           <h4 className="text-2xl">Special Offer</h4>
           <h1
             style={{ lineHeight: 0.8 }}
-            className="capitalize text-7xl w-48 h-auto my-1"
+            className="capitalize text-6xl w-72 h-auto my-1"
           >
             best selling woman glasses
           </h1>
