@@ -1,11 +1,12 @@
 import Auth from "./auth";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { SignIn, House } from "phosphor-react";
+import { SignIn, House, Alien } from "phosphor-react";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/GlassesLogo.webp";
 
 export default function navbar() {
-  let [isOpen, setIsOpen] = useState(true);
+  let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -18,9 +19,18 @@ export default function navbar() {
   return (
     <div className="w-screen bg-transparent z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl  ">
       <div className="flex align-center h-full justify-around flex-row items-center">
-        <button className="text-white font-extrabold hidden lg:flex align-center">
+        <Link
+          to={"/"}
+          className="text-white font-extrabold hidden lg:flex align-center"
+        >
           <House size={40} />{" "}
-        </button>
+        </Link>
+        <Link
+          to={"/admin"}
+          className="text-white font-extrabold hidden lg:flex align-center"
+        >
+          <Alien size={40} />{" "}
+        </Link>
         <button className="flex ">
           <img src={logo} alt="" />
         </button>
