@@ -5,7 +5,7 @@ export default function Admin() {
   const [tab, setTab] = useState("");
 
   return (
-    <div className="h-full w-screen bg-mainBlue">
+    <div className="h-full w-screen bg-gray-100">
       <Navbar />
 
       {tab !== "" && (
@@ -14,7 +14,7 @@ export default function Admin() {
             onClick={() => {
               setTab("");
             }}
-            className="w-52 h-24 rounded-xl bg-mainYellow text-white text-xl font-bold"
+            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl my-3 bg-white outline-2 outline rounded-full outline-black"
           >
             back
           </button>
@@ -28,7 +28,7 @@ export default function Admin() {
               onClick={() => {
                 setTab("blog");
               }}
-              className="flex flex-col bg-pink-300 w-full h-full align-center justify-center items-center hover:bg-pink-700 hover:text-white transition-all hover:text-3xl"
+              className="flex flex-col bg-mainBlue cursor-pointer w-full h-full align-center justify-center items-center hover:bg-white   transition-all hover:text-3xl"
             >
               <h2 className="text-2xl lg:text-5xl font-bold">
                 Blog Management
@@ -38,7 +38,7 @@ export default function Admin() {
               onClick={() => {
                 setTab("sales");
               }}
-              className="flex flex-col bg-mainWhite w-full h-full align-center justify-center items-center hover:bg-pink-700 hover:text-white transition-all hover:text-3xl"
+              className="flex flex-col bg-mainWhite w-full h-full cursor-pointer align-center justify-center items-center hover:bg-white   transition-all hover:text-3xl"
             >
               <h2 className="text-2xl  lg:text-5xl font-bold">
                 Sales Management

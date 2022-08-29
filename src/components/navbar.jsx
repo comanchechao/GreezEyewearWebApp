@@ -1,7 +1,17 @@
 import Auth from "./auth";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
-import { SignIn, House, Alien } from "phosphor-react";
+import { Fragment, useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
+
+import {
+  SignIn,
+  House,
+  Alien,
+  Eyeglasses,
+  Sunglasses,
+  Copyright,
+  Eye,
+} from "phosphor-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/GlassesLogo.webp";
 
@@ -11,34 +21,78 @@ export default function navbar() {
   function closeModal() {
     setIsOpen(false);
   }
+  const boxRef = useRef();
+
+  // wait until DOM has been rendered
+  useEffect(() => {
+    gsap.from(boxRef.current, { opacity: "0", duration: 1.3 });
+  });
 
   function openModal() {
     setIsOpen(true);
   }
 
   return (
-    <div className="w-screen bg-transparent z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl  ">
+    <div
+      ref={boxRef}
+      className="w-screen bg-mainWhite z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl  "
+    >
       <div className="flex align-center h-full justify-around flex-row items-center">
         <Link
           to={"/"}
-          className="text-white font-extrabold hidden lg:flex align-center"
+          className="text-black font-extrabold hidden lg:flex items-center"
         >
-          <House size={40} />{" "}
+          <House size={35} />{" "}
         </Link>
         <Link
-          to={"/admin"}
-          className="text-white font-extrabold hidden lg:flex align-center"
+          to={"/shopPage"}
+          className="text-black font-extrabold hidden lg:flex items-center"
         >
-          <Alien size={40} />{" "}
+          <h1 className="pr-3 font-extralight">Eyeglasses</h1>
+          <Eyeglasses size={35} />
         </Link>
-        <button className="flex ">
+        <Link
+          to={"/shopPage"}
+          className="text-black font-extrabold hidden lg:flex items-center"
+        >
+          <h1 className="pr-3 font-extralight">Sunglasses</h1>
+          <Sunglasses size={35} />
+        </Link>
+        <Link
+          to={"/shopPage"}
+          className="text-black font-extrabold hidden lg:flex items-center"
+        >
+          <h1 className="pr-3 font-extralight">Lenses</h1>
+          <Eye size={30} />{" "}
+        </Link>
+        <Link
+          to={"/shopPage"}
+          className="text-black font-extrabold hidden lg:flex items-center"
+        >
+          <h1 className=" font-extralight">Blog</h1>
+        </Link>
+        <Link
+          to={"/shopPage"}
+          className="text-black font-extrabold hidden lg:flex align-center"
+        >
+          <h1>Premium Brands</h1>
+          <Copyright size={18} />
+        </Link>
+
+        <Link
+          to={"/admin"}
+          className="text-black font-extrabold hidden lg:flex align-center"
+        >
+          <Alien size={35} />{" "}
+        </Link>
+        {/* <button className="flex ">
           <img src={logo} alt="" />
-        </button>
+        </button> */}
         <button
           onClick={openModal}
-          className="text-white font-medium hidden flex-col lg:flex my-10 items-center"
+          className="text-black font-medium hidden flex-col lg:flex my-10 items-center"
         >
-          <SignIn size={40} />
+          <SignIn size={35} />
           {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
         </button>
 

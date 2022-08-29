@@ -30,10 +30,10 @@ function App() {
               style={{ lineHeight: 0.8 }}
               className="capitalize text-6xl w-72 h-auto my-1"
             >
-              best selling men glasses
+              most popular men glasses
             </h1>
             <button
-              className="px-12 transition ease-in duration-300 hover:bg-white py-1 text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
+              className="px-12 transition ease-in duration-300 border-l-8 border-white hover:bg-white py-1 text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
               type="submit"
             >
               Show Me
@@ -46,10 +46,10 @@ function App() {
               style={{ lineHeight: 0.8 }}
               className="capitalize text-6xl w-72 h-auto my-1"
             >
-              best selling woman glasses
+              most popular woman glasses
             </h1>
             <button
-              className="px-12 transition ease-in duration-300 hover:bg-mainBlue py-1 text-3xl my-3 bg-white outline-2 outline rounded-full outline-black"
+              className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl my-3 bg-white outline-2 outline rounded-full outline-black"
               type="submit"
             >
               Show Me
@@ -63,11 +63,11 @@ function App() {
           <EmblaCarousel slides={slides} />
         </div>
       </div>
-      <div className="h-screen w-screen bg-Indigo-700 flex flex-col items-center justify-around">
+      <div className="h-screen w-screen bg-mainWhite flex flex-col items-center justify-around">
         <h1 className="text-6xl font-extrabold capitalize py-20">
           tailor made for you
         </h1>
-        <div className=" h-full w-screen bg-goldie"></div>
+        <div className=" h-full w-screen bg-white"></div>
       </div>
     </div>
   );
