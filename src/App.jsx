@@ -3,6 +3,8 @@ import { ForkKnife } from "phosphor-react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import EmblaCarousel from "./components/EmblaCarousel";
+import FaceShape from "./assets/images/shopByFaceShape.webp";
+import FrameShape from "./assets/images/shopByFrameShape.webp";
 
 // import Carousel from "./components/carousel";
 // import logo from "./assets/images/GlassesLogoBig.webp";
@@ -67,7 +69,26 @@ function App() {
         <h1 className="text-6xl font-extrabold capitalize py-20">
           tailor made for you
         </h1>
-        <div className=" h-full w-screen bg-white"></div>
+        <div className=" h-full w-screen flex items-center justify-evenly bg-white">
+          <div className=" relative cursor-pointer transition ease-in duration-200 hover:bg-mainWhite p-10  ">
+            <img className="object-contain" src={FrameShape} alt="" />
+            <h1 className=" text-6xl font-black absolute top-0 my-16 mx-4">
+              Shop By
+              <span className=" underline-offset-8 underline pl-2">
+                Frame Shape
+              </span>
+            </h1>
+          </div>
+          <div className=" relative cursor-pointer transition ease-in duration-200 hover:bg-mainBlue p-10  ">
+            <img className="object-contain" src={FaceShape} alt="" />
+            <h1 className=" text-6xl font-black absolute top-0 my-16 mx-4">
+              Shop By
+              <span className=" underline-offset-8 underline pl-2">
+                Face Shape
+              </span>
+            </h1>
+          </div>
+        </div>
       </div>
     </div>
   );
