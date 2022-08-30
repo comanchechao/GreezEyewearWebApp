@@ -12,7 +12,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
-      <Route path="/blog" element={<Blogs />} />
+      <Route path="/blogs" element={<Blogs />} />
     </Routes>
   </BrowserRouter>
 );
