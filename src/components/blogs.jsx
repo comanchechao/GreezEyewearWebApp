@@ -26,11 +26,11 @@ export default function blogs() {
           </div>
           <div className="flex w-full justify-center items-center flex-col space-y-8">
             <input
-              className="p-4 w-80 rounded"
-              placeholder="Search ..."
+              className="p-4 w-80 rounded-full text-xl placeholder-gray-900"
+              placeholder="Search Articles ..."
               type="text"
             />
-            <h2 className="text-5xl font-bold">Blogs</h2>
+            <h2 className="text-5xl font-bold">Recent Articles</h2>
           </div>
           <div className="bg-white p-5 rounded-full">
             <DotsThreeOutlineVertical size={40} />
@@ -55,7 +55,7 @@ export default function blogs() {
               </div>
               <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
                 <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">sunday 2021</p>
+                <p className="text-xl">Sunday 2021</p>
                 <p className="text-xl">
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
@@ -77,7 +77,7 @@ export default function blogs() {
               </div>
               <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
                 <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">sunday 2021</p>
+                <p className="text-xl">Sunday 2021</p>
                 <p className="text-xl">
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
@@ -99,7 +99,7 @@ export default function blogs() {
               </div>
               <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
                 <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">sunday 2021</p>
+                <p className="text-xl">Sunday 2021</p>
                 <p className="text-xl">
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
@@ -121,7 +121,7 @@ export default function blogs() {
               </div>
               <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
                 <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">sunday 2021</p>
+                <p className="text-xl">Sunday 2021</p>
                 <p className="text-xl">
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
@@ -143,7 +143,7 @@ export default function blogs() {
               </div>
               <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
                 <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">sunday 2021</p>
+                <p className="text-xl">Sunday 2021</p>
                 <p className="text-xl">
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
