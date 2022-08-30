@@ -1,18 +1,20 @@
 import Navbar from "./navbar";
 import nordGlasses from "../assets/images/nordGlasses.webp";
 import blogOne from "../assets/images/blogOne.webp";
-import blogTwo from "../assets/images/blogTwo.webp"
-import blogThree from "../assets/images/blogThree.webp"
+import blogTwo from "../assets/images/blogTwo.webp";
+import blogThree from "../assets/images/blogThree.webp";
 import { DotsThreeOutlineVertical, SquaresFour, Rows } from "phosphor-react";
 
 export default function blogs() {
   return (
-    <div className=" w-full  h-full bg-mainCream">
+    <div className=" w-full  h-full bg-mainWhite">
       <Navbar />
       <div className="p-5 flex flex-col space-y-5 w-full h-full">
         <div className="mt-16 space-y-6 flex justify-end items-center flex-col  align-center">
           <div className="flex space-y-2 flex-col justify-center align-center items-center">
-            <h1 className="font-bold text-3xl">Latest on eyewear Fashion</h1>
+            <h1 className="font-bold capitalize my-7 text-7xl">
+              Latest on eyewear Fashion
+            </h1>
             <h2 className="text-xl">Monday 2022</h2>
           </div>
           <div className="flex justify-center">
@@ -37,7 +39,10 @@ export default function blogs() {
         <div className="w-full h-full">
           <div className="flex flex-wrap rounded space-y-5 px-4 py-7 w-full h-full  bg-mainWhite shadow-2xl">
             <div className="flex bg-white items-center rounded justify-end w-full h-12">
-              <SquaresFour className=" transition hover:bg-mainBlue" size={45} />
+              <SquaresFour
+                className=" transition hover:bg-mainBlue"
+                size={45}
+              />
               <Rows className=" transition hover:bg-mainBlue" size={45} />
             </div>
             <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream full3 h-full">
@@ -55,9 +60,9 @@ export default function blogs() {
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
               </div>
-              <div className="flex justify-end p-5  items-center">
-                <button className="font-bold hover:bg-mainYellow transition-all hover:text-white ease-in-out text-xl p-5 bg-mainBlue rounded-xl shadow-2xl">
-                  Continue reading
+              <div className="flex justify-start p-5  items-end">
+                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                  Continue
                 </button>
               </div>
             </div>
@@ -77,9 +82,9 @@ export default function blogs() {
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
               </div>
-              <div className="flex justify-end p-5 items-center">
-                <button className="font-bold hover:bg-mainYellow transition-all hover:text-white ease-in-out text-xl p-5 bg-mainBlue rounded-xl shadow-2xl">
-                  Continue reading
+              <div className="flex justify-end p-5 items-end">
+                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                  Continue
                 </button>
               </div>
             </div>
@@ -99,9 +104,9 @@ export default function blogs() {
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
               </div>
-              <div className="flex justify-end p-5 items-center">
-                <button className="font-bold hover:bg-mainYellow transition-all hover:text-white ease-in-out text-xl p-5 bg-mainBlue rounded-xl shadow-2xl">
-                  Continue reading
+              <div className="flex justify-end p-5 items-end">
+                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                  Continue
                 </button>
               </div>
             </div>
@@ -121,9 +126,9 @@ export default function blogs() {
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
               </div>
-              <div className="flex justify-end p-5 items-center">
-                <button className="font-bold hover:bg-mainYellow transition-all hover:text-white ease-in-out text-xl p-5 bg-mainBlue rounded-xl shadow-2xl">
-                  Continue reading
+              <div className="flex justify-end p-5 items-end">
+                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                  Continue
                 </button>
               </div>
             </div>
@@ -143,9 +148,9 @@ export default function blogs() {
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
               </div>
-              <div className="flex justify-end p-5 items-center">
-                <button className="font-bold hover:bg-mainYellow transition-all hover:text-white ease-in-out text-xl p-5 bg-mainBlue rounded-xl shadow-2xl">
-                  Continue reading
+              <div className="flex justify-end p-5 items-end">
+                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                  Continue
                 </button>
               </div>
             </div>
