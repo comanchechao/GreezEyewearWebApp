@@ -72,7 +72,7 @@ export default function navbar() {
           <h1 className=" font-extralight">Blog</h1>
         </Link>
         <Link
-          to={"/shopPage"}
+          to={"/blogs"}
           className="text-black font-extrabold hidden lg:flex align-center"
         >
           <h1>Premium Brands</h1>

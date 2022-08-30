@@ -43,6 +43,7 @@ module.exports = {
       mainYellow: "#ffbd00",
       // mainBlue: "#1982C4",
       mainWhite: "#FFE3CB",
+      mainCream: "#FFF1E6",
       // darkPurple: "#240046",
       goldie: "#ff9e00",
       white: colors.white,
