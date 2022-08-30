@@ -66,7 +66,7 @@ export default function navbar() {
           <Eye size={30} />{" "}
         </Link>
         <Link
-          to={"/shopPage"}
+          to={"/blogs"}
           className="text-black font-extrabold hidden lg:flex items-center"
         >
           <h1 className=" font-extralight">Blog</h1>
