@@ -27,7 +27,7 @@ export default function blogs() {
           <div className="flex w-full justify-center items-center flex-col space-y-8">
             <input
               className="p-4 w-80 rounded-full text-xl placeholder-gray-900"
-              placeholder="Search Articles ..."
+              placeholder="Search Articles..."
               type="text"
             />
             <h2 className="text-5xl font-bold">Recent Articles</h2>
