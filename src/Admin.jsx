@@ -117,7 +117,7 @@ export default function Admin() {
             <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
               <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
               <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl">
+              <h2 className="text-xl xs:hidden">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
@@ -127,7 +127,7 @@ export default function Admin() {
             <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
               <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
               <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl">
+              <h2 className="text-xl xs:hidden">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
@@ -137,7 +137,7 @@ export default function Admin() {
             <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
               <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
               <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl">
+              <h2 className="text-xl xs:hidden">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
@@ -147,7 +147,7 @@ export default function Admin() {
             <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
               <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
               <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl">
+              <h2 className="text-xl xs:hidden">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
