@@ -68,11 +68,11 @@ function App() {
         </div>
       </div>
       <div className="h-full w-screen bg-mainWhite flex flex-col items-center justify-between">
-        <h1 className="text-6xl font-extrabold capitalize py-20 text-center">
+        <h1 className="text-6xl  font-extrabold capitalize px-6 py-7 lg:py-20 text-center">
           tailor made for you
         </h1>
-        <div className=" h-full w-screen flex lg:flex-row flex-col items-center justify-evenly bg-mainCream">
-          <div className=" relative mt-9 cursor-pointer transition ease-in duration-200 hover:bg-mainWhite p-5 lg:p-10  ">
+        <div className=" h-full w-screen flex lg:flex-row flex-col items-center   justify-center bg-mainCream lg:pt-10">
+          <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainWhite lg:hover:bg-mainWhite p-8 lg:p-10  ">
             <img className="object-contain" src={FrameShape} alt="" />
             <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
               Shop By
@@ -81,7 +81,7 @@ function App() {
               </span>
             </h1>
           </div>
-          <div className=" relative mb-9 cursor-pointer transition ease-in duration-200 hover:bg-mainBlue p-5 lg:p-10  ">
+          <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-10  ">
             <Link to={"/"}>
               <img className="object-contain" src={FaceShape} alt="" />
               <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">

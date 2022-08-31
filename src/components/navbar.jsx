@@ -35,55 +35,40 @@ export default function navbar() {
   return (
     <div
       ref={boxRef}
-      className="w-screen bg-mainWhite z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between justify-center align-center text-3xl  "
+      className="w-screen bg-mainWhite z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between  text-3xl  "
     >
-      <div className="flex align-center h-full justify-around flex-row items-center">
-        <Link
-          to={"/"}
-          className="text-black font-extrabold hidden lg:flex items-center"
-        >
-          <House size={35} />{" "}
+      <div className="flex  h-full lg:justify-around justify-evenly py-7">
+        <Link to={"/"} className="text-black font-extrabold flex items-center">
+          <House size={35} />
         </Link>
         <Link
           to={"/shopPage"}
           className="text-black font-extrabold hidden lg:flex items-center"
         >
-          <h1 className="pr-3 font-extralight">Eyeglasses</h1>
+          <h1 className="pr-3 font-extralight hidden lg:flex">Eyeglasses</h1>
           <Eyeglasses size={35} />
         </Link>
-        <Link
-          to={"/shopPage"}
-          className="text-black font-extrabold hidden lg:flex items-center"
-        >
-          <h1 className="pr-3 font-extralight">Sunglasses</h1>
+        <Link to={"/shopPage"} className="flex items-center">
+          <h1 className="pr-3 font-extralight hidden lg:flex">Sunglasses</h1>
           <Sunglasses size={35} />
         </Link>
-        <Link
-          to={"/shopPage"}
-          className="text-black font-extrabold hidden lg:flex items-center"
-        >
-          <h1 className="pr-3 font-extralight">Lenses</h1>
-          <Eye size={30} />{" "}
+        <Link to={"/shopPage"} className="flex">
+          <h1 className="pr-3 font-extralight hidden lg:flex">Lenses</h1>
+          <Eye size={30} />
+        </Link>
+        <Link to={"/blogs"}>
+          <h1 className=" font-extralight  file:">Blog</h1>
         </Link>
         <Link
           to={"/blogs"}
-          className="text-black font-extrabold hidden lg:flex items-center"
+          className="text-black font-extrabold  hidden lg:flex  "
         >
-          <h1 className=" font-extralight">Blog</h1>
-        </Link>
-        <Link
-          to={"/blogs"}
-          className="text-black font-extrabold hidden lg:flex align-center"
-        >
-          <h1>Premium Brands</h1>
+          <h1 className=" ">Premium Brands</h1>
           <Copyright size={18} />
         </Link>
 
-        <Link
-          to={"/admin"}
-          className="text-black font-extrabold hidden lg:flex align-center"
-        >
-          <Alien size={35} />{" "}
+        <Link to={"/admin"} className="text-black font-extrabold  align-center">
+          <Alien size={35} />
         </Link>
         {/* <button className="flex ">
           <img src={logo} alt="" />
