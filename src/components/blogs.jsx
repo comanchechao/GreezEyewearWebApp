@@ -45,7 +45,7 @@ export default function blogs() {
               />
               <Rows className=" transition hover:bg-mainBlue" size={45} />
             </div>
-            <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream full3 h-full">
+            <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream  h-full">
               <div className="w-full">
                 <img
                   src={blogOne}

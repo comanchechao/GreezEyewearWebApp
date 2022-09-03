@@ -13,7 +13,7 @@ const SLIDE_COUNT = 5;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
 function App() {
   return (
-    <div className="w-screen h-full  ">
+    <div className="w-screen h-full bg-CoolGray-800">
       <Navbar></Navbar>
       <div className="flex w-screen h-screen bg-mainWhite flex-col justify-center items-center">
         {/* <Auth></Auth> */}
@@ -82,7 +82,7 @@ function App() {
             </h1>
           </div>
           <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-10  ">
-            <Link to={"/"}>
+            <Link to={"/faceShape"}>
               <img className="object-contain" src={FaceShape} alt="" />
               <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
                 Shop By
