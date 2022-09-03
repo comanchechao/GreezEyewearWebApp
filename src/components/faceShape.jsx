@@ -15,7 +15,7 @@ export default function faceShape() {
           Explore our glasses by face shape and find the right pair for you.
         </p>
         <div className="flex   my-10 justify-around w-screen px-24 items-center ">
-          <div className="flex items-center  ">
+          <div className="flex items-center  lg:flex-row flex-col">
             <img
               className="object-contain border-2 border-mainWhite active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainWhite p-3 rounded-md"
               src={ovalFace}
@@ -27,7 +27,7 @@ export default function faceShape() {
                   Round
                 </span>
               </h1>
-              <p className="text-center text-mainWhite text-3xl px-16 my-12">
+              <p className="text-center text-mainWhite text-3xl lg:px-16 my-12">
                 A round face is typically as wide as it's long without a
                 prominent cheekbone.
               </p>
