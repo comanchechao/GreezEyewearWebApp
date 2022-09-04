@@ -27,8 +27,8 @@ export default function Admin() {
       )}
 
       {tab === "" ? (
-        <div className="flex w-screen h-screen lg:w-screen  flex-col justify-center items-end">
-          <div className="flex justify-center align-center w-full lg:w-full h-full">
+        <div className="flex w-screen h-screen flex-col justify-center items-end">
+          <div className="flex justify-center align-center flex-col w-screen h-screen">
             <div
               onClick={() => {
                 setTab("blog");
@@ -121,7 +121,9 @@ export default function Admin() {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">show more</button>
+              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
+                show more
+              </button>
             </div>
 
             <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
@@ -131,7 +133,9 @@ export default function Admin() {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">show more</button>
+              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
+                show more
+              </button>
             </div>
 
             <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
@@ -141,7 +145,9 @@ export default function Admin() {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">show more</button>
+              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
+                show more
+              </button>
             </div>
 
             <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
@@ -151,7 +157,9 @@ export default function Admin() {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Inventore, sit.
               </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">show more</button>
+              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
+                show more
+              </button>
             </div>
           </div>
         </div>

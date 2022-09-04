@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { ForkKnife } from "phosphor-react";
+import { useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import EmblaCarousel from "./components/EmblaCarousel";
@@ -12,6 +11,9 @@ import { Link } from "react-router-dom";
 const SLIDE_COUNT = 5;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="w-screen h-full bg-CoolGray-800">
       <Navbar></Navbar>
@@ -63,7 +65,7 @@ function App() {
         <h1 className="text-6xl font-extrabold  my-14 text-center">
           Our Newest Sunnies!
         </h1>
-        <div className="w-full h-full bg-mainCream">
+        <div className="w-full h-full bg-CoolGray-900">
           <EmblaCarousel slides={slides} />
         </div>
       </div>
@@ -71,7 +73,7 @@ function App() {
         <h1 className="text-6xl  font-extrabold capitalize px-6 py-7 lg:py-20 text-center">
           tailor made for you
         </h1>
-        <div className=" h-full w-screen flex lg:flex-row flex-col items-center   justify-center bg-mainCream lg:pt-10">
+        <div className=" h-full w-screen flex lg:flex-row flex-col items-center   justify-center bg-CoolGray-900 lg:pt-10">
           <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainWhite lg:hover:bg-mainWhite p-8 lg:p-10  ">
             <img className="object-contain" src={FrameShape} alt="" />
             <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
