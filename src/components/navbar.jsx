@@ -35,36 +35,36 @@ export default function navbar() {
   return (
     <div
       ref={boxRef}
-      className="w-screen bg-mainWhite z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between  text-3xl  "
+      className="w-screen bg-CoolGray-900  z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between  text-3xl  "
     >
       <div className="flex  h-full lg:justify-around justify-evenly py-7">
         <Link
           to={"/"}
-          className="text-CoolGray-800 font-extrabold flex items-center"
+          className="text-mainWhite font-extrabold flex items-center"
         >
           <House size={35} />
         </Link>
         <Link
           to={"/shopPage"}
-          className="text-CoolGray-800 font-extrabold hidden lg:flex items-center"
+          className="text-mainWhite font-extrabold hidden lg:flex items-center"
         >
           <h1 className="pr-3 font-extralight hidden lg:flex">Eyeglasses</h1>
           <Eyeglasses size={35} />
         </Link>
-        <Link to={"/shopPage"} className="flex items-center">
-          <h1 className="pr-3 font-extralight hidden lg:flex">Sunglasses</h1>
+        <Link to={"/shopPage"} className="flex items-center text-mainWhite">
+          <h1 className="pr-3 font-extralight hidden lg:flex  ">Sunglasses</h1>
           <Sunglasses size={35} />
         </Link>
-        <Link to={"/shopPage"} className="flex">
-          <h1 className="pr-3 font-extralight hidden lg:flex">Lenses</h1>
+        <Link to={"/shopPage"} className="flex text-mainWhite">
+          <h1 className="pr-3 font-extralight hidden lg:flex ">Lenses</h1>
           <Eye size={30} />
         </Link>
         <Link to={"/blogs"}>
-          <h1 className=" font-extralight  file:">Blog</h1>
+          <h1 className=" font-extralight  text-mainWhite">Blog</h1>
         </Link>
         <Link
           to={"/blogs"}
-          className="text-CoolGray-800 font-extrabold  hidden lg:flex  "
+          className="text-mainWhite font-extrabold  hidden lg:flex  "
         >
           <h1 className=" ">Premium Brands</h1>
           <Copyright size={18} />
@@ -72,7 +72,7 @@ export default function navbar() {
 
         <Link
           to={"/admin"}
-          className="text-CoolGray-800 font-extrabold  align-center"
+          className="text-mainWhite font-extrabold  align-center"
         >
           <Alien size={35} />
         </Link>
@@ -81,7 +81,7 @@ export default function navbar() {
         </button> */}
         <button
           onClick={openModal}
-          className="text-CoolGray-800 font-medium hidden flex-col lg:flex my-10 items-center"
+          className="text-mainWhite font-medium hidden flex-col lg:flex my-10 items-center"
         >
           <SignIn size={35} />
           {/* <h1 className="text-2xl mr-2">عضویت</h1> */}

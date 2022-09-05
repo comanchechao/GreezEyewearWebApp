@@ -12,7 +12,7 @@ export default function blogs() {
       <div className="p-5 flex flex-col space-y-5 w-full h-full">
         <div className="mt-16 space-y-6 flex justify-end items-center flex-col  align-center">
           <div className="flex space-y-2 flex-col justify-center align-center items-center">
-            <h1 className="font-bold capitalize my-7 text-7xl">
+            <h1 className="font-bold capitalize my-7 text-7xl text-center">
               Latest on eyewear Fashion
             </h1>
             <h2 className="text-xl">Monday 2022</h2>

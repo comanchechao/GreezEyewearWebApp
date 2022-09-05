@@ -15,17 +15,16 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="w-screen h-full bg-CoolGray-800">
+    <div className="w-screen h-full bg-CoolGray-900">
       <Navbar></Navbar>
-      <div className="flex w-screen h-screen bg-mainWhite flex-col justify-center items-center">
-        {/* <Auth></Auth> */}
-
-        {/* <div className="w-3/4 h-3/5   flex items-center space-x-3 justify-center bg-mainBlue">
-          <h1 className="text-10xl text-mainYellow font-mainFont underline-offset-6 underline">
-            Azim
+      <div className="flex w-screen h-screen    justify-center items-center">
+        <div className="w-3/4 bg-CoolGray-900 flex flex-col justify-center items-center h-full">
+          <h1 className="text-9xl text-mainWhite font-black">Azim</h1>
+          <h1 className="text-3xl ml-60 text-mainWhite font-extralight">
+            Eyewear
           </h1>
-          <img src={logo} alt="" />
-        </div> */}
+        </div>
+        <div className="  w-1/4 rotate-12 -translate-x-40  transform -skew-y-12 -skew-x-12  h-full shadow-inner filter drop-shadow-2xl flex justify-center items-center bg-mainWhite"></div>
       </div>
       <div className="flex w-screen h-screen bg-green-100 flex-col justify-between items-center">
         <div className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center">
@@ -61,7 +60,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex w-screen h-5/6 mb-20 flex-col bg-mainWhite justify-around align-center">
+      <div className="flex w-screen h-rem33 mb-20 flex-col bg-mainWhite justify-around align-center">
         <h1 className="text-6xl font-extrabold  my-14 text-center">
           Our Newest Sunnies!
         </h1>
@@ -75,13 +74,15 @@ function App() {
         </h1>
         <div className=" h-full w-screen flex lg:flex-row flex-col items-center   justify-center bg-CoolGray-900 lg:pt-10">
           <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainWhite lg:hover:bg-mainWhite p-8 lg:p-10  ">
-            <img className="object-contain" src={FrameShape} alt="" />
-            <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
-              Shop By
-              <span className=" underline-offset-8 underline pl-2">
-                Frame Shape
-              </span>
-            </h1>
+            <Link to={"/frameShape"}>
+              <img className="object-contain" src={FrameShape} alt="" />
+              <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
+                Shop By
+                <span className=" underline-offset-8 underline pl-2">
+                  Frame Shape
+                </span>
+              </h1>
+            </Link>
           </div>
           <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-10  ">
             <Link to={"/faceShape"}>

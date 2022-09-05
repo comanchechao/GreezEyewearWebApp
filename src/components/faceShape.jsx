@@ -12,7 +12,7 @@ export default function faceShape() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="h-auto w-screen bg-mainWhite">
+    <div className="h-auto w-screen  ">
       <Navbar />
       <div className=" h-full w-screen bg-CoolGray-900 pt-32 flex flex-col items-center justify-center">
         <h1 className="lg:text-7xl text-6xl mt-24 text-mainWhite font-extrabold text-center  max-w-2xl ">
