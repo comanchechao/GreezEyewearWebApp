@@ -60,7 +60,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex w-screen h-rem33 mb-20 flex-col bg-mainWhite justify-around align-center">
+      <div className="flex w-screen h-full mb-20 flex-col bg-mainWhite justify-around align-center">
         <h1 className="text-6xl font-extrabold  my-14 text-center">
           Our Newest Sunnies!
         </h1>
