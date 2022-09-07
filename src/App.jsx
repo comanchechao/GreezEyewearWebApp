@@ -15,7 +15,7 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="w-screen h-full bg-CoolGray-900">
+    <div className="w-screen h-full bg-CoolGray-900 overflow-x-hidden">
       <Navbar></Navbar>
       <div className="flex w-screen h-screen    justify-center items-center">
         <div className="w-3/4 bg-CoolGray-900 flex flex-col justify-center items-center h-full">

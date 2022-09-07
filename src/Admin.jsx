@@ -101,8 +101,8 @@ export default function Admin() {
           </div>
         </div>
       ) : tab === "blog" ? (
-        <div className="flex flex-col items-center space-y-5 w-full justify-center p-5">
-          <div className="flex w-full items-center justify-between px-3 bg-gray-200 h-20">
+        <div className="flex flex-col items-center space-y-5 w-full justify-center p-5 capitalize">
+          <div className="flex w-full items-center justify-between px-3 bg-CoolGray-900 h-20">
             <input
               className="rounded p-3 w-80"
               placeholder="Search ... "
