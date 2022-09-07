@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SquaresFour, Rows, FilePlus } from "phosphor-react";
-import Navbar from "./components/navbar";
+import Navbar from "../components/navbar";
 export default function Admin() {
   const [tab, setTab] = useState("");
 
