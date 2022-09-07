@@ -7,8 +7,6 @@ import { DotsThreeOutlineVertical, SquaresFour, Rows } from "phosphor-react";
 import { Link } from "react-router-dom";
 
 export default function blogs() {
-
-
   return (
     <div className=" w-full  h-full bg-mainWhite">
       <Navbar />
@@ -65,9 +63,11 @@ export default function blogs() {
                 </p>
               </div>
               <div className="flex justify-start p-5  items-end">
-                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                  Continue
-                </button>
+                <Link to={"/blog"}>
+                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                    Continue
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -111,9 +111,11 @@ export default function blogs() {
                 </p>
               </div>
               <div className="flex justify-end p-5 items-end">
-                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                  Continue
-                </button>
+                <Link to={"/blog"}>
+                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                    Continue
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -133,9 +135,11 @@ export default function blogs() {
                 </p>
               </div>
               <div className="flex justify-end p-5 items-end">
-                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                  Continue
-                </button>
+                <Link to={"/blog"}>
+                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                    Continue
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -155,9 +159,11 @@ export default function blogs() {
                 </p>
               </div>
               <div className="flex justify-end p-5 items-end">
-                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                  Continue
-                </button>
+                <Link to={"/blog"}>
+                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
+                    Continue
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

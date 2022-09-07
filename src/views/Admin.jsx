@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SquaresFour, Rows, FilePlus } from "phosphor-react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 export default function Admin() {
   const [tab, setTab] = useState("");
@@ -19,9 +20,11 @@ export default function Admin() {
             back
           </button>
           {tab === "blog" && (
-            <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 hover:text-gray-600 font-bold text-3xl my-3 bg-white outline-2 outline rounded-full outline-black">
-              New Blog
-            </button>
+            <Link to="/newBlog">
+              <button className="lg:px-12 px-5 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 hover:text-gray-600 font-bold text-3xl my-3 bg-white outline-2 outline rounded-full outline-black">
+                New Blog
+              </button>
+            </Link>
           )}
         </div>
       )}
