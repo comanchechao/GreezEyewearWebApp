@@ -1,4 +1,4 @@
-import Navbar from "./navbar";
+import Navbar from "../components/navbar";
 import { useEffect } from "react";
 import polygonFrame from "../assets/images/polygonFrame.webp";
 import hornFrame from "../assets/images/hornFrame.webp";

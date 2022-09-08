@@ -45,21 +45,21 @@ export default function navbar() {
           <House size={35} />
         </Link>
         <Link
-          to={"/shopPage"}
+          to={"/ShoppingPage"}
           className="text-mainWhite font-extrabold hidden lg:flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-centerr"
         >
           <h1 className="pr-3 font-extralight hidden lg:flex">Eyeglasses</h1>
           <Eyeglasses size={35} />
         </Link>
         <Link
-          to={"/shopPage"}
+          to={"/ShoppingPage"}
           className="flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center text-mainWhite"
         >
           <h1 className="pr-3 font-extralight hidden lg:flex  ">Sunglasses</h1>
           <Sunglasses size={35} />
         </Link>
         <Link
-          to={"/shopPage"}
+          to={"/ShoppingPage"}
           className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <h1 className="pr-3 font-extralight hidden lg:flex ">Lenses</h1>

@@ -4,10 +4,11 @@ import App from "./App";
 import "./index.css";
 import Admin from "./views/Admin";
 import Blogs from "./components/blogs";
-import FaceShape from "./components/faceShape";
+import FaceShape from "./views/faceShape";
 import Blog from "./views/blog";
-import FrameShape from "./components/frameShape";
+import FrameShape from "./views/frameShape";
 import NewBlog from "./views/newBlog";
+import ShoppingPage from "./views/shoppingPage";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}></Route>
+      <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
       <Route path="/faceShape" element={<FaceShape />}></Route>
       <Route path="/frameShape" element={<FrameShape />}></Route>
       <Route path="/newblog" element={<NewBlog />}></Route>

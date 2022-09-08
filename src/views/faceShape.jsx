@@ -1,4 +1,4 @@
-import Navbar from "./navbar";
+import Navbar from "../components/navbar";
 import ovalFace from "../assets/images/ovalFace.webp";
 import roundFace from "../assets/images/roundFace.webp";
 import squareFace from "../assets/images/squareFace.webp";
