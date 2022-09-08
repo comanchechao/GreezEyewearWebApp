@@ -35,36 +35,45 @@ export default function navbar() {
   return (
     <div
       ref={boxRef}
-      className="w-screen bg-CoolGray-900  z-10 Navbar h-20 flex flex-col fixed lg:px-8 lg:justify-between  text-3xl  "
+      className="w-screen bg-CoolGray-900  z-10 Navbar h-20 flex flex-col fixed  lg:px-8 lg:justify-between  text-3xl  "
     >
-      <div className="flex  h-full lg:justify-around justify-evenly py-7">
+      <div className="flex  h-full lg:justify-around justify-evenly items-center lg:py-7">
         <Link
           to={"/"}
-          className="text-mainWhite font-extrabold flex items-center"
+          className="text-mainWhite font-extrabold flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <House size={35} />
         </Link>
         <Link
           to={"/shopPage"}
-          className="text-mainWhite font-extrabold hidden lg:flex items-center"
+          className="text-mainWhite font-extrabold hidden lg:flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-centerr"
         >
           <h1 className="pr-3 font-extralight hidden lg:flex">Eyeglasses</h1>
           <Eyeglasses size={35} />
         </Link>
-        <Link to={"/shopPage"} className="flex items-center text-mainWhite">
+        <Link
+          to={"/shopPage"}
+          className="flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center text-mainWhite"
+        >
           <h1 className="pr-3 font-extralight hidden lg:flex  ">Sunglasses</h1>
           <Sunglasses size={35} />
         </Link>
-        <Link to={"/shopPage"} className="flex text-mainWhite">
+        <Link
+          to={"/shopPage"}
+          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+        >
           <h1 className="pr-3 font-extralight hidden lg:flex ">Lenses</h1>
           <Eye size={30} />
         </Link>
-        <Link to={"/blogs"}>
-          <h1 className=" font-extralight  text-mainWhite">Blog</h1>
+        <Link
+          to={"/blogs"}
+          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+        >
+          <h1 className=" font-extralight ">Blog</h1>
         </Link>
         <Link
           to={"/blogs"}
-          className="text-mainWhite font-extrabold  hidden lg:flex  "
+          className="lg:flex hidden text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <h1 className=" ">Premium Brands</h1>
           <Copyright size={18} />
@@ -72,7 +81,7 @@ export default function navbar() {
 
         <Link
           to={"/admin"}
-          className="text-mainWhite font-extrabold  align-center"
+          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <Alien size={35} />
         </Link>
@@ -81,7 +90,7 @@ export default function navbar() {
         </button> */}
         <button
           onClick={openModal}
-          className="text-mainWhite font-medium hidden flex-col lg:flex my-10 items-center"
+          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <SignIn size={35} />
           {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
@@ -120,13 +129,6 @@ export default function navbar() {
             </div>
           </Dialog>
         </Transition>
-      </div>
-      <div className="lg:hidden">
-        <img
-          className="transition ease-in duration-200 hover:bg-darkPurple p-3 rounded-lg cursor-pointer"
-          src="../assets/images/SmallPunkyMonkeyLogo.webp"
-          alt=""
-        />
       </div>
     </div>
   );
