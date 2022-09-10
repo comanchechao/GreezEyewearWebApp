@@ -26,7 +26,7 @@ export default function navbar() {
   // wait until DOM has been rendered
   useEffect(() => {
     gsap.from(boxRef.current, { opacity: "0", duration: 1.3 });
-  });
+  } , []);
 
   function openModal() {
     setIsOpen(true);

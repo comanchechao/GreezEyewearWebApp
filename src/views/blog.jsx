@@ -2,8 +2,12 @@ import Navbar from "../components/navbar";
 import blogOne from "../assets/images/blogOne.webp";
 import blogTwo from "../assets/images/blogTwo.webp";
 import blogThree from "../assets/images/blogThree.webp";
-
+import { useEffect } from "react";
 export default function blog() {
+ useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="w-full h-full">
       <Navbar />
