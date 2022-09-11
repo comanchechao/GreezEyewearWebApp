@@ -9,6 +9,7 @@ import Blog from "./views/blog";
 import FrameShape from "./views/frameShape";
 import NewBlog from "./views/newBlog";
 import ShoppingPage from "./views/shoppingPage";
+import CreateBlog from './views/CreateBlog'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -24,6 +25,7 @@ root.render(
       <Route path="/blog" element={<Blog />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
       <Route path="/blogs" element={<Blogs />} />
+      <Route path="/create" element={<CreateBlog />} />
     </Routes>
   </BrowserRouter>
 );

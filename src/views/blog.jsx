@@ -13,6 +13,7 @@ export default function blog() {
       <Navbar />
       <div className="flex w-screen h-full text-mainCream bg-CoolGray-900">
         <div className="flex flex-col mt-20 lg:mt-32 w-full h-full">
+          <div className="flex justify-center font-bold p-5 text-6xl">title</div>
           <div className="flex h-full w-full justify-center items-center align-center">
             <img
               src={blogOne}
