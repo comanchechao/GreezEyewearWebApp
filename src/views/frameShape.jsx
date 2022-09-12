@@ -15,7 +15,7 @@ export default function frameShape() {
   }, []);
 
   return (
-    <div className="h-auto w-screen">
+    <div className="h-auto w-screen overflow-x-hidden">
       <Navbar />
       <div className="h-full w-screen bg-CoolGray-900 text-mainWhite pt-32 flex items-center justify-center flex-col">
         <h1 className="lg:text-6xl capitalize text-6xl text-mainWhite font-extrabold text-center  max-w-2xl ">
