@@ -23,7 +23,8 @@ root.render(
         <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
         <Route path="/faceShape" element={<FaceShape />}></Route>
         <Route path="/frameShape" element={<FrameShape />}></Route>
-        <Route path="/newblog" element={<NewBlog />}></Route>
+        <Route path="/create" element={<CreateBlog />}></Route>
+        <Route path="/newBlog" element={<NewBlog />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/blogs" element={<Blogs />} />
