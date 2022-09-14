@@ -65,21 +65,21 @@ export default function Example() {
   };
 
   return (
-    <div className="w-screen h-full bg-CoolGray-400">
+    <div className="w-screen h-full bg-CoolGray-900">
       <Navbar />
       <div className="flex items-center justify-center flex-col h-full w-full">
         <div className="w-full  mt-10 px-2 py-16 sm:px-0">
           <Tab.Group>
-            <Tab.List className="flex m-2 space-x-1 rounded-xl bg-blue-900/20 p-1">
+            <Tab.List className="flex m-2 space-x-1 rounded-sm  bg-CoolGray-900 p-1">
               {Object.keys(categories).map((category, idx) => (
                 <Tab
                   key={category}
                   className={({ selected }) =>
                     classNames(
-                      "w-full font-bold rounded-lg py-2.5 text-xl font-medium leading-5 text-blue-700",
+                      "w-full font-bold  rounded-sm  py-4 text-2xl  leading-5 text-CoolGray-900 transition duration-300",
                       "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                       selected
-                        ? "bg-white shadow"
+                        ? "bg-mainWhite shadow"
                         : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                     )
                   }
@@ -88,18 +88,18 @@ export default function Example() {
                 </Tab>
               ))}
             </Tab.List>
-            <Tab.Panels className="bg-CoolGray-900 rounded-xl m-2">
+            <Tab.Panels className="bg-CoolGray-900 p-2  m-2">
               {categories.map((posts, idx) => (
                 <Tab.Panel
                   key={idx}
                   className={classNames(
-                    "rounded-xl bg-CoolGray-900 p-3",
+                    " rounded-sm  bg-CoolGray-900 border-2 border-mainWhite p-3",
                     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
                   )}
                 >
                   <div
                     key={idx}
-                    className="flex space-y-6 flex-col justify-center mt-24 items-center"
+                    className="flex space-y-14 flex-col justify-center mt-24 items-center"
                   >
                     <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
                       <label
@@ -111,18 +111,18 @@ export default function Example() {
                       <input id="file" type="file" className="hidden" />
                       <label
                         htmlFor="large-input"
-                        className="block mb-2 text-CoolGray-100 font-bold text-3xl"
+                        className="block my-4 text-mainWhite font-bold text-4xl"
                       >
-                        Enter Title
+                        Title
                       </label>
                       <input
                         type="text"
                         id="large-input"
-                        className="block p-5 lg:w-1/2 w-full text-CoolGray-800 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block p-5 rounded-full lg:w-1/2 w-full text-CoolGray-800 bg-mainCream border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       ></input>
                     </div>
                     <div className="p-4 flex w-full h-full flex-col justify-center items-center">
-                      <label
+                      {/* <label
                         htmlFor="large-input"
                         className="block mb-2 text-CoolGray-100 font-bold text-3xl"
                       >
@@ -132,25 +132,25 @@ export default function Example() {
                         type="text"
                         id="large-input"
                         className="block p-3 lg:w-2/3 h-24 w-full text-CoolGray-800 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      />
+                      /> */}
 
                       <label
                         htmlFor="large-input"
-                        className="block mb-2 text-CoolGray-100 font-bold text-3xl"
+                        className="block mb-5 text-mainWhite font-bold text-3xl lg:text-5xl"
                       >
-                        content
+                        Content
                       </label>
                       <textarea
                         type="text"
                         id="large-input"
-                        className="block p-3 lg:w-2/3 h-52 w-full text-CoolGray-800 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block p-3 lg:w-2/3 h-72 w-full text-CoolGray-800 bg-mainCream rounded-sm border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       />
                     </div>
-                    <div className="text-white">
+                    <div className="text-mainCream">
                       {JSON.stringify(posts.title)}
                     </div>
                     <div className="sticky flex justify-start p-5 items-center w-full">
-                      <div className="sticky w-14 h-14 bg-Cyan-600 text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
+                      <div className="sticky w-14 h-14 bg-mainYellow text-CoolGray-900 text-4xl rounded-full font-bold flex justify-center align-center items-center">
                         {idx + 1}
                       </div>
                     </div>
@@ -160,21 +160,24 @@ export default function Example() {
             </Tab.Panels>
           </Tab.Group>
         </div>
-        <div className="p-5 flex flex-wrap space-y-5 justify-around space-x-5">
-          <div className="flex flex-wrap space-y-5 justify-center space-x-5">
+        <div className="p-5 flex flex-col space-y-5 justify-center  items-center">
+          <div className="flex flex-col space-y-5 justify-center ">
             <input
               placeholder="Author"
               type="text"
-              className="p-5  rounded-xl shadow-2xl text-white font-bold text-2xl hover:bg-CoolGray-700 transition bg-CoolGray-200"
+              className="p-5  rounded-sm shadow-md focus:text-CoolGray-900 text-CoolGray-900   hover:text-CoolGray-900 font-bold text-2xl hover:bg-mainCream transition bg-mainWhite"
             />
             <input
-              placeholder="refrence"
-              className="p-5 rounded-xl shadow-2xl text-white font-bold text-2xl hover:bg-CoolGray-700 transition bg-CoolGray-200"
+              placeholder="Refrence"
+              className="p-5 rounded-sm placeholder-gray-400 shadow-md focus:text-CoolGray-900 text-CoolGray-900   hover:text-CoolGray-900 font-bold text-2xl hover:bg-mainCream transition bg-mainWhite"
             />
           </div>
 
           <div className="flex justify-center items-center">
-            <button className="p-5 rounded-xl shadow-2xl text-white font-bold text-2xl bg-red-600">
+            <button
+              className="px-10 py-4 my-3 rounded-full  font-black  text-CoolGray-900 hover:text-CoolGray-900 hover:bg-mainCream text-2xl  duration-300
+transition bg-mainYellow"
+            >
               Publish
             </button>
           </div>
