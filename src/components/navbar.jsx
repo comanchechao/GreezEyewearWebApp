@@ -26,7 +26,7 @@ export default function navbar() {
   // wait until DOM has been rendered
   useEffect(() => {
     gsap.from(boxRef.current, { opacity: "0", duration: 1.3 });
-  } , []);
+  }, []);
 
   function openModal() {
     setIsOpen(true);
@@ -67,16 +67,16 @@ export default function navbar() {
         </Link>
         <Link
           to={"/blogs"}
-          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-        >
-          <h1 className=" font-extralight ">Blog</h1>
-        </Link>
-        <Link
-          to={"/blogs"}
           className="lg:flex hidden text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <h1 className=" ">Premium Brands</h1>
           <Copyright size={18} />
+        </Link>
+        <Link
+          to={"/blogs"}
+          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+        >
+          <h1 className=" font-extralight ">Blog</h1>
         </Link>
 
         <Link
