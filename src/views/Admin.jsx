@@ -20,7 +20,7 @@ export default function Admin() {
             back
           </button>
           {tab === "blog" && (
-            <Link to="/create">
+            <Link to="/newblog">
               <button className="lg:px-12 px-5 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 hover:text-gray-600 font-bold text-3xl my-3 bg-white outline-2 outline rounded-full outline-black">
                 New Blog
               </button>
