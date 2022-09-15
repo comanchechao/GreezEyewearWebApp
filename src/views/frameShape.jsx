@@ -31,15 +31,15 @@ export default function frameShape() {
               src={polygonFrame}
               alt=""
             />
-            <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
-                <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
+            <div className="flex items-center justify-center text-center  flex-col space-y-8">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
+                <span className=" underline-offset-8 text-center underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Polygon
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16 mr-9 lg:mr-0  transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now
@@ -53,14 +53,14 @@ export default function frameShape() {
               alt=""
             />
             <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Horn
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16  px-16 mr-9 lg:mr-0 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now
@@ -76,14 +76,14 @@ export default function frameShape() {
               alt=""
             />
             <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Round
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16  px-16 mr-9 lg:mr-0 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now
@@ -97,14 +97,14 @@ export default function frameShape() {
               alt=""
             />
             <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Square
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16  px-16 mr-9 lg:mr-0 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now
@@ -120,14 +120,14 @@ export default function frameShape() {
               alt=""
             />
             <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Cat-eye
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16  px-16 mr-9 lg:mr-0 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now
@@ -141,14 +141,14 @@ export default function frameShape() {
               alt=""
             />
             <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Rectangle
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16  px-16 mr-9 lg:mr-0 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now
@@ -164,14 +164,14 @@ export default function frameShape() {
               alt=""
             />
             <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Aviator
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16  px-16 mr-9 lg:mr-0 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now
@@ -185,14 +185,14 @@ export default function frameShape() {
               alt=""
             />
             <div className="flex items-center flex-col space-y-8">
-              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
+              <h1 className="text-5xl text-mainWhite lg:text-6xl font-black  lg:mr-0 mr-6">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Browline
                 </span>
               </h1>
 
               <button
-                className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
+                className=" px-16  px-16 mr-9 lg:mr-0 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
                 Shop Now

@@ -77,7 +77,7 @@ export default function Example() {
                   className={({ selected }) =>
                     classNames(
                       "w-full font-bold  rounded-sm  py-4 text-2xl  leading-5 text-CoolGray-900 transition duration-300",
-                      "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
+                      " ",
                       selected
                         ? "bg-mainWhite shadow"
                         : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
@@ -94,7 +94,7 @@ export default function Example() {
                   key={idx}
                   className={classNames(
                     " rounded-sm  bg-CoolGray-900 border-2 border-mainWhite p-3",
-                    "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                    " "
                   )}
                 >
                   <div

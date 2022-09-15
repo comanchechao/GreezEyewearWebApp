@@ -76,7 +76,7 @@ function App() {
           <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainWhite lg:hover:bg-mainWhite p-8 lg:p-10  ">
             <Link to={"/frameShape"}>
               <img className="object-contain" src={FrameShape} alt="" />
-              <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
+              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
                 Shop By
                 <span className=" underline-offset-8 underline pl-2">
                   Frame Shape
@@ -87,7 +87,7 @@ function App() {
           <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-10  ">
             <Link to={"/faceShape"}>
               <img className="object-contain" src={FaceShape} alt="" />
-              <h1 className="text-5xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
+              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-12 lg:my-20 mx-6">
                 Shop By
                 <span className=" underline-offset-8 underline pl-2">
                   Face Shape
