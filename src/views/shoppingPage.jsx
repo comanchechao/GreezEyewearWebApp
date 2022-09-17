@@ -6,6 +6,10 @@ import {
   MenuList,
   MenuItem,
   Checkbox,
+  RangeSlider,
+  RangeSliderTrack,
+  RangeSliderFilledTrack,
+  RangeSliderThumb,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import shapeRectangle from "../assets/images/shapeRectangle.webp";
@@ -290,6 +294,37 @@ export default function shoppingPage() {
                     </Checkbox>
                   </MenuItem>
                 </div>
+              </MenuList>
+            </Menu>
+            <Menu closeOnSelect={false}>
+              <MenuButton
+                className=" bg-mainWhite "
+                minH="48px"
+                px={4}
+                py={2}
+                isLazy={true}
+                transition="all 0.2s"
+                borderRadius="sm"
+                _hover={{ bg: "gray.400" }}
+                _expanded={{ bg: "blue.400" }}
+              >
+                Price
+                <ChevronDownIcon />
+              </MenuButton>
+              <MenuList>
+                <MenuItem className="flex flex-col">
+                  <span className="text-2xl">Unisex</span>
+                  <RangeSlider
+                    aria-label={["min", "max"]}
+                    defaultValue={[10, 30]}
+                  >
+                    <RangeSliderTrack>
+                      <RangeSliderFilledTrack />
+                    </RangeSliderTrack>
+                    <RangeSliderThumb index={0} />
+                    <RangeSliderThumb index={1} />
+                  </RangeSlider>
+                </MenuItem>
               </MenuList>
             </Menu>
           </div>
