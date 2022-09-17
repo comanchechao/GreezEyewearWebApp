@@ -20,11 +20,15 @@ import shapeRound from "../assets/images/shapeRound.webp";
 import shapeCat from "../assets/images/shapeCat.webp";
 import shapePolygon from "../assets/images/shapePolygon.webp";
 import shapeHorn from "../assets/images/shapeHorn.webp";
+import { useState } from "react";
 
 export default function shoppingPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(30);
 
   return (
     <div className="h-auto w-screen overflow-x-hidden">
@@ -312,17 +316,24 @@ export default function shoppingPage() {
                 <ChevronDownIcon />
               </MenuButton>
               <MenuList>
-                <MenuItem className="flex flex-col">
-                  <span className="text-2xl">Unisex</span>
+                <MenuItem className="flex flex-col px-7 text-center">
+                  <span className="text-2xl px-28">Unisex</span>
+
                   <RangeSlider
                     aria-label={["min", "max"]}
-                    defaultValue={[10, 30]}
+                    defaultValue={[0, 30]}
+                    onChangeEnd={(val) =>
+                      setMinPrice(val[0]) & setMaxPrice(val[1])
+                    }
+                    className="px-7"
                   >
                     <RangeSliderTrack>
                       <RangeSliderFilledTrack />
                     </RangeSliderTrack>
+                    <span className="mr-10">{minPrice}</span>
                     <RangeSliderThumb index={0} />
                     <RangeSliderThumb index={1} />
+                    <span className="mr-10">{maxPrice}</span>
                   </RangeSlider>
                 </MenuItem>
               </MenuList>
