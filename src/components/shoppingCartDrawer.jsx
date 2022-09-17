@@ -8,19 +8,23 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Button,
-  Input,
 } from "@chakra-ui/react";
-
+import { ShoppingBag } from "phosphor-react";
 export default function shoppingCartDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
   return (
     <>
-      <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        Open
-      </Button>
+      <button
+        ref={btnRef}
+        colorScheme="teal"
+        onClick={onOpen}
+        className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+      >
+        <ShoppingBag size={32} />
+        {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
+      </button>
       <Drawer
         isOpen={isOpen}
         placement="right"
@@ -29,19 +33,24 @@ export default function shoppingCartDrawer() {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <div className="bg-mainWhite h-full w-full">
+            <DrawerCloseButton />
+            <DrawerHeader>
+              <div className="  w-full h-full text-CoolGray-900 text-3xl py-9 font-black underline-offset-8 underline">
+                My Cart
+              </div>
+            </DrawerHeader>
 
-          <DrawerBody>
-            <Input placeholder="Type here..." />
-          </DrawerBody>
+            <DrawerBody>
+              <div className="bg-CoolGray-900 w-full h-full z-20">
+                sdfasdfklas
+              </div>
+            </DrawerBody>
 
-          <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
+            <DrawerFooter>
+              <button>Save</button>
+            </DrawerFooter>
+          </div>
         </DrawerContent>
       </Drawer>
     </>
