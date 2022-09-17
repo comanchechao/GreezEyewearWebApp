@@ -212,6 +212,86 @@ export default function shoppingPage() {
                 </div>
               </MenuList>
             </Menu>
+            <Menu closeOnSelect={false}>
+              <MenuButton
+                className=" bg-mainWhite "
+                minH="48px"
+                px={4}
+                py={2}
+                isLazy={true}
+                transition="all 0.2s"
+                borderRadius="sm"
+                _hover={{ bg: "gray.400" }}
+                _expanded={{ bg: "blue.400" }}
+              >
+                Material
+                <ChevronDownIcon />
+              </MenuButton>
+              <MenuList className="flex">
+                <div className=" h-full w-full  ">
+                  <h1 className="text-2xl font-black text-CoolGray-900 p-3">
+                    Plastic
+                  </h1>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">Acetate</span>
+                    </Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">TR</span>
+                    </Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">Memory Plastic</span>
+                    </Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">Ultem</span>
+                    </Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">Silica Gel</span>
+                    </Checkbox>
+                  </MenuItem>
+                </div>
+                <div className=" h-full w-full  ">
+                  <h1 className="text-2xl font-black text-CoolGray-900 p-3">
+                    Metal
+                  </h1>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">Metal</span>
+                    </Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">Memory Metal</span>
+                    </Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl">Titanium</span>
+                    </Checkbox>
+                  </MenuItem>
+                </div>
+                <div className=" h-full w-full ">
+                  <h1 className="text-2xl font-black text-CoolGray-900 p-3 ">
+                    Mixed Material
+                  </h1>
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <span className="text-xl text-center">
+                        Mixed Materials
+                      </span>
+                    </Checkbox>
+                  </MenuItem>
+                </div>
+              </MenuList>
+            </Menu>
           </div>
         </div>
       </div>
