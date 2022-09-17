@@ -2,7 +2,7 @@ import Auth from "./auth";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
-
+import ShoppingCartDrawer from "./shoppingCartDrawer";
 import {
   SignIn,
   House,
@@ -13,7 +13,6 @@ import {
   Eye,
 } from "phosphor-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/GlassesLogo.webp";
 
 export default function navbar() {
   let [isOpen, setIsOpen] = useState(false);
@@ -85,9 +84,7 @@ export default function navbar() {
         >
           <Alien size={35} />
         </Link>
-        {/* <button className="flex ">
-          <img src={logo} alt="" />
-        </button> */}
+
         <button
           onClick={openModal}
           className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
@@ -95,6 +92,7 @@ export default function navbar() {
           <SignIn size={35} />
           {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
         </button>
+        <ShoppingCartDrawer></ShoppingCartDrawer>
 
         <Transition appear show={isOpen} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={closeModal}>
