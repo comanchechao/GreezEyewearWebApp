@@ -27,7 +27,7 @@ export default function shoppingPage() {
       <Navbar />
       <div className="h-screen w-screen pt-40 lg:px-10 flex items-center justify-center bg-CoolGray-900">
         <div className=" h-screen w-screen bg-mainWhite">
-          <div className=" h-32 w-full bg-mainCream flex justify-start space-x-3 pl-6 items-center text-2xl">
+          <div className=" h-32 w-full fixed bg-mainCream flex flex-col lg:flex-row flex-wrap justify-center space-y-3 lg:space-y-0 lg:justify-start space-x-3 lg:pl-6 items-center text-2xl">
             <Menu closeOnSelect={false}>
               <MenuButton
                 className=" bg-mainWhite "

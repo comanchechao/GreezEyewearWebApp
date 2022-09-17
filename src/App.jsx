@@ -47,7 +47,7 @@ function App() {
             <h4 className="text-2xl ">Special Offer</h4>
             <h1
               style={{ lineHeight: 0.8 }}
-              className="capitalize text-4xl lg:text-left text-center :text-6xl w-72 h-auto my-4"
+              className="capitalize text-4xl lg:text-left text-center lg:text-6xl w-72 h-auto my-4"
             >
               most popular woman glasses
             </h1>
