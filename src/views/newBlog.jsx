@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Navbar from "../components/navbar";
 import { supabase } from "../supabaseClient";
 import { Tab } from "@headlessui/react";
+import { Spinner } from "@chakra-ui/react";
 
 export default function newBlog() {
   const [section, setSection] = useState(1);
@@ -12,7 +13,7 @@ export default function newBlog() {
 
   const firstImageUpload = async (event) => {
     try {
-      event.preventDefault()
+      event.preventDefault();
       setUploading(true);
 
       if (!event.target.files || event.target.files.length === 0) {
@@ -33,7 +34,7 @@ export default function newBlog() {
         throw uploadError;
       }
 
-      onUpload(filePath);
+      Upload(filePath);
     } catch (error) {
       alert(error.message);
     } finally {
@@ -58,7 +59,7 @@ export default function newBlog() {
       if (error) throw error;
       alert("blog added");
     } catch (error) {
-       alert(error.error_description || error.message);
+      alert(error.error_description || error.message);
     }
   };
 
@@ -130,7 +131,7 @@ export default function newBlog() {
               htmlFor="file"
               className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-CoolGray-900 rounded-full text-white"
             >
-              <Upload size={40}></Upload>
+              {uploading ? <Spinner /> : <Upload size={40}></Upload>}
             </label>
             <input
               onChange={firstImageUpload}
