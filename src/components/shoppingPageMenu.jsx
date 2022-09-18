@@ -19,6 +19,9 @@ import shapeRound from "../assets/images/shapeRound.webp";
 import shapeCat from "../assets/images/shapeCat.webp";
 import shapePolygon from "../assets/images/shapePolygon.webp";
 import shapeHorn from "../assets/images/shapeHorn.webp";
+import Rimless from "../assets/images/Rimless.webp";
+import FullRim from "../assets/images/FullRim.webp";
+import SemiRimless from "../assets/images/SemiRimless.webp";
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(10000);
@@ -347,6 +350,54 @@ export default function ShoppingMenu() {
             <MenuItem>
               <Checkbox size="lg">
                 <span className="text-xl">Large(135mm)</span>
+              </Checkbox>
+            </MenuItem>
+          </div>
+        </MenuList>
+      </Menu>
+      <Menu closeOnSelect={false}>
+        <MenuButton
+          className=" bg-mainWhite "
+          minH="48px"
+          px={4}
+          py={2}
+          isLazy={true}
+          transition="all 0.2s"
+          borderRadius="sm"
+          _hover={{ bg: "gray.400" }}
+          _expanded={{ bg: "blue.400" }}
+        >
+          Rim
+          <ChevronDownIcon />
+        </MenuButton>
+        <MenuList className="flex">
+          <div>
+            <MenuItem>
+              <Checkbox size="lg">
+                <div className="flex space-x-3">
+                  <img className="object-contain w-12" src={FullRim} alt="" />
+                  <span className="text-2xl">Full-Rim</span>
+                </div>
+              </Checkbox>
+            </MenuItem>
+            <MenuItem>
+              <Checkbox size="lg">
+                <div className="flex space-x-3">
+                  <img
+                    className="object-contain w-12"
+                    src={SemiRimless}
+                    alt=""
+                  />
+                  <span className="text-2xl">Semi-Rimless</span>
+                </div>
+              </Checkbox>
+            </MenuItem>
+            <MenuItem>
+              <Checkbox size="lg">
+                <div className="flex space-x-3">
+                  <img className="object-contain w-12" src={Rimless} alt="" />
+                  <span className="text-2xl">Rimless</span>
+                </div>
               </Checkbox>
             </MenuItem>
           </div>
