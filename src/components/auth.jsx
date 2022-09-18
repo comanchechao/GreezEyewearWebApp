@@ -57,7 +57,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="w-full p-24 h-full bg-mainWhite rounded-2xl flex  flex-col justify-center shadow-2xl rounded align-center items-center">
+    <div className="w-full p-24 h-full bg-mainWhite rounded-sm flex  flex-col justify-center shadow-2xl  align-center items-center">
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -83,13 +83,13 @@ export default function Auth() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full p-28 bg-Indigo-700 text-gray-200 max-w-md transform overflow-hidden rounded-2xl   text-center align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full p-24 bg-mainWhite text-gray-200 max-w-md transform overflow-hidden rounded-sm   text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg self-center font-medium leading-6 "
                   >
                     <div className="flex w-full p-5 space-y-2 h-full flex-col align-center items-center justify-center">
-                      <h1 className="text-5xl">Sign Up</h1>
+                      <h1 className="text-5xl text-CoolGray-900">Sign Up</h1>
                       {/* <p className="text-7xl font-bold">کافه پینت</p> */}
                     </div>
                   </Dialog.Title>
@@ -122,13 +122,13 @@ export default function Auth() {
                         />
                         <div className="p-5 flex flex-col ">
                           <button
-                            className="button mb-2 block text-black p-4 rounded bg-pink-500"
+                            className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
                             aria-live="polite"
                           >
-                            ثبت نام
+                            Sign In
                           </button>
                           <button
-                            className="bg-mainBlue rounded text-black shadow-2xl p-2"
+                            className="button block px-5 py-3 border-2 border-dashed  border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
                             onClick={(event) => {
                               event.preventDefault();
                               logState(false);
@@ -136,7 +136,7 @@ export default function Auth() {
                               closeModal();
                             }}
                           >
-                            برگرد
+                            Go Back
                           </button>
                         </div>
                       </form>
@@ -180,28 +180,28 @@ export default function Auth() {
             />
             <div className="p-5 flex flex-col">
               <button
-                className="button block p-5 mb-2 capitalize rounded font-bold text-2xl bg-pink-500"
+                className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
                 aria-live="polite"
               >
                 login
               </button>
               <button
-                className="p-2 bg-mainBlue"
+                className="button block px-5 py-3 border-2 border-dashed border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
                 onClick={(event) => {
                   event.preventDefault();
                   openModal();
                 }}
               >
-                create a new account? 
+                create a new account?
               </button>
             </div>
           </form>
         )}
       </div>
 
-      <div className="flex w-full">
+      {/* <div className="flex w-full">
         {loggedState ? <div>not logged</div> : <div>not logged</div>}
-      </div>
+      </div> */}
     </div>
   );
 }
