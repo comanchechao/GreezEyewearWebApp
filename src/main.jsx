@@ -11,12 +11,23 @@ import FrameShape from "./views/frameShape";
 import NewBlog from "./views/newBlog";
 import ShoppingPage from "./views/shoppingPage";
 import CreateBlog from "./views/CreateBlog";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { extendTheme } from "@chakra-ui/react";
+
+// 2. Call `extendTheme` and pass your custom values
+const theme = extendTheme({
+  colors: {
+    brand: {
+      100: "#ffbd00",
+      // ...
+      900: "#ffbd00",
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
