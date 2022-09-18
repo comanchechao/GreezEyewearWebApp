@@ -27,8 +27,8 @@ export default function shoppingPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(30);
+  const [minPrice, setMinPrice] = useState(10000);
+  const [maxPrice, setMaxPrice] = useState(300000);
 
   return (
     <div className="h-auto w-screen overflow-x-hidden">
@@ -309,32 +309,36 @@ export default function shoppingPage() {
                 isLazy={true}
                 transition="all 0.2s"
                 borderRadius="sm"
-                _hover={{ bg: "gray.400" }}
-                _expanded={{ bg: "blue.400" }}
               >
                 Price
                 <ChevronDownIcon />
               </MenuButton>
               <MenuList>
                 <MenuItem className="flex flex-col px-7 text-center">
-                  <span className="text-2xl px-28">Unisex</span>
+                  <span className="text-2xl px-28">Price Range</span>
 
-                  <RangeSlider
-                    aria-label={["min", "max"]}
-                    defaultValue={[0, 30]}
-                    onChangeEnd={(val) =>
-                      setMinPrice(val[0]) & setMaxPrice(val[1])
-                    }
-                    className="px-7"
-                  >
-                    <RangeSliderTrack>
-                      <RangeSliderFilledTrack />
-                    </RangeSliderTrack>
-                    <span className="mr-10">{minPrice}</span>
-                    <RangeSliderThumb index={0} />
-                    <RangeSliderThumb index={1} />
-                    <span className="mr-10">{maxPrice}</span>
-                  </RangeSlider>
+                  <div className="h-full w-full flex space-x-3 mx-6">
+                    <span className="text-lg ">{minPrice}</span>
+                    <RangeSlider
+                      aria-label={["min", "max"]}
+                      max={1000000}
+                      defaultValue={[10000, 300000]}
+                      onChangeEnd={(val) =>
+                        setMinPrice(val[0]) & setMaxPrice(val[1])
+                      }
+                      className="mx-7"
+                    >
+                      <RangeSliderTrack>
+                        <RangeSliderFilledTrack />
+                      </RangeSliderTrack>
+
+                      <RangeSliderThumb index={0} />
+                      <RangeSliderThumb index={1} />
+                    </RangeSlider>
+                    <span className=" text-lg  transition ease-in duration-75">
+                      {maxPrice}
+                    </span>
+                  </div>
                 </MenuItem>
               </MenuList>
             </Menu>
