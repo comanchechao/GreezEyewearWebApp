@@ -186,7 +186,7 @@ export default function Auth() {
                 login
               </button>
               <button
-                className="button block px-5 py-3 border-2 border-dashed border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
+                className="button block px-5 py-3 border-2 border-dashed   border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
                 onClick={(event) => {
                   event.preventDefault();
                   openModal();

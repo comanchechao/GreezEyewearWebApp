@@ -19,12 +19,12 @@ function App() {
       <Navbar></Navbar>
       <div className="flex w-screen lg:h-screen h-carousel  flex-col lg:flex-row   lg:justify-center items-center">
         <div className="w-3/4 bg-CoolGray-900 flex flex-col justify-center items-center h-full">
-          <h1 className="text-9xl text-mainWhite font-black">Azim</h1>
-          <h1 className="text-3xl ml-60 text-mainWhite font-extralight">
+          <h1 className=" text-10xl text-mainWhite font-black">Azim</h1>
+          <h1 className="text-5xl ml-60 text-mainWhite font-extralight">
             Eyewear
           </h1>
         </div>
-        <div className="  w-1/4 rotate-90 lg:rotate-12 lg:-translate-x-40  transform -skew-y-12 lg:-skew-x-12 -translate-y-44  h-full shadow-inner filter drop-shadow-2xl flex justify-center items-center bg-mainWhite"></div>
+        {/* <div className="  w-1/4 rotate-90 lg:rotate-12 lg:-translate-x-40  transform -skew-y-12 lg:-skew-x-12 -translate-y-44  h-full shadow-inner filter drop-shadow-2xl flex justify-center items-center bg-mainWhite"></div> */}
       </div>
       <div className="flex w-screen lg:h-auto py-14 h-screen bg-CoolGray-900 flex-col justify-between items-center">
         <div className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center">

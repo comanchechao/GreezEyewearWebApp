@@ -27,7 +27,7 @@ export default function frameShape() {
         <div className="flex lg:px-32 border-x-2 border-mainWhite py-10 lg:flex-row flex-col justify-center lg:space-y-0 space-y-14 lg:space-x-9 w-screen ">
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={polygonFrame}
               alt=""
             />
@@ -48,7 +48,7 @@ export default function frameShape() {
           </div>
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={hornFrame}
               alt=""
             />
@@ -71,7 +71,7 @@ export default function frameShape() {
         <div className="flex lg:px-32 border-x-2 border-mainWhite py-10 lg:flex-row flex-col  justify-center lg:space-y-0 space-y-14 lg:space-x-9 w-screen ">
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={roundFrame}
               alt=""
             />
@@ -92,7 +92,7 @@ export default function frameShape() {
           </div>
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={squareFrame}
               alt=""
             />
@@ -115,7 +115,7 @@ export default function frameShape() {
         <div className="flex lg:px-32 border-x-2 border-mainWhite py-10 lg:flex-row flex-col  justify-center lg:space-y-0 space-y-14 lg:space-x-9 w-screen ">
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={cateyeFrame}
               alt=""
             />
@@ -136,7 +136,7 @@ export default function frameShape() {
           </div>
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={rectangleFrame}
               alt=""
             />
@@ -159,7 +159,7 @@ export default function frameShape() {
         <div className="flex lg:px-32 border-x-2 border-mainWhite py-10 lg:flex-row flex-col  justify-center lg:space-y-0 space-y-14 lg:space-x-9 w-screen ">
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={aviatorFrame}
               alt=""
             />
@@ -180,7 +180,7 @@ export default function frameShape() {
           </div>
           <div className="flex items-center space-x-11  flex-col">
             <img
-              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-3 rounded-md"
+              className="object-contain  mb-6  active:bg-mainWhite cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-2 rounded-sm"
               src={browlineFrame}
               alt=""
             />
