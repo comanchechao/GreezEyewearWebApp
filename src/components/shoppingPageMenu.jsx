@@ -21,7 +21,7 @@ import shapePolygon from "../assets/images/shapePolygon.webp";
 import shapeHorn from "../assets/images/shapeHorn.webp";
 import Rimless from "../assets/images/Rimless.webp";
 import FullRim from "../assets/images/FullRim.webp";
-import SemiRimless from "../assets/images/SemiRimless.webp";
+import SemiRimless from "../assets/images/semiRimless.webp";
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(10000);
