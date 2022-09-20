@@ -33,8 +33,94 @@ export default function newBlog() {
       if (uploadError) {
         throw uploadError;
       }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
 
-      Upload(filePath);
+  const secondImageUpload = async (event) => {
+    try {
+      event.preventDefault();
+      setUploading(true);
+
+      if (!event.target.files || event.target.files.length === 0) {
+        throw new Error("You must select an image to upload.");
+      }
+
+      const file = event.target.files[0];
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+      setSecondImage(filePath);
+
+      let { error: uploadError } = await supabase.storage
+        .from("blog-images")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const thirdImageUpload = async (event) => {
+    try {
+      event.preventDefault();
+      setUploading(true);
+
+      if (!event.target.files || event.target.files.length === 0) {
+        throw new Error("You must select an image to upload.");
+      }
+
+      const file = event.target.files[0];
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+      setThirdImage(filePath);
+
+      let { error: uploadError } = await supabase.storage
+        .from("blog-images")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+      console.log(thirdImage);
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const forthImageUpload = async (event) => {
+    try {
+      event.preventDefault();
+      setUploading(true);
+
+      if (!event.target.files || event.target.files.length === 0) {
+        throw new Error("You must select an image to upload.");
+      }
+
+      const file = event.target.files[0];
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+      setForthImage(filePath);
+
+      let { error: uploadError } = await supabase.storage
+        .from("blog-images")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
     } catch (error) {
       alert(error.message);
     } finally {
@@ -54,8 +140,21 @@ export default function newBlog() {
           "first-info": firstInfo,
           "first-content": firstContent,
           "first-image": firstImage,
+          "second-title": secondTitle,
+          "second-image": secondImage,
+          "second-info": secondInfo,
+          "second-content": secondContent,
+          "third-title": thirdTitle,
+          "third-info": thirdInfo,
+          "third-content": thirdContent,
+          "third-image": thirdImage,
+          "forth-title": forthTitle,
+          "forth-info": forthInfo,
+          "forth-content": forthContent,
+          "forth-image": forthImage,
         },
       ]);
+      console.log(firstImage, secondImage, thirdImage, forthImage);
       if (error) throw error;
       alert("blog added");
     } catch (error) {
@@ -71,38 +170,47 @@ export default function newBlog() {
   const [firstContent, setFirstContent] = useState("");
 
   const [secondTitle, setSecondTitle] = useState("");
+  const [secondImage, setSecondImage] = useState(null);
   const [secondInfo, setSecondInfo] = useState("");
   const [secondContent, setSecondContent] = useState("");
 
   const [thirdTitle, setThirdTitle] = useState("");
+  const [thirdImage, setThirdImage] = useState(null);
   const [thirdInfo, setThirdInfo] = useState("");
   const [thirdContent, setThirdContent] = useState("");
 
   const [forthTitle, setForthTitle] = useState("");
+  const [forthImage, setForthImage] = useState(null);
   const [forthInfo, setForthInfo] = useState("");
   const [forthContent, setFourthContent] = useState("");
 
-  const [fifthTItle, setFifthTitle] = useState("");
+  const [fifthTitle, setFifthTitle] = useState("");
+  const [fifthImage, setFifthImage] = useState(null);
   const [fifthInfo, setFifthInfo] = useState("");
   const [fifthContent, setFifthContent] = useState("");
 
   const [sixthTitle, setSixthTitle] = useState("");
+  const [sixthImage, setSIxthImage] = useState(null);
   const [sixthInfo, setSixthInfo] = useState("");
   const [sixthContent, setSixthContent] = useState("");
 
   const [seventhTitle, setSevenTitle] = useState("");
+  const [seventhImage, setSeventhImage] = useState(null);
   const [seventhInfo, setSeventhInfo] = useState("");
   const [seventhContent, setSeventhContent] = useState("");
 
   const [eighthTitle, setEighthTitle] = useState("");
+  const [eightImage, setEightImage] = useState(null);
   const [eightInfo, setEightInfo] = useState("");
   const [eightContent, setEightContent] = useState("");
 
   const [ninethTitle, setNinethTitle] = useState("");
+  const [ninethImage, setNinethImage] = useState(null);
   const [ninethInfo, setNinethInfo] = useState("");
   const [ninethContent, setNinethContent] = useState("");
 
   const [tenTitle, setTenTitle] = useState("");
+  const [tenImage, setTenImage] = useState(null);
   const [tenInfo, setTenInfo] = useState("");
   const [tenContent, setTenContent] = useState("");
 
@@ -128,7 +236,7 @@ export default function newBlog() {
         <div className="flex my-4 p-5 lg:mx-20 shadow-2xl rounded space-y-6 flex-col justify-center  items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
-              htmlFor="file"
+              htmlFor="file1"
               className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-CoolGray-900 rounded-full text-white"
             >
               {uploading ? <Spinner /> : <Upload size={40}></Upload>}
@@ -136,7 +244,7 @@ export default function newBlog() {
             <input
               onChange={firstImageUpload}
               disabled={uploading}
-              id="file"
+              id="file1"
               type="file"
               className="hidden"
             />
@@ -196,14 +304,16 @@ export default function newBlog() {
         <div className="flex space-y-6 p-5 bg-mainCream lg:mx-20 shadow-2xl rounded flex-col justify-center items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
-              htmlFor="file"
+              htmlFor="file2"
               className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-CoolGray-900 rounded-full text-white"
             >
-              <Upload size={40}></Upload>
+              {uploading ? <Spinner /> : <Upload size={40}></Upload>}
             </label>
             <input
+              onChange={secondImageUpload}
+              disabled={uploading}
               placeholder="type ... "
-              id="file"
+              id="file2"
               type="file"
               className="hidden"
             />
@@ -263,14 +373,16 @@ export default function newBlog() {
         <div className="flex space-y-6 p-5 flex-col justify-center shadow-2xl rounded lg:mx-20 items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
-              htmlFor="file"
+              htmlFor="file3"
               className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-CoolGray-900 rounded-full text-white"
             >
-              <Upload size={40}></Upload>
+              {uploading ? <Spinner /> : <Upload size={40}></Upload>}
             </label>
             <input
+              onChange={thirdImageUpload}
+              disabled={uploading}
               placeholder="type ... "
-              id="file"
+              id="file3"
               type="file"
               className="hidden"
             />
@@ -331,14 +443,16 @@ export default function newBlog() {
         <div className="flex space-y-6 bg-mainWhite lg:mx-20 shadow-2xl rounded my-8 p-5 flex-col justify-center items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
-              htmlFor="file"
+              htmlFor="file4"
               className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-CoolGray-900 rounded-full text-white"
             >
-              <Upload size={40}></Upload>
+              {uploading ? <Spinner /> : <Upload size={40}></Upload>}
             </label>
             <input
+              onChange={forthImageUpload}
+              disabled={uploading}
               placeholder="type ... "
-              id="file"
+              id="file4"
               type="file"
               className="hidden"
             />
