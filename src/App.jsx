@@ -10,8 +10,8 @@ import mainPagePicture from "./assets/images/mainPagePicture.webp";
 import glessesSmallMainPage from "./assets/images/glessesSmallMainPage.webp";
 
 import { Link } from "react-router-dom";
-import { Container } from "@chakra-ui/react";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 // import Carousel from "./components/carousel";
 // import logo from "./assets/images/GlassesLogoBig.webp";
 
@@ -27,12 +27,15 @@ function App() {
   useEffect(() => {
     gsap.from(firstBox.current, {
       opacity: 0,
-      y: 20,
-      duration: 0.5,
+      y: 80,
+      duration: 0.7,
+      ease: "expo.out",
       scrollTrigger: {
-        trigger: "#containerBlue",
-        start: "bottom top",
-        end: "bottom center",
+        trigger: containerBlue.current,
+        start: "100% bottom",
+        end: "100% top",
+        toggleActions: "play play resume reverse",
+
         markers: true,
       },
     });
@@ -62,8 +65,10 @@ function App() {
           ref={mainPageBg}
           className="  w-2/3  bg-mainWhite  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
-          <h2 className=" text-7xl lg:text-5xl   font-bold">Azim</h2>
-          <h4 className="text-xl   font-extralight  lg:ml-0 ml-28  flex items-center">
+          <h2 className=" text-7xl lg:text-6xl font-SultanFont font-bold">
+            Azim
+          </h2>
+          <h4 className="text-2xl font-SultanFont  font-extralight  lg:ml-0 ml-28  flex items-center">
             Eyewear
             <Eye className="ml-1" size={23}></Eye>
           </h4>
@@ -86,13 +91,12 @@ function App() {
         {/* <div className="  w-1/4 rotate-90 lg:rotate-12 lg:-translate-x-40  transform -skew-y-12 lg:-skew-x-12 -translate-y-44  h-full shadow-inner filter drop-shadow-2xl flex justify-center items-center bg-mainWhite"></div> */}
       </div>
       <div
-        id="containerBlue"
         ref={containerBlue}
         className="flex w-screen lg:h-auto py-14 h-screen bg-CoolGray-900 flex-col justify-between items-center"
       >
         <div
           ref={firstBox}
-          className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center"
+          className="w-full   h-full py-10 flex flex-col lg:flex-row justify-around items-center"
         >
           <div className=" h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:px-10 text-left items-center lg:items-start justify-end lg:justify-center pl-5">
             <h4 className="text-2xl ">Special Offer</h4>
@@ -109,7 +113,10 @@ function App() {
               Show Me
             </button>
           </div>
-          <div className=" h-full lg:h-rem26 w-full lg:w-2/5 bg-white flex flex-col lg:p-10 items-center lg:items-start justify-end lg:justify-center pl-5">
+          <div
+            ref={firstBox}
+            className=" h-full lg:h-rem26 w-full lg:w-2/5 bg-white flex flex-col lg:p-10 items-center lg:items-start justify-end lg:justify-center pl-5"
+          >
             <h4 className="text-2xl ">Special Offer</h4>
             <h1
               style={{ lineHeight: 0.8 }}
