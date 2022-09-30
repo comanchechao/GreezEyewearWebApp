@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-
+import { Eye } from "phosphor-react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import EmblaCarousel from "./components/EmblaCarousel";
@@ -51,21 +51,27 @@ function App() {
   return (
     <div className="w-screen h-full bg-CoolGray-900 overflow-x-hidden">
       <Navbar></Navbar>
-      <div className="flex w-screen relative lg:h-screen px-32 mt-4 pt-10 h-carousel  flex-col lg:flex-row   lg:justify-center items-center">
+      <div className="flex w-screen relative lg:h-screen lg:px-32 mt-4 pt-10 h-carousel  flex-col lg:flex-row   lg:justify-center items-center">
         <img
           ref={mainPicture}
-          className="object-contain absolute top-36 right-48  max-w-xl"
+          className="object-contain absolute top-80 lg:top-36  lg:right-48 max-w-xs  lg:max-w-xl"
           src={mainPagePicture}
           alt=""
         />
         <div
           ref={mainPageBg}
-          className="  w-2/3  bg-mainWhite  mt-2  flex flex-col justify-center pl-24 pr-96 capitalize  items-start h-full"
+          className="  w-2/3  bg-mainWhite  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
-          <h2 className="text-4xl font-bold my-6">Azim Eyewear</h2>
+          <h2 className=" text-7xl lg:text-5xl lg:text-right font-bold">
+            Azim
+          </h2>
+          <h4 className="text-xl lg:text-right font-extralight  lg:ml-0 ml-28  flex items-center">
+            Eyewear
+            <Eye className="ml-1" size={23}></Eye>
+          </h4>
           <h1
             ref={mainText}
-            className=" text-8xl leading-loose  lg:text-8xl pr-24 my-2  text-CoolGray-900 font-black underline-offset-8 underline "
+            className=" text-2xl lg:text-left text-center leading-loose mx-4  lg:text-8xl  my-2  text-CoolGray-900 font-black underline-offset-8 underline "
           >
             find your best fit for glasses
           </h1>
