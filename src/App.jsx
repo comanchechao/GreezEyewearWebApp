@@ -1,33 +1,95 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
 import "./App.css";
 import Navbar from "./components/navbar";
 import EmblaCarousel from "./components/EmblaCarousel";
 import FaceShape from "./assets/images/shopByFaceShape.webp";
 import FrameShape from "./assets/images/shopByFrameShape.webp";
+import mainPagePicture from "./assets/images/mainPagePicture.webp";
+import glessesSmallMainPage from "./assets/images/glessesSmallMainPage.webp";
+
 import { Link } from "react-router-dom";
+import { Container } from "@chakra-ui/react";
 
 // import Carousel from "./components/carousel";
 // import logo from "./assets/images/GlassesLogoBig.webp";
+
 const SLIDE_COUNT = 5;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
 function App() {
+  const mainPageBg = useRef();
+  const mainPicture = useRef();
+  const mainText = useRef();
+  const containerBlue = useRef();
+  const firstBox = useRef();
+
+  useEffect(() => {
+    gsap.from(firstBox.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: "#containerBlue",
+        start: "bottom top",
+        end: "bottom center",
+        markers: true,
+      },
+    });
+    var tl = gsap.timeline();
+    tl.from(mainPageBg.current, { opacity: "0", duration: 0.8, delay: 1.3 });
+    tl.from(mainText.current, { opacity: "0", duration: 0.6, y: 50 });
+    tl.from(mainPicture.current, {
+      opacity: "0",
+      duration: 0.5,
+      x: 20,
+    });
+  }, []);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="w-screen h-full bg-CoolGray-900 overflow-x-hidden">
       <Navbar></Navbar>
-      <div className="flex w-screen lg:h-screen h-carousel  flex-col lg:flex-row   lg:justify-center items-center">
-        <div className="w-3/4 bg-CoolGray-900 flex flex-col justify-center items-center h-full">
-          <h1 className=" text-10xl text-mainWhite font-black">Azim</h1>
-          <h1 className="text-5xl ml-60 text-mainWhite font-extralight">
-            Eyewear
+      <div className="flex w-screen relative lg:h-screen px-32 mt-4 pt-10 h-carousel  flex-col lg:flex-row   lg:justify-center items-center">
+        <img
+          ref={mainPicture}
+          className="object-contain absolute top-36 right-48  max-w-xl"
+          src={mainPagePicture}
+          alt=""
+        />
+        <div
+          ref={mainPageBg}
+          className="  w-2/3  bg-mainWhite  mt-2  flex flex-col justify-center pl-24 pr-96 capitalize  items-start h-full"
+        >
+          <h2 className="text-4xl font-bold my-6">Azim Eyewear</h2>
+          <h1
+            ref={mainText}
+            className=" text-8xl leading-loose  lg:text-8xl pr-24 my-2  text-CoolGray-900 font-black underline-offset-8 underline "
+          >
+            find your best fit for glasses
           </h1>
+          {/* <h1 className="text-5xl ml-60 flex items-center space-x-5 text-CoolGray-900 font-extralight">
+            <span>Eyewear</span>
+            <img
+              className="object-contain  w-20"
+              src={glessesSmallMainPage}
+              alt=""
+            />
+          </h1> */}
         </div>
+        <div className="w-1/3 h-full bg-CoolGray-900"></div>
         {/* <div className="  w-1/4 rotate-90 lg:rotate-12 lg:-translate-x-40  transform -skew-y-12 lg:-skew-x-12 -translate-y-44  h-full shadow-inner filter drop-shadow-2xl flex justify-center items-center bg-mainWhite"></div> */}
       </div>
-      <div className="flex w-screen lg:h-auto py-14 h-screen bg-CoolGray-900 flex-col justify-between items-center">
-        <div className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center">
+      <div
+        id="containerBlue"
+        ref={containerBlue}
+        className="flex w-screen lg:h-auto py-14 h-screen bg-CoolGray-900 flex-col justify-between items-center"
+      >
+        <div
+          ref={firstBox}
+          className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center"
+        >
           <div className=" h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:px-10 text-left items-center lg:items-start justify-end lg:justify-center pl-5">
             <h4 className="text-2xl ">Special Offer</h4>
             <h1
@@ -72,11 +134,11 @@ function App() {
         <h1 className="text-6xl  font-extrabold capitalize px-6 py-7 lg:py-20 text-center">
           tailor made for you
         </h1>
-        <div className=" h-full w-screen flex lg:flex-row flex-col items-center   justify-center bg-CoolGray-900 lg:pt-10">
-          <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainWhite lg:hover:bg-mainWhite p-8 lg:p-10  ">
+        <div className=" h-full py-28 w-screen flex lg:flex-row flex-col items-center   justify-center bg-CoolGray-900 lg:space-x-20">
+          <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainCream lg:hover:bg-mainCream p-8 lg:p-3  ">
             <Link to={"/frameShape"}>
               <img className="object-contain" src={FrameShape} alt="" />
-              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-20 lg:mx-6 mx-3">
+              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
                 Shop By
                 <span className=" underline-offset-8 underline pl-2">
                   Frame Shape
@@ -84,10 +146,10 @@ function App() {
               </h1>
             </Link>
           </div>
-          <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-10  ">
+          <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-3  ">
             <Link to={"/faceShape"}>
               <img className="object-contain" src={FaceShape} alt="" />
-              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-20 lg:mx-6 mx-3">
+              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
                 Shop By
                 <span className=" underline-offset-8 underline pl-2">
                   Face Shape
