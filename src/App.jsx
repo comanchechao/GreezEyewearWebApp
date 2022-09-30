@@ -27,12 +27,12 @@ function App() {
   useEffect(() => {
     gsap.from(firstBox.current, {
       opacity: 0,
-      y: 80,
-      duration: 0.7,
+      y: 50,
+      duration: 0.9,
       ease: "expo.out",
       scrollTrigger: {
         trigger: containerBlue.current,
-        start: "100% bottom",
+        start: "top center",
         end: "100% top",
         toggleActions: "play play resume reverse",
 
