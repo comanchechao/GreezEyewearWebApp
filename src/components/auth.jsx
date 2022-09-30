@@ -57,7 +57,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="w-full p-24 h-full bg-mainWhite rounded-sm flex  flex-col justify-center shadow-2xl  align-center items-center">
+    <div className="lg:w-full w-screen   h-full bg-mainWhite rounded-sm flex  flex-col justify-start shadow-2xl  items-center">
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -69,11 +69,11 @@ export default function Auth() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 top-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex min-h-full items-center justify-center text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -83,7 +83,7 @@ export default function Auth() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full p-24 bg-mainWhite text-gray-200 max-w-md transform overflow-hidden rounded-sm   text-center align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full lg:p-24 p-16 bg-mainWhite text-gray-200 max-w-md transform overflow-hidden rounded-sm   text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg self-center font-medium leading-6 "
@@ -101,7 +101,7 @@ export default function Auth() {
                       "signing up..."
                     ) : (
                       <form
-                        className="flex flex-col space-y-2 mt-5"
+                        className="flex flex-col space-y-2 mt-2"
                         onSubmit={handleSignUp}
                       >
                         <input
@@ -151,7 +151,7 @@ export default function Auth() {
 
       <div
         style={isLogged ? { display: "none" } : { display: "block" }}
-        className="flex items-around flex-col m-1"
+        className="flex items-around flex-col m-28"
         aria-live="polite"
       >
         <div className="flex w-full  space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
@@ -161,7 +161,7 @@ export default function Auth() {
         {loading ? (
           "login in..."
         ) : (
-          <form className="flex flex-col mt-4" onSubmit={handleLogin}>
+          <form className="flex flex-col mt-2" onSubmit={handleLogin}>
             <input
               id="email"
               className="inputField my-2 text-right p-2 rounded"
@@ -178,7 +178,7 @@ export default function Auth() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <div className="p-5 flex flex-col">
+            <div className="lg:p-5 flex flex-col">
               <button
                 className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
                 aria-live="polite"
