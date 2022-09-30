@@ -54,7 +54,7 @@ function App() {
       <div className="flex w-screen relative lg:h-screen lg:px-32 mt-4 pt-10 h-carousel  flex-col lg:flex-row   lg:justify-center items-center">
         <img
           ref={mainPicture}
-          className="object-contain absolute top-80 lg:top-36  lg:right-48 max-w-xs  lg:max-w-xl"
+          className="object-contain absolute top-80 lg:top-28  lg:right-48 max-w-xs  lg:max-w-2xl"
           src={mainPagePicture}
           alt=""
         />
@@ -62,16 +62,14 @@ function App() {
           ref={mainPageBg}
           className="  w-2/3  bg-mainWhite  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
-          <h2 className=" text-7xl lg:text-5xl lg:text-right font-bold">
-            Azim
-          </h2>
-          <h4 className="text-xl lg:text-right font-extralight  lg:ml-0 ml-28  flex items-center">
+          <h2 className=" text-7xl lg:text-5xl   font-bold">Azim</h2>
+          <h4 className="text-xl   font-extralight  lg:ml-0 ml-28  flex items-center">
             Eyewear
             <Eye className="ml-1" size={23}></Eye>
           </h4>
           <h1
             ref={mainText}
-            className=" text-2xl lg:text-left text-center leading-loose mx-4  lg:text-8xl  my-2  text-CoolGray-900 font-black underline-offset-8 underline "
+            className=" text-2xl lg:text-left text-center leading-loose    lg:text-8xl  my-2  text-CoolGray-900 font-black underline-offset-8 underline "
           >
             find your best fit for glasses
           </h1>
