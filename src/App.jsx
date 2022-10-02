@@ -21,8 +21,11 @@ function App() {
   const mainPageBg = useRef();
   const mainPicture = useRef();
   const mainText = useRef();
-  const containerBlue = useRef();
+  const firstContainer = useRef();
   const firstBox = useRef();
+  const secondContainer = useRef();
+  const secondBox = useRef();
+  const mainContainer = useRef();
 
   useEffect(() => {
     gsap.from(firstBox.current, {
@@ -31,21 +34,61 @@ function App() {
       duration: 0.9,
       ease: "expo.out",
       scrollTrigger: {
-        trigger: containerBlue.current,
+        trigger: firstContainer.current,
         start: "top center",
         end: "100% top",
-        toggleActions: "play play resume reverse",
-
-        markers: true,
+        toggleActions: "play none resume reverse",
+      },
+    });
+    gsap.from(secondBox.current, {
+      opacity: 0,
+      y: 30,
+      duration: 0.3,
+      ease: "power.Out",
+      scrollTrigger: {
+        trigger: secondContainer.current,
+        start: "top center",
+        end: "bottom top",
+        toggleActions: "play none resume play",
+      },
+    });
+    gsap.to(mainPageBg.current, {
+      opacity: 0,
+      x: -30,
+      duration: 0.5,
+      ease: "power.Out",
+      scrollTrigger: {
+        trigger: mainContainer.current,
+        start: "center center",
+        end: "bottom top",
+        toggleActions: "play none resume reverse",
+      },
+    });
+    gsap.to(mainPicture.current, {
+      opacity: 0,
+      x: 30,
+      duration: 0.5,
+      ease: "power.Out",
+      scrollTrigger: {
+        trigger: mainContainer.current,
+        start: "center center",
+        end: "bottom top",
+        toggleActions: "play none resume reverse",
       },
     });
     var tl = gsap.timeline();
-    tl.from(mainPageBg.current, { opacity: "0", duration: 0.8, delay: 1.3 });
+    tl.from(mainPageBg.current, {
+      opacity: "0",
+      x: -30,
+      duration: 0.8,
+      delay: 1.3,
+    });
     tl.from(mainText.current, { opacity: "0", duration: 0.6, y: 50 });
     tl.from(mainPicture.current, {
       opacity: "0",
       duration: 0.5,
-      x: 20,
+
+      x: 30,
     });
   }, []);
   useEffect(() => {
@@ -54,10 +97,13 @@ function App() {
   return (
     <div className="w-screen h-full bg-CoolGray-900 overflow-x-hidden">
       <Navbar></Navbar>
-      <div className="flex w-screen relative lg:h-screen lg:px-32 mt-4 pt-10 h-carousel  flex-col lg:flex-row   lg:justify-center items-center">
+      <div
+        ref={mainContainer}
+        className="flex w-screen relative lg:h-screen lg:px-32 mt-4 pt-10 h-carousel  flex-col lg:flex-row   lg:justify-center items-center"
+      >
         <img
           ref={mainPicture}
-          className="object-contain absolute top-80 lg:top-28  lg:right-48 max-w-xs  lg:max-w-2xl"
+          className="object-contain absolute top-80 lg:top-28  lg:right-48 max-w-xs  lg:max-w-2xl z-30"
           src={mainPagePicture}
           alt=""
         />
@@ -74,11 +120,11 @@ function App() {
           </h4>
           <h1
             ref={mainText}
-            className=" text-2xl lg:text-left text-center leading-loose    lg:text-8xl  my-2  text-CoolGray-900 font-black underline-offset-8 underline "
+            className=" text-2xl lg:text-left text-center leading-loose lg:text-8xl  my-2  text-CoolGray-900 font-black underline-offset-8 underline "
           >
             find your best fit for glasses
           </h1>
-          {/* <h1 className="text-5xl ml-60 flex items-center space-x-5 text-CoolGray-900 font-extralight">
+          {/* <h1 className="text-5xl ml-30 flex items-center space-x-5 text-CoolGray-900 font-extralight">
             <span>Eyewear</span>
             <img
               className="object-contain  w-20"
@@ -91,7 +137,7 @@ function App() {
         {/* <div className="  w-1/4 rotate-90 lg:rotate-12 lg:-translate-x-40  transform -skew-y-12 lg:-skew-x-12 -translate-y-44  h-full shadow-inner filter drop-shadow-2xl flex justify-center items-center bg-mainWhite"></div> */}
       </div>
       <div
-        ref={containerBlue}
+        ref={firstContainer}
         className="flex w-screen lg:h-auto py-14 h-screen bg-CoolGray-900 flex-col justify-between items-center"
       >
         <div
@@ -133,40 +179,52 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex w-screen h-full mb-20 flex-col bg-mainWhite justify-around align-center">
-        <h1 className="text-6xl font-extrabold  my-14 text-center">
-          Our Newest Sunnies!
-        </h1>
-        <div className="w-full h-full bg-CoolGray-900">
-          <EmblaCarousel slides={slides} />
+      <div className="flex w-screen h-full mb-20 flex-col text-mainWhite justify-between items-center">
+        <Link to={"/shoppingPage"}>
+          <h1 className="text-6xl max-w-5xl font-extrabold underline-offset-8 underline my-10 text-center p-6 hover:bg-CoolGray-900 bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-mainWhite text-CoolGray-900">
+            Our Newest Sunglasses
+          </h1>
+        </Link>
+        <div className="w-full h-full ">
+          <div>
+            <EmblaCarousel slides={slides} />
+          </div>
         </div>
       </div>
       <div className="h-full w-screen bg-mainWhite flex flex-col items-center justify-between">
         <h1 className="text-6xl  font-extrabold capitalize px-6 py-7 lg:py-20 text-center">
           tailor made for you
         </h1>
-        <div className=" h-full py-28 w-screen flex lg:flex-row flex-col items-center   justify-center bg-CoolGray-900 lg:space-x-20">
-          <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainCream lg:hover:bg-mainCream p-8 lg:p-3  ">
-            <Link to={"/frameShape"}>
-              <img className="object-contain" src={FrameShape} alt="" />
-              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
-                Shop By
-                <span className=" underline-offset-8 underline pl-2">
-                  Frame Shape
-                </span>
-              </h1>
-            </Link>
-          </div>
-          <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-3  ">
-            <Link to={"/faceShape"}>
-              <img className="object-contain" src={FaceShape} alt="" />
-              <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
-                Shop By
-                <span className=" underline-offset-8 underline pl-2">
-                  Face Shape
-                </span>
-              </h1>
-            </Link>
+        <div
+          ref={secondContainer}
+          className=" h-full py-28 w-screen flex lg:flex-row flex-col items-center   justify-center bg-CoolGray-900"
+        >
+          <div
+            ref={secondBox}
+            className="lg:flex h-full w-full items-center justify-center  lg:space-x-20"
+          >
+            <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainCream lg:hover:bg-mainCream p-8 lg:p-3  ">
+              <Link to={"/frameShape"}>
+                <img className="object-contain" src={FrameShape} alt="" />
+                <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
+                  Shop By
+                  <span className=" underline-offset-8 underline pl-2">
+                    Frame Shape
+                  </span>
+                </h1>
+              </Link>
+            </div>
+            <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-3  ">
+              <Link to={"/faceShape"}>
+                <img className="object-contain" src={FaceShape} alt="" />
+                <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
+                  Shop By
+                  <span className=" underline-offset-8 underline pl-2">
+                    Face Shape
+                  </span>
+                </h1>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

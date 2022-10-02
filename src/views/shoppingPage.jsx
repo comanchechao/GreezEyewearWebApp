@@ -10,12 +10,12 @@ export default function shoppingPage() {
   return (
     <div className="h-auto w-screen overflow-x-hidden">
       <Navbar />
-      <div className="h-auto w-screen pt-40 lg:px-28 flex items-center justify-center bg-CoolGray-900">
-        <div className=" h-full w-screen space-y-28 bg-mainWhite flex">
-          <div>
+      <div className="h-auto w-screen pt-20 lg:px-28 flex items-center justify-center bg-CoolGray-900">
+        <div className=" h-full w-screen  mb-16 bg-mainCream mt-9 justify-center items-center flex flex-col  ">
+          <div className=" w-full h-32  flex items-center justify-center">
             <Menu></Menu>
           </div>
-          <div className="h-full w-full grid justify-items-center grid-cols-3 grid-rows-1  ">
+          <div className="h-full w-full bg-mainBlue grid justify-items-center grid-cols-3 grid-rows-1  ">
             <Card></Card> <Card></Card>
             <Card></Card>
             <Card></Card> <Card></Card>
