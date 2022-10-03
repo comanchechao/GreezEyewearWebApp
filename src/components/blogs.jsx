@@ -5,8 +5,28 @@ import blogTwo from "../assets/images/blogTwo.webp";
 import blogThree from "../assets/images/blogThree.webp";
 import { DotsThreeOutlineVertical, SquaresFour, Rows } from "phosphor-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import { supabase } from "../supabaseClient";
+import BlogList from "./blogList";
 
 export default function blogs() {
+  const [blogs, setBlogs] = useState([]);
+  const getBlogs = async function () {
+    try {
+      const { data, error } = await supabase.from("blogs").select();
+      if (error) throw error;
+      setBlogs(data);
+      alert("blogs fetched");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getBlogs();
+  }, []);
+
   return (
     <div className=" w-full  h-full bg-mainWhite">
       <Navbar />
@@ -39,134 +59,7 @@ export default function blogs() {
           </div>
         </div>
         <div className="w-full h-full">
-          <div className="flex flex-wrap rounded space-y-5 px-4 py-7 w-full h-full  bg-mainWhite shadow-2xl">
-            <div className="flex bg-white items-center rounded justify-end w-full h-12">
-              <SquaresFour
-                className=" transition hover:bg-mainBlue"
-                size={45}
-              />
-              <Rows className=" transition hover:bg-mainBlue" size={45} />
-            </div>
-            <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream  h-full">
-              <div className="w-full">
-                <img
-                  src={blogOne}
-                  alt=""
-                  className=" w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
-                <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">Sunday 2021</p>
-                <p className="text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </p>
-              </div>
-              <div className="flex justify-start p-5  items-end">
-                <Link to={"/blog"}>
-                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                    Continue
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream w-full h-full">
-              <div className="w-full">
-                <img
-                  src={blogTwo}
-                  alt=""
-                  className=" w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
-                <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">Sunday 2021</p>
-                <p className="text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </p>
-              </div>
-              <div className="flex justify-end p-5 items-end">
-                <Link to={"/blog"}>
-                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                    Continue
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream w-full h-full">
-              <div className="w-full">
-                <img
-                  src={blogThree}
-                  alt=""
-                  className=" w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
-                <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">Sunday 2021</p>
-                <p className="text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </p>
-              </div>
-              <div className="flex justify-end p-5 items-end">
-                <Link to={"/blog"}>
-                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                    Continue
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream w-full h-full">
-              <div className="w-full">
-                <img
-                  src={blogOne}
-                  alt=""
-                  className=" w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
-                <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">Sunday 2021</p>
-                <p className="text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </p>
-              </div>
-              <div className="flex justify-end p-5 items-end">
-                <Link to={"/blog"}>
-                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                    Continue
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream w-full h-full">
-              <div className="w-full">
-                <img
-                  src={blogOne}
-                  alt=""
-                  className=" w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
-                <h1 className="text-4xl flex-col font-bold">Title</h1>
-                <p className="text-xl">Sunday 2021</p>
-                <p className="text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </p>
-              </div>
-              <div className="flex justify-end p-5 items-end">
-                <Link to={"/blog"}>
-                  <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
-                    Continue
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
+          {blogs !== [] && <BlogList blogs={blogs} />}
         </div>
       </div>
     </div>
