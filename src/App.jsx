@@ -103,7 +103,7 @@ function App() {
       >
         <img
           ref={mainPicture}
-          className="object-contain absolute top-80 lg:top-28  lg:right-48 max-w-xs  lg:max-w-2xl z-30"
+          className="object-contain absolute top-80 lg:top-28  lg:right-48 max-w-xs  lg:max-w-2xl z-10"
           src={mainPagePicture}
           alt=""
         />
@@ -111,7 +111,7 @@ function App() {
           ref={mainPageBg}
           className="  w-2/3  bg-mainWhite  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
-          <h2 className=" text-7xl lg:text-6xl font-SultanFont font-bold">
+          <h2 className=" text-7xl lg:text-6xl font-SultanFont my-0 font-bold">
             Azim
           </h2>
           <h4 className="text-2xl font-SultanFont  font-extralight  lg:ml-0 ml-28  flex items-center">
@@ -191,7 +191,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="h-full w-screen bg-mainWhite flex flex-col items-center justify-between">
+      <div className="h-full w-screen bg-mainBlue flex flex-col items-center justify-between">
         <h1 className="text-6xl  font-extrabold capitalize px-6 py-7 lg:py-20 text-center">
           tailor made for you
         </h1>
