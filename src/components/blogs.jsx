@@ -11,22 +11,6 @@ import { supabase } from "../supabaseClient";
 import BlogList from "./blogList";
 
 export default function blogs() {
-  const [blogs, setBlogs] = useState([]);
-  const getBlogs = async function () {
-    try {
-      const { data, error } = await supabase.from("blogs").select();
-      if (error) throw error;
-      setBlogs(data);
-      alert("blogs fetched");
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    getBlogs();
-  }, []);
-
   return (
     <div className=" w-full  h-full bg-mainWhite">
       <Navbar />
@@ -59,7 +43,7 @@ export default function blogs() {
           </div>
         </div>
         <div className="w-full h-full">
-          {blogs !== [] && <BlogList blogs={blogs} />}
+          <BlogList />
         </div>
       </div>
     </div>

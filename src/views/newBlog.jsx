@@ -133,27 +133,29 @@ export default function newBlog() {
       e.preventDefault();
       setLoading(true);
 
-      const { data, error } = await supabase.from("blogs").insert([
-        {
-          "blog-title": blogTitle,
-          "first-title": firstTitle,
-          "first-info": firstInfo,
-          "first-content": firstContent,
-          "first-image": firstImage,
-          "second-title": secondTitle,
-          "second-image": secondImage,
-          "second-info": secondInfo,
-          "second-content": secondContent,
-          "third-title": thirdTitle,
-          "third-info": thirdInfo,
-          "third-content": thirdContent,
-          "third-image": thirdImage,
-          "forth-title": forthTitle,
-          "forth-info": forthInfo,
-          "forth-content": forthContent,
-          "forth-image": forthImage,
-        },
-      ]);
+      const { data, error } = await supabase
+        .from("blogs")
+        .insert([
+          {
+            blogTitle,
+            firstTitle,
+            firstInfo,
+            firstContent,
+            firstImage,
+            secondTitle,
+            secondImage,
+            secondInfo,
+            secondContent,
+            thirdTitle,
+            thirdInfo,
+            thirdContent,
+            thirdImage,
+            forthTitle,
+            forthInfo,
+            forthContent,
+            forthImage,
+          },
+        ]);
       console.log(firstImage, secondImage, thirdImage, forthImage);
       if (error) throw error;
       alert("blog added");
