@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import ShoppingCartDrawer from "./shoppingCartDrawer";
+import PhoneDrawer from "./phoneDrawer";
 import {
   SignIn,
   House,
@@ -36,63 +37,65 @@ export default function navbar() {
       ref={boxRef}
       className="w-screen bg-CoolGray-900  z-10 Navbar h-20 flex flex-col fixed  lg:px-8 lg:justify-between  text-3xl  "
     >
-      <div className="flex  h-full lg:justify-around justify-evenly items-center lg:py-7">
+      <div className="flex  h-full justify-between lg:justify-around px-4 lg:px-0 items-center lg:py-7">
+        <PhoneDrawer></PhoneDrawer>
         <Link
           to={"/"}
-          className="text-mainWhite font-extrabold flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          className="text-mainWhite font-extrabold   transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <House size={35} />
         </Link>
         <Link
           to={"/ShoppingPage"}
-          className="text-mainWhite font-extrabold hidden lg:flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-centerr"
+          className="text-mainWhite font-extrabold  transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-centerr"
         >
           <h1 className="pr-3 font-extralight hidden lg:flex">Eyeglasses</h1>
           <Eyeglasses size={35} />
         </Link>
         <Link
           to={"/ShoppingPage"}
-          className="flex transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center text-mainWhite"
+          className="  transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center text-mainWhite"
         >
-          <h1 className="pr-3 font-extralight hidden lg:flex  ">Sunglasses</h1>
+          <h1 className="pr-3 font-extralight   ">Sunglasses</h1>
           <Sunglasses size={35} />
         </Link>
         <Link
           to={"/ShoppingPage"}
-          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          className="flex text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
-          <h1 className="pr-3 font-extralight hidden lg:flex ">Lenses</h1>
+          <h1 className="pr-3 font-extralight  ">Lenses</h1>
           <Eye size={30} />
         </Link>
         <Link
           to={"/blogs"}
-          className="lg:flex hidden text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <h1 className=" ">Premium Brands</h1>
           <Copyright size={18} />
         </Link>
         <Link
           to={"/blogs"}
-          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <h1 className=" font-extralight ">Blog</h1>
         </Link>
 
         <Link
           to={"/admin"}
-          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <Alien size={35} />
         </Link>
-
-        <button
-          onClick={openModal}
-          className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-        >
-          <SignIn size={35} />
-          {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
-        </button>
-        <ShoppingCartDrawer></ShoppingCartDrawer>
+        <div className="flex space-x-4">
+          <button
+            onClick={openModal}
+            className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          >
+            <SignIn size={35} />
+            {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
+          </button>
+          <ShoppingCartDrawer></ShoppingCartDrawer>
+        </div>
 
         <Transition appear show={isOpen} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -101,7 +104,7 @@ export default function navbar() {
               enter="ease-out duration-300"
               enterFrom="opacity-0"
               enterTo="opacity-100"
-              leave="ease-in duration-200"
+              leave=" ease-in duration-200 hidden lg:flex "
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
@@ -115,7 +118,7 @@ export default function navbar() {
                   enter="ease-out duration-300"
                   enterFrom="opacity-0 scale-95"
                   enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
+                  leave=" ease-in duration-200 hidden lg:flex "
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
