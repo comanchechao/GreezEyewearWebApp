@@ -34,34 +34,35 @@ export default function blogList() {
     return <p>Data is loading...</p>;
   }
 
-  if(blogs === []){
-    return <div className="w-full h-54 flex justify-center items-center">
-      <h2 className="text-4xl">
-        No blogs posted
-      </h2>
-    </div>
+  if (blogs === []) {
+    return (
+      <div className="w-full h-54 flex justify-center items-center">
+        <h2 className="text-4xl">No blogs posted</h2>
+      </div>
+    );
   }
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full flex justify-center flex-wrap items-center h-full">
+      <div className="flex bg-white items-center rounded justify-end w-full h-12">
+        <SquaresFour className=" transition hover:bg-mainBlue" size={45} />
+        <Rows className=" transition hover:bg-mainBlue" size={45} />
+      </div>
       {blogs.map((blog) => {
         return (
           <div
             key={blog.id}
-            className="flex flex-wrap rounded space-y-5 px-4 py-7 w-full h-full  bg-mainWhite shadow-2xl"
+            className="flex flex-wrap justify-center rounded space-y-5 px-4 py-7 w-full h-full  bg-mainWhite shadow-2xl"
           >
-            <div className="flex bg-white items-center rounded justify-end w-full h-12">
-              <SquaresFour
-                className=" transition hover:bg-mainBlue"
-                size={45}
-              />
-              <Rows className=" transition hover:bg-mainBlue" size={45} />
-            </div>
+            <div className="flex bg-white items-center rounded justify-end w-full h-12"></div>
             <div className="flex flex-col shadow-2xl space-y-2 md:flex-row lg:flex-row bg-mainCream  h-full">
               <div className="w-full">
-                <BlogImage BlogImage={blog.firstImage} />
+                <BlogImage
+                  className="w-full h-full"
+                  BlogImage={blog.firstImage}
+                />
               </div>
-              <div className="flex p-2 space-y-2 flex-col justify-center items-center w-full">
+              <div className="flex p-2 space-y-2 flex-col justify-center items-center w-1/2">
                 <h1 className="text-4xl flex-col font-bold">
                   {blog.blogTitle}
                 </h1>

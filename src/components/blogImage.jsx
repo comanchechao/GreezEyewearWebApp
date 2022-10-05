@@ -40,8 +40,8 @@ export default function blogImage(props) {
     );
   } else {
     return (
-      <div className="">
-        <img src={image} alt="" />
+      <div className="w-full h-full">
+        <img className="w-full h-full" src={image} alt="" />
       </div>
     );
   }
