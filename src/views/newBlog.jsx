@@ -215,13 +215,13 @@ export default function newBlog() {
   const [tenContent, setTenContent] = useState("");
 
   return (
-    <div className="w-screen h-full bg-CoolGray-800">
+    <div className="w-screen h-full bg-CoolGray-900">
       <Navbar />
       <form
         onSubmit={handleSubmit}
         className="flex justify-center flex-col h-full w-full"
       >
-        <div className="flex flex-wrap w-full h-52 justify-around mt-24 items-center">
+        {/* <div className="flex flex-wrap w-full h-52 justify-around mt-24 items-center">
           <label className="text-6xl text-mainWhite font-bold">
             Blog Title
           </label>
@@ -232,8 +232,8 @@ export default function newBlog() {
             onChange={(e) => setBlogTitle(e.target.value)}
             className="py-8 w-2/3 px-4 rounded text-left text-CoolGray-900 text-xl bg-mainWhite"
           />
-        </div>
-        <div className="flex my-4 p-5 lg:mx-20 shadow-2xl rounded space-y-6 flex-col justify-center  items-center">
+        </div> */}
+        <div className="flex my-4 mt-36  lg:mx-20 bg-CoolGray-900 border-2 border-mainWhite p-3 space-y-6 flex-col justify-center  items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
               htmlFor="file1"
@@ -295,7 +295,7 @@ export default function newBlog() {
             />
           </div>
           <div className="sticky flex justify-start p-5 items-center w-full">
-            <div className="sticky w-14 h-14 bg-Cyan-600 text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
+            <div className="sticky w-14 h-14 bg-mainYellow text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
               1
             </div>
           </div>
@@ -364,13 +364,13 @@ export default function newBlog() {
             />
           </div>
           <div className="sticky flex justify-start p-5 items-center w-full">
-            <div className="sticky w-14 h-14 bg-Cyan-600 text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
+            <div className="sticky w-14 h-14 bg-mainYellow text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
               2
             </div>
           </div>
         </div>
 
-        <div className="flex space-y-6 p-5 flex-col justify-center shadow-2xl rounded lg:mx-20 items-center">
+        <div className="flex space-y-6 flex-col justify-center bg-CoolGray-900 border-2 border-mainWhite p-3 rounded lg:mx-20 items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
               htmlFor="file3"
@@ -434,13 +434,13 @@ export default function newBlog() {
           </div>
 
           <div className="flex justify-start p-5 items-center w-full">
-            <div className="sticky w-14 h-14 bg-Cyan-600 text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
+            <div className="sticky w-14 h-14 bg-mainYellow text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
               3
             </div>
           </div>
         </div>
 
-        <div className="flex space-y-6 bg-mainWhite lg:mx-20 shadow-2xl rounded my-8 p-5 flex-col justify-center items-center">
+        <div className="flex space-y-6 bg-mainCream lg:mx-20 shadow-2xl rounded my-8 p-5 flex-col justify-center items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
               htmlFor="file4"
@@ -460,7 +460,7 @@ export default function newBlog() {
               htmlFor="large-input"
               className="block mb-2 text-CoolGray-900 font-bold text-3xl"
             >
-              Enter Title
+              Title
             </label>
             <input
               value={forthTitle}
@@ -468,7 +468,7 @@ export default function newBlog() {
               placeholder="type ... "
               type="text"
               id="large-input"
-              className="block p-5 lg:w-1/2 w-full text-CoolGray-100 bg-CoolGray-800 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block p-5 rounded-full lg:w-1/2 w-full text-CoolGray-800 bg-mainWhite border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
             ></input>
           </div>
           <div className="p-4 flex w-full h-full flex-col justify-center items-center">
@@ -503,27 +503,30 @@ export default function newBlog() {
             />
           </div>
           <div className="flex justify-start p-5 items-center w-full">
-            <div className="sticky w-14 h-14 bg-Cyan-600 text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
+            <div className="sticky w-14 h-14 bg-mainYellow text-CoolGray-50 text-4xl rounded-full font-bold flex justify-center align-center items-center">
               4
             </div>
           </div>
         </div>
 
         <div className="p-5 flex flex-wrap space-y-5 justify-around space-x-5">
-          <div className="flex flex-wrap space-y-5 justify-center space-x-5">
+          <div className="flex flex-col space-y-5 justify-center ">
             <input
               placeholder="Author"
               type="text"
-              className="p-5  rounded-xl shadow-2xl text-white font-bold text-2xl hover:bg-CoolGray-700 transition bg-CoolGray-200"
+              className="p-5  rounded-sm shadow-md focus:text-CoolGray-900 text-CoolGray-900   hover:text-CoolGray-900 font-bold text-2xl hover:bg-mainCream transition bg-mainWhite"
             />
             <input
-              placeholder="refrence"
-              className="p-5 rounded-xl shadow-2xl text-white font-bold text-2xl hover:bg-CoolGray-700 transition bg-CoolGray-200"
+              placeholder="Refrence"
+              className="p-5 rounded-sm placeholder-gray-400 shadow-md focus:text-CoolGray-900 text-CoolGray-900   hover:text-CoolGray-900 font-bold text-2xl hover:bg-mainCream transition bg-mainWhite"
             />
           </div>
 
           <div className="flex justify-center items-center">
-            <button className="p-5 rounded-xl shadow-2xl text-white font-bold text-2xl bg-red-600">
+            <button
+              className="px-10 py-4 my-3 rounded-full  font-black  text-CoolGray-900 hover:text-CoolGray-900 hover:bg-mainCream text-2xl  duration-300
+transition bg-mainYellow"
+            >
               Publish
             </button>
           </div>
