@@ -34,6 +34,14 @@ export default function blogList() {
     return <p>Data is loading...</p>;
   }
 
+  if(blogs === []){
+    return <div className="w-full h-54 flex justify-center items-center">
+      <h2 className="text-4xl">
+        No blogs posted
+      </h2>
+    </div>
+  }
+
   return (
     <div className="w-full h-full">
       {blogs.map((blog) => {
@@ -61,7 +69,7 @@ export default function blogList() {
                 <p className="text-xl">{blog.firstInfo}</p>
               </div>
               <div className="flex justify-start p-5  items-end">
-                <Link to={"/blog"}>
+                <Link to={`/blogs/${blog.id}`}>
                   <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-2xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black">
                     Continue
                   </button>

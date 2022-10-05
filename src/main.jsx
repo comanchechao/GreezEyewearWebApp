@@ -36,7 +36,7 @@ root.render(
         <Route path="/frameShape" element={<FrameShape />}></Route>
         <Route path="/create" element={<CreateBlog />}></Route>
         <Route path="/newBlog" element={<NewBlog />}></Route>
-        <Route path="/blog" element={<Blog />}></Route>
+        <Route path="/blogs/:id" element={<Blog />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/blogs" element={<Blogs />} />
       </Routes>

@@ -133,29 +133,27 @@ export default function newBlog() {
       e.preventDefault();
       setLoading(true);
 
-      const { data, error } = await supabase
-        .from("blogs")
-        .insert([
-          {
-            blogTitle,
-            firstTitle,
-            firstInfo,
-            firstContent,
-            firstImage,
-            secondTitle,
-            secondImage,
-            secondInfo,
-            secondContent,
-            thirdTitle,
-            thirdInfo,
-            thirdContent,
-            thirdImage,
-            forthTitle,
-            forthInfo,
-            forthContent,
-            forthImage,
-          },
-        ]);
+      const { data, error } = await supabase.from("blogs").insert([
+        {
+          blogTitle,
+          firstTitle,
+          firstInfo,
+          firstContent,
+          firstImage,
+          secondTitle,
+          secondImage,
+          secondInfo,
+          secondContent,
+          thirdTitle,
+          thirdInfo,
+          thirdContent,
+          thirdImage,
+          forthTitle,
+          forthInfo,
+          forthContent,
+          forthImage,
+        },
+      ]);
       console.log(firstImage, secondImage, thirdImage, forthImage);
       if (error) throw error;
       alert("blog added");
@@ -184,7 +182,7 @@ export default function newBlog() {
   const [forthTitle, setForthTitle] = useState("");
   const [forthImage, setForthImage] = useState(null);
   const [forthInfo, setForthInfo] = useState("");
-  const [forthContent, setFourthContent] = useState("");
+  const [forthContent, setForthContent] = useState("");
 
   const [fifthTitle, setFifthTitle] = useState("");
   const [fifthImage, setFifthImage] = useState(null);
@@ -278,7 +276,7 @@ export default function newBlog() {
               placeholder="type ... "
               type="text"
               id="large-input"
-              className="block p-3 lg:w-2/3 h-24 w-full text-CoolGray-100 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block p-3 lg:w-2/3 h-24 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
 
             <label
@@ -293,7 +291,7 @@ export default function newBlog() {
               placeholder="type ... "
               type="text"
               id="large-input"
-              className="block p-3 lg:w-2/3 h-52 w-full text-CoolGray-100 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block p-3 lg:w-2/3 h-52 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
           <div className="sticky flex justify-start p-5 items-center w-full">
@@ -497,7 +495,7 @@ export default function newBlog() {
             </label>
             <textarea
               value={forthContent}
-              onChange={(e) => setForthInfo(e.target.value)}
+              onChange={(e) => setForthContent(e.target.value)}
               placeholder="type ... "
               type="text"
               id="large-input"
