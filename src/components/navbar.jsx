@@ -38,7 +38,9 @@ export default function navbar() {
       className="w-screen bg-CoolGray-900  z-10 Navbar h-20 flex flex-col fixed  lg:px-8 lg:justify-between  text-3xl  "
     >
       <div className="flex  h-full justify-between lg:justify-around px-4 lg:px-0 items-center lg:py-7">
-        <PhoneDrawer></PhoneDrawer>
+        <div className="lg:hidden flex">
+          <PhoneDrawer></PhoneDrawer>
+        </div>
         <Link
           to={"/"}
           className="text-mainWhite font-extrabold   transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
