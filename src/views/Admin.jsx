@@ -1,9 +1,32 @@
-import { useState } from "react";
-import { SquaresFour, Rows, FilePlus } from "phosphor-react";
+import { useEffect, useState } from "react";
+import { SquaresFour , Trash, Rows, FilePlus } from "phosphor-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
+import blogList from "../components/blogList";
+import { supabase } from "../supabaseClient";
+import BlogImage from "../components/blogImage";
+
 export default function Admin() {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const getBlogs = async function () {
+    try {
+      setLoading(true);
+      const { data, error } = await supabase.from("blogs").select();
+      if (error) throw error;
+      setBlogs(data);
+      console.log(data);
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   const [tab, setTab] = useState("");
+
+  useEffect(() => {
+    getBlogs();
+  }, []);
 
   return (
     <div className="h-full overflow-x-hidden w-screen bg-mainCream">
@@ -116,54 +139,28 @@ export default function Admin() {
               <Rows size={32} />
             </div>
           </div>
-          <div className="flex flex-col items-center space-y-2 w-full lg:w-2/3font-bold text-xl  h-full shadow-2xl rounded">
-            <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
-              <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
-              <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl xs:hidden">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Inventore, sit.
-              </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
-                show more
-              </button>
-            </div>
 
-            <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
-              <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
-              <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl xs:hidden">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Inventore, sit.
-              </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
-                show more
-              </button>
-            </div>
-
-            <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
-              <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
-              <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl xs:hidden">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Inventore, sit.
-              </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
-                show more
-              </button>
-            </div>
-
-            <div className="flex items-center  justify-around bg-mainBlue w-full h-24 rounded shadow-xl">
-              <div className="w-24 h-20 bg-gray-400 rounded-xl"></div>
-              <h2 className="text-3xl font-bold">title</h2>
-              <h2 className="text-xl xs:hidden">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Inventore, sit.
-              </h2>
-              <button className="transition font-bold text-xl hover:text-white bg-mainYellow p-3 rounded">
-                show more
-              </button>
-            </div>
+          <div className="flex flex-wrap space-x-2  items-center space-y-2 w-full justify-center font-bold text-xl  h-full shadow-2xl rounded">
+            {blogs.map((blog) => {
+              return (
+                <div className="flex flex-col items-center pb-2  justify-around bg-Cyan-300 w-full h-full lg:h-1/2 lg:w-1/2 space-y-5 rounded shadow-xl">
+                  <BlogImage BlogImage={blog.firstImage} />
+                  <h2 className="text-3xl font-bold">{blog.blogTitle}</h2>
+                  <h2 className="text-xl xs:hidden">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Inventore, sit.
+                  </h2>
+                  <div className="flex w-full justify-around">
+                    <button className="transition font-bold text-xl hover:text-white bg-black text-white hover:bg-gray-600 p-3 rounded">
+                      Edit
+                    </button>
+                    <button className="transition font-bold text-white text-xl hover:text-red-500 bg-red-500 hover:bg-white p-3 rounded">
+                      <Trash size={32} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       ) : null}
