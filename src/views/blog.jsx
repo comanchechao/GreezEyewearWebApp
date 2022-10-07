@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { useState } from "react";
+import { Spinner } from "phosphor-react";
 
 export default function blog() {
   let { id } = useParams();
@@ -14,6 +15,10 @@ export default function blog() {
   const [secondImage, setSecondImage] = useState("");
   const [thirdImage, setThirdImage] = useState("");
   const [fourthImage, setFourthImage] = useState("");
+  const [firstLoading, setFirstLoading] = useState(true);
+  const [secondLoading, setSecondLoading] = useState(true);
+  const [thirdLoading, setThirdLoading] = useState(true);
+  const [forthLoading, setForthLoading] = useState(true);
 
   const getBlog = async () => {
     try {
@@ -35,6 +40,7 @@ export default function blog() {
   const downloadImage1 = async (path) => {
     if (blog !== []) {
       console.log(path);
+      setFirstLoading(true);
       try {
         const { data, error } = await supabase.storage
           .from("blog-images")
@@ -48,12 +54,15 @@ export default function blog() {
         setFirstImage(url);
       } catch (error) {
         console.log("Error downloading image: ", error.message);
+      } finally {
+        setFirstLoading(false);
       }
     }
   };
   const downloadImage2 = async (path) => {
     if (blog !== []) {
       console.log(path);
+      setSecondLoading(true);
       try {
         const { data, error } = await supabase.storage
           .from("blog-images")
@@ -67,12 +76,15 @@ export default function blog() {
         setSecondImage(url);
       } catch (error) {
         console.log("Error downloading image: ", error.message);
+      } finally {
+        setSecondLoading(false);
       }
     }
   };
   const downloadImage3 = async (path) => {
     if (blog !== []) {
       console.log(path);
+      setThirdLoading(true);
       try {
         const { data, error } = await supabase.storage
           .from("blog-images")
@@ -86,12 +98,15 @@ export default function blog() {
         setThirdImage(url);
       } catch (error) {
         console.log("Error downloading image: ", error.message);
+      } finally {
+        setThirdLoading(false);
       }
     }
   };
   const downloadImage4 = async (path) => {
     if (blog !== []) {
       console.log(path);
+      setForthLoading(true);
       try {
         const { data, error } = await supabase.storage
           .from("blog-images")
@@ -105,6 +120,8 @@ export default function blog() {
         setFourthImage(url);
       } catch (error) {
         console.log("Error downloading image: ", error.message);
+      } finally {
+        setForthLoading(false);
       }
     }
   };
@@ -124,11 +141,15 @@ export default function blog() {
             {blog.blogTitle}
           </div>
           <div className="flex h-full w-full justify-center items-center align-center">
-            <img
-              src={firstImage}
-              alt=""
-              className=" lg:w-1/2 lg:h-1/2 object-contain"
-            />
+            {firstLoading === false ? (
+              <img
+                src={firstImage}
+                alt=""
+                className=" lg:w-1/2 lg:h-1/2 object-contain"
+              />
+            ) : (
+              <Spinner className="m-10 animate-spin" size={80} />
+            )}
           </div>
           <div className="flex space-y-5 mt-4 flex-col justify-center align-center items-center">
             <h2 className="text-3xl font-bold">{blog.firstTitle}</h2>
@@ -139,11 +160,15 @@ export default function blog() {
           </div>
           <div className="section2 bg-mainCream text-CoolGray-900 flex flex-col">
             <div className="flex lg:p-5 flex-col space-y-3 h-full w-full justify-center items-center align-center">
-              <img
-                src={secondImage}
-                alt=""
-                className="w-full  lg:w-1/2 w-full  lg:h-1/2 object-contain"
-              />
+              {secondLoading === false ? (
+                <img
+                  src={secondImage}
+                  alt=""
+                  className="w-full  lg:w-1/2 w-full  lg:h-1/2 object-contain"
+                />
+              ) : (
+                <Spinner className="m-10 animate-spin" size={80} />
+              )}
               <h2 className="font-bold text-2xl"> {blog.secondTitle}</h2>
               <h2 className="font-bold text-2xl"> {blog.secondInfo}</h2>
 
@@ -153,42 +178,37 @@ export default function blog() {
 
           <div className="section2 bg-CoolGray-900 text-mainWhite flex flex-col">
             <div className="flex lg:p-5 flex-col space-y-3 h-full w-full justify-center items-center align-center">
-              <img
-                src={thirdImage}
-                alt=""
-                className="w-full  lg:w-1/2 w-full  lg:h-1/2 object-contain"
-              />
+              {thirdLoading === true ? (
+                <Spinner className="m-10 animate-spin" size={80} />
+              ) : (
+                <img
+                  src={thirdImage}
+                  alt=""
+                  className="w-full  lg:w-1/2 w-full  lg:h-1/2 object-contain"
+                />
+              )}
               <h2 className="text-lg">{blog.thirdInfo}</h2>
               <h2 className="font-bold text-2xl"> {blog.thirdTitle}</h2>
 
-              <p className="text-xl p-20">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolorum cumque itaque animi voluptas voluptatum accusantium
-                maxime. Quis ab ipsa alias expedita ea earum inventore quisquam,
-                est perferendis sint mollitia officia corporis possimus vero vel
-                reiciendis nobis labore fugit similique consequatur magnam at
-                dolores ut sapiente? At error delectus ipsum quae earum, esse,
-                totam enim voluptatum expedita sint odit? Quisquam, placeat
-                culpa. Sequi omnis obcaecati debitis odit nisi at quos quidem
-                voluptatibus! Debitis dolores beatae quos cumque aliquid esse
-                iure ad?
-              </p>
+              <p className="text-xl p-20">{blog.thirdContent}</p>
             </div>
           </div>
 
           <div className="section4 bg-CoolGray-900 text-mainWhite flex flex-col">
             <div className="flex lg:p-5 flex-col space-y-3 h-full w-full justify-center items-center align-center">
-              <img
-                src={fourthImage}
-                alt=""
-                className="w-full  lg:w-1/2 w-full  lg:h-1/2 object-contain"
-              />
+              {forthLoading === false ? (
+                <img
+                  src={fourthImage}
+                  alt=""
+                  className="w-full  lg:w-1/2 w-full  lg:h-1/2 object-contain"
+                />
+              ) : (
+                <Spinner className="m-10 animate-spin" size={80} />
+              )}
               <h2 className="text-lg">{blog.forthTitle}</h2>
               <h2 className="font-bold text-2xl"> {blog.forthInfo}</h2>
 
-              <p className="text-xl p-20">
-               {blog.forthContent}
-              </p>
+              <p className="text-xl p-20">{blog.forthContent}</p>
             </div>
           </div>
 

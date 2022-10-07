@@ -63,11 +63,11 @@ export default function blogList() {
                 />
               </div>
               <div className="flex p-2 space-y-2 flex-col justify-center items-center w-1/2">
-                <h1 className="text-4xl flex-col font-bold">
+                <h1 className="text-4xl m-5 lg:text-9xl flex-col font-bold">
                   {blog.blogTitle}
                 </h1>
-                <p className="text-xl">Sunday 2021</p>
-                <p className="text-xl">{blog.firstInfo}</p>
+                <p className="text-xl lg:text-4xl">Sunday 2021</p>
+                <p className="text-xl lg:text-3xl">{blog.firstInfo}</p>
               </div>
               <div className="flex justify-start p-5  items-end">
                 <Link to={`/blogs/${blog.id}`}>
