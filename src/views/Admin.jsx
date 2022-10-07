@@ -1,14 +1,29 @@
-import { useEffect, useState } from "react";
-import { SquaresFour , Trash, Rows, FilePlus } from "phosphor-react";
+import { useEffect, useState, useRef } from "react";
+import { SquaresFour, Trash, Rows, FilePlus } from "phosphor-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import blogList from "../components/blogList";
 import { supabase } from "../supabaseClient";
 import BlogImage from "../components/blogImage";
+import { useDisclosure, Box } from "@chakra-ui/react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  Button,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
+import blog from "./blog";
 
 export default function Admin() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const finalRef = useRef(null);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [captureId, setCaptureId] = useState(null);
   const getBlogs = async function () {
     try {
       setLoading(true);
@@ -23,6 +38,23 @@ export default function Admin() {
     }
   };
   const [tab, setTab] = useState("");
+
+  const removeBlog = async function () {
+    try {
+      const { error } = await supabase
+        .from("blogs")
+        .delete()
+        .match({ id: captureId });
+      console.log(captureId);
+      if (error) throw error;
+      alert("blog deleted");
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      getBlogs();
+      onclose();
+    }
+  };
 
   useEffect(() => {
     getBlogs();
@@ -143,7 +175,10 @@ export default function Admin() {
           <div className="flex flex-wrap space-x-2  items-center space-y-2 w-full justify-center font-bold text-xl  h-full shadow-2xl rounded">
             {blogs.map((blog) => {
               return (
-                <div className="flex flex-col items-center pb-2  justify-around bg-Cyan-300 w-full h-full lg:h-1/2 lg:w-1/2 space-y-5 rounded shadow-xl">
+                <div
+                  key={blog.id}
+                  className="flex flex-col items-center pb-2  justify-around bg-Cyan-300 w-full h-full lg:h-1/2 lg:w-1/2 space-y-5 rounded shadow-xl"
+                >
                   <BlogImage BlogImage={blog.firstImage} />
                   <h2 className="text-3xl font-bold">{blog.blogTitle}</h2>
                   <h2 className="text-xl xs:hidden">
@@ -151,12 +186,55 @@ export default function Admin() {
                     Inventore, sit.
                   </h2>
                   <div className="flex w-full justify-around">
-                    <button className="transition font-bold text-xl hover:text-white bg-black text-white hover:bg-gray-600 p-3 rounded">
+                    <button
+                      onClick={() => {
+                        console.log(blog.id);
+                      }}
+                      className="transition font-bold text-xl hover:text-white bg-black text-white hover:bg-gray-600 p-3 rounded"
+                    >
                       Edit
                     </button>
-                    <button className="transition font-bold text-white text-xl hover:text-red-500 bg-red-500 hover:bg-white p-3 rounded">
-                      <Trash size={32} />
-                    </button>
+
+                    <Button
+                      className="transition font-bold text-xl hover:text-white bg-red-500 text-white hover:bg-gray-600 p-9 rounded"
+                      onClick={onOpen}
+                    >
+                      <Trash
+                        onClick={() => {
+                          setCaptureId(blog.id);
+                        }}
+                        className="text-red-500"
+                        size={32}
+                      />
+                    </Button>
+                    <Modal
+                      className="bg-Cyan-400"
+                      finalFocusRef={finalRef}
+                      isOpen={isOpen}
+                      onClose={onClose}
+                    >
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>delete {blog.blogTitle}</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>Are you sure to delete?</ModalBody>
+
+                        <ModalFooter>
+                          <Button colorScheme="gray" mr={3} onClick={onClose}>
+                            Close
+                          </Button>
+                          <Button
+                            onClick={() => {
+                              removeBlog()
+                            }}
+                            className="bg-red-500 text-white"
+                            variant="ghost"
+                          >
+                            Yes , DELETE blog.
+                          </Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
                   </div>
                 </div>
               );
