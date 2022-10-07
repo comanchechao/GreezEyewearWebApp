@@ -221,7 +221,7 @@ export default function newBlog() {
         onSubmit={handleSubmit}
         className="flex justify-center flex-col h-full w-full"
       >
-        {/* <div className="flex flex-wrap w-full h-52 justify-around mt-24 items-center">
+        <div className="flex flex-wrap w-full h-52 justify-around mt-24 items-center">
           <label className="text-6xl text-mainWhite font-bold">
             Blog Title
           </label>
@@ -232,7 +232,7 @@ export default function newBlog() {
             onChange={(e) => setBlogTitle(e.target.value)}
             className="py-8 w-2/3 px-4 rounded text-left text-CoolGray-900 text-xl bg-mainWhite"
           />
-        </div> */}
+        </div>
         <div className="flex my-4 mt-36  lg:mx-20 bg-CoolGray-900 border-2 border-mainWhite p-3 space-y-6 flex-col justify-center  items-center">
           <div className="flex space-y-4 w-full h-full flex-col justify-center items-center">
             <label
