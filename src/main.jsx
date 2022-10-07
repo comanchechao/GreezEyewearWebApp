@@ -10,6 +10,7 @@ import Blog from "./views/blog";
 import FrameShape from "./views/frameShape";
 import NewBlog from "./views/newBlog";
 import ShoppingPage from "./views/shoppingPage";
+import ProductDetail from "./views/productDetail";
 import CreateBlog from "./views/CreateBlog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { extendTheme } from "@chakra-ui/react";
@@ -31,6 +32,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
+        <Route path="/productDetail" element={<ProductDetail />}></Route>
         <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
         <Route path="/faceShape" element={<FaceShape />}></Route>
         <Route path="/frameShape" element={<FrameShape />}></Route>
