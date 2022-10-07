@@ -18,11 +18,11 @@ export default function ProductDetail() {
               separator={<ChevronRightIcon color="gray.500" />}
             >
               <BreadcrumbItem>
-                <BreadcrumbLink href="#">Home</BreadcrumbLink>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
               </BreadcrumbItem>
 
               <BreadcrumbItem>
-                <BreadcrumbLink href="#">Eyeglasses</BreadcrumbLink>
+                <BreadcrumbLink href="shoppingPage">Eyeglasses</BreadcrumbLink>
               </BreadcrumbItem>
 
               <BreadcrumbItem isCurrentPage>
