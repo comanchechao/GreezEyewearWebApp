@@ -27,10 +27,10 @@ export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(10000);
   const [maxPrice, setMaxPrice] = useState(300000);
   return (
-    <div className=" lg:h-32 w-full  filter drop-shadow-xl flex flex-col lg:flex-row flex-wrap justify-center space-y-3 lg:space-y-0 lg:justify-center space-x-3 px-10 items-center text-2xl">
+    <div className=" lg:h-32 w-full  z-10 filter drop-shadow-xl flex flex-col lg:flex-row flex-wrap justify-center space-y-3 lg:space-y-0 lg:justify-start space-x-3 px-10 items-center text-2xl">
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-mainWhite "
+          className=" bg-white "
           minH="48px"
           px={4}
           py={2}
@@ -58,7 +58,7 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-mainWhite "
+          className=" bg-white "
           minH="48px"
           px={4}
           py={2}
@@ -96,7 +96,7 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-mainWhite "
+          className=" bg-white "
           minH="48px"
           px={4}
           py={2}
@@ -202,7 +202,7 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-mainWhite "
+          className=" bg-white "
           minH="48px"
           px={4}
           py={2}
@@ -278,7 +278,7 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-mainWhite "
+          className=" bg-white "
           minH="48px"
           px={4}
           py={2}
@@ -319,7 +319,7 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-mainWhite "
+          className=" bg-white "
           minH="48px"
           px={4}
           py={2}
@@ -357,7 +357,7 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-mainWhite "
+          className=" bg-white "
           minH="48px"
           px={4}
           py={2}

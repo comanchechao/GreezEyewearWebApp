@@ -35,7 +35,7 @@ export default function navbar() {
   return (
     <div
       ref={boxRef}
-      className="w-screen bg-CoolGray-900  z-10 Navbar h-20 flex flex-col fixed  lg:px-8 lg:justify-between  text-3xl  "
+      className="w-screen bg-CoolGray-900  z-20 Navbar h-20 flex flex-col fixed  lg:px-8 lg:justify-between  text-3xl  "
     >
       <div className="flex  h-full justify-between lg:justify-around px-4 lg:px-0 items-center lg:py-7">
         <div className="lg:hidden flex">

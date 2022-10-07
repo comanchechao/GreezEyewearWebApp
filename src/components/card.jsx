@@ -16,8 +16,8 @@ export default function Card() {
         <ShoppingCart size={28} weight="fill" />
       </button>
 
-      <div className="flex space-x-5  justify-center items-center  self-center">
-        <div className="">
+      <div className="flex space-x-6 items-center  self-center">
+        <div className="flex items-center flex-col">
           <h2 className="text-2xl p-2 underline-offset-8 underline font-bold hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
             St Michel
           </h2>
@@ -25,7 +25,7 @@ export default function Card() {
         </div>
         <Link to={"/productDetail"}>
           <button
-            className=" px-9 transition ease-in duration-300  hover:bg-mainCream py-2 text-2xl my-3 hover:text-CoolGray-900 bg-CoolGray-900 text-mainWhite rounded-full"
+            className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-1 text-2xl my-3 hover:text-CoolGray-900 bg-CoolGray-900 text-mainWhite rounded-full"
             type="submit"
           >
             Learn More
