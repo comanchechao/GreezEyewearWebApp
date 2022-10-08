@@ -12,7 +12,6 @@ import {
   Alien,
   Eyeglasses,
   Sunglasses,
-  Copyright,
   Eye,
   List,
 } from "phosphor-react";
