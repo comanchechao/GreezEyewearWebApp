@@ -40,7 +40,7 @@ export default function Card() {
         </div>
         <Link to={"/productDetail"}>
           <button
-            className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-1 text-2xl my-3 hover:text-CoolGray-900 bg-CoolGray-900 text-mainWhite rounded-full"
+            className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-2 text-2xl my-3 hover:text-CoolGray-900 bg-CoolGray-900 text-mainWhite rounded-full"
             type="submit"
           >
             Learn More
