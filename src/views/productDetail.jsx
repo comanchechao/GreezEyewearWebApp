@@ -126,9 +126,22 @@ export default function ProductDetail() {
                   onChange={setValue2}
                   value={value2}
                 >
-                  <Stack colorScheme="purple" direction="row">
+                  <Stack
+                    colorScheme="purple"
+                    direction="row"
+                    className="flex items-center justify-center"
+                  >
+                    <span className=" bg-mainWhite text-CoolGray-900 font-black p-1 rounded-sm text-2xl">
+                      Lg
+                    </span>
                     <Switch size="lg" />
+                    <span className=" bg-mainWhite text-CoolGray-900 font-black p-1 rounded-sm text-2xl">
+                      Md
+                    </span>
                     <Switch size="lg" />
+                    <span className=" bg-mainWhite text-CoolGray-900 font-black p-1 rounded-sm text-2xl">
+                      Sm
+                    </span>
                     <Switch size="lg"></Switch>
                   </Stack>
                 </RadioGroup>
