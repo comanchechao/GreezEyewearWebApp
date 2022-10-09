@@ -71,9 +71,13 @@ export default function ProductDetail() {
               </Slider>
             </div>
             <div className=" h-full w-2/4 bg-gray-100 flex items-center flex-col p-28 space-y-10">
-              <div className="flex flex-col items-center">
-                <h1 className="text-3xl font-black">Botanist</h1>
-                <h2 className=" text-2xl">Rectangle Gray Brown Eyeglasses</h2>
+              <div className="flex flex-col items-start text-left">
+                <h1 className="text-4xl text-CoolGray-900 font-black p-1  hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
+                  Botanist
+                </h1>
+                <h2 className=" text-lg p-1 text-CoolGray-500 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
+                  Rectangle Gray Brown Eyeglasses
+                </h2>
               </div>
               <h3 className=" text-3xl font-black"> $35 </h3>
               <div className="h-full w-full flex flex-col space-y-2 items-center">
@@ -147,7 +151,7 @@ export default function ProductDetail() {
                 </RadioGroup>
               </div>
               <button
-                className="px-20 transition ease-in duration-300 border-l-8 border-mainWhite hover:bg-mainWhite py-2 text-3xl my-3 bg-mainBlue   rounded-full  "
+                className="px-20 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-3xl my-3 bg-mainWhite   rounded-full  "
                 type="submit"
               >
                 Select Lenses
