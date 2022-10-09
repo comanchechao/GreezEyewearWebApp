@@ -28,7 +28,7 @@ export default function blogList() {
     } catch (error) {
       alert(error.message);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
