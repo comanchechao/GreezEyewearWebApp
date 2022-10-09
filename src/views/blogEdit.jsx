@@ -1,11 +1,14 @@
 import Navbar from "../components/navbar";
+import blogOne from "../assets/images/blogOne.webp";
+import blogTwo from "../assets/images/blogTwo.webp";
+import blogThree from "../assets/images/blogThree.webp";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { useState } from "react";
 import { Spinner } from "phosphor-react";
 
-export default function blog() {
+export default function blogEdit() {
   let { id } = useParams();
   const [blog, setBlog] = useState([]);
   const [firstImage, setFirstImage] = useState("");
@@ -144,6 +147,7 @@ export default function blog() {
                 alt=""
                 className=" lg:w-1/2 lg:h-1/2 object-contain"
               />
+              
             ) : (
               <Spinner className="m-10 animate-spin" size={80} />
             )}

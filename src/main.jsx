@@ -14,6 +14,7 @@ import ProductDetail from "./views/productDetail";
 import CreateBlog from "./views/CreateBlog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { extendTheme } from "@chakra-ui/react";
+import EditBlog from "./views/blogEdit";
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
@@ -41,6 +42,7 @@ root.render(
         <Route path="/blogs/:id" element={<Blog />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/editBlog/:id" element={<EditBlog />}></Route>
       </Routes>
     </BrowserRouter>
   </ChakraProvider>

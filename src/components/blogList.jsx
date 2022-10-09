@@ -5,6 +5,13 @@ import { supabase } from "../supabaseClient";
 import { useState } from "react";
 import { useEffect } from "react";
 import BlogImage from "./blogImage.jsx";
+import {
+  Skeleton,
+  Stack,
+  SkeletonCircle,
+  SkeletonText,
+  Box,
+} from "@chakra-ui/react";
 
 export default function blogList() {
   const [blogs, setBlogs] = useState([]);
@@ -21,7 +28,7 @@ export default function blogList() {
     } catch (error) {
       alert(error.message);
     } finally {
-      setLoading(false);
+      setLoading(true);
     }
   };
 
@@ -31,7 +38,17 @@ export default function blogList() {
   }, []);
 
   if (loading) {
-    return <p>Data is loading...</p>;
+    return (
+      <div className="rounded">
+        <Box padding="10" boxShadow="lg" bg="white">
+          <Stack>
+            <Skeleton height="40px" />
+            <Skeleton height="40px" />
+            <Skeleton height="40px" />
+          </Stack>
+        </Box>
+      </div>
+    );
   }
 
   if (blogs === []) {

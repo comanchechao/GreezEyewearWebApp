@@ -177,20 +177,21 @@ export default function Admin() {
               return (
                 <div
                   key={blog.id}
-                  className="flex flex-col items-center pb-2  justify-around bg-Cyan-300 w-full h-full lg:h-1/2 lg:w-1/2 space-y-5 rounded shadow-xl"
+                  className="flex flex-col items-center pb-2  justify-around bg-CoolGray-900 w-full h-full lg:h-1/2 lg:w-1/2 space-y-5 rounded shadow-xl"
                 >
                   <BlogImage BlogImage={blog.firstImage} />
-                  <h2 className="text-3xl font-bold">{blog.blogTitle}</h2>
-                  <h2 className="text-xl xs:hidden">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Inventore, sit.
+                  <h2 className="text-3xl text-mainWhite font-bold">
+                    {blog.blogTitle}
+                  </h2>
+                  <h2 className="text-xl text-mainWhite xs:hidden">
+                    {blog.firstInfo}
                   </h2>
                   <div className="flex w-full justify-around">
                     <button
                       onClick={() => {
                         console.log(blog.id);
                       }}
-                      className="transition font-bold text-xl hover:text-white bg-black text-white hover:bg-gray-600 p-3 rounded"
+                      className="transition font-bold text-xl  bg-mainWhite text-CoolGray-900 hover:bg-mainCream p-3 rounded"
                     >
                       Edit
                     </button>
@@ -225,7 +226,7 @@ export default function Admin() {
                           </Button>
                           <Button
                             onClick={() => {
-                              removeBlog()
+                              removeBlog();
                             }}
                             className="bg-red-500 text-white"
                             variant="ghost"
