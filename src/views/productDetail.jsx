@@ -15,16 +15,12 @@ import InnerImageZoom from "react-inner-image-zoom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
+
 export default function ProductDetail() {
   const [value, setValue] = useState("1");
   const [value2, setValue2] = useState("1");
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+
   return (
     <div className=" h-auto w-screen overflow-x-hidden bg-CoolGray-900">
       <Navbar></Navbar>
@@ -36,11 +32,15 @@ export default function ProductDetail() {
               separator={<ChevronRightIcon color="gray.500" />}
             >
               <BreadcrumbItem>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                <Link to={"/Home"}>
+                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
 
               <BreadcrumbItem>
-                <BreadcrumbLink href="shoppingPage">Eyeglasses</BreadcrumbLink>
+                <Link to={"/ShoppingPage"}>
+                  <BreadcrumbLink>Eyeglasses</BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
 
               <BreadcrumbItem isCurrentPage>
@@ -72,7 +72,7 @@ export default function ProductDetail() {
             </div>
             <div className=" h-full w-2/4 bg-gray-100 flex items-center flex-col p-28 space-y-10">
               <div className="flex flex-col items-start text-left">
-                <h1 className="text-4xl text-CoolGray-900 font-black p-1  hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
+                <h1 className="text-5xl text-CoolGray-900 font-black p-1  hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Botanist
                 </h1>
                 <h2 className=" text-lg p-1 text-CoolGray-500 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
@@ -135,27 +135,29 @@ export default function ProductDetail() {
                     direction="row"
                     className="flex items-center justify-center"
                   >
-                    <span className=" bg-mainWhite text-CoolGray-900 font-black p-1 rounded-sm text-2xl">
-                      Lg
+                    <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
+                      L
                     </span>
                     <Switch size="lg" />
-                    <span className=" bg-mainWhite text-CoolGray-900 font-black p-1 rounded-sm text-2xl">
-                      Md
+                    <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
+                      M
                     </span>
                     <Switch size="lg" />
-                    <span className=" bg-mainWhite text-CoolGray-900 font-black p-1 rounded-sm text-2xl">
-                      Sm
+                    <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
+                      S
                     </span>
                     <Switch size="lg"></Switch>
                   </Stack>
                 </RadioGroup>
               </div>
-              <button
-                className="px-20 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-3xl my-3 bg-mainWhite   rounded-full  "
-                type="submit"
-              >
-                Select Lenses
-              </button>
+              <Link to={"/lensSelect"}>
+                <button
+                  className="px-20 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-3xl my-3 bg-mainWhite   rounded-full  "
+                  type="submit"
+                >
+                  Select Lenses
+                </button>
+              </Link>
             </div>
           </div>
         </div>

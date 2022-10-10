@@ -9,7 +9,7 @@ export default function Card() {
   // let [plan, setPlan] = useState("startup");
   const [value, setValue] = useState("1");
   return (
-    <div className="flex-col relative filter drop-shadow-2xl my-10 w-screen lg:w-96 h-rem26 bg-white flex justify-between pb-2 cursor-pointer items-start">
+    <div className="flex-col relative filter drop-shadow-2xl my-10 w-screen lg:w-96 h-rem26 border border-mainWhite bg-white flex justify-between pb-2 cursor-pointer items-start">
       <img src={cardPicture1} className="object-contain w-full" alt="" />
       <button
         className="transition absolute p-5  top-40 left-64 lg:left-80 ml-8 flex ease-in duration-300 border-white hover:bg-mainBlue text-mainWhite hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900  text-3xl   bg-CoolGray-900  rounded-full  "

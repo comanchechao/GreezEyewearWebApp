@@ -15,6 +15,7 @@ import CreateBlog from "./views/CreateBlog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { extendTheme } from "@chakra-ui/react";
 import EditBlog from "./views/blogEdit";
+import LensSelect from "./views/lensSelect";
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
@@ -33,6 +34,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
+        <Route path="/lensSelect" element={<LensSelect />}></Route>
+
         <Route path="/productDetail" element={<ProductDetail />}></Route>
         <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
         <Route path="/faceShape" element={<FaceShape />}></Route>

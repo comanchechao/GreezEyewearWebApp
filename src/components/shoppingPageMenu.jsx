@@ -27,17 +27,16 @@ export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(10000);
   const [maxPrice, setMaxPrice] = useState(300000);
   return (
-    <div className=" lg:h-32 w-full  z-10 filter drop-shadow-xl flex flex-wrap justify-center space-y-3 lg:space-y-0 lg:justify-start space-x-3 px-10 items-center text-2xl">
+    <div className=" h-28 w-full  z-20  flex flex-wrap justify-center space-y-3 lg:space-y-0   space-x-10   items-center text-2xl">
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-white "
+          className=" bg-CoolGray-900 text-mainWhite"
           minH="48px"
           px={4}
           py={2}
-          isLazy={true}
           transition="all 0.2s"
           borderRadius="sm"
-          _hover={{ bg: "gray.400" }}
+          _hover={{ bg: "gray.600" }}
           _expanded={{ bg: "blue.400" }}
         >
           Brands
@@ -58,14 +57,13 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-white "
+          className=" bg-CoolGray-900 text-mainWhite"
           minH="48px"
           px={4}
           py={2}
-          isLazy={true}
           transition="all 0.2s"
           borderRadius="sm"
-          _hover={{ bg: "gray.400" }}
+          _hover={{ bg: "gray.600" }}
           _expanded={{ bg: "blue.400" }}
         >
           Genders
@@ -96,14 +94,13 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-white "
+          className=" bg-CoolGray-900 text-mainWhite"
           minH="48px"
           px={4}
           py={2}
-          isLazy={true}
           transition="all 0.2s"
           borderRadius="sm"
-          _hover={{ bg: "gray.400" }}
+          _hover={{ bg: "gray.600" }}
           _expanded={{ bg: "blue.400" }}
         >
           Shape
@@ -202,14 +199,13 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-white "
+          className=" bg-CoolGray-900 text-mainWhite"
           minH="48px"
           px={4}
           py={2}
-          isLazy={true}
           transition="all 0.2s"
           borderRadius="sm"
-          _hover={{ bg: "gray.400" }}
+          _hover={{ bg: "gray.600" }}
           _expanded={{ bg: "blue.400" }}
         >
           Material
@@ -278,14 +274,13 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-white "
+          className=" bg-CoolGray-900 text-mainWhite"
           minH="48px"
           px={4}
           py={2}
-          isLazy={true}
           transition="all 0.2s"
           borderRadius="sm"
-          _hover={{ bg: "gray.400" }}
+          _hover={{ bg: "gray.600" }}
           _expanded={{ bg: "blue.400" }}
         >
           Price
@@ -319,14 +314,13 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-white "
+          className=" bg-CoolGray-900 text-mainWhite"
           minH="48px"
           px={4}
           py={2}
-          isLazy={true}
           transition="all 0.2s"
           borderRadius="sm"
-          _hover={{ bg: "gray.400" }}
+          _hover={{ bg: "gray.600" }}
           _expanded={{ bg: "blue.400" }}
         >
           Size
@@ -357,14 +351,13 @@ export default function ShoppingMenu() {
       </Menu>
       <Menu closeOnSelect={false}>
         <MenuButton
-          className=" bg-white "
+          className=" bg-CoolGray-900 text-mainWhite"
           minH="48px"
           px={4}
           py={2}
-          isLazy={true}
           transition="all 0.2s"
           borderRadius="sm"
-          _hover={{ bg: "gray.400" }}
+          _hover={{ bg: "gray.600" }}
           _expanded={{ bg: "blue.400" }}
         >
           Rim
@@ -401,6 +394,48 @@ export default function ShoppingMenu() {
               </Checkbox>
             </MenuItem>
           </div>
+        </MenuList>
+      </Menu>
+      <Menu closeOnSelect={false}>
+        <MenuButton
+          className=" bg-CoolGray-900 text-mainWhite"
+          minH="48px"
+          px={4}
+          py={2}
+          transition="all 0.2s"
+          borderRadius="sm"
+          _hover={{ bg: "gray.600" }}
+          _expanded={{ bg: "blue.400" }}
+        >
+          Feature
+          <ChevronDownIcon />
+        </MenuButton>
+        <MenuList>
+          <MenuItem>
+            <Checkbox size="lg">
+              <span className="text-2xl">Adjustable Nose Pads</span>
+            </Checkbox>
+          </MenuItem>
+          <MenuItem>
+            <Checkbox size="lg">
+              <span className="text-2xl">Lightweight</span>
+            </Checkbox>
+          </MenuItem>
+          <MenuItem>
+            <Checkbox size="lg">
+              <span className="text-2xl">Bifocal</span>
+            </Checkbox>
+          </MenuItem>
+          <MenuItem>
+            <Checkbox size="lg">
+              <span className="text-2xl">For Wide Face</span>
+            </Checkbox>
+          </MenuItem>
+          <MenuItem>
+            <Checkbox size="lg">
+              <span className="text-2xl">For Small Face</span>
+            </Checkbox>
+          </MenuItem>
         </MenuList>
       </Menu>
     </div>

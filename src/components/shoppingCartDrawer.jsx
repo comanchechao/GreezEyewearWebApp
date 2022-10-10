@@ -18,7 +18,6 @@ export default function shoppingCartDrawer() {
     <>
       <button
         ref={btnRef}
-        colorScheme="teal"
         onClick={onOpen}
         className="flex text-mainWhite transition ease-in duration-200 active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
       >

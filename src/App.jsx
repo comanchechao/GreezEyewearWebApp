@@ -7,7 +7,6 @@ import EmblaCarousel from "./components/EmblaCarousel";
 import FaceShape from "./assets/images/shopByFaceShape.webp";
 import FrameShape from "./assets/images/shopByFrameShape.webp";
 import mainPagePicture from "./assets/images/mainPagePicture.webp";
-import glessesSmallMainPage from "./assets/images/glessesSmallMainPage.webp";
 
 import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -124,6 +123,12 @@ function App() {
           >
             find your best fit for glasses
           </h1>
+          <button
+            className="px-20 transition ease-in duration-300 border-l-8 border-CoolGray-900 hover:text-CoolGray-900 text-mainWhite hover:bg-mainBlue py-2 text-3xl my-3 bg-CoolGray-900   rounded-full  "
+            type="submit"
+          >
+            Shop Now
+          </button>
           {/* <h1 className="text-5xl ml-30 flex items-center space-x-5 text-CoolGray-900 font-extralight">
             <span>Eyewear</span>
             <img
