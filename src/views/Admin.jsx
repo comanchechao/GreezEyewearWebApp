@@ -5,13 +5,19 @@ import Navbar from "../components/navbar";
 import blogList from "../components/blogList";
 import { supabase } from "../supabaseClient";
 import BlogImage from "../components/blogImage";
-import { useDisclosure, Box } from "@chakra-ui/react";
-import SalesManagement from '../components/salesManagement'
+import { useDisclosure } from "@chakra-ui/react";
+import SalesManagement from "../components/salesManagement";
+
 import {
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
+  Skeleton,
+  Stack,
+  SkeletonCircle,
+  SkeletonText,
+  Box,
   Button,
   ModalFooter,
   ModalBody,
@@ -111,7 +117,7 @@ export default function Admin() {
           </div>
         </div>
       ) : tab === "sales" ? (
-          <SalesManagement />
+        <SalesManagement />
       ) : tab === "blog" ? (
         <div className="flex flex-col items-center space-y-5 w-full justify-center p-5 capitalize">
           <div className="flex w-full items-center justify-between px-3 bg-CoolGray-900 h-20">
@@ -126,75 +132,87 @@ export default function Admin() {
             </div>
           </div>
 
-          <div className="flex flex-wrap space-x-2  items-center space-y-2 w-full justify-center font-bold text-xl  h-full shadow-2xl rounded">
-            {blogs.map((blog) => {
-              return (
-                <div
-                  key={blog.id}
-                  className="flex flex-col items-center pb-2  justify-around bg-CoolGray-900 w-full h-full lg:h-1/2 lg:w-1/2 space-y-5 rounded shadow-xl"
-                >
-                  <BlogImage BlogImage={blog.firstImage} />
-                  <h2 className="text-3xl text-mainWhite font-bold">
-                    {blog.blogTitle}
-                  </h2>
-                  <h2 className="text-xl text-mainWhite xs:hidden">
-                    {blog.firstInfo}
-                  </h2>
-                  <div className="flex w-full justify-around">
-                    <button
-                      onClick={() => {
-                        console.log(blog.id);
-                      }}
-                      className="transition font-bold text-xl  bg-mainWhite text-CoolGray-900 hover:bg-mainCream p-3 rounded"
-                    >
-                      Edit
-                    </button>
-
-                    <Button
-                      className="transition font-bold text-xl hover:text-white bg-red-500 text-white hover:bg-gray-600 p-9 rounded"
-                      onClick={onOpen}
-                    >
-                      <Trash
+          {loading === false ? (
+            <div className="flex flex-wrap space-x-2  items-center space-y-2 w-full justify-center font-bold text-xl  h-full shadow-2xl rounded">
+              {blogs.map((blog) => {
+                return (
+                  <div
+                    key={blog.id}
+                    className="flex flex-col items-center pb-2  justify-around bg-CoolGray-900 w-full h-full lg:h-1/2 lg:w-1/2 space-y-5 rounded shadow-xl"
+                  >
+                    <BlogImage BlogImage={blog.firstImage} />
+                    <h2 className="text-3xl text-mainWhite font-bold">
+                      {blog.blogTitle}
+                    </h2>
+                    <h2 className="text-xl text-mainWhite xs:hidden">
+                      {blog.firstInfo}
+                    </h2>
+                    <div className="flex w-full justify-around">
+                      <button
                         onClick={() => {
-                          setCaptureId(blog.id);
+                          console.log(blog.id);
                         }}
-                        className="text-red-500"
-                        size={32}
-                      />
-                    </Button>
-                    <Modal
-                      className="bg-Cyan-400"
-                      finalFocusRef={finalRef}
-                      isOpen={isOpen}
-                      onClose={onClose}
-                    >
-                      <ModalOverlay />
-                      <ModalContent>
-                        <ModalHeader>delete {blog.blogTitle}</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>Are you sure to delete?</ModalBody>
+                        className="transition font-bold text-xl  bg-mainWhite text-CoolGray-900 hover:bg-mainCream p-3 rounded"
+                      >
+                        Edit
+                      </button>
 
-                        <ModalFooter>
-                          <Button colorScheme="gray" mr={3} onClick={onClose}>
-                            Close
-                          </Button>
-                          <Button
-                            onClick={() => {
-                              removeBlog();
-                            }}
-                            className="bg-red-500 text-white"
-                            variant="ghost"
-                          >
-                            Yes , DELETE blog.
-                          </Button>
-                        </ModalFooter>
-                      </ModalContent>
-                    </Modal>
+                      <Button
+                        className="transition font-bold text-xl hover:text-white bg-red-500 text-white hover:bg-gray-600 p-9 rounded"
+                        onClick={onOpen}
+                      >
+                        <Trash
+                          onClick={() => {
+                            setCaptureId(blog.id);
+                          }}
+                          className="text-red-500"
+                          size={32}
+                        />
+                      </Button>
+                      <Modal
+                        className="bg-Cyan-400"
+                        finalFocusRef={finalRef}
+                        isOpen={isOpen}
+                        onClose={onClose}
+                      >
+                        <ModalOverlay />
+                        <ModalContent>
+                          <ModalHeader>delete {blog.blogTitle}</ModalHeader>
+                          <ModalCloseButton />
+                          <ModalBody>Are you sure to delete?</ModalBody>
+
+                          <ModalFooter>
+                            <Button colorScheme="gray" mr={3} onClick={onClose}>
+                              Close
+                            </Button>
+                            <Button
+                              onClick={() => {
+                                removeBlog();
+                              }}
+                              className="bg-red-500 text-white"
+                              variant="ghost"
+                            >
+                              Yes , DELETE blog.
+                            </Button>
+                          </ModalFooter>
+                        </ModalContent>
+                      </Modal>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="w-full h-64 rounded">
+              <Box padding="10" boxShadow="xl" bg="white">
+                <Stack>
+                  <Skeleton height="40px" />
+                  <Skeleton height="40px" />
+                  <Skeleton height="40px" />
+                </Stack>
+              </Box>
+            </div>
+          )}
         </div>
       ) : null}
     </div>
