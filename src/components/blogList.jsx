@@ -60,7 +60,7 @@ export default function blogList() {
   }
 
   return (
-    <div className="w-full flex justify-center flex-wrap items-center h-full">
+    <div className="w-full lg:p-14 flex justify-center flex-wrap items-center h-full">
       <div className="flex bg-white items-center rounded justify-end w-full h-12">
         <SquaresFour className=" transition hover:bg-mainBlue" size={45} />
         <Rows className=" transition hover:bg-mainBlue" size={45} />

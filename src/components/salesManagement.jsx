@@ -4,11 +4,27 @@ import {
   Eyeglasses,
   ArrowArcLeft,
   Trash,
+  Plus,
+  Upload,
 } from "phosphor-react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button,
+} from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function salesManagement() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [tab, setTab] = useState("");
+  const [uploading, setUploading] = useState(false);
+
   return (
     <div className="flex flex-col items-center justify-center w-screen h-full bg-mainCream">
       {tab === "" ? (
@@ -21,7 +37,7 @@ export default function salesManagement() {
           >
             <div className="flex p-2 space-y-4 flex-col">
               <h1 className="text-4xl lg:text-6xl">Sun Glasses</h1>
-              <p className="text-lg">remaining: 24</p>
+              <p className="text-lg">Stocks: 24</p>
             </div>
             <div className="flex justify-center items-center">
               <Sunglasses size={70}></Sunglasses>
@@ -35,7 +51,7 @@ export default function salesManagement() {
           >
             <div className="flex justify-center items-center space-y-4 p-2 flex-col">
               <h1 className="text-4xl lg:text-6xl">Lenses</h1>
-              <p className="text-lg">remaining: 24</p>
+              <p className="text-lg">Stocks: 24</p>
             </div>
             <div className="flex justify-center items-center">
               <Eye size={70}></Eye>
@@ -49,7 +65,7 @@ export default function salesManagement() {
           >
             <div className="flex space-y-4 p-2 flex-col">
               <h1 className="text-4xl lg:text-6xl">Eye Glasses</h1>
-              <p className="text-lg">remaining: 24</p>
+              <p className="text-lg">Stocks: 24</p>
             </div>
             <div className="flex justify-center items-center">
               <Eyeglasses size={70}></Eyeglasses>
@@ -65,11 +81,87 @@ export default function salesManagement() {
                 setTab("");
               }}
             >
-              <ArrowArcLeft color="white" size={52}></ArrowArcLeft>
+              <ArrowArcLeft color="white" size={48}></ArrowArcLeft>
             </button>
-            <h1 className="text-5xl text-CoolGray-800">{tab}</h1>
+            <h1 className="font-bold text-5xl text-CoolGray-800">{tab}</h1>
           </div>
           <div className="flex flex-col space-y-2 divide-y-4 p-5">
+            <div className="flex justify-center items-center w-full">
+              <Button classNamw="bg-blueGray-300 p-5" mt={4} onClick={onOpen}>
+                <Plus color="black" size={48} />
+              </Button>
+
+              <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent className="bg-CoolGray-900">
+                  <ModalHeader className="bg-CoolGray-900 text-mainCream">
+                    New Product
+                  </ModalHeader>
+                  <ModalCloseButton />
+                  <ModalBody className="flex space-y-2 justify-center items-center bg-CoolGray-900  flex-col w-full">
+                    <div className="w-full flex-row justify-around items-center flex">
+                      <label
+                        htmlFor="file1"
+                        className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-mainWhite rounded-full text-white"
+                      >
+                        {uploading ? <Spinner /> : <Upload size={40}></Upload>}
+                      </label>
+                      <input
+                        disabled={uploading}
+                        id="file1"
+                        type="file"
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="file1"
+                        className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-mainWhite rounded-full text-white"
+                      >
+                        {uploading ? <Spinner /> : <Upload size={40}></Upload>}
+                      </label>
+                      <input
+                        disabled={uploading}
+                        id="file1"
+                        type="file"
+                        className="hidden"
+                      />
+                    </div>
+                    <div className="flex w-full space-y-2 flex-col divide-y-4">
+                      <input
+                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
+                        placeholder="Title"
+                      />
+                      <input
+                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="number"
+                      />
+                      <select
+                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name=""
+                        id=""
+                      >
+                        <option value="ray band">ray band</option>
+                        <option value="gentle monster">gentle monster</option>
+                        <option value="dolcegabana">dolcegabana</option>
+                      </select>
+                    </div>
+                  </ModalBody>
+
+                  <ModalFooter className="bg-CoolGray-900">
+                    <Button colorScheme="blue" mr={3}>
+                      Save
+                    </Button>
+                    <Button
+                      className="bg-red-500"
+                      onClick={onClose}
+                      variant="ghost"
+                    >
+                      Cancel
+                    </Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
+            </div>
             <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
               <h1 className="w-14 h-14 bg-yellow-900"></h1>
               <h2>25555 T</h2>
@@ -104,7 +196,7 @@ export default function salesManagement() {
 
       <div className="flex mt-5 w-11/12 flex-col bg-CoolGray-800">
         <div className="flex items-center bg-white h-24">
-          <h1 className="text-4xl mx-4">latest sales</h1>
+          <h1 className="font-bold text-4xl mx-4">latest sales</h1>
         </div>
         <div className="flex flex-col space-y-2 divide-y-4 p-5">
           <div className="flex shadow-2xl flex-row justify-around bg-mainBlue justify-center items-center w-full h-24">
