@@ -6,6 +6,7 @@ import blogList from "../components/blogList";
 import { supabase } from "../supabaseClient";
 import BlogImage from "../components/blogImage";
 import { useDisclosure, Box } from "@chakra-ui/react";
+import SalesManagement from '../components/salesManagement'
 import {
   Modal,
   ModalOverlay,
@@ -110,54 +111,7 @@ export default function Admin() {
           </div>
         </div>
       ) : tab === "sales" ? (
-        <div className="flex w-full p-4 shadow-2xl justify-center items-center">
-          <div className="flex bg-mainWhite text-gray-800 space-x-2  space-y-5 p-5 justify-center w-full h-full flex-row flex-wrap">
-            <div className="flex flex-col space-y-3 justify-center items-center w-full lg:w-1/3 h-52 rounded bg-white shadoow-xl">
-              <div className="bg-gray-200 h-32 w-full"></div>
-              <h2 className="text-3xl font-bold">Title</h2>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas, numquam!
-              </h3>
-            </div>
-
-            <div className="flex flex-col lg:space-x-2 space-y-3 justify-center items-center w-full lg:w-1/3 h-52 rounded bg-white shadoow-xl">
-              <div className="bg-gray-200 h-32 w-full"></div>
-              <h2 className="text-3xl font-bold">Title</h2>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas, numquam!
-              </h3>
-            </div>
-
-            <div className="flex flex-col space-y-3 justify-center items-center w-full lg:w-1/3 h-52 rounded bg-white shadoow-xl">
-              <div className="bg-gray-200 h-32 w-full"></div>
-              <h2 className="text-3xl font-bold">Title</h2>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas, numquam!
-              </h3>
-            </div>
-
-            <div className="flex flex-col space-y-3 justify-center items-center w-full lg:w-1/3 h-52 rounded bg-white shadoow-xl">
-              <div className="bg-gray-200 h-32 w-full"></div>
-              <h2 className="text-3xl font-bold">Title</h2>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas, numquam!
-              </h3>
-            </div>
-
-            <div className="flex flex-col space-y-3 justify-center items-center w-full lg:w-1/3 h-52 rounded bg-white shadoow-xl">
-              <div className="bg-gray-200 h-32 w-full"></div>
-              <h2 className="text-3xl font-bold">Title</h2>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas, numquam!
-              </h3>
-            </div>
-          </div>
-        </div>
+          <SalesManagement />
       ) : tab === "blog" ? (
         <div className="flex flex-col items-center space-y-5 w-full justify-center p-5 capitalize">
           <div className="flex w-full items-center justify-between px-3 bg-CoolGray-900 h-20">
