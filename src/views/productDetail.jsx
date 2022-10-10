@@ -45,7 +45,7 @@ export default function ProductDetail() {
 
               <BreadcrumbItem isCurrentPage>
                 <BreadcrumbLink href="#">
-                  <span className="font-black">Rectangle Eyeglasses</span>
+                  <span className="font-black">Product Detail</span>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
