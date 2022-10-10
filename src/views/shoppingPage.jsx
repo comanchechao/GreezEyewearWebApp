@@ -35,7 +35,7 @@ export default function shoppingPage() {
         >
           <div
             ref={filterMenu}
-            className=" w-full h-28 flex items-center justify-start bg-CoolGray-900 z-10"
+            className=" w-full h-24 flex items-center justify-start bg-CoolGray-900 z-10"
           >
             <Menu className=""></Menu>
           </div>

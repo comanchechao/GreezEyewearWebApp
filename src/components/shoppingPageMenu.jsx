@@ -27,7 +27,7 @@ export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(10000);
   const [maxPrice, setMaxPrice] = useState(300000);
   return (
-    <div className=" h-28 w-full  z-20  flex flex-wrap justify-center space-y-3 lg:space-y-0   space-x-10   items-center text-2xl">
+    <div className=" h-24 w-full  z-20  flex flex-wrap justify-center space-y-3 lg:space-y-0   space-x-10   items-center text-2xl">
       <Menu closeOnSelect={false}>
         <MenuButton
           className=" bg-CoolGray-900 text-mainWhite"
