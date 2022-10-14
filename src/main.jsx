@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider } from "@chakra-ui/react";
 import App from "./App";
 import "./index.css";
 import Admin from "./views/Admin";
@@ -13,12 +12,16 @@ import ShoppingPage from "./views/shoppingPage";
 import ProductDetail from "./views/productDetail";
 import CreateBlog from "./views/CreateBlog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { extendTheme } from "@chakra-ui/react";
 import EditBlog from "./views/blogEdit";
 import LensSelect from "./views/lensSelect";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { StepsStyleConfig as Steps } from "chakra-ui-steps";
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
+  components: {
+    Steps,
+  },
   colors: {
     brand: {
       100: "#ffbd00",
