@@ -6,7 +6,7 @@ export default function Contents(props) {
     <div>
       {props.index === 1 && (
         <div className=" h-64 w-full my-5 text-10xl space-y-3">
-          <div className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainCream cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
             <img src={perscriptionIcon} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Prescription</h1>
@@ -16,7 +16,7 @@ export default function Contents(props) {
               </h2>
             </div>
           </div>
-          <div className=" h-1/2 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainCream cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div className=" h-1/2 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
             <img src={perfectEyesightIcon} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Non-Prescription</h1>
