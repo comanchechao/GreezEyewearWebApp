@@ -24,7 +24,6 @@ export default function blogList() {
       const { data, error } = await supabase.from("blogs").select();
       if (error) throw error;
       setBlogs(data);
-      console.log(data);
     } catch (error) {
       alert(error.message);
     } finally {
@@ -34,7 +33,6 @@ export default function blogList() {
 
   useEffect(() => {
     getBlogs();
-    console.log(blogs);
   }, []);
 
   if (loading) {

@@ -11,7 +11,6 @@ export default function blogImage(props) {
     setPath(props.BlogImage);
     try {
       setLoading(true);
-      console.log(props);
       const { data, error } = await supabase.storage
         .from("blog-images")
         .download(props.BlogImage);

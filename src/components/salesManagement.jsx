@@ -91,15 +91,15 @@ export default function salesManagement() {
                 <Plus color="black" size={48} />
               </Button>
 
-              <Modal isOpen={isOpen} onClose={onClose}>
+              <Modal size={"full"} isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent className="bg-CoolGray-900">
-                  <ModalHeader className="bg-CoolGray-900 text-mainCream">
+                  <ModalHeader className=" bg-CoolGray-900 text-mainCream">
                     New Product
                   </ModalHeader>
                   <ModalCloseButton />
-                  <ModalBody className="flex space-y-2 justify-center items-center bg-CoolGray-900  flex-col w-full">
-                    <div className="w-full flex-row justify-around items-center flex">
+                  <ModalBody className="flex space-y-2 justify-start h-full items-center bg-CoolGray-900  flex-col w-full">
+                    <div className="w-full h-full flex-row justify-around items-start flex">
                       <label
                         htmlFor="file1"
                         className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-mainWhite rounded-full text-white"
@@ -125,7 +125,7 @@ export default function salesManagement() {
                         className="hidden"
                       />
                     </div>
-                    <div className="flex w-full space-y-2 flex-col divide-y-4">
+                    <div className="flex w-full space-y-5 flex-col ">
                       <input
                         className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="text"
@@ -143,6 +143,26 @@ export default function salesManagement() {
                         <option value="ray band">ray band</option>
                         <option value="gentle monster">gentle monster</option>
                         <option value="dolcegabana">dolcegabana</option>
+                      </select>
+                      <select
+                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name=""
+                        id=""
+                      >
+                        <option value="ray band">elastic</option>
+                        <option value="gentle monster">plastic</option>
+                        <option value="dolcegabana">steel</option>
+                        <option value="">metalic</option>
+                      </select>
+                      <select
+                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name=""
+                        id=""
+                      >
+                        <option value="ray band">round</option>
+                        <option value="gentle monster">oval</option>
+                        <option value="dolcegabana">squere</option>
+                        <option value="">diomond</option>
                       </select>
                     </div>
                   </ModalBody>

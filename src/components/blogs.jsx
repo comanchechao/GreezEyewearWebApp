@@ -36,7 +36,6 @@ export default function blogs() {
               type="text"
             />
             <h2 className="text-5xl font-bold">Recent Articles</h2>
-            <button className="text-3xl font-bold">get blogs</button>
           </div>
           <div className="bg-white p-5 rounded-full">
             <DotsThreeOutlineVertical size={40} />
