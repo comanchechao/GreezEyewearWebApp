@@ -16,7 +16,7 @@ export const ProgressMenu = () => {
       <Steps
         onClickStep={(step) => setStep(step)}
         activeStep={activeStep}
-        className="text-10xl"
+        className="text-10xl px-28 my-5"
         labelOrientation="vertical"
       >
         {steps.map(({ label, description }, index) => (
