@@ -1,23 +1,23 @@
 import { Step, Steps, useSteps } from "chakra-ui-steps";
-import { CheckCircle } from "phosphor-react";
 import { Flex, Button, Heading } from "@chakra-ui/react";
 import Contents from "./contents";
 const steps = [
-  { label: "Step 1", description: "Step 1 description" },
-  { label: "Step 2", description: "Step 2 description" },
+  { label: "Glass Type", description: "Choose your glass type" },
+  { label: "Perscription", description: "Fill your perscription info" },
   { label: "Step 3", description: "Step 3 description" },
   { label: "Step 4", description: "Step 4 description" },
 ];
 export const ProgressMenu = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
-    initialStep: 0,
+    initialStep: 1,
   });
   return (
     <Flex flexDir="column" width="100%">
       <Steps
-        labelOrientation="vertical"
-        checkIcon={CheckCircle}
+        onClickStep={(step) => setStep(step)}
         activeStep={activeStep}
+        className="text-10xl"
+        labelOrientation="vertical"
       >
         {steps.map(({ label, description }, index) => (
           <Step label={label} key={label} description={description}>

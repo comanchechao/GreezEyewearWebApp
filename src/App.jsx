@@ -102,18 +102,18 @@ function App() {
       >
         <img
           ref={mainPicture}
-          className="object-contain absolute top-80 lg:top-28  lg:right-48 max-w-xs  lg:max-w-2xl z-10"
+          className="object-contain absolute top-96 lg:top-28  lg:right-48 max-w-xs  lg:max-w-2xl z-10"
           src={mainPagePicture}
           alt=""
         />
         <div
           ref={mainPageBg}
-          className="  w-2/3  bg-mainWhite  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
+          className="  w-2/3  bg-mainWhite py-4  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
-          <h2 className=" text-7xl lg:text-6xl font-SultanFont my-0 font-bold">
+          <h2 className="  text-9xl leading-10  font-SultanFont mt-10 font-bold">
             Azim
           </h2>
-          <h4 className="text-2xl font-SultanFont  font-extralight  lg:ml-0 ml-28  flex items-center">
+          <h4 className="text-3xl font-SultanFont my-3  font-extralight  lg:ml-0 ml-28  flex items-center">
             Eyewear
             <Eye className="ml-1" size={23}></Eye>
           </h4>
@@ -124,7 +124,7 @@ function App() {
             find your best fit for glasses
           </h1>
           <button
-            className="px-20 transition ease-in duration-300 border-l-8 border-CoolGray-900 hover:text-CoolGray-900 text-mainWhite hover:bg-mainBlue py-2 text-3xl my-3 bg-CoolGray-900   rounded-full  "
+            className="lg:px-20 px-10  transition ease-in duration-300 border-l-8 border-CoolGray-900 hover:text-CoolGray-900 text-mainWhite hover:bg-mainBlue py-2 text-xl lg:text-3xl my-3 bg-CoolGray-900   rounded-full  "
             type="submit"
           >
             Shop Now

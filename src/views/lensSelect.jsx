@@ -3,13 +3,18 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import ProgressMenu from "../components/progressMenu";
+import { useEffect } from "react";
 export default function LensSelect() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className=" h-auto w-screen overflow-x-hidden bg-CoolGray-800">
       <Navbar></Navbar>
-      <div className=" h-auto w-screen pt-28 ">
+      <div className=" h-auto w-screen pt-20 ">
         <div className="h-full w-full flex flex-col items-center justify-center bg-mainCream">
-          <div className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-mainCream">
+          <div className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-white">
             <Breadcrumb
               spacing="8px"
               separator={<ChevronRightIcon color="gray.500" />}
@@ -39,7 +44,7 @@ export default function LensSelect() {
             </Breadcrumb>
           </div>
           <div className="w-screen h-screen flex">
-            <div className="h-full w-1/2 px-8 py-7 bg-mainCream">
+            <div className="h-full w-1/2 px-8 py-7 bg-mainWhite">
               <ProgressMenu></ProgressMenu>
             </div>
             <div className="h-full w-1/2 bg-CoolGray-900"></div>
