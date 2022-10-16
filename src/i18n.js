@@ -12,33 +12,37 @@ i18next
       en: {
         translation: {
           // general translations
-          sunGlasses:"Sun Glasses",
-          lenses:"Lenses",
-          eyeGlasses:"Eye Glasses",
+          sunGlasses: "Sun Glasses",
+          lenses: "Lenses",
+          eyeGlasses: "Eye Glasses",
           stock: "stock",
+          premiumBrands: "Premium Brands",
+          blogs: "Blogs",
           // main page translations
           azim: "azim",
           eyewear: "eyewear",
           shopNow: "shop now",
           // blog page translations
           blogPageHeader: "latest on eyewaer",
-          recentArticles: 'recent articles'
+          recentArticles: "recent articles",
         },
       },
       fa: {
         translation: {
           // general translations
-          sunGlasses:"عینک آفتابی",
-          lenses:"لنز",
-          eyeGlasses:"عینک طبی",
+          sunGlasses: "عینک آفتابی",
+          lenses: "لنز",
+          eyeGlasses: "عینک طبی",
           stock: "موجودی",
+          premiumBrands: "پریمیوم",
+          blogs: "بلاگ",
           // main page translations
           azim: "عظیم",
           eyewear: "اوپتیک",
           shopNow: "خرید",
           // blog page translations
           blogPageHeader: "تازه ترین های عینک",
-          recentArticles: 'اخرین مقاله ها'
+          recentArticles: "اخرین مقاله ها",
         },
       },
     },

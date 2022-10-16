@@ -10,11 +10,13 @@ import {
   Alien,
   Eyeglasses,
   Sunglasses,
+  Globe,
   Copyright,
   Eye,
 } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
+import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 
 const lngs = {
   en: { cut: "en", nativeName: "English" },
@@ -68,50 +70,38 @@ export default function navbar() {
           to={"/ShoppingPage"}
           className="text-mainWhite font-extrabold  transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-centerr"
         >
-          <h1 className="pr-3 font-extralight hidden lg:flex">Eyeglasses</h1>
+          <h1 className="pr-3 font-extralight hidden lg:flex">
+            {t("eyeGlasses")}
+          </h1>
           <Eyeglasses size={35} />
         </Link>
         <Link
           to={"/ShoppingPage"}
           className="  transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center text-mainWhite"
         >
-          <h1 className="pr-3 font-extralight   ">Sunglasses</h1>
+          <h1 className="pr-3 font-extralight   ">{t("sunGlasses")}</h1>
           <Sunglasses size={35} />
         </Link>
         <Link
           to={"/ShoppingPage"}
           className="flex text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
-          <h1 className="pr-3 font-extralight  ">Lenses</h1>
+          <h1 className="pr-3 font-extralight  ">{t("lenses")}</h1>
           <Eye size={30} />
         </Link>
         <Link
           to={"/blogs"}
           className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
-          <h1 className=" ">Premium Brands</h1>
+          <h1 className=" ">{t("premiumBrands")}</h1>
           <Copyright size={18} />
         </Link>
-        <div className="flex justify-around space-x-2">
-          {Object.keys(lngs).map((lng) => (
-            <button
-              className="text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-              key={lng}
-              style={{
-                fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
-              }}
-              type="submit"
-              onClick={() => i18n.changeLanguage(lng)}
-            >
-              {lngs[lng].cut}
-            </button>
-          ))}
-        </div>
+
         <Link
           to={"/blogs"}
           className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
-          <h1 className=" font-extralight ">Blog</h1>
+          <h1 className=" font-extralight ">{t("blogs")}</h1>
         </Link>
 
         <Link
@@ -120,6 +110,35 @@ export default function navbar() {
         >
           <Alien size={35} />
         </Link>
+        <Menu closeOnSelect={false}>
+          <MenuButton
+            className=" bg-CoolGray-900 text-mainWhite"
+            minH="28px"
+            px={4}
+            py={2}
+            transition="all 0.2s"
+            borderRadius="sm"
+            _hover={{ bg: "gray.600" }}
+            _expanded={{ bg: "blue.400" }}
+          >
+            <Globe />
+          </MenuButton>
+          <MenuList>
+            {Object.keys(lngs).map((lng) => (
+              <MenuItem
+                className="text-mainWhite transition flex lg:flex-col  ease-in duration-200 hidden  justify-center active:bg-mainBlue lg:hover:bg-mainBlue p-2 active:text-CoolGray-900 lg:hover:text-CoolGray-900 w-14 h-14 items-center"
+                key={lng}
+                style={{
+                  fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
+                }}
+                type="submit"
+                onClick={() => i18n.changeLanguage(lng)}
+              >
+                {lngs[lng].cut}
+              </MenuItem>
+            ))}
+          </MenuList>
+        </Menu>
         <div className="flex space-x-4">
           <button
             onClick={openModal}
