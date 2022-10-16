@@ -113,10 +113,10 @@ function App() {
           className="  w-2/3  bg-mainWhite py-4  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
           <h2 className="  text-9xl leading-10  font-SultanFont mt-10 font-bold">
-            {t("azim")}
+            azim
           </h2>
           <h4 className="text-3xl font-SultanFont my-3  font-extralight  lg:ml-0 ml-28  flex items-center">
-            {t("eyewear")}
+            {t('eyewear')}
             <Eye className="ml-1" size={23}></Eye>
           </h4>
           <h1
@@ -129,7 +129,7 @@ function App() {
             className="lg:px-20 px-10  transition ease-in duration-300 border-l-8 border-CoolGray-900 hover:text-CoolGray-900 text-mainWhite hover:bg-mainBlue py-2 text-xl lg:text-3xl my-3 bg-CoolGray-900   rounded-full  "
             type="submit"
           >
-            Shop Now
+            {t("shopNow")}
           </button>
           {/* <h1 className="text-5xl ml-30 flex items-center space-x-5 text-CoolGray-900 font-extralight">
             <span>Eyewear</span>

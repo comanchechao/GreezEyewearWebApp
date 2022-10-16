@@ -16,10 +16,9 @@ import {
 import { Link } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 
-
 const lngs = {
-  en: { nativeName: "English" },
-  fa: { nativeName: "farsi" },
+  en: { cut: "en", nativeName: "English" },
+  fa: { cut: "fa", nativeName: "farsi" },
 };
 
 export default function navbar() {
@@ -104,7 +103,7 @@ export default function navbar() {
               type="submit"
               onClick={() => i18n.changeLanguage(lng)}
             >
-              {lngs[lng].nativeName}
+              {lngs[lng].cut}
             </button>
           ))}
         </div>

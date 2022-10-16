@@ -9,8 +9,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { supabase } from "../supabaseClient";
 import BlogList from "./blogList";
+import { useTranslation } from "react-i18next";
 
 export default function blogs() {
+  const { t, i18n } = useTranslation();
+
   return (
     <div className=" w-full  h-full bg-mainWhite">
       <Navbar />
@@ -18,7 +21,7 @@ export default function blogs() {
         <div className="mt-16 space-y-6 flex justify-end items-center flex-col  align-center">
           <div className="flex space-y-2 flex-col justify-center align-center items-center">
             <h1 className="font-bold capitalize my-7 text-7xl text-center">
-              Latest on eyewear Fashion
+              {t("blogPageHeader")}
             </h1>
             <h2 className="text-xl">Monday 2022</h2>
           </div>
@@ -35,7 +38,7 @@ export default function blogs() {
               placeholder="Search Articles..."
               type="text"
             />
-            <h2 className="text-5xl font-bold">Recent Articles</h2>
+            <h2 className="text-5xl font-bold">{t("recentArticles")}</h2>
           </div>
           <div className="bg-white p-5 rounded-full">
             <DotsThreeOutlineVertical size={40} />
