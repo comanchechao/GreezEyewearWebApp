@@ -14,9 +14,20 @@ import {
   Eye,
 } from "phosphor-react";
 import { Link } from "react-router-dom";
+import { useTranslation, Trans } from "react-i18next";
+
+
+const lngs = {
+  en: { nativeName: "English" },
+  fa: { nativeName: "farsi" },
+};
 
 export default function navbar() {
   let [isOpen, setIsOpen] = useState(false);
+
+  const languageChange = (lang) => {
+    console.log(i18n.changeLanguage);
+  };
 
   function closeModal() {
     setIsOpen(false);
@@ -31,6 +42,13 @@ export default function navbar() {
   function openModal() {
     setIsOpen(true);
   }
+
+  const langs = [
+    { cut: "en", nativeName: "english" },
+    { cut: "fa", nativeName: "farsi" },
+  ];
+
+  const { t, i18n } = useTranslation();
 
   return (
     <div
@@ -75,6 +93,21 @@ export default function navbar() {
           <h1 className=" ">Premium Brands</h1>
           <Copyright size={18} />
         </Link>
+        <div className="flex justify-around space-x-2">
+          {Object.keys(lngs).map((lng) => (
+            <button
+              className="text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+              key={lng}
+              style={{
+                fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
+              }}
+              type="submit"
+              onClick={() => i18n.changeLanguage(lng)}
+            >
+              {lngs[lng].nativeName}
+            </button>
+          ))}
+        </div>
         <Link
           to={"/blogs"}
           className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"

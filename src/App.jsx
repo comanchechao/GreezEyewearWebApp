@@ -7,7 +7,7 @@ import EmblaCarousel from "./components/EmblaCarousel";
 import FaceShape from "./assets/images/shopByFaceShape.webp";
 import FrameShape from "./assets/images/shopByFrameShape.webp";
 import mainPagePicture from "./assets/images/mainPagePicture.webp";
-
+import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -25,6 +25,8 @@ function App() {
   const secondContainer = useRef();
   const secondBox = useRef();
   const mainContainer = useRef();
+
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     gsap.from(firstBox.current, {
@@ -111,10 +113,10 @@ function App() {
           className="  w-2/3  bg-mainWhite py-4  mt-2  flex  flex-col justify-center lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
           <h2 className="  text-9xl leading-10  font-SultanFont mt-10 font-bold">
-            Azim
+            {t("azim")}
           </h2>
           <h4 className="text-3xl font-SultanFont my-3  font-extralight  lg:ml-0 ml-28  flex items-center">
-            Eyewear
+            {t("eyewear")}
             <Eye className="ml-1" size={23}></Eye>
           </h4>
           <h1

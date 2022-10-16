@@ -16,6 +16,7 @@ import EditBlog from "./views/blogEdit";
 import LensSelect from "./views/lensSelect";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { StepsStyleConfig as Steps } from "chakra-ui-steps";
+import i18next from "./i18n";
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
