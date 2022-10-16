@@ -110,33 +110,30 @@ export default function navbar() {
         >
           <Alien size={35} />
         </Link>
-        <Menu closeOnSelect={false}>
+        <Menu  closeOnSelect={true}>
           <MenuButton
-            className=" bg-CoolGray-900 text-mainWhite"
-            minH="28px"
-            px={4}
-            py={2}
+            className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
             transition="all 0.2s"
-            borderRadius="sm"
-            _hover={{ bg: "gray.600" }}
-            _expanded={{ bg: "blue.400" }}
           >
             <Globe />
           </MenuButton>
-          <MenuList>
-            {Object.keys(lngs).map((lng) => (
-              <MenuItem
-                className="text-mainWhite transition flex lg:flex-col  ease-in duration-200 hidden  justify-center active:bg-mainBlue lg:hover:bg-mainBlue p-2 active:text-CoolGray-900 lg:hover:text-CoolGray-900 w-14 h-14 items-center"
-                key={lng}
-                style={{
-                  fontWeight: i18n.resolvedLanguage === lng ? "bold" : "normal",
-                }}
-                type="submit"
-                onClick={() => i18n.changeLanguage(lng)}
-              >
-                {lngs[lng].cut}
-              </MenuItem>
-            ))}
+          <MenuList className="">
+            <div >
+              {Object.keys(lngs).map((lng) => (
+                <MenuItem
+                  className="text-mainWhite transition flex lg:flex-col  ease-in duration-200 hidden  justify-center active:bg-mainBlue lg:hover:bg-mainBlue p-2 active:text-CoolGray-900 lg:hover:text-CoolGray-900 w-14 h-14 items-center"
+                  key={lng}
+                  style={{
+                    fontWeight:
+                      i18n.resolvedLanguage === lng ? "bold" : "normal",
+                  }}
+                  type="submit"
+                  onClick={() => i18n.changeLanguage(lng)}
+                >
+                  {lngs[lng].cut}
+                </MenuItem>
+              ))}
+            </div>
           </MenuList>
         </Menu>
         <div className="flex space-x-4">
