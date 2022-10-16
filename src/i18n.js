@@ -11,6 +11,11 @@ i18next
     resources: {
       en: {
         translation: {
+          // general translations
+          sunGlasses:"Sun Glasses",
+          lenses:"Lenses",
+          eyeGlasses:"Eye Glasses",
+          stock: "stock",
           // main page translations
           azim: "azim",
           eyewear: "eyewear",
@@ -22,6 +27,11 @@ i18next
       },
       fa: {
         translation: {
+          // general translations
+          sunGlasses:"عینک آفتابی",
+          lenses:"لنز",
+          eyeGlasses:"عینک طبی",
+          stock: "موجودی",
           // main page translations
           azim: "عظیم",
           eyewear: "اوپتیک",

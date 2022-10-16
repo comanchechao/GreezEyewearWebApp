@@ -5,6 +5,7 @@ import {
   ArrowArcLeft,
   Trash,
   Plus,
+  Airplay,
   Upload,
 } from "phosphor-react";
 import {
@@ -19,8 +20,10 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function salesManagement() {
+  const { t, i18n } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [tab, setTab] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -36,8 +39,8 @@ export default function salesManagement() {
             className="flex flex-row w-full justify-around items-center lg:h-72 h-52 bg-CoolGray-800 hover:bg-CoolGray-900 transtition ease-all text-mainWhite"
           >
             <div className="flex p-2 space-y-4 flex-col">
-              <h1 className="text-4xl lg:text-6xl">Sun Glasses</h1>
-              <p className="text-lg">Stocks: 24</p>
+              <h1 className="text-4xl lg:text-6xl">{t("sunGlasses")}</h1>
+              <p className="text-lg">{t("stock")}: 24</p>
             </div>
             <div className="flex justify-center items-center">
               <Sunglasses size={70}></Sunglasses>
@@ -50,8 +53,8 @@ export default function salesManagement() {
             className="flex lg:h-72 flex-row w-full justify-around items-center h-52 bg-CoolGray-800 hover:bg-CoolGray-900 transtition ease-all text-mainWhite"
           >
             <div className="flex justify-center items-center space-y-4 p-2 flex-col">
-              <h1 className="text-4xl lg:text-6xl">Lenses</h1>
-              <p className="text-lg">Stocks: 24</p>
+              <h1 className="text-4xl lg:text-6xl">{t("lenses")}</h1>
+              <p className="text-lg">{t("stock")}: 24</p>
             </div>
             <div className="flex justify-center items-center">
               <Eye size={70}></Eye>
@@ -64,8 +67,8 @@ export default function salesManagement() {
             className="flex lg:h-72 flex-row justify-around items-center w-full h-52 bg-CoolGray-800 hover:bg-CoolGray-900 transtition ease-all text-mainWhite"
           >
             <div className="flex space-y-4 p-2 flex-col">
-              <h1 className="text-4xl lg:text-6xl">Eye Glasses</h1>
-              <p className="text-lg">Stocks: 24</p>
+              <h1 className="text-4xl lg:text-6xl">{t("eyeGlasses")}</h1>
+              <p className="text-lg">{t("stock")}: 24</p>
             </div>
             <div className="flex justify-center items-center">
               <Eyeglasses size={70}></Eyeglasses>
@@ -183,31 +186,47 @@ export default function salesManagement() {
               </Modal>
             </div>
             <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="w-14 h-14 bg-yellow-900"></h1>
-              <h2>25555 T</h2>
+              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
+              <h2 className="text-4xl font-bold">title</h2>
+              <h2 className="text-3xl xs:hidden">25555 T</h2>
               <h2>
-                <Trash />
+                <Airplay
+                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                  size={50}
+                />
               </h2>
             </div>
             <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="w-14 h-14 bg-yellow-900"></h1>
-              <h2>25555 T</h2>
+              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
+              <h2 className="text-4xl font-bold">title</h2>
+              <h2 className="text-3xl xs:hidden">25555 T</h2>
               <h2>
-                <Trash />
+                <Airplay
+                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                  size={50}
+                />
               </h2>
             </div>
             <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="w-14 h-14 bg-yellow-900"></h1>
-              <h2>25555 T</h2>
+              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
+              <h2 className="text-4xl font-bold">title</h2>
+              <h2 className="text-3xl xs:hidden">25555 T</h2>
               <h2>
-                <Trash />
+                <Airplay
+                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                  size={50}
+                />
               </h2>
             </div>
             <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="w-14 h-14 bg-yellow-900"></h1>
-              <h2>25555 T</h2>
+              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
+              <h2 className="text-4xl font-bold">title</h2>
+              <h2 className="text-3xl xs:hidden">25555 T</h2>
               <h2>
-                <Trash />
+                <Airplay
+                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                  size={50}
+                />
               </h2>
             </div>
           </div>
@@ -220,24 +239,44 @@ export default function salesManagement() {
         </div>
         <div className="flex flex-col space-y-2 divide-y-4 p-5">
           <div className="flex shadow-2xl flex-row justify-around bg-mainBlue justify-center items-center w-full h-24">
-            <h1>first buy</h1>
-            <h2>address</h2>
-            <h2>phone number</h2>
+            <h1 className="text-3xl font-bold">Alex buy</h1>
+            <h2 className="text-2xl">hour ago</h2>
+            <h2>
+              <Airplay
+                className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                size={50}
+              />
+            </h2>
           </div>
           <div className="flex shadow-2xl flex-row justify-around bg-mainBlue justify-center items-center w-full h-24">
-            <h1>first buy</h1>
-            <h2>address</h2>
-            <h2>phone number</h2>
+            <h1 className="text-3xl font-bold">Alex buy</h1>
+            <h2 className="text-2xl">an hour ago</h2>
+            <h2>
+              <Airplay
+                className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                size={50}
+              />
+            </h2>
           </div>
           <div className="flex shadow-2xl flex-row justify-around bg-mainBlue justify-center items-center w-full h-24">
-            <h1>first buy</h1>
-            <h2>address</h2>
-            <h2>phone number</h2>
+            <h1 className="text-3xl font-bold">Alex buy</h1>
+            <h2 className="text-2xl">an hour ago</h2>
+            <h2>
+              <Airplay
+                className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                size={50}
+              />
+            </h2>
           </div>
           <div className="flex shadow-2xl flex-row justify-around bg-mainBlue justify-center items-center w-full h-24">
-            <h1>first buy</h1>
-            <h2>address</h2>
-            <h2>phone number</h2>
+            <h1 className="text-3xl font-bold">Alex buy</h1>
+            <h2 className="text-2xl">an hour ago</h2>
+            <h2>
+              <Airplay
+                className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                size={50}
+              />
+            </h2>
           </div>
         </div>
       </div>
