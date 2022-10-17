@@ -40,6 +40,17 @@ i18next
           salesManagement: "Sales Management",
           back: "Back",
           newBlog: "New Blog",
+          // frame page translations
+          easily: "Easily Find The Best Glasses By Frame Shape",
+          pairFind: "Find The Best Pair For You",
+          polygon: "Polygon",
+          horn: "Horn",
+          round: "Round",
+          square: "Square",
+          rectangle: "Rectangle",
+          catEye: "Cat-Eye",
+          aviator: "Aviator",
+          browline: "Browline",
         },
       },
       fa: {
@@ -64,7 +75,8 @@ i18next
           tailorMade: "ساخته شده برای شما",
           shopBy: " خرید بر اساس",
           frameShape: " شکل فِرِم",
-          faceShape: " فرم صورت", // blog page translations
+          faceShape: " فرم صورت",
+          // blog page translations
           blogPageHeader: "تازه ترین های عینک",
           recentArticles: "اخرین مقاله ها",
           // admin page translations
@@ -72,6 +84,18 @@ i18next
           salesManagement: "مدیریت فروش",
           back: "برگرد",
           newBlog: "افزودن",
+
+          // frame page translations
+          easily: "به راحتی بهترین عینک رو بر اساس شکل فِرِم انتخاب کنید",
+          pairFind: "عینک مورد نظرتون رو انتخاب کنید",
+          polygon: "چند ضلعی",
+          horn: "شاخ دار",
+          round: "گِرد",
+          square: "مربعی",
+          rectangle: "مستطیلی",
+          catEye: "گربه ای",
+          aviator: "خلبانی",
+          browline: "خط ابرو",
         },
       },
     },
