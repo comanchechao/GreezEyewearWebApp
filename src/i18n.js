@@ -25,6 +25,11 @@ i18next
           // blog page translations
           blogPageHeader: "latest on eyewaer",
           recentArticles: "recent articles",
+          // admin page translations
+          blogManagement: 'Blog Management',
+          salesManagement: 'Sales Management',
+          back: 'Back',
+          newBlog: 'New Blog'
         },
       },
       fa: {
@@ -43,6 +48,11 @@ i18next
           // blog page translations
           blogPageHeader: "تازه ترین های عینک",
           recentArticles: "اخرین مقاله ها",
+          // admin page translations
+          blogManagement: 'مدیریت بلاگ',
+          salesManagement: 'مدیریت فروش',
+          back: 'برگرد',
+          newBlog: 'افزودن'
         },
       },
     },
