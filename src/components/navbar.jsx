@@ -4,6 +4,9 @@ import { Fragment, useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import ShoppingCartDrawer from "./shoppingCartDrawer";
 import PhoneDrawer from "./phoneDrawer";
+import LanguageDetector from "i18next-browser-languagedetector";
+import i18next from "i18next";
+
 import {
   SignIn,
   House,
@@ -19,16 +22,42 @@ import { useTranslation, Trans } from "react-i18next";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 
 const lngs = {
-  en: { cut: "en", nativeName: "English" },
-  fa: { cut: "fa", nativeName: "farsi" },
+  en: { cut: "En", nativeName: "English" },
+  fa: { cut: "Fa", nativeName: "farsi" },
 };
+const langButton = () => {
+  Object.keys(lngs).map((lng) => {
+    i18next.use(LanguageDetector);
 
+    if (lng === "Fa") {
+      return (
+        <button
+          key={lng}
+          onClick={() => i18n.changeLanguage(lng)}
+          type="submit"
+          className="  text-mainWhite transition flex-col  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+        >
+          <Globe />
+          En
+        </button>
+      );
+    } else {
+      return (
+        <button
+          key={lng}
+          onClick={() => i18n.changeLanguage(lng)}
+          type="submit"
+          className="  text-mainWhite transition flex-col  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+        >
+          <Globe />
+          Fa
+        </button>
+      );
+    }
+  });
+};
 export default function navbar() {
   let [isOpen, setIsOpen] = useState(false);
-
-  const languageChange = (lang) => {
-    console.log(i18n.changeLanguage);
-  };
 
   function closeModal() {
     setIsOpen(false);
@@ -44,11 +73,6 @@ export default function navbar() {
     setIsOpen(true);
   }
 
-  const langs = [
-    { cut: "en", nativeName: "english" },
-    { cut: "fa", nativeName: "farsi" },
-  ];
-
   const { t, i18n } = useTranslation();
 
   return (
@@ -60,6 +84,12 @@ export default function navbar() {
         <div className="lg:hidden flex">
           <PhoneDrawer></PhoneDrawer>
         </div>
+        <Link
+          to={"/"}
+          className="text-mainWhite font-extrabold   transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-4 items-center"
+        >
+          <span className=" font-SultanFont text-5xl font-bold">Azim</span>
+        </Link>
         <Link
           to={"/"}
           className="text-mainWhite font-extrabold   transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
@@ -84,7 +114,7 @@ export default function navbar() {
         </Link>
         <Link
           to={"/ShoppingPage"}
-          className="flex text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
           <h1 className="pr-3 font-extralight  ">{t("lenses")}</h1>
           <Eye size={30} />
@@ -110,32 +140,8 @@ export default function navbar() {
         >
           <Alien size={35} />
         </Link>
-        <Menu  closeOnSelect={true}>
-          <MenuButton
-            className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-            transition="all 0.2s"
-          >
-            <Globe />
-          </MenuButton>
-          <MenuList className="">
-            <div >
-              {Object.keys(lngs).map((lng) => (
-                <MenuItem
-                  className="text-mainWhite transition flex lg:flex-col  ease-in duration-200 hidden  justify-center active:bg-mainBlue lg:hover:bg-mainBlue p-2 active:text-CoolGray-900 lg:hover:text-CoolGray-900 w-14 h-14 items-center"
-                  key={lng}
-                  style={{
-                    fontWeight:
-                      i18n.resolvedLanguage === lng ? "bold" : "normal",
-                  }}
-                  type="submit"
-                  onClick={() => i18n.changeLanguage(lng)}
-                >
-                  {lngs[lng].cut}
-                </MenuItem>
-              ))}
-            </div>
-          </MenuList>
-        </Menu>
+
+        <div>{langButton()} </div>
         <div className="flex space-x-4">
           <button
             onClick={openModal}

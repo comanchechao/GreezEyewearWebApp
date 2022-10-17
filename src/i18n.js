@@ -12,9 +12,9 @@ i18next
       en: {
         translation: {
           // general translations
-          sunGlasses: "Sun Glasses",
+          sunGlasses: "Sunglasses",
           lenses: "Lenses",
-          eyeGlasses: "Eye Glasses",
+          eyeGlasses: "Eyeglasses",
           stock: "stock",
           premiumBrands: "Premium Brands",
           blogs: "Blogs",
@@ -34,11 +34,11 @@ i18next
           lenses: "لنز",
           eyeGlasses: "عینک طبی",
           stock: "موجودی",
-          premiumBrands: "پریمیوم",
-          blogs: "بلاگ",
+          premiumBrands: "برند",
+          blogs: "وبلاگ",
           // main page translations
           azim: "عظیم",
-          eyewear: "اوپتیک",
+          eyewear: "عینک",
           shopNow: "خرید",
           // blog page translations
           blogPageHeader: "تازه ترین های عینک",

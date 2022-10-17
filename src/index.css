@@ -9,6 +9,7 @@
   font-display: swap;
 
   font-display: swap;
+  unicode-range: U+0020-007F;
 }
 
 @font-face {
@@ -17,22 +18,19 @@
   font-style: normal;
   font-display: swap;
 
-  font-display: swap;
+  unicode-range: U+0020-007F;
 }
 
-/* @font-face {
-  font-family: "SultanFont";
-  src: url("../src/assets/fonts/SultanFont.ttf");
+@font-face {
+  font-family: "Rezvan";
+  src: url("../src/assets/fonts/Qs_Iranyekan.ttf");
   font-style: normal;
-  font-display: swap;
-
-  unicode-range: U+0600-06FF;
+  font-weight: 700;
 
   font-display: swap;
-} */
-
+}
 * {
-  font-family: "LaleZar";
+  font-family: "LaleZar", "Rezvan";
 }
 * {
   scroll-behavior: smooth;
