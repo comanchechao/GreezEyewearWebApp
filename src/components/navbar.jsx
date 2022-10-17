@@ -25,37 +25,7 @@ const lngs = {
   en: { cut: "En", nativeName: "English" },
   fa: { cut: "Fa", nativeName: "Farsi" },
 };
-const langButton = () => {
-  Object.keys(lngs).map((lng) => {
-    i18next.use(LanguageDetector);
 
-    if (lng === "Fa") {
-      return (
-        <button
-          key={lng}
-          onClick={() => i18n.changeLanguage(lng)}
-          type="submit"
-          className="  text-mainWhite transition flex-col  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-        >
-          <Globe />
-          En
-        </button>
-      );
-    } else {
-      return (
-        <button
-          key={lng}
-          onClick={() => i18n.changeLanguage(lng)}
-          type="submit"
-          className="  text-mainWhite transition flex-col  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-        >
-          <Globe />
-          Fa
-        </button>
-      );
-    }
-  });
-};
 export default function navbar() {
   let [isOpen, setIsOpen] = useState(false);
 
@@ -141,7 +111,22 @@ export default function navbar() {
           <Alien size={35} />
         </Link>
 
-        <div>{langButton()} </div>
+        <div className="flex justify-around space-x-2">
+          {Object.keys(lngs).map((lng) => (
+            
+            <button
+              className="text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+              key={lng}
+              style={{
+                display: i18n.resolvedLanguage === lng ? "none" : "block",
+              }}
+              type="submit"
+              onClick={() => i18n.changeLanguage(lng)}
+            >
+              {lngs[lng].cut}
+            </button>
+          ))}
+        </div>
         <div className="flex space-x-4">
           <button
             onClick={openModal}
