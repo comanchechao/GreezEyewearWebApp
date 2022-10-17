@@ -84,25 +84,41 @@ export default function salesManagement() {
                 setTab("");
               }}
             >
-              <ArrowArcLeft color="white" size={48}></ArrowArcLeft>
+              <ArrowArcLeft color="black" size={48}></ArrowArcLeft>
             </button>
             <h1 className="font-bold text-5xl text-CoolGray-800">{tab}</h1>
           </div>
-          <div className="flex flex-col space-y-2 divide-y-4 p-5">
+          <div className="flex flex-col space-y-4 divide-y-4 p-5">
             <div className="flex justify-center items-center w-full">
-              <Button classNamw="bg-blueGray-300 p-5" mt={4} onClick={onOpen}>
-                <Plus color="black" size={48} />
+              <Button
+                classNamw="bg-blueGray-300 w-full"
+                p={12}
+                onClick={onOpen}
+              >
+                <Plus color="black" className="p-1" size={80} />
               </Button>
 
               <Modal size={"full"} isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent className="bg-CoolGray-900">
                   <ModalHeader className=" bg-CoolGray-900 text-mainCream">
-                    New Product
+                    {tab}
+                    <div className="flex justify-end">
+                      <Button colorScheme="blue" mr={3}>
+                        Save
+                      </Button>
+                      <Button
+                        className="bg-red-500"
+                        onClick={onClose}
+                        variant="ghost"
+                      >
+                        Cancel
+                      </Button>
+                    </div>
                   </ModalHeader>
                   <ModalCloseButton />
-                  <ModalBody className="flex space-y-2 justify-start h-full items-center bg-CoolGray-900  flex-col w-full">
-                    <div className="w-full h-full flex-row justify-around items-start flex">
+                  <ModalBody className="flex h-screen space-y-2 justify-start h-full items-center bg-CoolGray-900  flex-col w-full">
+                    <div className="w-full my-4 h-full flex-row justify-around items-start flex">
                       <label
                         htmlFor="file1"
                         className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-mainWhite rounded-full text-white"
@@ -128,18 +144,18 @@ export default function salesManagement() {
                         className="hidden"
                       />
                     </div>
-                    <div className="flex w-full space-y-5 flex-col ">
+                    <div className="flex p-4 bg-CoolGray-800 rounded w-full h-2/3 overflow-y-scroll space-y-8 flex-col ">
                       <input
-                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="text"
                         placeholder="Title"
                       />
                       <input
-                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="number"
                       />
                       <select
-                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
@@ -148,7 +164,7 @@ export default function salesManagement() {
                         <option value="dolcegabana">dolcegabana</option>
                       </select>
                       <select
-                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
@@ -158,7 +174,7 @@ export default function salesManagement() {
                         <option value="">metalic</option>
                       </select>
                       <select
-                        className="block p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
@@ -167,21 +183,18 @@ export default function salesManagement() {
                         <option value="dolcegabana">squere</option>
                         <option value="">diomond</option>
                       </select>
+                      <select
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name=""
+                        id=""
+                      >
+                        <option value="ray band">full fram</option>
+                        <option value="gentle monster">rim</option>
+                        <option value="dolcegabana">half rim</option>
+                        <option value="">diomond</option>
+                      </select>
                     </div>
                   </ModalBody>
-
-                  <ModalFooter className="bg-CoolGray-900">
-                    <Button colorScheme="blue" mr={3}>
-                      Save
-                    </Button>
-                    <Button
-                      className="bg-red-500"
-                      onClick={onClose}
-                      variant="ghost"
-                    >
-                      Cancel
-                    </Button>
-                  </ModalFooter>
                 </ModalContent>
               </Modal>
             </div>

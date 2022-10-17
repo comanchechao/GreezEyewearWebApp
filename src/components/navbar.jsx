@@ -110,7 +110,7 @@ export default function navbar() {
         >
           <Alien size={35} />
         </Link>
-        <Menu  closeOnSelect={true}>
+        <Menu closeOnSelect={true}>
           <MenuButton
             className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
             transition="all 0.2s"
@@ -118,7 +118,7 @@ export default function navbar() {
             <Globe />
           </MenuButton>
           <MenuList className="">
-            <div >
+            <div>
               {Object.keys(lngs).map((lng) => (
                 <MenuItem
                   className="text-mainWhite transition flex lg:flex-col  ease-in duration-200 hidden  justify-center active:bg-mainBlue lg:hover:bg-mainBlue p-2 active:text-CoolGray-900 lg:hover:text-CoolGray-900 w-14 h-14 items-center"

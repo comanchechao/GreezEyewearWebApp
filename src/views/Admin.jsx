@@ -1,8 +1,13 @@
 import { useEffect, useState, useRef } from "react";
-import { SquaresFour, Trash, Rows, FilePlus } from "phosphor-react";
+import {
+  SquaresFour,
+  ArrowArcLeft,
+  FirstAid,
+  Trash,
+  Rows,
+} from "phosphor-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
-import blogList from "../components/blogList";
 import { supabase } from "../supabaseClient";
 import BlogImage from "../components/blogImage";
 import { useDisclosure } from "@chakra-ui/react";
@@ -15,15 +20,13 @@ import {
   ModalHeader,
   Skeleton,
   Stack,
-  SkeletonCircle,
-  SkeletonText,
   Box,
   Button,
   ModalFooter,
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import blog from "./blog";
+import { useTranslation } from "react-i18next";
 
 export default function Admin() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,6 +34,9 @@ export default function Admin() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [captureId, setCaptureId] = useState(null);
+
+  const { t } = useTranslation();
+
   const getBlogs = async function () {
     try {
       setLoading(true);
@@ -72,19 +78,19 @@ export default function Admin() {
       <Navbar />
 
       {tab !== "" && (
-        <div className="w-full space-x-5 mt-8 flex h-48 justify-center align-center items-center">
+        <div className="w-full space-x-5 mt-8 flex h-48 justify-around mx-5 align-center items-center">
           <button
             onClick={() => {
               setTab("");
             }}
             className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl hover:text-gray-600 font-bold my-3 bg-white outline-2 outline rounded-full outline-black"
           >
-            back
+            <ArrowArcLeft size={50} />
           </button>
           {tab === "blog" && (
             <Link to="/newblog">
-              <button className="lg:px-12 px-5 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 hover:text-gray-600 font-bold text-3xl my-3 bg-white outline-2 outline rounded-full outline-black">
-                New Blog
+              <button className="lg:px-12 px-5 transition hover:text-CoolGray-700 ease-in duration-300 border-l-8 border-mainBlue bg-mainBlue py-1 font-bold text-3xl my-3 hover:bg-gray-100 outline-2 outline rounded-full outline-black">
+                <FirstAid className="" size={50} />
               </button>
             </Link>
           )}
@@ -100,8 +106,8 @@ export default function Admin() {
               }}
               className="flex flex-col bg-mainBlue cursor-pointer w-full h-full align-center justify-center items-center hover:bg-white   transition-all hover:text-3xl"
             >
-              <h2 className="text-2xl lg:text-5xl font-bold">
-                Blog Management
+              <h2 className="text-3xl md:text-5xl sm:text-4xl lg:text-6xl font-bold">
+                {t("blogManagement")}
               </h2>
             </div>
             <div
@@ -110,8 +116,8 @@ export default function Admin() {
               }}
               className="flex flex-col bg-mainWhite w-full h-full cursor-pointer align-center justify-center items-center hover:bg-white   transition-all hover:text-3xl"
             >
-              <h2 className="text-2xl  lg:text-5xl font-bold">
-                Sales Management
+              <h2 className="text-3xl md:text-5xl sm:text-4xl lg:text-6xl  font-bold">
+                {t("salesManagement")}
               </h2>
             </div>
           </div>
