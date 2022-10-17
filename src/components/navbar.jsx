@@ -4,8 +4,6 @@ import { Fragment, useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import ShoppingCartDrawer from "./shoppingCartDrawer";
 import PhoneDrawer from "./phoneDrawer";
-import LanguageDetector from "i18next-browser-languagedetector";
-import i18next from "i18next";
 
 import {
   SignIn,
@@ -18,8 +16,7 @@ import {
   Eye,
 } from "phosphor-react";
 import { Link } from "react-router-dom";
-import { useTranslation, Trans } from "react-i18next";
-import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const lngs = {
   en: { cut: "En", nativeName: "English" },
@@ -111,11 +108,10 @@ export default function navbar() {
           <Alien size={35} />
         </Link>
 
-        <div className="flex justify-around space-x-2">
+        <div className="flex space-x-4">
           {Object.keys(lngs).map((lng) => (
-            
             <button
-              className="text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+              className="text-mainWhite transition   items-center ease-in duration-200  flex   active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6  "
               key={lng}
               style={{
                 display: i18n.resolvedLanguage === lng ? "none" : "block",
@@ -123,11 +119,12 @@ export default function navbar() {
               type="submit"
               onClick={() => i18n.changeLanguage(lng)}
             >
-              {lngs[lng].cut}
+              <span className="flex space-x-2">
+                <Globe size={35}></Globe>
+                {lngs[lng].cut}
+              </span>
             </button>
           ))}
-        </div>
-        <div className="flex space-x-4">
           <button
             onClick={openModal}
             className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
