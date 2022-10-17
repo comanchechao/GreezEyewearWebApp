@@ -23,7 +23,7 @@ import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 
 const lngs = {
   en: { cut: "En", nativeName: "English" },
-  fa: { cut: "Fa", nativeName: "farsi" },
+  fa: { cut: "Fa", nativeName: "Farsi" },
 };
 const langButton = () => {
   Object.keys(lngs).map((lng) => {
