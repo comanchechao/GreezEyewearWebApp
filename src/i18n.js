@@ -84,7 +84,7 @@ i18next
           tailorMade: "ساخته شده برای شما",
           shopBy: " خرید بر اساس",
           frameShape: " شکل فِرِم",
-          faceShape: " فرم صورت",
+          faceShape: " فُرم صورت",
           // blog page translations
           blogPageHeader: "تازه ترین های عینک",
           recentArticles: "اخرین مقاله ها",
