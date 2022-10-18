@@ -20,7 +20,7 @@ export default function LensSelect() {
               separator={<ChevronRightIcon color="gray.500" />}
             >
               <BreadcrumbItem>
-                <Link to={"/Home"}>
+                <Link to={"/"}>
                   <BreadcrumbLink>Home</BreadcrumbLink>
                 </Link>
               </BreadcrumbItem>

@@ -32,7 +32,7 @@ export default function ProductDetail() {
               separator={<ChevronRightIcon color="gray.500" />}
             >
               <BreadcrumbItem>
-                <Link to={"/Home"}>
+                <Link to={"/"}>
                   <BreadcrumbLink href="/">Home</BreadcrumbLink>
                 </Link>
               </BreadcrumbItem>

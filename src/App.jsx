@@ -7,6 +7,9 @@ import EmblaCarousel from "./components/EmblaCarousel";
 import FaceShape from "./assets/images/shopByFaceShape.webp";
 import FrameShape from "./assets/images/shopByFrameShape.webp";
 import mainPagePicture from "./assets/images/mainPagePicture.webp";
+import mensPopular from "./assets/images/mensPopular.webp";
+import womansPopular from "./assets/images/womansPopular.webp";
+
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -120,7 +123,7 @@ function App() {
           </h4>
           <h1
             ref={mainText}
-            className=" text-3xl  lg:text-left text-center leading-loose lg:text-8xl  my-2  text-CoolGray-900 font-black underline-offset-8 underline "
+            className=" text-3xl  lg:text-left text-center leading-loose lg:text-7xl  my-2  text-CoolGray-900 font-black underline-offset-8 underline "
           >
             {t("find")}
           </h1>
@@ -151,46 +154,64 @@ function App() {
       >
         <div
           ref={firstBox}
-          className="w-full   h-full py-10 flex flex-col lg:flex-row justify-around items-center"
+          className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center"
         >
-          <div className=" h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:px-10 text-left items-center lg:items-start justify-end lg:justify-center pl-5">
-            <h4 className="text-2xl ">{t("specialOffer")}</h4>
-            <h1
-              style={{ lineHeight: 0.8 }}
-              className="capitalize text-4xl lg:text-left text-center lg:text-6xl w-72 h-auto my-4"
-            >
-              {t("mostMen")}
-            </h1>
-            <button
-              className="px-12 transition ease-in duration-300 border-l-8 border-white hover:bg-white py-1 text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
-              type="submit"
-            >
-              {t("showMe")}
-            </button>
+          <div className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:flex-row text-right items-center lg:items-start justify-end lg:justify-center pl-5">
+            <div className=" w-1/2 h-full bg-mainBlue flex flex-col items-start justify-center p-4">
+              <h4 className="text-2xl ">{t("specialOffer")}</h4>
+              <h1
+                style={{ lineHeight: 1.02 }}
+                className="capitalize text-4xl lg:text-left text-center lg:text-5xl my-4"
+              >
+                {t("mostMen")}
+              </h1>
+              <button
+                className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl my-3 bg-mainCream outline-2 outline rounded-full outline-black"
+                type="submit"
+              >
+                {t("showMe")}
+              </button>
+            </div>
+            <div className="w-1/2 h-full   relative">
+              <img
+                className="object-contain absolute left-5 max-w-xs top-14 shadow-xl"
+                src={mensPopular}
+                alt=""
+              />
+            </div>
           </div>
           <div
             ref={firstBox}
-            className=" h-full lg:h-rem26 w-full lg:w-2/5 bg-white flex flex-col lg:p-10 items-center lg:items-start justify-end lg:justify-center pl-5"
+            className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainCream flex flex-col lg:flex-row text-right items-center lg:items-start justify-end lg:justify-center pl-5"
           >
-            <h4 className="text-2xl ">{t("specialOffer")}</h4>
-            <h1
-              style={{ lineHeight: 0.8 }}
-              className="capitalize text-4xl lg:text-left text-center lg:text-6xl w-72 h-auto my-4"
-            >
-              {t("mostWomen")}
-            </h1>
-            <button
-              className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl my-3 bg-white outline-2 outline rounded-full outline-black"
-              type="submit"
-            >
-              {t("showMe")}
-            </button>
+            <div className="w-1/2 h-full   relative">
+              <img
+                className="object-contain absolute right-5 max-w-xs top-14 shadow-xl"
+                src={womansPopular}
+                alt=""
+              />
+            </div>
+            <div className=" w-1/2 h-full   flex flex-col items-end justify-center p-4">
+              <h4 className="text-2xl ">{t("specialOffer")}</h4>
+              <h1
+                style={{ lineHeight: 1.02 }}
+                className="capitalize text-4xl lg:text-right text-center lg:text-5xl my-4"
+              >
+                {t("mostWomen")}
+              </h1>
+              <button
+                className="px-12 transition ease-in duration-300 border-l-8 border-white hover:bg-white py-1 text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
+                type="submit"
+              >
+                {t("showMe")}
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div className="flex w-screen h-full mb-20 flex-col text-mainWhite justify-between items-center">
         <Link to={"/shoppingPage"}>
-          <h1 className="text-6xl max-w-5xl font-extrabold underline-offset-8 underline my-10 text-center p-6 hover:bg-CoolGray-900 bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-mainWhite text-CoolGray-900">
+          <h1 className="text-6xl max-w-5xl font-extrabold   my-10 text-center p-6 hover:bg-CoolGray-900 bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-mainWhite text-CoolGray-900">
             {t("newestSunglasses")}
           </h1>
         </Link>
@@ -215,7 +236,7 @@ function App() {
             <div className=" relative lg:mt-0 mt-9 cursor-pointer transition ease-in duration-200 active:bg-mainCream lg:hover:bg-mainCream p-8 lg:p-3  ">
               <Link to={"/frameShape"}>
                 <img className="object-contain" src={FrameShape} alt="" />
-                <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
+                <h1 className="text-3xl lg:text-5xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
                   {t("shopBy")}
                   <span className=" underline-offset-8 underline pl-2">
                     {t("frameShape")}
@@ -226,7 +247,7 @@ function App() {
             <div className=" relative active:bg-mainBlue  lg:mb-0 mb-9 cursor-pointer transition ease-in duration-200 lg:hover:bg-mainBlue p-8 lg:p-3  ">
               <Link to={"/faceShape"}>
                 <img className="object-contain" src={FaceShape} alt="" />
-                <h1 className="text-3xl lg:text-6xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
+                <h1 className="text-3xl lg:text-5xl font-black absolute top-0 my-10 lg:my-10 lg:mx-6 mx-3">
                   {t("shopBy")}
                   <span className=" underline-offset-8 underline pl-2">
                     {t("faceShape")}
