@@ -18,6 +18,7 @@ i18next
           stock: "stock",
           premiumBrands: "Premium Brands",
           blogs: "Blogs",
+          home: "Home",
           // main page translations
           azim: "Azim",
           eyewear: "Eyewear",
@@ -51,6 +52,12 @@ i18next
           catEye: "Cat-Eye",
           aviator: "Aviator",
           browline: "Browline",
+          // face page translations
+          comfortabely: "Comfortabely Shop By Your Face Shape",
+          explore:
+            "Explore our glasses by face shape and find the right pair for you.",
+          roundExplanation:
+            "A round face is typically as wide as it's long without a prominent cheekbone.",
         },
       },
       fa: {
@@ -62,6 +69,8 @@ i18next
           stock: "موجودی",
           premiumBrands: "برند",
           blogs: "وبلاگ",
+          home: "خونه",
+
           // main page translations
           azim: "عظیم",
           eyewear: "عینک",

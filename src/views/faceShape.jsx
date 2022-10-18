@@ -6,11 +6,14 @@ import diamondFace from "../assets/images/diamondFace.webp";
 import pearFace from "../assets/images/pearFace.webp";
 import heartFace from "../assets/images/heartFace.webp";
 import { useEffect } from "react";
+import { useTranslation, Trans } from "react-i18next";
 
 export default function faceShape() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="h-auto w-screen  ">
       <Navbar />
@@ -42,7 +45,7 @@ export default function faceShape() {
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
-                Shop Now
+                {t("showMe")}
               </button>
             </div>
           </div>
@@ -63,7 +66,7 @@ export default function faceShape() {
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
-                Shop Now
+                {t("showMe")}
               </button>
             </div>
             <img
@@ -94,7 +97,7 @@ export default function faceShape() {
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
-                Shop Now
+                {t("showMe")}
               </button>
             </div>
           </div>
@@ -115,7 +118,7 @@ export default function faceShape() {
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
-                Shop Now
+                {t("showMe")}
               </button>
             </div>
             <img
@@ -146,7 +149,7 @@ export default function faceShape() {
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
-                Shop Now
+                {t("showMe")}
               </button>
             </div>
           </div>
@@ -167,7 +170,7 @@ export default function faceShape() {
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
                 type="submit"
               >
-                Shop Now
+                {t("showMe")}
               </button>
             </div>
             <img
