@@ -33,8 +33,8 @@ export default function ShoppingMenuModal() {
   return (
     <>
       <button
-        className=" px-10 flex space-x-2 items-center transition ease-in duration-300 border-l-4 hover:text-CoolGray-900 active:text-CoolGray-900
-        hover:bg-mainBlue border-mainBlue active:bg-mainBlue py-1 text-3xl my-3   text-mainWhite rounded-full"
+        className=" px-5 flex space-x-2 items-center transition ease-in duration-300 border-l-8 hover:text-CoolGray-900 active:text-CoolGray-900
+        hover:bg-mainBlue border-mainBlue border active:bg-mainBlue py-1 text-2xl my-3   text-mainWhite rounded-full"
         onClick={onOpen}
       >
         <span>Filters</span>
@@ -52,15 +52,30 @@ export default function ShoppingMenuModal() {
             <ModalBody>
               <Tabs isFitted>
                 <TabList mb="1em">
-                  <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                    <span className="  text-2xl font-bold">Brands</span>
-                  </Tab>
-                  <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                    <span className="  text-2xl font-bold">Genders</span>
-                  </Tab>
-                  <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                    <span className="  text-2xl font-bold">Shape</span>
-                  </Tab>
+                  <div className="h-full w-full  flex flex-wrap">
+                    <Tab _selected={{ color: "black", bg: "cyan.300" }}>
+                      <span className="  text-2xl font-bold">Brands</span>
+                    </Tab>
+                    <Tab _selected={{ color: "black", bg: "cyan.300" }}>
+                      <span className="  text-2xl font-bold">Genders</span>
+                    </Tab>
+                    <Tab _selected={{ color: "black", bg: "cyan.300" }}>
+                      <span className="  text-2xl font-bold">Shape</span>
+                    </Tab>
+                    <Tab _selected={{ color: "black", bg: "cyan.300" }}>
+                      <span className="  text-2xl font-bold">Material</span>
+                    </Tab>
+
+                    <Tab _selected={{ color: "black", bg: "cyan.300" }}>
+                      <span className="  text-2xl font-bold">Size</span>
+                    </Tab>
+                    <Tab _selected={{ color: "black", bg: "cyan.300" }}>
+                      <span className="  text-2xl font-bold">Rim</span>
+                    </Tab>
+                    <Tab _selected={{ color: "black", bg: "cyan.300" }}>
+                      <span className="  text-2xl font-bold">Feature</span>
+                    </Tab>
+                  </div>
                 </TabList>
                 <TabPanels>
                   <TabPanel>
@@ -90,7 +105,7 @@ export default function ShoppingMenuModal() {
                     </div>
                   </TabPanel>
                   <TabPanel>
-                    <div className="w-full h-full flex flex-col">
+                    <div className="w-full h-full flex flex-col bg-mainWhite p-6 text-CoolGray-900">
                       <Checkbox size="lg">
                         <div className="flex space-x-3">
                           <span className="text-3xl">Rectangle</span>
@@ -173,12 +188,134 @@ export default function ShoppingMenuModal() {
                       </Checkbox>
                     </div>
                   </TabPanel>
+                  <TabPanel>
+                    <div className=" h-full w-full  ">
+                      <h1 className="text-2xl font-black text-mainWhite p-3">
+                        Plastic
+                      </h1>
+                      <div className="w-full h-full flex flex-col">
+                        <Checkbox size="lg">
+                          <span className="text-xl">Acetate</span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-xl">TR</span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-xl">Memory Plastic</span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-xl">Ultem</span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-xl">Silica Gel</span>
+                        </Checkbox>
+                      </div>
+                    </div>
+                    <div className=" h-full w-full  ">
+                      <h1 className="text-2xl font-black text-mainWhite p-3">
+                        Metal
+                      </h1>
+                      <div className="w-full h-full flex flex-col">
+                        <Checkbox size="lg">
+                          <span className="text-xl">Metal</span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-xl">Memory Metal</span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-xl">Titanium</span>
+                        </Checkbox>
+                      </div>
+
+                      <div className=" h-full w-full ">
+                        <h1 className="text-2xl font-black text-mainWhite p-3 ">
+                          Mixed Material
+                        </h1>
+
+                        <Checkbox size="lg">
+                          <span className="text-xl text-center">
+                            Mixed Materials
+                          </span>
+                        </Checkbox>
+                      </div>
+                    </div>
+                  </TabPanel>
+                  <TabPanel>
+                    <div className="w-full h-full flex flex-col">
+                      <div className=" h-full w-full  ">
+                        <h1 className="text-3xl font-black text-mainWhite p-3">
+                          Total Width
+                        </h1>
+                        <Checkbox size="lg">
+                          <span className="text-2xl">Small(129mm)</span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-2xl">
+                            Medium(129mm to 135mm)
+                          </span>
+                        </Checkbox>
+                        <Checkbox size="lg">
+                          <span className="text-2xl">Large(135mm)</span>
+                        </Checkbox>
+                      </div>
+                    </div>
+                  </TabPanel>
+                  <TabPanel>
+                    <div className="w-full h-full flex flex-col bg-mainWhite text-CoolGray-900 p-4">
+                      <Checkbox size="lg">
+                        <div className="flex space-x-3">
+                          <span className="text-3xl">Full-Rim</span>
+                          <img
+                            className="object-contain w-12"
+                            src={FullRim}
+                            alt=""
+                          />
+                        </div>
+                      </Checkbox>
+                      <Checkbox size="lg">
+                        <div className="flex space-x-3">
+                          <span className="text-3xl">Semi-Rimless</span>
+                          <img
+                            className="object-contain w-12"
+                            src={SemiRimless}
+                            alt=""
+                          />
+                        </div>
+                      </Checkbox>
+                      <Checkbox size="lg">
+                        <div className="flex space-x-3">
+                          <span className="text-3xl">Rimless</span>
+                          <img
+                            className="object-contain w-12"
+                            src={Rimless}
+                            alt=""
+                          />
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </TabPanel>
+                  <TabPanel>
+                    <div className="w-full h-full flex flex-col">
+                      <Checkbox size="lg">
+                        <span className="text-2xl">Adjustable Nose Pads</span>
+                      </Checkbox>
+                      <Checkbox size="lg">
+                        <span className="text-2xl">Lightweight</span>
+                      </Checkbox>
+                      <Checkbox size="lg">
+                        <span className="text-2xl">Bifocal</span>
+                      </Checkbox>
+                      <Checkbox size="lg">
+                        <span className="text-2xl">For Wide Face</span>
+                      </Checkbox>
+                      <Checkbox size="lg">
+                        <span className="text-2xl">For Small Face</span>
+                      </Checkbox>
+                    </div>
+                  </TabPanel>
                 </TabPanels>
               </Tabs>
             </ModalBody>
-            <ModalFooter>
-              <button onClick={onClose}>Close</button>
-            </ModalFooter>
           </div>
         </ModalContent>
       </Modal>

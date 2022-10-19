@@ -25,14 +25,59 @@ import SemiRimless from "../assets/images/semiRimless.webp";
 import ShoppingMenuModal from "./shoppingPageModal";
 
 export default function ShoppingMenu() {
-  const [minPrice, setMinPrice] = useState(10000);
-  const [maxPrice, setMaxPrice] = useState(300000);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(300);
   return (
-    <div className=" h-24 w-full  z-20  flex flex-wrap justify-start lg:px-0 px-9 lg:justify-center  space-y-3 lg:space-y-0   space-x-10   items-center text-2xl">
-      <div className="lg:hidden flex    ">
-        <ShoppingMenuModal className="  " />
+    <div className=" h-24 w-full z-20 flex justify-start lg:px-0 px-9 lg:justify-center py-7  items-center text-2xl">
+      <div className="flex items-center space-x-2  ">
+        <div className="lg:hidden flex">
+          <ShoppingMenuModal className="  " />
+        </div>
+        <Menu closeOnSelect={false}>
+          <MenuButton
+            className=" bg-CoolGray-900 text-mainWhite flex"
+            minH="48px"
+            px={4}
+            py={0}
+            transition="all 0.2s"
+            borderRadius="sm"
+            _hover={{ bg: "gray.600" }}
+            _expanded={{ bg: "blue.400" }}
+          >
+            <span>Price</span>
+            <ChevronDownIcon />
+          </MenuButton>
+          <MenuList>
+            <MenuItem className="flex flex-col px-7 text-center">
+              <span className="text-2xl px-28">Price Range</span>
+
+              <div className="h-full w-full flex space-x-3 mx-6">
+                <span className="text-lg ">{minPrice}</span>
+                <RangeSlider
+                  colorScheme="blue"
+                  step={20}
+                  aria-label={["min", "max"]}
+                  max={1000}
+                  defaultValue={[0, 300]}
+                  onChangeEnd={(val) =>
+                    setMinPrice(val[0]) & setMaxPrice(val[1])
+                  }
+                  className="mx-7"
+                >
+                  <RangeSliderTrack>
+                    <RangeSliderFilledTrack />
+                  </RangeSliderTrack>
+
+                  <RangeSliderThumb index={0} />
+                  <RangeSliderThumb index={1} />
+                </RangeSlider>
+                <span className=" text-lg ">{maxPrice}</span>
+              </div>
+            </MenuItem>
+          </MenuList>
+        </Menu>
       </div>
-      <div className=" w-full h-full hidden lg:flex flex-wrap justify-center space-x-10   items-center">
+      <div className="   h-full hidden lg:flex">
         <Menu closeOnSelect={false}>
           <MenuButton
             className=" bg-CoolGray-900 text-mainWhite"
@@ -291,46 +336,7 @@ export default function ShoppingMenu() {
             </div>
           </MenuList>
         </Menu>
-        <Menu closeOnSelect={false}>
-          <MenuButton
-            className=" bg-CoolGray-900 text-mainWhite"
-            minH="48px"
-            px={4}
-            py={2}
-            transition="all 0.2s"
-            borderRadius="sm"
-            _hover={{ bg: "gray.600" }}
-            _expanded={{ bg: "blue.400" }}
-          >
-            Price
-            <ChevronDownIcon />
-          </MenuButton>
-          <MenuList>
-            <MenuItem className="flex flex-col px-7 text-center">
-              <span className="text-2xl px-28">Price Range</span>
 
-              <div className="h-full w-full flex space-x-3 mx-6">
-                <span className="text-lg ">{minPrice}</span>
-                <RangeSlider
-                  colorScheme="yellow"
-                  aria-label={["min", "max"]}
-                  max={1000000}
-                  defaultValue={[10000, 300000]}
-                  onChange={(val) => setMinPrice(val[0]) & setMaxPrice(val[1])}
-                  className="mx-7"
-                >
-                  <RangeSliderTrack>
-                    <RangeSliderFilledTrack />
-                  </RangeSliderTrack>
-
-                  <RangeSliderThumb index={0} />
-                  <RangeSliderThumb index={1} />
-                </RangeSlider>
-                <span className=" text-lg ">{maxPrice}</span>
-              </div>
-            </MenuItem>
-          </MenuList>
-        </Menu>
         <Menu closeOnSelect={false}>
           <MenuButton
             className=" bg-CoolGray-900 text-mainWhite"
