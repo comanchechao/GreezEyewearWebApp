@@ -28,9 +28,9 @@ export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(10000);
   const [maxPrice, setMaxPrice] = useState(300000);
   return (
-    <div className=" h-24 w-full  z-20  flex flex-wrap justify-center space-y-3 lg:space-y-0   space-x-10   items-center text-2xl">
-      <div className="lg:hidden flex">
-        <ShoppingMenuModal />
+    <div className=" h-24 w-full  z-20  flex flex-wrap justify-start lg:px-0 px-9 lg:justify-center  space-y-3 lg:space-y-0   space-x-10   items-center text-2xl">
+      <div className="lg:hidden flex    ">
+        <ShoppingMenuModal className="  " />
       </div>
       <div className=" w-full h-full hidden lg:flex flex-wrap justify-center space-x-10   items-center">
         <Menu closeOnSelect={false}>

@@ -39,7 +39,7 @@ export default function shoppingPage() {
           >
             <Menu className=""></Menu>
           </div>
-          <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  ">
+          <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  px-5">
             <Card></Card> <Card></Card>
             <Card></Card>
             <Card></Card> <Card></Card>

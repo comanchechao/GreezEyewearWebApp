@@ -165,12 +165,14 @@ function App() {
               >
                 {t("mostMen")}
               </h1>
-              <button
-                className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl my-3 bg-mainCream outline-2 outline rounded-full outline-black"
-                type="submit"
-              >
-                {t("showMe")}
-              </button>
+              <Link to={"/shoppingPage"}>
+                <button
+                  className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl my-3 bg-mainCream outline-2 outline rounded-full outline-black"
+                  type="submit"
+                >
+                  {t("showMe")}
+                </button>
+              </Link>
             </div>
             <div className="w-1/2 h-full   relative">
               <img
@@ -199,12 +201,14 @@ function App() {
               >
                 {t("mostWomen")}
               </h1>
-              <button
-                className="px-12 transition ease-in duration-300 border-l-8 border-white hover:bg-white py-1 text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
-                type="submit"
-              >
-                {t("showMe")}
-              </button>
+              <Link to={"/shoppingPage"}>
+                <button
+                  className="px-12 transition ease-in duration-300 border-l-8 border-white hover:bg-white py-1 text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
+                  type="submit"
+                >
+                  {t("showMe")}
+                </button>
+              </Link>
             </div>
           </div>
         </div>
