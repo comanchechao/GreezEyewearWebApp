@@ -21,12 +21,58 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { use } from "i18next";
+import { useEffect } from "react";
 
 export default function salesManagement() {
   const { t, i18n } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [tab, setTab] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // setting the product to submit
+
+  const [Title, setTitle] = useState("");
+  const [Price, setPrice] = useState(0);
+  const [Brand, setBrand] = useState("");
+  const [Gender, setGender] = useState("");
+  const [Material, setMaterial] = useState("");
+  const [Shape, setShape] = useState("");
+  const [Size, setSize] = useState("");
+  const [Rim, setRim] = useState("");
+  const [Feature, setFeature] = useState("");
+
+  // handle product submit
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      setLoading(true);
+
+      const { data, error } = await supabase.from("Products").insert([
+        {
+          Title,
+          Price,
+          Brand,
+          Material,
+          Gender,
+          Shape,
+          Rim,
+          Feature,
+          Size,
+        },
+      ]);
+      if (error) throw error;
+      alert("productAdded added");
+    } catch (error) {
+      alert(error.error_description || error.message);
+    }
+  };
+
+  useEffect(() => {
+    console.log(Brand, Gender, Material, Shape, Size, Rim, Feature);
+  });
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-full bg-mainCream">
@@ -104,7 +150,7 @@ export default function salesManagement() {
                   <ModalHeader className=" bg-CoolGray-900 text-mainCream">
                     {tab}
                     <div className="flex justify-end">
-                      <Button colorScheme="blue" mr={3}>
+                      <Button onClick={handleSubmit} colorScheme="blue" mr={3}>
                         Save
                       </Button>
                       <Button
@@ -144,7 +190,7 @@ export default function salesManagement() {
                         className="hidden"
                       />
                     </div>
-                    <div className="flex p-4 bg-CoolGray-800 rounded w-full h-2/3 overflow-y-scroll space-y-8 flex-col ">
+                    <div className="flex p-4 bg-CoolGray-800 rounded w-full max-h-5/6 overflow-y-scroll space-y-8 flex-col ">
                       <input
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="text"
@@ -155,6 +201,9 @@ export default function salesManagement() {
                         type="number"
                       />
                       <select
+                        onChange={(e) => {
+                          setBrand(e.target.value);
+                        }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
@@ -164,34 +213,90 @@ export default function salesManagement() {
                         <option value="dolcegabana">dolcegabana</option>
                       </select>
                       <select
+                        onChange={(e) => {
+                          setGender(e.target.value);
+                        }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="ray band">elastic</option>
-                        <option value="gentle monster">plastic</option>
-                        <option value="dolcegabana">steel</option>
-                        <option value="">metalic</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Unisex">Unisex</option>
                       </select>
                       <select
+                        onChange={(e) => {
+                          setShape(e.target.value);
+                        }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="ray band">round</option>
-                        <option value="gentle monster">oval</option>
-                        <option value="dolcegabana">squere</option>
-                        <option value="">diomond</option>
+                        <option value="Rectangle">Rectangle</option>
+                        <option value="Round">Round</option>
+                        <option value="Square">Square</option>
+                        <option value="Aviator">Aviator</option>
+                        <option value="Oval">Oval</option>
+                        <option value="CatEye">Cat-Eye</option>
+                        <option value="Polygon">Polygon</option>
+                        <option value="Horn">Horn</option>
                       </select>
                       <select
+                        onChange={(e) => {
+                          setMaterial(e.target.value);
+                        }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="ray band">full fram</option>
-                        <option value="gentle monster">rim</option>
-                        <option value="dolcegabana">half rim</option>
-                        <option value="">diomond</option>
+                        <option value="Acetate">Acetate</option>
+                        <option value="TR">TR</option>
+                        <option value="MemoryPlastic">Memory Plastic</option>
+                        <option value="UItem">UItem</option>
+                        <option value="SilicaGel">Silica Gel</option>
+                        <option value="Metal">Metal</option>
+                        <option value="MemoryMetal">Memory Metal</option>
+                        <option value="Titanium">Titanium</option>
+                      </select>
+                      <select
+                        onChange={(e) => {
+                          setSize(e.target.value);
+                        }}
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name=""
+                        id=""
+                      >
+                        <option value="small">small</option>
+                        <option value="medium">medium</option>
+                        <option value="large">large</option>
+                      </select>
+                      <select
+                        onChange={(e) => {
+                          setFeature(e.target.value);
+                        }}
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name=""
+                        id=""
+                      >
+                        <option value="AdjustiableNosePad">
+                          Adjustiable Nose Pad
+                        </option>
+                        <option value="Lightweight">Lightweight</option>
+                        <option value="Bifocal">Bifocal</option>
+                        <option value="ForWideFace">For Wide Face</option>
+                        <option value="ForSmallFace">For Small Face</option>
+                      </select>
+                      <select
+                        onChange={(e) => {
+                          setRim(e.target.value);
+                        }}
+                        className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name=""
+                        id=""
+                      >
+                        <option value="FullRim">Full Rim</option>
+                        <option value="SemiRim">Semi Rim</option>
+                        <option value="Rimless">Rimless</option>
                       </select>
                     </div>
                   </ModalBody>
