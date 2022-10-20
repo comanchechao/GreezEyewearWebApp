@@ -27,8 +27,11 @@ import Rimless from "../assets/images/Rimless.webp";
 import FullRim from "../assets/images/FullRim.webp";
 import SemiRimless from "../assets/images/semiRimless.webp";
 import { Sliders, CaretDown } from "phosphor-react";
+import { useTranslation } from "react-i18next";
+
 export default function ShoppingMenuModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -37,7 +40,7 @@ export default function ShoppingMenuModal() {
         hover:bg-mainBlue border-mainBlue border active:bg-mainBlue py-1 text-2xl my-3   text-mainWhite rounded-full"
         onClick={onOpen}
       >
-        <span>Filters</span>
+        <span> {t("filters")}</span>
         <Sliders size={32} weight="fill" />
         <CaretDown size={20} weight="fill" />
       </button>
@@ -46,7 +49,7 @@ export default function ShoppingMenuModal() {
         <ModalContent>
           <div className="w-screen   h-screen bg-CoolGray-900 text-mainWhite">
             <ModalHeader>
-              <span className="text-4xl my-7">Choose Your Filters</span>
+              <span className="text-4xl my-7"> {t("choose")}</span>
             </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
@@ -54,26 +57,34 @@ export default function ShoppingMenuModal() {
                 <TabList mb="1em">
                   <div className="h-full w-full  flex flex-wrap">
                     <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                      <span className="  text-2xl font-bold">Brands</span>
+                      <span className="  text-2xl font-bold">
+                        {t("brands")}
+                      </span>
                     </Tab>
                     <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                      <span className="  text-2xl font-bold">Genders</span>
+                      <span className="  text-2xl font-bold">
+                        {t("genders")}
+                      </span>
                     </Tab>
                     <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                      <span className="  text-2xl font-bold">Shape</span>
+                      <span className="  text-2xl font-bold">{t("shape")}</span>
                     </Tab>
                     <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                      <span className="  text-2xl font-bold">Material</span>
+                      <span className="  text-2xl font-bold">
+                        {t("material")}
+                      </span>
                     </Tab>
 
                     <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                      <span className="  text-2xl font-bold">Size</span>
+                      <span className="  text-2xl font-bold">{t("size")}</span>
                     </Tab>
                     <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                      <span className="  text-2xl font-bold">Rim</span>
+                      <span className="  text-2xl font-bold">{t("rim")}</span>
                     </Tab>
                     <Tab _selected={{ color: "black", bg: "cyan.300" }}>
-                      <span className="  text-2xl font-bold">Feature</span>
+                      <span className="  text-2xl font-bold">
+                        {t("feature")}
+                      </span>
                     </Tab>
                   </div>
                 </TabList>

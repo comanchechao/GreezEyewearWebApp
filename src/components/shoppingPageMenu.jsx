@@ -23,12 +23,15 @@ import Rimless from "../assets/images/Rimless.webp";
 import FullRim from "../assets/images/FullRim.webp";
 import SemiRimless from "../assets/images/semiRimless.webp";
 import ShoppingMenuModal from "./shoppingPageModal";
+import { useTranslation } from "react-i18next";
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(300);
+  const { t, i18n } = useTranslation();
+
   return (
-    <div className=" h-24 w-full z-20 flex justify-start lg:px-0 px-9 lg:justify-center py-7  items-center text-2xl">
+    <div className=" h-24 w-full z-20 flex justify-start lg:px-0 px-9 lg:justify-center py-7 lg:space-x-4  items-center text-2xl">
       <div className="flex items-center space-x-2  ">
         <div className="lg:hidden flex">
           <ShoppingMenuModal className="  " />
@@ -44,7 +47,7 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            <span>Price</span>
+            <span>{t("price")}</span>
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
@@ -77,7 +80,7 @@ export default function ShoppingMenu() {
           </MenuList>
         </Menu>
       </div>
-      <div className="   h-full hidden lg:flex">
+      <div className="   h-full hidden lg:flex lg:space-x-4">
         <Menu closeOnSelect={false}>
           <MenuButton
             className=" bg-CoolGray-900 text-mainWhite"
@@ -89,7 +92,8 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            Brands
+            {t("brands")}
+
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
@@ -116,7 +120,8 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            Genders
+            {t("genders")}
+
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
@@ -153,7 +158,8 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            Shape
+            {t("shape")}
+
             <ChevronDownIcon />
           </MenuButton>
           <MenuList className="flex">
@@ -270,7 +276,8 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            Material
+            {t("material")}
+
             <ChevronDownIcon />
           </MenuButton>
           <MenuList className="flex">
@@ -348,7 +355,8 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            Size
+            {t("size")}
+
             <ChevronDownIcon />
           </MenuButton>
           <MenuList className="flex">
@@ -385,7 +393,7 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            Rim
+            {t("rim")}
             <ChevronDownIcon />
           </MenuButton>
           <MenuList className="flex">
@@ -432,7 +440,7 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            Feature
+            {t("feature")}
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>

@@ -33,6 +33,17 @@ i18next
           shopBy: "Shop By",
           frameShape: "Frame Shape",
           faceShape: "Face Shape",
+          // shoppingpage translations
+          choose: "Choose Your Filters",
+          filters: "Filters",
+          price: "Price",
+          brands: "Brands",
+          genders: "Genders",
+          shape: "Shape",
+          material: "Material",
+          size: "Size",
+          rim: "Rim",
+          feature: "Feature",
           // blog page translations
           blogPageHeader: "latest on eyewaer",
           recentArticles: "recent articles",
@@ -85,6 +96,18 @@ i18next
           shopBy: " خرید بر اساس",
           frameShape: " شکل فِرِم",
           faceShape: " فُرم صورت",
+          // shoppingpage translations
+          choose: "فیلترهاتون رو انتخاب کنید",
+
+          filters: "فیلترها",
+          price: "قیمت",
+          brands: "برندها",
+          genders: "جنسیت",
+          shape: "شکل فِرِم",
+          material: "جنس",
+          size: "سایز",
+          rim: "دور فِرِم",
+          feature: "امکانات اضافه",
           // blog page translations
           blogPageHeader: "تازه ترین های عینک",
           recentArticles: "اخرین مقاله ها",

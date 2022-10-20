@@ -156,8 +156,8 @@ function App() {
           ref={firstBox}
           className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center"
         >
-          <div className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:flex-row text-right items-center lg:items-start justify-end lg:justify-center pl-5">
-            <div className=" w-1/2 h-full bg-mainBlue flex flex-col items-start justify-center p-4">
+          <div className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:flex-row text-right items-center lg:items-start justify-center pl-5">
+            <div className=" w-full lg:w-1/2 h-full bg-mainBlue flex flex-col items-start justify-center p-4">
               <h4 className="text-2xl ">{t("specialOffer")}</h4>
               <h1
                 style={{ lineHeight: 1.02 }}
@@ -167,33 +167,33 @@ function App() {
               </h1>
               <Link to={"/shoppingPage"}>
                 <button
-                  className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-3xl my-3 bg-mainCream outline-2 outline rounded-full outline-black"
+                  className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-3xl my-3 bg-mainCream outline-2 outline rounded-full outline-black"
                   type="submit"
                 >
                   {t("showMe")}
                 </button>
               </Link>
             </div>
-            <div className="w-1/2 h-full   relative">
+            {/* <div className="w-1/2 lg:h-full  flex  lg:relative">
               <img
-                className="object-contain absolute left-5 max-w-xs top-14 shadow-xl"
+                className="object-contain lg:absolute lg:left-5 lg:max-w-xs lg:top-14 shadow-xl"
                 src={mensPopular}
                 alt=""
               />
-            </div>
+            </div> */}
           </div>
           <div
             ref={firstBox}
-            className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainCream flex flex-col lg:flex-row text-right items-center lg:items-start justify-end lg:justify-center pl-5"
+            className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainCream flex flex-col lg:flex-row text-right items-center lg:items-start justify-center pl-5"
           >
-            <div className="w-1/2 h-full   relative">
+            {/* <div className="w-1/2 lg:h-full   lg:relative">
               <img
-                className="object-contain absolute right-5 max-w-xs top-14 shadow-xl"
+                className="object-contain lg:absolute lg:right-5 lg:max-w-xs lg:top-14 shadow-xl"
                 src={womansPopular}
                 alt=""
               />
-            </div>
-            <div className=" w-1/2 h-full   flex flex-col items-end justify-center p-4">
+            </div> */}
+            <div className=" w-full lg:w-1/2 h-full   flex flex-col items-end justify-center p-4">
               <h4 className="text-2xl ">{t("specialOffer")}</h4>
               <h1
                 style={{ lineHeight: 1.02 }}
@@ -203,7 +203,7 @@ function App() {
               </h1>
               <Link to={"/shoppingPage"}>
                 <button
-                  className="px-12 transition ease-in duration-300 border-l-8 border-white hover:bg-white py-1 text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
+                  className="px-12 transition ease-in duration-300 border-l-8 border-white hover:bg-white py-1 text-xl lg:text-3xl my-3 bg-mainBlue outline-2 outline rounded-full outline-black"
                   type="submit"
                 >
                   {t("showMe")}
