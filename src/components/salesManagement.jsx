@@ -23,6 +23,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { use } from "i18next";
 import { useEffect } from "react";
+import { supabase } from "../supabaseClient";
 
 export default function salesManagement() {
   const { t, i18n } = useTranslation();
@@ -52,6 +53,7 @@ export default function salesManagement() {
 
       const { data, error } = await supabase.from("Products").insert([
         {
+          Category: tab,
           Title,
           Price,
           Brand,
@@ -64,7 +66,8 @@ export default function salesManagement() {
         },
       ]);
       if (error) throw error;
-      alert("productAdded added");
+      console.log(data);
+      alert("Product added");
     } catch (error) {
       alert(error.error_description || error.message);
     }
@@ -190,13 +193,19 @@ export default function salesManagement() {
                         className="hidden"
                       />
                     </div>
-                    <div className="flex p-4 bg-CoolGray-800 rounded w-full max-h-5/6 overflow-y-scroll space-y-8 flex-col ">
+                    <div className="flex p-4 bg-CoolGray-800 rounded w-full h-full overflow-y-scroll space-y-8 flex-col ">
                       <input
+                        onChange={(e) => {
+                          setTitle(e.target.value);
+                        }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="text"
                         placeholder="Title"
                       />
                       <input
+                        onChange={(e) => {
+                          setPrice(e.target.value);
+                        }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="number"
                       />
@@ -208,6 +217,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">...</option>
                         <option value="ray band">ray band</option>
                         <option value="gentle monster">gentle monster</option>
                         <option value="dolcegabana">dolcegabana</option>
@@ -220,6 +230,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">...</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Unisex">Unisex</option>
@@ -232,6 +243,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">...</option>
                         <option value="Rectangle">Rectangle</option>
                         <option value="Round">Round</option>
                         <option value="Square">Square</option>
@@ -249,6 +261,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">...</option>
                         <option value="Acetate">Acetate</option>
                         <option value="TR">TR</option>
                         <option value="MemoryPlastic">Memory Plastic</option>
@@ -266,6 +279,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">...</option>
                         <option value="small">small</option>
                         <option value="medium">medium</option>
                         <option value="large">large</option>
@@ -278,6 +292,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">...</option>
                         <option value="AdjustiableNosePad">
                           Adjustiable Nose Pad
                         </option>
@@ -294,6 +309,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">...</option>
                         <option value="FullRim">Full Rim</option>
                         <option value="SemiRim">Semi Rim</option>
                         <option value="Rimless">Rimless</option>
