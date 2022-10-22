@@ -43,7 +43,7 @@ export default function LensSelect() {
               </BreadcrumbItem>
             </Breadcrumb>
           </div>
-          <div className="w-screen h-screen flex">
+          <div className="w-screen h-auto flex">
             <div className="h-full w-1/2 px-8 py-7 bg-mainWhite">
               <ProgressMenu></ProgressMenu>
             </div>

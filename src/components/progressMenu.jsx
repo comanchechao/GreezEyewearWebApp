@@ -2,10 +2,11 @@ import { Step, Steps, useSteps } from "chakra-ui-steps";
 import { Flex, Button, Heading } from "@chakra-ui/react";
 import Contents from "./contents";
 const steps = [
-  { label: "Glass Type", description: "Choose your glass type" },
-  { label: "Perscription", description: "Fill your perscription info" },
-  { label: "Step 3", description: "Step 3 description" },
-  { label: "Step 4", description: "Step 4 description" },
+  { label: "GLASS TYPE" },
+  { label: "PERSCRIPTION" },
+  { label: "LENS COLOR TYPE" },
+  { label: "LENS THICKNESS" },
+  { label: "CHECKOUT" },
 ];
 export const ProgressMenu = () => {
   const { nextStep, prevStep, reset, activeStep } = useSteps({
@@ -16,16 +17,21 @@ export const ProgressMenu = () => {
       <Steps
         onClickStep={(step) => setStep(step)}
         activeStep={activeStep}
-        className="text-10xl px-28 my-5"
+        className="text-10xl px-10 font-black  my-5"
         labelOrientation="vertical"
       >
         {steps.map(({ label, description }, index) => (
-          <Step label={label} key={label} description={description}>
+          <Step
+            className="font-black"
+            label={label}
+            key={label}
+            description={description}
+          >
             <Contents index={index} />
           </Step>
         ))}
       </Steps>
-      {activeStep === steps.length ? (
+      {activeStep === steps.length + 1 ? (
         <Flex px={4} py={4} width="100%" flexDirection="column">
           <Heading fontSize="xl" textAlign="center">
             Woohoo! All steps completed!
@@ -35,19 +41,21 @@ export const ProgressMenu = () => {
           </Button>
         </Flex>
       ) : (
-        <Flex width="100%" justify="flex-end">
-          <Button
+        <Flex width="100%" className="space-x-8" justify="flex-end">
+          <button
+            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainCream   rounded-full  "
             isDisabled={activeStep === 0}
             mr={4}
             onClick={prevStep}
-            size="sm"
-            variant="ghost"
           >
-            Prev
-          </Button>
-          <Button size="sm" onClick={nextStep}>
-            {activeStep === steps.length - 1 ? "Finish" : "Next"}
-          </Button>
+            Go Back
+          </button>
+          <button
+            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainCream   rounded-full  "
+            onClick={nextStep}
+          >
+            {activeStep === steps.length ? "Finish" : "Confirm"}
+          </button>
         </Flex>
       )}
     </Flex>
