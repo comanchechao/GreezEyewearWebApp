@@ -5,10 +5,12 @@ import blueCutLens from "../assets/images/blueCutLens.webp";
 import drivingLens from "../assets/images/drivingLens.webp";
 import tintLens from "../assets/images/tintLens.webp";
 import photoChromicLens from "../assets/images/photoChromicLens.webp";
-
+import thinLens from "../assets/images/thinLens.webp";
+import mediumLens from "../assets/images/mediumLens.webp";
+import thickLens from "../assets/images/thickLens.webp";
 import polarizedLens from "../assets/images/polarizedLens.webp";
-
 import { Select } from "@chakra-ui/react";
+
 export default function Contents(props) {
   return (
     <div>
@@ -170,24 +172,29 @@ export default function Contents(props) {
         </div>
       )}
       {props.index === 4 && (
-        <div className=" h-64 w-full my-5 text-10xl space-y-3">
-          <div className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={perscriptionIcon} alt="" />
+        <div className=" h-auto w-full my-5 text-10xl space-y-3">
+          <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+            <img src={thickLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
-              <h1 className="text-CoolGray-900 text-4xl">Prescription</h1>
-              <h2 className="text-CoolGray-900 text-xl">
-                Used for nearsightedness, farsightedness, astigmatism or
-                presbyopia.
-              </h2>
+              <h1 className="text-CoolGray-900 text-2xl">
+                1.50 Standard Spheric
+              </h1>
             </div>
           </div>
-          <div className=" h-1/2 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={perfectEyesightIcon} alt="" />
+          <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+            <img src={mediumLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
-              <h1 className="text-CoolGray-900 text-4xl">Non-Prescription</h1>
-              <h2 className="text-CoolGray-900 text-xl">
-                Used for fashion or eye protection.
-              </h2>
+              <h1 className="text-CoolGray-900 text-2xl">
+                1.60 Super Thin Aspheric
+              </h1>
+            </div>
+          </div>
+          <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+            <img src={thinLens} alt="" />
+            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+              <h1 className="text-CoolGray-900 text-2xl">
+                1.74 Ultra Thin Aspheric
+              </h1>
             </div>
           </div>
         </div>
