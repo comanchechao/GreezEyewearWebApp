@@ -16,8 +16,30 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { useRef } from "react";
 
 export default function ProductDetail() {
+  const breadCrumbMenu = useRef();
+  const productBg = useRef();
+
+  useEffect(() => {
+    var tl = gsap.timeline();
+    tl.from(breadCrumbMenu.current, {
+      opacity: "0",
+      y: -10,
+      duration: 0.5,
+      delay: 1,
+    });
+    tl.from(productBg.current, {
+      opacity: "0",
+      x: -10,
+      duration: 0.4,
+    });
+    window.scrollTo(0, 0);
+  }, []);
+
   const [value, setValue] = useState("1");
   const [value2, setValue2] = useState("1");
 
@@ -26,7 +48,10 @@ export default function ProductDetail() {
       <Navbar></Navbar>
       <div className=" h-auto w-screen pt-20 ">
         <div className="h-full w-full flex flex-col bg-mainCream">
-          <div className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-white">
+          <div
+            ref={breadCrumbMenu}
+            className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-white"
+          >
             <Breadcrumb
               spacing="8px"
               separator={<ChevronRightIcon color="gray.500" />}
@@ -50,7 +75,10 @@ export default function ProductDetail() {
               </BreadcrumbItem>
             </Breadcrumb>
           </div>
-          <div className=" h-full w-full flex  px-32 my-10 items-center">
+          <div
+            ref={productBg}
+            className=" h-full w-full flex  px-32 my-10 items-center"
+          >
             <div className=" h-full w-2/4 bg-CoolGray-900 py-36 px-16">
               <Slider dots={true} autoplay="true" pauseOnDotsHover="true">
                 <InnerImageZoom
