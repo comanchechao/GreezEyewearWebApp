@@ -43,7 +43,7 @@ export const ProgressMenu = () => {
       ) : (
         <Flex width="100%" className="space-x-8" justify="flex-end">
           <button
-            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainCream   rounded-full  "
+            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
             isDisabled={activeStep === 0}
             mr={4}
             onClick={prevStep}
@@ -51,7 +51,7 @@ export const ProgressMenu = () => {
             Go Back
           </button>
           <button
-            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainCream   rounded-full  "
+            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
             onClick={nextStep}
           >
             {activeStep === steps.length ? "Finish" : "Confirm"}

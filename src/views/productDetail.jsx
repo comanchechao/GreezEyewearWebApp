@@ -50,7 +50,7 @@ export default function ProductDetail() {
         <div className="h-full w-full flex flex-col bg-mainCream">
           <div
             ref={breadCrumbMenu}
-            className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-white"
+            className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-mainWhite"
           >
             <Breadcrumb
               spacing="8px"
@@ -79,7 +79,7 @@ export default function ProductDetail() {
             ref={productBg}
             className=" h-full w-full flex  px-32 my-10 items-center"
           >
-            <div className=" h-full w-2/4 bg-CoolGray-900 py-36 px-16">
+            <div className=" h-full w-2/4 bg-mainWhite py-36 px-16">
               <Slider dots={true} autoplay="true" pauseOnDotsHover="true">
                 <InnerImageZoom
                   src="https://images.unsplash.com/photo-1518112390430-f4ab02e9c2c8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"

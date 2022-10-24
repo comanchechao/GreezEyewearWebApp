@@ -257,17 +257,19 @@ export default function ShoppingMenuModal() {
                         <h1 className="text-3xl font-black text-mainWhite p-3">
                           Total Width
                         </h1>
-                        <Checkbox size="lg">
-                          <span className="text-2xl">Small(129mm)</span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-2xl">
-                            Medium(129mm to 135mm)
-                          </span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-2xl">Large(135mm)</span>
-                        </Checkbox>
+                        <div className="w-full h-full flex flex-col">
+                          <Checkbox size="lg">
+                            <span className="text-2xl">Small(129mm)</span>
+                          </Checkbox>
+                          <Checkbox size="lg">
+                            <span className="text-2xl">
+                              Medium(129mm to 135mm)
+                            </span>
+                          </Checkbox>
+                          <Checkbox size="lg">
+                            <span className="text-2xl">Large(135mm)</span>
+                          </Checkbox>
+                        </div>
                       </div>
                     </div>
                   </TabPanel>

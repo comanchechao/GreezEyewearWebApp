@@ -84,7 +84,7 @@ export default function Checkout() {
           <div className="h-full w-full pb-9 bg-mainCream ">
             <h1 className="text-5xl font-black px-9 py-7">Checkout</h1>
             <div className="h-full w-full px-11">
-              <div className=" h-carousel w-96 bg-white  shadow-xl flex items-start flex-col px-8">
+              <div className=" h-carousel w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-start flex-col px-8">
                 <div className="h-full w-full my-2 space-y-3">
                   <h1 className="text-2xl font-black my-2">
                     1.Shipping Address

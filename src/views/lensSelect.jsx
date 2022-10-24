@@ -67,11 +67,11 @@ export default function LensSelect() {
             </Breadcrumb>
           </div>
           <div ref={mainBg} className="w-screen h-auto flex">
-            <div className="h-full w-3/5 px-8 py-7 bg-mainWhite">
+            <div className="h-full w-3/5 px-8 py-7 bg-mainCream border-2 border-mainWhite mx-5">
               <ProgressMenu></ProgressMenu>
             </div>
             <div className=" h-carousel px-24  w-2/5 bg-mainCream flex justify-center items-center">
-              <div className=" bg-white h-2/3  flex justify-center  flex-col  p-6 w-full">
+              <div className=" bg-white border-2 border-mainWhite h-2/3  flex justify-center  flex-col  p-6 w-full">
                 <img className=" object-contain" src={lensSelectPic} alt="" />
                 <div className=" w-full  ">
                   <h1 className="text-3xl">Botanist</h1>
