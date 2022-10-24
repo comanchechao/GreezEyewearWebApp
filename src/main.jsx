@@ -14,10 +14,10 @@ import CreateBlog from "./views/CreateBlog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EditBlog from "./views/blogEdit";
 import LensSelect from "./views/lensSelect";
+import Checkout from "./views/checkoutPage";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { StepsStyleConfig as Steps } from "chakra-ui-steps";
 import i18next from "./i18n";
-
+import { StepsStyleConfig as Steps } from "chakra-ui-steps";
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
   components: {
@@ -39,6 +39,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}></Route>
         <Route path="/lensSelect" element={<LensSelect />}></Route>
+        <Route path="/checkoutPage" element={<Checkout />}></Route>
 
         <Route path="/productDetail" element={<ProductDetail />}></Route>
         <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>

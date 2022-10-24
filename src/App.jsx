@@ -262,6 +262,7 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="w-screen h-96 bg-mainBlue"></div>
     </div>
   );
 }

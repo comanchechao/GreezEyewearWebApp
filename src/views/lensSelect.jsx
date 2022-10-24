@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { useRef } from "react";
 import lensSelectPic from "../assets/images/lensSelectPic.webp";
+import { ShoppingBagOpen } from "phosphor-react";
 
 export default function LensSelect() {
   const breadCrumbMenu = useRef();
@@ -53,7 +54,7 @@ export default function LensSelect() {
                 </Link>
               </BreadcrumbItem>
 
-              <BreadcrumbItem isCurrentPage>
+              <BreadcrumbItem>
                 <Link to={"/productDetail"}>
                   <BreadcrumbLink>Product Detail</BreadcrumbLink>
                 </Link>
@@ -69,7 +70,7 @@ export default function LensSelect() {
             <div className="h-full w-3/5 px-8 py-7 bg-mainWhite">
               <ProgressMenu></ProgressMenu>
             </div>
-            <div className=" h-carousel px-24  w-2/5 bg-mainCream flex  items-center">
+            <div className=" h-carousel px-24  w-2/5 bg-mainCream flex justify-center items-center">
               <div className=" bg-white h-2/3  flex justify-center  flex-col  p-6 w-full">
                 <img className=" object-contain" src={lensSelectPic} alt="" />
                 <div className=" w-full  ">
@@ -87,9 +88,12 @@ export default function LensSelect() {
                     </h2>
                   </div>
                 </div>
-                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainCream   rounded-full  ">
-                  Go to Checkout
-                </button>
+                <Link to={"/checkoutPage"}>
+                  <button className="px-12 self-center flex items-center space-x-3 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainCream   rounded-full  ">
+                    <span>Add To Cart</span>
+                    <ShoppingBagOpen size={30} weight="fill" />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
