@@ -220,6 +220,18 @@ export default function salesManagement() {
           Size: selectedSize,
         },
       ]);
+
+      console.log(
+        secondImage,
+        Title,
+        Price,
+        selectedBrand,
+        selectedMaterial,
+        selectedGender,
+        selectedShape,
+        selectedRim,
+        selectedSize
+      );
       if (error) throw error;
       console.log(data);
       alert("Product added");
@@ -476,7 +488,7 @@ export default function salesManagement() {
                         id=""
                       >
                         {Rims.map((rim) => {
-                          return <option value={rim}>{rim.Title}</option>;
+                          return <option value={rim.Title}>{rim.Title}</option>;
                         })}
                       </select>
                     </div>
