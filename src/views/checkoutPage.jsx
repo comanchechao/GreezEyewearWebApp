@@ -66,7 +66,7 @@ export default function Checkout() {
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link to={"/lensSelect"}>
+              <Link to={"/lensSelect/:id"}>
                 <BreadcrumbLink>Select Lens</BreadcrumbLink>
               </Link>
             </BreadcrumbItem>
