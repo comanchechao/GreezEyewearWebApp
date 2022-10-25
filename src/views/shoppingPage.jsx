@@ -4,8 +4,29 @@ import Menu from "../components/shoppingPageMenu";
 import Card from "../components/card";
 import { gsap } from "gsap";
 import { useRef } from "react";
+import { supabase } from "../supabaseClient";
+import { useState } from "react";
 
 export default function shoppingPage() {
+  // getting products
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    try {
+      const { data, error } = await supabase.from("Products").select();
+
+      if (error) throw error;
+      alert("fetched niagga");
+      console.log(data);
+      setProducts(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
   const mainBg = useRef();
   const filterMenu = useRef();
 
@@ -40,10 +61,9 @@ export default function shoppingPage() {
             <Menu className=""></Menu>
           </div>
           <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  px-5">
-            <Card></Card> <Card></Card>
-            <Card></Card>
-            <Card></Card> <Card></Card>
-            <Card></Card>
+            {products.map((product) => {
+              return <Card key={product.id} product={product} />;
+            })}
           </div>
         </div>
       </div>

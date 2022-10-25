@@ -9,7 +9,13 @@ import React, { Component } from "react";
 // import { RadioGroup } from "@headlessui/react";
 // import { useState } from "react";
 // let [plan, setPlan] = useState("startup");
-export default function Card() {
+export default function Card(props) {
+  const product = props.product;
+
+  useEffect(() => {
+    console.log(product.Title);
+  });
+
   const [value, setValue] = useState("1");
   return (
     <div className="flex-col relative shadow-xl my-10 w-screen lg:w-96 h-rem26 border border-mainWhite bg-white flex justify-between pb-2 cursor-pointer items-start">
@@ -41,7 +47,7 @@ export default function Card() {
       <div className="flex space-x-6 items-center  self-center">
         <div className="flex items-center flex-col">
           <h2 className="text-2xl p-2 underline-offset-8 underline font-bold hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-            St Michel
+            {product.Title}
           </h2>
           <h2 className="text-xl p-2">$500</h2>
         </div>

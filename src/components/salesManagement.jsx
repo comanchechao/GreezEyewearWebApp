@@ -18,6 +18,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   Button,
+  Spinner,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -44,6 +45,71 @@ export default function salesManagement() {
   const [Rim, setRim] = useState("");
   const [Feature, setFeature] = useState("");
 
+  // product images upload
+
+  const [firstImage, setFirstImage] = useState("");
+  const [secondImage, setSecondImage] = useState("");
+
+  // upload function
+
+  const firstImageUpload = async (event) => {
+    try {
+      event.preventDefault();
+      setUploading(true);
+
+      if (!event.target.files || event.target.files.length === 0) {
+        throw new Error("You must select an image to upload.");
+      }
+
+      const file = event.target.files[0];
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+      setFirstImage(filePath);
+
+      let { error: uploadError } = await supabase.storage
+        .from("product-images")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const secondImageUpload = async (event) => {
+    try {
+      event.preventDefault();
+      setUploading(true);
+
+      if (!event.target.files || event.target.files.length === 0) {
+        throw new Error("You must select an image to upload.");
+      }
+
+      const file = event.target.files[0];
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+      setSecondImage(filePath);
+
+      let { error: uploadError } = await supabase.storage
+        .from("product-images")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
   // handle product submit
 
   const handleSubmit = async (e) => {
@@ -54,6 +120,8 @@ export default function salesManagement() {
       const { data, error } = await supabase.from("Products").insert([
         {
           Category: tab,
+          firstImage,
+          secondImage,
           Title,
           Price,
           Brand,
@@ -175,6 +243,7 @@ export default function salesManagement() {
                         {uploading ? <Spinner /> : <Upload size={40}></Upload>}
                       </label>
                       <input
+                        onChange={firstImageUpload}
                         disabled={uploading}
                         id="file1"
                         type="file"
@@ -187,6 +256,7 @@ export default function salesManagement() {
                         {uploading ? <Spinner /> : <Upload size={40}></Upload>}
                       </label>
                       <input
+                        onChange={secondImageUpload}
                         disabled={uploading}
                         id="file1"
                         type="file"
