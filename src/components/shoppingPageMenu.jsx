@@ -24,78 +24,102 @@ import FullRim from "../assets/images/FullRim.webp";
 import SemiRimless from "../assets/images/semiRimless.webp";
 import ShoppingMenuModal from "./shoppingPageModal";
 import { useTranslation } from "react-i18next";
-
-
-
+import { supabase } from "../supabaseClient";
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(300);
   const { t, i18n } = useTranslation();
 
-  const [thisisshape , setthisisshape ] = useState("Shape")
+  // filters
 
-  // Genders
-  const [unisex, setUnisex] = useState(false);
-  const [male, setMale] = useState(false);
-  const [female, setFemale] = useState(false);
-  const [kids, setKids] = useState(false);
+  const [Genders, setGenders] = useState([]);
+  const [Shapes, setShapes] = useState([]);
+  const [Sizes, setSizes] = useState([]);
+  const [Material, setMaterial] = useState([]);
+  const [Brands, setBrands] = useState([]);
+  const [Rims, setRims] = useState([]);
 
-  // shapes
+  // getting filters add putting them into a fliter array
 
-  const [Rectangle, setRectangle] = useState(false);
-  const [Square, setSquare] = useState(false);
-  const [Round, setRound] = useState(false);
-  const [Aviator, setAviator] = useState(false);
-  const [Oval, setOval] = useState(false);
-  const [CatEye, setCatEye] = useState(false);
-  const [Polygon, setPolygon] = useState(false);
-  const [Horn, setHorn] = useState(false);
+  const getFilters = () => {
+    getBrands();
+    getGenders();
+    getMaterial();
+    getSizes();
+    getShapes();
+    getRims();
+  };
 
-  // Material
+  const getGenders = async () => {
+    try {
+      const { data, error } = await supabase.from("Genders").select();
 
-  const [Acetate, setAcetate] = useState(false);
-  const [TR, setTR] = useState(false);
-  const [MemoryPlastic, setMemoryPlastic] = useState(false);
-  const [UItem, setUItem] = useState(false);
-  const [SilicaGel, setSilicaGel] = useState(false);
-  const [Metal, setMetal] = useState(false);
-  const [MemoryMetal, setMemoryMetal] = useState(false);
-  const [Titanium, setTitium] = useState(false);
-  const [MixedMaterial, setMixedMaterial] = useState(false);
+      console.log(data);
+      setGenders(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-  // size
+  const getBrands = async () => {
+    try {
+      const { data, error } = await supabase.from("Brands").select();
 
-  const [small, setSmall] = useState(false);
-  const [medium, setMedium] = useState(false);
-  const [large, setLarge] = useState(false);
+      console.log(data);
+      setBrands(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-  // Rims
+  const getShapes = async () => {
+    try {
+      const { data, error } = await supabase.from("Shapes").select();
 
-  const [fullRim, setFullRim] = useState(false);
-  const [semiRim, setSemiRim] = useState(false);
-  const [rimless, setRimless] = useState(false);
+      console.log(data);
+      setShapes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-  
+  const getMaterial = async () => {
+    try {
+      const { data, error } = await supabase.from("Material").select();
+
+      console.log(data);
+      setMaterial(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getSizes = async () => {
+    try {
+      const { data, error } = await supabase.from("Sizes").select();
+
+      console.log(data);
+      setSizes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getRims = async () => {
+    try {
+      const { data, error } = await supabase.from("Rims").select();
+
+      console.log(data);
+      setRims(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   useEffect(() => {
-    console.log(
-      "male:",
-      male,
-      "unisex",
-      unisex,
-      "small ",
-      small,
-      "ACetate: ",
-      Acetate,
-      "TR:",
-      TR,
-      "memory plastic",
-      MemoryPlastic,
-      "Silicagel",
-      SilicaGel
-    );
-  });
+    getFilters();
+  }, []);
 
   return (
     <div className=" h-24 w-full z-20 flex justify-start lg:px-0 px-9 lg:justify-center py-7 lg:space-x-4  items-center text-2xl">
@@ -164,16 +188,15 @@ export default function ShoppingMenu() {
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
-            <MenuItem>
-              <Checkbox size="lg">
-                <span className="text-2xl">Ray-ban (12)</span>
-              </Checkbox>
-            </MenuItem>
-            <MenuItem>
-              <Checkbox size="lg">
-                <span className="text-2xl">Mascot (40)</span>
-              </Checkbox>
-            </MenuItem>
+            {Brands.map((brand) => {
+              return (
+                <MenuItem key={brand.id}>
+                  <Checkbox size="lg">
+                    <span className="text-2xl">{brand.Title}</span>
+                  </Checkbox>
+                </MenuItem>
+              );
+            })}
           </MenuList>
         </Menu>
         <Menu closeOnSelect={false}>
@@ -192,50 +215,21 @@ export default function ShoppingMenu() {
             <ChevronDownIcon />
           </MenuButton>
           <MenuList>
-            <MenuItem>
-              <Checkbox
-                onChange={(e) => {
-                  e.preventDefault;
-                  setUnisex((prev) => !prev);
-                }}
-                size="lg"
-              >
-                <span className="text-2xl">Unisex</span>
-              </Checkbox>
-            </MenuItem>
-            <MenuItem>
-              <Checkbox
-                onChange={(e) => {
-                  e.preventDefault;
-                  setFemale((prev) => !prev);
-                }}
-                size="lg"
-              >
-                <span className="text-2xl">Women</span>
-              </Checkbox>
-            </MenuItem>
-            <MenuItem>
-              <Checkbox
-                onChange={() => {
-                  setMale((prev) => !prev);
-                  console.log(male);
-                }}
-                size="lg"
-              >
-                <span className="text-2xl">Men</span>
-              </Checkbox>
-            </MenuItem>
-            <MenuItem>
-              <Checkbox
-                onChange={(e) => {
-                  e.preventDefault;
-                  setKids((prev) => !prev);
-                }}
-                size="lg"
-              >
-                <span className="text-2xl">Kids</span>
-              </Checkbox>
-            </MenuItem>
+            {Genders.map((gender) => {
+              return (
+                <MenuItem key={gender.id}>
+                  <Checkbox
+                    onChange={(e) => {
+                      e.preventDefault;
+                      setUnisex((prev) => !prev);
+                    }}
+                    size="lg"
+                  >
+                    <span className="text-2xl">{gender.Title}</span>
+                  </Checkbox>
+                </MenuItem>
+              );
+            })}
           </MenuList>
         </Menu>
         <Menu closeOnSelect={false}>
@@ -249,7 +243,7 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            {t(thisisshape)}
+            {t("Shape")}
 
             <ChevronDownIcon />
           </MenuButton>
@@ -557,39 +551,21 @@ export default function ShoppingMenu() {
               <h1 className="text-2xl font-black text-CoolGray-900 p-3">
                 Total Width
               </h1>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setSmall((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Small(129mm)</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setMedium((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Medium(129mm to 135mm)</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setLarge((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Large(135mm)</span>
-                </Checkbox>
-              </MenuItem>
+              {Sizes.map((size) => {
+                return (
+                  <MenuItem key={size.id}>
+                    <Checkbox
+                      onChange={(e) => {
+                        e.preventDefault;
+                        setSmall((prev) => !prev);
+                      }}
+                      size="lg"
+                    >
+                      <span className="text-xl">{size.Title}</span>
+                    </Checkbox>
+                  </MenuItem>
+                );
+              })}
             </div>
           </MenuList>
         </Menu>

@@ -56,7 +56,7 @@ export default function ShoppingMenuModal() {
 
   const getGenders = async () => {
     try {
-      const { data, errorGenders } = await supabase.from("Genders").select();
+      const { data, error } = await supabase.from("Genders").select();
 
       console.log(data);
       setGenders(data);
