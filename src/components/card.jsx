@@ -5,6 +5,7 @@ import { ShoppingCart } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { Radio, RadioGroup, Stack } from "@chakra-ui/react";
 import { useState, useRef, useEffect } from "react";
+import { supabase } from "../supabaseClient";
 import React, { Component } from "react";
 // import { RadioGroup } from "@headlessui/react";
 // import { useState } from "react";
@@ -12,17 +13,70 @@ import React, { Component } from "react";
 export default function Card(props) {
   const product = props.product;
 
+  // getting images
+
+  const [loading, setLoading] = useState(false);
+  const [path, setPath] = useState(null);
+  const [firstImage, setFirstImage] = useState("");
+  const [secondImage, setSecondImage] = useState("");
+
+  // image download function
+
+  const downloadFirstImage = async () => {
+    setPath(product.firstImage);
+    try {
+      setLoading(true);
+      const { data, error } = await supabase.storage
+        .from("product-images")
+        .download(product.firstImage);
+
+      if (error) {
+        throw error;
+      }
+      const url = URL.createObjectURL(data);
+      setFirstImage(url);
+    } catch (error) {
+      console.log("Error downloading image: ", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // image 2 download function
+
+  const downloadSecondImage = async () => {
+    setPath(product.secondImage);
+    try {
+      setLoading(true);
+      const { data, error } = await supabase.storage
+        .from("product-images")
+        .download(product.secondImage);
+
+      if (error) {
+        throw error;
+      }
+      const url = URL.createObjectURL(data);
+      setSecondImage(url);
+    } catch (error) {
+      console.log("Error downloading image: ", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    console.log(product.Title);
-  });
+    downloadFirstImage();
+    downloadSecondImage();
+  }, []);
 
   const [value, setValue] = useState("1");
+
   return (
     <div className="flex-col relative shadow-xl my-10 w-screen lg:w-96 h-rem26 border border-mainWhite bg-white flex justify-between pb-2 cursor-pointer items-start">
       <img
-        src={cardPicture1}
-        onMouseOver={(e) => (e.currentTarget.src = cardPicture2)}
-        onMouseOut={(e) => (e.currentTarget.src = cardPicture1)}
+        src={firstImage}
+        onMouseOver={(e) => (e.currentTarget.src = secondImage)}
+        onMouseOut={(e) => (e.currentTarget.src = firstImage)}
       />
       <button
         className="transition absolute p-5  top-40 left-64 lg:left-80 ml-8 flex ease-in duration-300 border-white hover:bg-mainBlue text-mainWhite hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900  text-3xl   bg-CoolGray-900  rounded-full  "
@@ -49,7 +103,7 @@ export default function Card(props) {
           <h2 className="text-2xl p-2 underline-offset-8 underline font-bold hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
             {product.Title}
           </h2>
-          <h2 className="text-xl p-2">$500</h2>
+          <h2 className="text-xl p-2">${product.Price}</h2>
         </div>
         <Link to={"/productDetail"}>
           <button

@@ -141,9 +141,25 @@ export default function salesManagement() {
     }
   };
 
+  // getProducts
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    try {
+      const { data, error } = await supabase.from("Products").select();
+
+      if (error) throw error;
+      alert("fetched niagga");
+      console.log(data);
+      setProducts(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   useEffect(() => {
-    console.log(Brand, Gender, Material, Shape, Size, Rim, Feature);
-  });
+    getProducts();
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-full bg-mainCream">
@@ -250,7 +266,7 @@ export default function salesManagement() {
                         className="hidden"
                       />
                       <label
-                        htmlFor="file1"
+                        htmlFor="file2"
                         className=" cursor-pointer hover:bg-mainYellow hover:text-CoolGray-900 transition p-5 bg-mainWhite rounded-full text-white"
                       >
                         {uploading ? <Spinner /> : <Upload size={40}></Upload>}
@@ -258,7 +274,7 @@ export default function salesManagement() {
                       <input
                         onChange={secondImageUpload}
                         disabled={uploading}
-                        id="file1"
+                        id="file2"
                         type="file"
                         className="hidden"
                       />
@@ -389,50 +405,26 @@ export default function salesManagement() {
                 </ModalContent>
               </Modal>
             </div>
-            <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
-              <h2 className="text-4xl font-bold">title</h2>
-              <h2 className="text-3xl xs:hidden">25555 T</h2>
-              <h2>
-                <Airplay
-                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
-                  size={50}
-                />
-              </h2>
-            </div>
-            <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
-              <h2 className="text-4xl font-bold">title</h2>
-              <h2 className="text-3xl xs:hidden">25555 T</h2>
-              <h2>
-                <Airplay
-                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
-                  size={50}
-                />
-              </h2>
-            </div>
-            <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
-              <h2 className="text-4xl font-bold">title</h2>
-              <h2 className="text-3xl xs:hidden">25555 T</h2>
-              <h2>
-                <Airplay
-                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
-                  size={50}
-                />
-              </h2>
-            </div>
-            <div className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24">
-              <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
-              <h2 className="text-4xl font-bold">title</h2>
-              <h2 className="text-3xl xs:hidden">25555 T</h2>
-              <h2>
-                <Airplay
-                  className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
-                  size={50}
-                />
-              </h2>
-            </div>
+            {products.map((product) => {
+              if (product.Category === tab) {
+                return (
+                  <div
+                    key={product}
+                    className="flex shadow-2xl flex-row justify-around bg-mainCream justify-center items-center w-full h-24"
+                  >
+                    <h1 className="rounded-full w-20 h-20 bg-CoolGray-900"></h1>
+                    <h2 className="text-4xl font-bold">{product.Title}</h2>
+                    <h2 className="text-3xl xs:hidden">{product.Price} T</h2>
+                    <h2>
+                      <Airplay
+                        className="hover:bg-CoolGray-800 hover:text-mainWhite rounded-full p-1"
+                        size={50}
+                      />
+                    </h2>
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
       ) : null}
