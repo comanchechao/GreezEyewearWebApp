@@ -33,17 +33,105 @@ export default function salesManagement() {
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // getting filters add putting them into a fliter array
+  const [Genders, setGenders] = useState([]);
+  const [Shapes, setShapes] = useState([]);
+  const [Sizes, setSizes] = useState([]);
+  const [Material, setMaterial] = useState([]);
+  const [Brands, setBrands] = useState([]);
+  const [Rims, setRims] = useState([]);
+
+  const getFilters = () => {
+    getBrands();
+    getGenders();
+    getMaterial();
+    getSizes();
+    getShapes();
+    getRims();
+  };
+
+  const getGenders = async () => {
+    try {
+      const { data, error } = await supabase.from("Genders").select();
+
+      console.log(data);
+      setGenders(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getBrands = async () => {
+    try {
+      const { data, error } = await supabase.from("Brands").select();
+
+      console.log(data);
+      setBrands(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getShapes = async () => {
+    try {
+      const { data, error } = await supabase.from("Shapes").select();
+
+      console.log(data);
+      setShapes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getMaterial = async () => {
+    try {
+      const { data, error } = await supabase.from("Material").select();
+
+      console.log(data);
+      setMaterial(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getSizes = async () => {
+    try {
+      const { data, error } = await supabase.from("Sizes").select();
+
+      console.log(data);
+      setSizes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getRims = async () => {
+    try {
+      const { data, error } = await supabase.from("Rims").select();
+
+      console.log(data);
+      setRims(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getFilters();
+  }, []);
+
   // setting the product to submit
 
   const [Title, setTitle] = useState("");
   const [Price, setPrice] = useState(0);
-  const [Brand, setBrand] = useState("");
-  const [Gender, setGender] = useState("");
-  const [Material, setMaterial] = useState("");
-  const [Shape, setShape] = useState("");
-  const [Size, setSize] = useState("");
-  const [Rim, setRim] = useState("");
-  const [Feature, setFeature] = useState("");
+
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
+  const [selectedMaterial, setSelectedMaterial] = useState("");
+  const [selectedShape, setSelectedShape] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedRim, setSelectedRim] = useState("");
+  const [selectedFeature, setFeature] = useState("");
 
   // product images upload
 
@@ -124,13 +212,13 @@ export default function salesManagement() {
           secondImage,
           Title,
           Price,
-          Brand,
-          Material,
-          Gender,
-          Shape,
-          Rim,
+          Brand: selectedBrand,
+          Material: selectedMaterial,
+          Gender: selectedGender,
+          Shape: selectedShape,
+          Rim: selectedRim,
           Feature,
-          Size,
+          Size: selectedSize,
         },
       ]);
       if (error) throw error;
@@ -297,78 +385,65 @@ export default function salesManagement() {
                       />
                       <select
                         onChange={(e) => {
-                          setBrand(e.target.value);
+                          setSelectedBrand(e.target.value);
                         }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="">...</option>
-                        <option value="ray band">ray band</option>
-                        <option value="gentle monster">gentle monster</option>
-                        <option value="dolcegabana">dolcegabana</option>
+                        {Brands.map((brand) => {
+                          return <option value={brand}>{brand.Title}</option>;
+                        })}
                       </select>
                       <select
                         onChange={(e) => {
-                          setGender(e.target.value);
+                          setSelectedGender(e.target.value);
                         }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="">...</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Unisex">Unisex</option>
+                        {Genders.map((gender) => {
+                          return <option value={gender}>{gender.Title}</option>;
+                        })}
                       </select>
                       <select
                         onChange={(e) => {
-                          setShape(e.target.value);
+                          setSelectedShape(e.target.value);
                         }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="">...</option>
-                        <option value="Rectangle">Rectangle</option>
-                        <option value="Round">Round</option>
-                        <option value="Square">Square</option>
-                        <option value="Aviator">Aviator</option>
-                        <option value="Oval">Oval</option>
-                        <option value="CatEye">Cat-Eye</option>
-                        <option value="Polygon">Polygon</option>
-                        <option value="Horn">Horn</option>
+                        {Shapes.map((shape) => {
+                          return(
+                            <option value={shape}>{shape.Title}</option>
+                          )
+                        })}
                       </select>
                       <select
                         onChange={(e) => {
-                          setMaterial(e.target.value);
+                          setSelectedMaterial(e.target.value);
                         }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="">...</option>
-                        <option value="Acetate">Acetate</option>
-                        <option value="TR">TR</option>
-                        <option value="MemoryPlastic">Memory Plastic</option>
-                        <option value="UItem">UItem</option>
-                        <option value="SilicaGel">Silica Gel</option>
-                        <option value="Metal">Metal</option>
-                        <option value="MemoryMetal">Memory Metal</option>
-                        <option value="Titanium">Titanium</option>
+                        {Material.map((mat) => {
+                          return <option value={mat}>{mat.Title}</option>;
+                        })}
                       </select>
                       <select
                         onChange={(e) => {
-                          setSize(e.target.value);
+                          setSelectedSize(e.target.value);
                         }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="">...</option>
-                        <option value="small">small</option>
-                        <option value="medium">medium</option>
-                        <option value="large">large</option>
+                        {Sizes.map((size) => {
+                          return <option value={size}>{size.Title}</option>;
+                        })}
                       </select>
                       <select
                         onChange={(e) => {
@@ -389,16 +464,15 @@ export default function salesManagement() {
                       </select>
                       <select
                         onChange={(e) => {
-                          setRim(e.target.value);
+                          setSelectedRim(e.target.value);
                         }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name=""
                         id=""
                       >
-                        <option value="">...</option>
-                        <option value="FullRim">Full Rim</option>
-                        <option value="SemiRim">Semi Rim</option>
-                        <option value="Rimless">Rimless</option>
+                        {Rims.map((rim) => {
+                          return <option value={rim}>{rim.Title}</option>;
+                        })}
                       </select>
                     </div>
                   </ModalBody>
