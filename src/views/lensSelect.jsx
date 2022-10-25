@@ -1,7 +1,7 @@
 import Navbar from "../components/navbar";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProgressMenu from "../components/progressMenu";
 import { useEffect } from "react";
 import { gsap } from "gsap";
@@ -10,6 +10,7 @@ import lensSelectPic from "../assets/images/lensSelectPic.webp";
 import { ShoppingBagOpen } from "phosphor-react";
 
 export default function LensSelect() {
+  const { id } = useParams();
   const breadCrumbMenu = useRef();
   const mainBg = useRef();
 

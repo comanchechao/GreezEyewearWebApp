@@ -38,10 +38,10 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>
-        <Route path="/lensSelect" element={<LensSelect />}></Route>
+        <Route path="/lensSelect/:id" element={<LensSelect />}></Route>
         <Route path="/checkoutPage" element={<Checkout />}></Route>
 
-        <Route path="/productDetail" element={<ProductDetail />}></Route>
+        <Route path="/productDetail/:id" element={<ProductDetail />}></Route>
         <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
         <Route path="/faceShape" element={<FaceShape />}></Route>
         <Route path="/frameShape" element={<FrameShape />}></Route>

@@ -10,8 +10,18 @@ import mediumLens from "../assets/images/mediumLens.webp";
 import thickLens from "../assets/images/thickLens.webp";
 import polarizedLens from "../assets/images/polarizedLens.webp";
 import { Select } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function Contents(props) {
+  const [glassesType, setGlassesType] = useState("");
+  const [perscription, setPerscription] = useState({
+    rightEye: { SPH: 0, CYL: 0, Axis: 0 },
+    leftEye: { SPH: 0, CYL: 0, Axis: 0 },
+    PD: 0,
+  });
+  const [lensePicker, setLensePicker] = useState({});
+
+  const [lenseThickness, setLenseThickness] = useState(1.5);
   return (
     <div>
       {props.index === 1 && (

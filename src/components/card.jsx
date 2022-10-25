@@ -105,7 +105,7 @@ export default function Card(props) {
           </h2>
           <h2 className="text-xl p-2">${product.Price}</h2>
         </div>
-        <Link to={"/productDetail"}>
+        <Link to={`/productDetail/${product.id}`}>
           <button
             className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-2 text-2xl my-3 hover:text-CoolGray-900 bg-CoolGray-900 text-mainWhite rounded-full"
             type="submit"

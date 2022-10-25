@@ -15,12 +15,33 @@ import InnerImageZoom from "react-inner-image-zoom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { useRef } from "react";
+import { supabase } from "../supabaseClient";
 
 export default function ProductDetail() {
+  const { id } = useParams();
+  const [product, setProduct] = useState({});
+
+  // getting product detail
+
+  const getProduct = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("Products")
+        .select()
+        .eq("id", id);
+      if (error) throw error;
+      setProduct(data[0]);
+      downloadImage1(data[0].firstImage);
+      downloadImage2(data[0].secondImage);
+    } catch (error) {
+    } finally {
+    }
+  };
+
   const breadCrumbMenu = useRef();
   const productBg = useRef();
 
@@ -38,6 +59,7 @@ export default function ProductDetail() {
       duration: 0.4,
     });
     window.scrollTo(0, 0);
+    getProduct();
   }, []);
 
   const [value, setValue] = useState("1");
@@ -70,7 +92,7 @@ export default function ProductDetail() {
 
               <BreadcrumbItem isCurrentPage>
                 <BreadcrumbLink href="#">
-                  <span className="font-black">Product Detail</span>
+                  <span className="font-black">{product.Title}</span>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
@@ -101,13 +123,13 @@ export default function ProductDetail() {
             <div className=" h-full w-2/4 bg-gray-100 flex items-center flex-col p-28 space-y-10">
               <div className="flex flex-col items-start text-left">
                 <h1 className="text-5xl text-CoolGray-900 font-black p-1  hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-                  Botanist
+                  {product.Title}
                 </h1>
                 <h2 className=" text-lg p-1 text-CoolGray-500 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   Rectangle Gray Brown Eyeglasses
                 </h2>
               </div>
-              <h3 className=" text-3xl font-black"> $35 </h3>
+              <h3 className=" text-3xl font-black"> ${product.Price} </h3>
               <div className="h-full w-full flex flex-col space-y-2 items-center">
                 <h2 className=" text-2xl font-black">Select Colors: </h2>
                 <RadioGroup
@@ -178,7 +200,7 @@ export default function ProductDetail() {
                   </Stack>
                 </RadioGroup>
               </div>
-              <Link to={"/lensSelect"}>
+              <Link to={`/lensSelect/${product.id}`}>
                 <button
                   className="px-20 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-3xl my-3 bg-mainWhite   rounded-full  "
                   type="submit"
