@@ -34,10 +34,10 @@ export default function LensSelect() {
     <div className=" h-auto w-screen overflow-x-hidden bg-CoolGray-800">
       <Navbar></Navbar>
       <div className=" h-auto w-screen pt-20 ">
-        <div className="h-full w-full flex flex-col items-center justify-center bg-mainCream">
+        <div className="h-full w-full flex flex-col items-center justify-center bg-CoolGray-800">
           <div
             ref={breadCrumbMenu}
-            className=" h-14 w-full drop-shadow-lg filter   mb-6 flex items-center px-7  text-lg bg-mainWhite"
+            className=" h-14 w-full drop-shadow-lg filter   mb-6 flex items-center px-7  text-lg bg-mainCream"
           >
             <Breadcrumb
               spacing="8px"
@@ -67,11 +67,14 @@ export default function LensSelect() {
               </BreadcrumbItem>
             </Breadcrumb>
           </div>
-          <div ref={mainBg} className="w-screen h-auto flex">
-            <div className="h-full w-3/5 px-8 py-7 bg-mainCream border-2 border-mainWhite mx-5">
+          <div
+            ref={mainBg}
+            className="w-screen h-auto mb-11 flex flex-col lg:flex-row items-center "
+          >
+            <div className="h-full w-screen lg:w-3/5 px-14 mx-6 lg:px-8 py-7 bg-mainCream border-2 border-mainWhite  ">
               <ProgressMenu></ProgressMenu>
             </div>
-            <div className=" h-carousel px-24  w-2/5 bg-mainCream flex justify-center items-center">
+            <div className=" h-dialog px-24 mx-5 lg:w-2/5 bg-mainCream flex justify-center items-center">
               <div className=" bg-white border-2 border-mainWhite h-2/3  flex justify-center  flex-col  p-6 w-full">
                 <img className=" object-contain" src={lensSelectPic} alt="" />
                 <div className=" w-full  ">

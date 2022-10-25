@@ -69,10 +69,10 @@ export default function ProductDetail() {
     <div className=" h-auto w-screen overflow-x-hidden bg-CoolGray-900">
       <Navbar></Navbar>
       <div className=" h-auto w-screen pt-20 ">
-        <div className="h-full w-full flex flex-col bg-mainCream">
+        <div className="h-full w-full flex flex-col bg-CoolGray-800">
           <div
             ref={breadCrumbMenu}
-            className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-mainWhite"
+            className=" h-14 w-full drop-shadow-lg filter flex items-center px-7  text-lg bg-mainCream"
           >
             <Breadcrumb
               spacing="8px"
