@@ -9,7 +9,7 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import shapeRectangle from "../assets/images/shapeRectangle.webp";
 import shapeSquare from "../assets/images/shapeSquare.webp";
@@ -25,12 +25,77 @@ import SemiRimless from "../assets/images/semiRimless.webp";
 import ShoppingMenuModal from "./shoppingPageModal";
 import { useTranslation } from "react-i18next";
 
+
+
+
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(300);
   const { t, i18n } = useTranslation();
+
+  const [thisisshape , setthisisshape ] = useState("Shape")
+
+  // Genders
   const [unisex, setUnisex] = useState(false);
   const [male, setMale] = useState(false);
+  const [female, setFemale] = useState(false);
+  const [kids, setKids] = useState(false);
+
+  // shapes
+
+  const [Rectangle, setRectangle] = useState(false);
+  const [Square, setSquare] = useState(false);
+  const [Round, setRound] = useState(false);
+  const [Aviator, setAviator] = useState(false);
+  const [Oval, setOval] = useState(false);
+  const [CatEye, setCatEye] = useState(false);
+  const [Polygon, setPolygon] = useState(false);
+  const [Horn, setHorn] = useState(false);
+
+  // Material
+
+  const [Acetate, setAcetate] = useState(false);
+  const [TR, setTR] = useState(false);
+  const [MemoryPlastic, setMemoryPlastic] = useState(false);
+  const [UItem, setUItem] = useState(false);
+  const [SilicaGel, setSilicaGel] = useState(false);
+  const [Metal, setMetal] = useState(false);
+  const [MemoryMetal, setMemoryMetal] = useState(false);
+  const [Titanium, setTitium] = useState(false);
+  const [MixedMaterial, setMixedMaterial] = useState(false);
+
+  // size
+
+  const [small, setSmall] = useState(false);
+  const [medium, setMedium] = useState(false);
+  const [large, setLarge] = useState(false);
+
+  // Rims
+
+  const [fullRim, setFullRim] = useState(false);
+  const [semiRim, setSemiRim] = useState(false);
+  const [rimless, setRimless] = useState(false);
+
+  
+
+  useEffect(() => {
+    console.log(
+      "male:",
+      male,
+      "unisex",
+      unisex,
+      "small ",
+      small,
+      "ACetate: ",
+      Acetate,
+      "TR:",
+      TR,
+      "memory plastic",
+      MemoryPlastic,
+      "Silicagel",
+      SilicaGel
+    );
+  });
 
   return (
     <div className=" h-24 w-full z-20 flex justify-start lg:px-0 px-9 lg:justify-center py-7 lg:space-x-4  items-center text-2xl">
@@ -128,12 +193,24 @@ export default function ShoppingMenu() {
           </MenuButton>
           <MenuList>
             <MenuItem>
-              <Checkbox size="lg">
+              <Checkbox
+                onChange={(e) => {
+                  e.preventDefault;
+                  setUnisex((prev) => !prev);
+                }}
+                size="lg"
+              >
                 <span className="text-2xl">Unisex</span>
               </Checkbox>
             </MenuItem>
             <MenuItem>
-              <Checkbox size="lg">
+              <Checkbox
+                onChange={(e) => {
+                  e.preventDefault;
+                  setFemale((prev) => !prev);
+                }}
+                size="lg"
+              >
                 <span className="text-2xl">Women</span>
               </Checkbox>
             </MenuItem>
@@ -141,7 +218,7 @@ export default function ShoppingMenu() {
               <Checkbox
                 onChange={() => {
                   setMale((prev) => !prev);
-                  console.log(male)
+                  console.log(male);
                 }}
                 size="lg"
               >
@@ -149,7 +226,13 @@ export default function ShoppingMenu() {
               </Checkbox>
             </MenuItem>
             <MenuItem>
-              <Checkbox size="lg">
+              <Checkbox
+                onChange={(e) => {
+                  e.preventDefault;
+                  setKids((prev) => !prev);
+                }}
+                size="lg"
+              >
                 <span className="text-2xl">Kids</span>
               </Checkbox>
             </MenuItem>
@@ -166,14 +249,20 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            {t("shape")}
+            {t(thisisshape)}
 
             <ChevronDownIcon />
           </MenuButton>
           <MenuList className="flex">
             <div>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setRectangle((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -185,7 +274,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setSquare((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -197,7 +292,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setAviator((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -209,7 +310,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setOval((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -223,7 +330,13 @@ export default function ShoppingMenu() {
             </div>
             <div>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setRound((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -235,7 +348,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setCatEye((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -247,7 +366,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setPolygon((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -259,7 +384,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setHorn((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -294,27 +425,57 @@ export default function ShoppingMenu() {
                 Plastic
               </h1>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setAcetate((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Acetate</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setTR((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">TR</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setMemoryPlastic((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Memory Plastic</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setUItem((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Ultem</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setSilicaGel((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Silica Gel</span>
                 </Checkbox>
               </MenuItem>
@@ -324,17 +485,35 @@ export default function ShoppingMenu() {
                 Metal
               </h1>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setMetal((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Metal</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setMemoryMetal((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Memory Metal</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setTitium((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Titanium</span>
                 </Checkbox>
               </MenuItem>
@@ -344,7 +523,13 @@ export default function ShoppingMenu() {
                 Mixed Material
               </h1>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setMixedMaterial((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl text-center">Mixed Materials</span>
                 </Checkbox>
               </MenuItem>
@@ -373,17 +558,35 @@ export default function ShoppingMenu() {
                 Total Width
               </h1>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setSmall((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Small(129mm)</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setMedium((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Medium(129mm to 135mm)</span>
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setLarge((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <span className="text-xl">Large(135mm)</span>
                 </Checkbox>
               </MenuItem>
@@ -407,7 +610,13 @@ export default function ShoppingMenu() {
           <MenuList className="flex">
             <div>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setFullRim((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img className="object-contain w-12" src={FullRim} alt="" />
                     <span className="text-2xl">Full-Rim</span>
@@ -415,7 +624,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setSemiRim((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img
                       className="object-contain w-12"
@@ -427,7 +642,13 @@ export default function ShoppingMenu() {
                 </Checkbox>
               </MenuItem>
               <MenuItem>
-                <Checkbox size="lg">
+                <Checkbox
+                  onChange={(e) => {
+                    e.preventDefault;
+                    setRimless((prev) => !prev);
+                  }}
+                  size="lg"
+                >
                   <div className="flex space-x-3">
                     <img className="object-contain w-12" src={Rimless} alt="" />
                     <span className="text-2xl">Rimless</span>

@@ -13,7 +13,7 @@ export default function shoppingPage() {
 
   const getProducts = async () => {
     try {
-      const { data, error } = await supabase.from("Products").select();
+      const { data, error } = await supabase.from("Products").select()
 
       if (error) throw error;
       alert("fetched niagga");

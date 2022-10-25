@@ -29,16 +29,101 @@ import SemiRimless from "../assets/images/semiRimless.webp";
 import { Sliders, CaretDown } from "phosphor-react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
+import { supabase } from "../supabaseClient";
 
 export default function ShoppingMenuModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t, i18n } = useTranslation();
-  const [unisex, setUnisex] = useState(false);
-  const [male, setMale] = useState(false);
+  const [Genders, setGenders] = useState([]);
+  const [Shapes, setShapes] = useState([]);
+  const [Sizes, setSizes] = useState([]);
+  const [Material, setMaterial] = useState([]);
+  const [Brands, setBrands] = useState([]);
+  const [Rims, setRims] = useState([]);
+
+  const [filters, setFilter] = useState([]);
+
+  // getting filters add putting them into a fliter array
+
+  const getFilters = () => {
+    getBrands();
+    getGenders();
+    getMaterial();
+    getSizes();
+    getShapes();
+    getRims();
+  };
+
+  const getGenders = async () => {
+    try {
+      const { data, errorGenders } = await supabase.from("Genders").select();
+
+      console.log(data);
+      setGenders(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getBrands = async () => {
+    try {
+      const { data, error } = await supabase.from("Brands").select();
+
+      console.log(data);
+      setBrands(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getShapes = async () => {
+    try {
+      const { data, error } = await supabase.from("Shapes").select();
+
+      console.log(data);
+      setShapes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getMaterial = async () => {
+    try {
+      const { data, error } = await supabase.from("Material").select();
+
+      console.log(data);
+      setMaterial(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getSizes = async () => {
+    try {
+      const { data, error } = await supabase.from("Sizes").select();
+
+      console.log(data);
+      setSizes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getRims = async () => {
+    try {
+      const { data, error } = await supabase.from("Rims").select();
+
+      console.log(data);
+      setRims(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   useEffect(() => {
-    console.log("male:", male, "unisex", unisex);
-  });
+    getFilters();
+    console.log(filters);
+  }, []);
 
   return (
     <>
@@ -98,37 +183,33 @@ export default function ShoppingMenuModal() {
                 <TabPanels>
                   <TabPanel>
                     <div className="w-full h-full flex flex-col">
-                      <Checkbox size="lg">
-                        <span className="text-3xl">Ray-ban (12)</span>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <span className="text-3xl">Mascot (40)</span>
-                      </Checkbox>
+                      {Brands.map((brand) => {
+                        return (
+                          <Checkbox size="lg">
+                            <span className="text-3xl">{brand.Title}</span>
+                          </Checkbox>
+                        );
+                      })}
                     </div>
                   </TabPanel>
                   <TabPanel>
                     <div className="w-full h-full flex flex-col">
-                      <Checkbox
-                        onChange={(e) => {
-                          e.preventDefault();
-                          setUnisex((prev) => !prev);
-                        }}
-                        size="lg"
-                      >
-                        <span className="text-3xl">Unisex</span>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <span className="text-3xl">Women</span>
-                      </Checkbox>
-                      <Checkbox
-                        onChange={(e) => setMale((prev) => !prev)}
-                        size="lg"
-                      >
-                        <span className="text-3xl">Men</span>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <span className="text-3xl">Kids</span>
-                      </Checkbox>
+                      {Genders.map((gender) => {
+                        return (
+                          <Checkbox
+                            key={gender.id}
+                            onChange={(e) => {
+                              e.preventDefault();
+                              if (filters.indexOf("Unisex") === -1) {
+                                filters.push("Unisex");
+                              }
+                            }}
+                            size="lg"
+                          >
+                            <span className="text-3xl">{gender.Title}</span>
+                          </Checkbox>
+                        );
+                      })}
                     </div>
                   </TabPanel>
                   <TabPanel>
@@ -217,53 +298,14 @@ export default function ShoppingMenuModal() {
                   </TabPanel>
                   <TabPanel>
                     <div className=" h-full w-full  ">
-                      <h1 className="text-2xl font-black text-mainWhite p-3">
-                        Plastic
-                      </h1>
                       <div className="w-full h-full flex flex-col">
-                        <Checkbox size="lg">
-                          <span className="text-xl">Acetate</span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-xl">TR</span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-xl">Memory Plastic</span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-xl">Ultem</span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-xl">Silica Gel</span>
-                        </Checkbox>
-                      </div>
-                    </div>
-                    <div className=" h-full w-full  ">
-                      <h1 className="text-2xl font-black text-mainWhite p-3">
-                        Metal
-                      </h1>
-                      <div className="w-full h-full flex flex-col">
-                        <Checkbox size="lg">
-                          <span className="text-xl">Metal</span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-xl">Memory Metal</span>
-                        </Checkbox>
-                        <Checkbox size="lg">
-                          <span className="text-xl">Titanium</span>
-                        </Checkbox>
-                      </div>
-
-                      <div className=" h-full w-full ">
-                        <h1 className="text-2xl font-black text-mainWhite p-3 ">
-                          Mixed Material
-                        </h1>
-
-                        <Checkbox size="lg">
-                          <span className="text-xl text-center">
-                            Mixed Materials
-                          </span>
-                        </Checkbox>
+                        {Material.map((Mixed) => {
+                          return (
+                            <Checkbox key={Mixed.id} size="lg">
+                              <span className="text-xl">{Mixed.Title}</span>
+                            </Checkbox>
+                          );
+                        })}
                       </div>
                     </div>
                   </TabPanel>
@@ -274,24 +316,33 @@ export default function ShoppingMenuModal() {
                           Total Width
                         </h1>
                         <div className="w-full h-full flex flex-col">
-                          <Checkbox size="lg">
-                            <span className="text-2xl">Small(129mm)</span>
-                          </Checkbox>
-                          <Checkbox size="lg">
-                            <span className="text-2xl">
-                              Medium(129mm to 135mm)
-                            </span>
-                          </Checkbox>
-                          <Checkbox size="lg">
-                            <span className="text-2xl">Large(135mm)</span>
-                          </Checkbox>
+                          {Sizes.map((size) => {
+                            return (
+                              <Checkbox
+                                key={size.id}
+                                onChange={(e) => {
+                                  e.preventDefault;
+                                  setSmall((prev) => !prev);
+                                }}
+                                size="lg"
+                              >
+                                <span className="text-2xl">{size.Title}</span>
+                              </Checkbox>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
                   </TabPanel>
                   <TabPanel>
                     <div className="w-full h-full flex flex-col bg-mainWhite text-CoolGray-900 p-4">
-                      <Checkbox size="lg">
+                      <Checkbox
+                        onChange={(e) => {
+                          e.preventDefault;
+                          setFullRim((prev) => !prev);
+                        }}
+                        size="lg"
+                      >
                         <div className="flex space-x-3">
                           <span className="text-3xl">Full-Rim</span>
                           <img
@@ -301,7 +352,13 @@ export default function ShoppingMenuModal() {
                           />
                         </div>
                       </Checkbox>
-                      <Checkbox size="lg">
+                      <Checkbox
+                        onChange={(e) => {
+                          e.preventDefault;
+                          setSemiRim((prev) => !prev);
+                        }}
+                        size="lg"
+                      >
                         <div className="flex space-x-3">
                           <span className="text-3xl">Semi-Rimless</span>
                           <img
@@ -311,7 +368,13 @@ export default function ShoppingMenuModal() {
                           />
                         </div>
                       </Checkbox>
-                      <Checkbox size="lg">
+                      <Checkbox
+                        onChange={(e) => {
+                          e.preventDefault;
+                          setRimless((prev) => !prev);
+                        }}
+                        size="lg"
+                      >
                         <div className="flex space-x-3">
                           <span className="text-3xl">Rimless</span>
                           <img
