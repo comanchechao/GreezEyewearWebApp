@@ -217,7 +217,6 @@ export default function salesManagement() {
           Gender: selectedGender,
           Shape: selectedShape,
           Rim: selectedRim,
-          Feature,
           Size: selectedSize,
         },
       ]);
@@ -392,7 +391,9 @@ export default function salesManagement() {
                         id=""
                       >
                         {Brands.map((brand) => {
-                          return <option value={brand}>{brand.Title}</option>;
+                          return (
+                            <option value={brand.Title}>{brand.Title}</option>
+                          );
                         })}
                       </select>
                       <select
@@ -404,7 +405,9 @@ export default function salesManagement() {
                         id=""
                       >
                         {Genders.map((gender) => {
-                          return <option value={gender}>{gender.Title}</option>;
+                          return (
+                            <option value={gender.Title}>{gender.Title}</option>
+                          );
                         })}
                       </select>
                       <select
@@ -416,9 +419,9 @@ export default function salesManagement() {
                         id=""
                       >
                         {Shapes.map((shape) => {
-                          return(
-                            <option value={shape}>{shape.Title}</option>
-                          )
+                          return (
+                            <option value={shape.Title}>{shape.Title}</option>
+                          );
                         })}
                       </select>
                       <select
@@ -430,7 +433,7 @@ export default function salesManagement() {
                         id=""
                       >
                         {Material.map((mat) => {
-                          return <option value={mat}>{mat.Title}</option>;
+                          return <option value={mat.Title}>{mat.Title}</option>;
                         })}
                       </select>
                       <select
@@ -442,7 +445,9 @@ export default function salesManagement() {
                         id=""
                       >
                         {Sizes.map((size) => {
-                          return <option value={size}>{size.Title}</option>;
+                          return (
+                            <option value={size.Title}>{size.Title}</option>
+                          );
                         })}
                       </select>
                       <select
