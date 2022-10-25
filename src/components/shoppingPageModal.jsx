@@ -28,10 +28,17 @@ import FullRim from "../assets/images/FullRim.webp";
 import SemiRimless from "../assets/images/semiRimless.webp";
 import { Sliders, CaretDown } from "phosphor-react";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 export default function ShoppingMenuModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t, i18n } = useTranslation();
+  const [unisex, setUnisex] = useState(false);
+  const [male, setMale] = useState(false);
+
+  useEffect(() => {
+    console.log("male:", male, "unisex", unisex);
+  });
 
   return (
     <>
@@ -101,13 +108,22 @@ export default function ShoppingMenuModal() {
                   </TabPanel>
                   <TabPanel>
                     <div className="w-full h-full flex flex-col">
-                      <Checkbox size="lg">
+                      <Checkbox
+                        onChange={(e) => {
+                          e.preventDefault();
+                          setUnisex((prev) => !prev);
+                        }}
+                        size="lg"
+                      >
                         <span className="text-3xl">Unisex</span>
                       </Checkbox>
                       <Checkbox size="lg">
                         <span className="text-3xl">Women</span>
                       </Checkbox>
-                      <Checkbox size="lg">
+                      <Checkbox
+                        onChange={(e) => setMale((prev) => !prev)}
+                        size="lg"
+                      >
                         <span className="text-3xl">Men</span>
                       </Checkbox>
                       <Checkbox size="lg">

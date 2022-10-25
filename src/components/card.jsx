@@ -3,7 +3,7 @@ import cardPicture2 from "../assets/images/cardPicture2.webp";
 
 import { ShoppingCart } from "phosphor-react";
 import { Link } from "react-router-dom";
-import { Radio, RadioGroup, Stack } from "@chakra-ui/react";
+import { Radio, RadioGroup, Spinner, Stack } from "@chakra-ui/react";
 import { useState, useRef, useEffect } from "react";
 import { supabase } from "../supabaseClient";
 import React, { Component } from "react";
@@ -72,12 +72,24 @@ export default function Card(props) {
   const [value, setValue] = useState("1");
 
   return (
-    <div className="flex-col relative shadow-xl my-10 w-screen lg:w-96 h-rem26 border border-mainWhite bg-white flex justify-between pb-2 cursor-pointer items-start">
-      <img
-        src={firstImage}
-        onMouseOver={(e) => (e.currentTarget.src = secondImage)}
-        onMouseOut={(e) => (e.currentTarget.src = firstImage)}
-      />
+    <div className="flex-col justify-center relative shadow-xl my-10 w-screen lg:w-96 h-rem26 border border-mainWhite bg-white flex justify-between pb-2 cursor-pointer items-start">
+      {loading === false ? (
+        <img
+          src={firstImage}
+          onMouseOver={(e) => (e.currentTarget.src = secondImage)}
+          onMouseOut={(e) => (e.currentTarget.src = firstImage)}
+        />
+      ) : (
+        <div className="flex w-full h-full justify-center items-center">
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="yellow.500"
+            size="xl"
+          />
+        </div>
+      )}
       <button
         className="transition absolute p-5  top-40 left-64 lg:left-80 ml-8 flex ease-in duration-300 border-white hover:bg-mainBlue text-mainWhite hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900  text-3xl   bg-CoolGray-900  rounded-full  "
         type="submit"

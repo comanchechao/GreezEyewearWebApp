@@ -29,6 +29,8 @@ export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(300);
   const { t, i18n } = useTranslation();
+  const [unisex, setUnisex] = useState(false);
+  const [male, setMale] = useState(false);
 
   return (
     <div className=" h-24 w-full z-20 flex justify-start lg:px-0 px-9 lg:justify-center py-7 lg:space-x-4  items-center text-2xl">
@@ -136,7 +138,13 @@ export default function ShoppingMenu() {
               </Checkbox>
             </MenuItem>
             <MenuItem>
-              <Checkbox size="lg">
+              <Checkbox
+                onChange={() => {
+                  setMale((prev) => !prev);
+                  console.log(male)
+                }}
+                size="lg"
+              >
                 <span className="text-2xl">Men</span>
               </Checkbox>
             </MenuItem>
