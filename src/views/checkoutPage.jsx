@@ -9,6 +9,7 @@ import {
   FormHelperText,
   Input,
   Select,
+  Checkbox,
 } from "@chakra-ui/react";
 
 import { useRef } from "react";
@@ -16,7 +17,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import gsap from "gsap";
-
+import sampleEyeglass from "../assets/images/sampleEyeglass.webp";
 export default function Checkout() {
   const breadCrumbMenu = useRef();
   const mainBg = useRef();
@@ -83,7 +84,7 @@ export default function Checkout() {
         >
           <div className="h-full w-full pb-9 bg-mainCream ">
             <h1 className="text-5xl font-black px-9 py-7">Checkout</h1>
-            <div className="h-full w-full px-11">
+            <div className="h-full w-full px-11  flex item-center justify-center ">
               <div className=" h-carousel w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-start flex-col px-8">
                 <div className="h-full w-full my-2 space-y-3">
                   <h1 className="text-2xl font-black my-2">
@@ -142,6 +143,36 @@ export default function Checkout() {
                     <Input placeholder="Enter your phone number" />
                   </FormControl>
                 </div>
+              </div>
+              <div className=" h-72 w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-start flex-col mr-20 px-8">
+                <h1 className="text-2xl font-black my-4">2.Shipping Method</h1>
+                <Checkbox size="lg">
+                  <span className="text-2xl">Express</span>
+                </Checkbox>
+                <Checkbox size="lg">
+                  <span className="text-2xl">Post</span>
+                </Checkbox>
+              </div>
+              <div className="flex flex-col justify-between">
+                <div className=" h-36 w-96  bg-white border-2 border-mainWhite  shadow-xl flex justify-between items-center p-10">
+                  <div className="bg-mainBlue">
+                    <img src={sampleEyeglass} alt="" />
+                  </div>
+                  <div className="flex  items-center flex-col justify-center">
+                    <h1 className="font-black text-3xl  text-CoolGray-900">
+                      November
+                    </h1>
+                    <h2 className="font-light text-CoolGray-700 text-xl">
+                      Tortoise, Medium
+                    </h2>
+                  </div>
+                  <div>
+                    <span className="justify-self-end">X1</span>
+                  </div>
+                </div>
+                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  ">
+                  Procees To Payment
+                </button>
               </div>
             </div>
           </div>
