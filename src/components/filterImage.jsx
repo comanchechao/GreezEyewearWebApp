@@ -24,7 +24,7 @@ export default function filterImage(props) {
     } catch (error) {
       console.log("Error downloading image: ", error.message);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
