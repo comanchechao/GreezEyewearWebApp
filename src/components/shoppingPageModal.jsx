@@ -30,6 +30,7 @@ import { Sliders, CaretDown } from "phosphor-react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
+import FilterImage from "./filterImage";
 
 export default function ShoppingMenuModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -214,86 +215,16 @@ export default function ShoppingMenuModal() {
                   </TabPanel>
                   <TabPanel>
                     <div className="w-full h-full flex flex-col bg-mainWhite p-6 text-CoolGray-900">
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Rectangle</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapeRectangle}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Square</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapeSquare}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Aviator</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapeAviator}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Oval</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapeOval}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Round</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapeRound}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Cat-eye</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapeCat}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Polygon</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapePolygon}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox size="lg">
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Horn</span>
-                          <img
-                            className="object-contain w-12"
-                            src={shapeHorn}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
+                      {Shapes.map((shape) => {
+                        return (
+                          <Checkbox size="lg">
+                            <div className="flex justify-center items-center space-x-3">
+                              <span className="text-3xl">{shape.Title}</span>
+                              <FilterImage filterImage={shape.image} />
+                            </div>
+                          </Checkbox>
+                        );
+                      })}
                     </div>
                   </TabPanel>
                   <TabPanel>
@@ -336,54 +267,16 @@ export default function ShoppingMenuModal() {
                   </TabPanel>
                   <TabPanel>
                     <div className="w-full h-full flex flex-col bg-mainWhite text-CoolGray-900 p-4">
-                      <Checkbox
-                        onChange={(e) => {
-                          e.preventDefault;
-                          setFullRim((prev) => !prev);
-                        }}
-                        size="lg"
-                      >
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Full-Rim</span>
-                          <img
-                            className="object-contain w-12"
-                            src={FullRim}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox
-                        onChange={(e) => {
-                          e.preventDefault;
-                          setSemiRim((prev) => !prev);
-                        }}
-                        size="lg"
-                      >
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Semi-Rimless</span>
-                          <img
-                            className="object-contain w-12"
-                            src={SemiRimless}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
-                      <Checkbox
-                        onChange={(e) => {
-                          e.preventDefault;
-                          setRimless((prev) => !prev);
-                        }}
-                        size="lg"
-                      >
-                        <div className="flex space-x-3">
-                          <span className="text-3xl">Rimless</span>
-                          <img
-                            className="object-contain w-12"
-                            src={Rimless}
-                            alt=""
-                          />
-                        </div>
-                      </Checkbox>
+                      {Rims.map((rim) => {
+                        return (
+                          <Checkbox size="lg">
+                            <div className="flex jusitify-center items-center space-x-3">
+                              <span className="text-3xl">{rim.Title}</span>
+                              <FilterImage filterImage={rim.image} alt="" />
+                            </div>
+                          </Checkbox>
+                        );
+                      })}
                     </div>
                   </TabPanel>
                   <TabPanel>

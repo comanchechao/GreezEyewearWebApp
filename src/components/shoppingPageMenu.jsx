@@ -25,6 +25,7 @@ import SemiRimless from "../assets/images/semiRimless.webp";
 import ShoppingMenuModal from "./shoppingPageModal";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
+import FilterImage from "./filterImage";
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
@@ -249,152 +250,22 @@ export default function ShoppingMenu() {
           </MenuButton>
           <MenuList className="flex">
             <div>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setRectangle((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapeRectangle}
-                      alt=""
-                    />
-                    <span className="text-2xl">Rectangle</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setSquare((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapeSquare}
-                      alt=""
-                    />
-                    <span className="text-2xl">Square</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setAviator((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapeAviator}
-                      alt=""
-                    />
-                    <span className="text-2xl">Aviator</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setOval((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapeOval}
-                      alt=""
-                    />
-                    <span className="text-2xl">Oval</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-            </div>
-            <div>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setRound((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapeRound}
-                      alt=""
-                    />
-                    <span className="text-2xl">Round</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setCatEye((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapeCat}
-                      alt=""
-                    />
-                    <span className="text-2xl">Cat-eye</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setPolygon((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapePolygon}
-                      alt=""
-                    />
-                    <span className="text-2xl">Polygon</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setHorn((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={shapeHorn}
-                      alt=""
-                    />
-                    <span className="text-2xl">Horn</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
+              {Shapes.map((shape) => {
+                return (
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <div className="flex justify-center items-center space-x-3">
+                        <FilterImage
+                          className="object-contain w-12"
+                          filterImage={shape.image}
+                          alt=""
+                        />
+                        <span className="text-2xl">{shape.Title}</span>
+                      </div>
+                    </Checkbox>
+                  </MenuItem>
+                );
+              })}
             </div>
           </MenuList>
         </Menu>
@@ -585,52 +456,22 @@ export default function ShoppingMenu() {
           </MenuButton>
           <MenuList className="flex">
             <div>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setFullRim((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img className="object-contain w-12" src={FullRim} alt="" />
-                    <span className="text-2xl">Full-Rim</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setSemiRim((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img
-                      className="object-contain w-12"
-                      src={SemiRimless}
-                      alt=""
-                    />
-                    <span className="text-2xl">Semi-Rimless</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setRimless((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <div className="flex space-x-3">
-                    <img className="object-contain w-12" src={Rimless} alt="" />
-                    <span className="text-2xl">Rimless</span>
-                  </div>
-                </Checkbox>
-              </MenuItem>
+              {Rims.map((rim) => {
+                return (
+                  <MenuItem>
+                    <Checkbox size="lg">
+                      <div className="flex justify-center items-center  space-x-3">
+                        <FilterImage
+                          className="object-contain w-12"
+                          filterImage={rim.image}
+                          alt=""
+                        />
+                        <span className="text-2xl">{rim.Title}</span>
+                      </div>
+                    </Checkbox>
+                  </MenuItem>
+                );
+              })}
             </div>
           </MenuList>
         </Menu>
