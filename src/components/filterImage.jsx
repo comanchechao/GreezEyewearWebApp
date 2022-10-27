@@ -24,7 +24,7 @@ export default function filterImage(props) {
     } catch (error) {
       console.log("Error downloading image: ", error.message);
     } finally {
-      setLoading(false);
+      setLoading(true);
     }
   };
 
@@ -34,7 +34,7 @@ export default function filterImage(props) {
 
   if (loading === true) {
     return (
-      <div className="w-full flex justify-center items-center h-96 bg-CoolGray-900">
+      <div className="w-8 flex justify-center items-center h-8">
         <Spinner className="animate-spin text-mainBlue object-contain w-12" size={15} />
       </div>
     );
