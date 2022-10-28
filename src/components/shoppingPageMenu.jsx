@@ -22,7 +22,7 @@ import shapeHorn from "../assets/images/shapeHorn.webp";
 import Rimless from "../assets/images/Rimless.webp";
 import FullRim from "../assets/images/FullRim.webp";
 import SemiRimless from "../assets/images/semiRimless.webp";
-import ShoppingMenuModal from "./shoppingPageModal";
+// import ShoppingMenuModal from "./shoppingPageModal";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
 import FilterImage from "./filterImage";
