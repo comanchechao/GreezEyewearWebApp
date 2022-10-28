@@ -1,12 +1,13 @@
 import Navbar from "../components/navbar";
-import { useEffect } from "react";
-import Menu from "../components/shoppingPageMenu";
+import { useEffect, lazy, Suspense } from "react";
+// import Menu from "../components/shoppingPageMenu";
 import Card from "../components/card";
 import { gsap } from "gsap";
 import { useRef } from "react";
 import { supabase } from "../supabaseClient";
 import { useState } from "react";
-import { Box ,Stack, Skeleton } from "@chakra-ui/react";
+import { Box, Stack, Skeleton } from "@chakra-ui/react";
+const Menu = lazy(() => import("../components/shoppingPageMenu"));
 
 export default function shoppingPage() {
   // getting products
@@ -62,7 +63,9 @@ export default function shoppingPage() {
             ref={filterMenu}
             className=" w-full h-24 flex items-center justify-start bg-CoolGray-900 z-10"
           >
-            <Menu className=""></Menu>
+            <Suspense>
+              <Menu className=""></Menu>
+            </Suspense>
           </div>
           {loading === false ? (
             <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  px-5">

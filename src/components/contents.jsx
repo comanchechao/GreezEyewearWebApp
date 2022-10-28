@@ -27,7 +27,7 @@ export default function Contents(props) {
       {props.index === 1 && (
         <div className=" h-64 w-full my-5 text-10xl space-y-3">
           <div className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={perscriptionIcon} alt="" />
+            <img loading="lazy" src={perscriptionIcon} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Prescription</h1>
               <h2 className="text-CoolGray-900 text-xl">
@@ -37,7 +37,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-1/2 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={perfectEyesightIcon} alt="" />
+            <img loading="lazy" src={perfectEyesightIcon} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Non-Prescription</h1>
               <h2 className="text-CoolGray-900 text-xl">
@@ -124,7 +124,7 @@ export default function Contents(props) {
       {props.index === 3 && (
         <div className=" h-full w-full my-5 text-10xl space-y-3">
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={clearLens} alt="" />
+            <img loading="lazy" src={clearLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Clear</h1>
               <h2 className="text-CoolGray-900 text-xl">
@@ -133,7 +133,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={blueCutLens} alt="" />
+            <img loading="lazy" src={blueCutLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">
                 Blue-light Blocking
@@ -144,7 +144,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={drivingLens} alt="" />
+            <img loading="lazy" src={drivingLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Driving</h1>
               <h2 className="text-CoolGray-900 text-xl leading-5">
@@ -153,7 +153,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={tintLens} alt="" />
+            <img loading="lazy" src={tintLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Tint</h1>
               <h2 className="text-CoolGray-900 text-xl leading-5">
@@ -162,7 +162,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={photoChromicLens} alt="" />
+            <img loading="lazy" src={photoChromicLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Photochromic</h1>
               <h2 className="text-CoolGray-900 text-xl leading-5">
@@ -171,7 +171,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={polarizedLens} alt="" />
+            <img loading="lazy" src={polarizedLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">Polarized</h1>
               <h2 className="text-CoolGray-900 text-xl leading-5">
@@ -184,7 +184,7 @@ export default function Contents(props) {
       {props.index === 4 && (
         <div className=" h-auto w-full my-5 text-10xl space-y-3">
           <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={thickLens} alt="" />
+            <img loading="lazy" src={thickLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.50 Standard Spheric
@@ -192,7 +192,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={mediumLens} alt="" />
+            <img loading="lazy" src={mediumLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.60 Super Thin Aspheric
@@ -200,7 +200,7 @@ export default function Contents(props) {
             </div>
           </div>
           <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img src={thinLens} alt="" />
+            <img loading="lazy" src={thinLens} alt="" />
             <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.74 Ultra Thin Aspheric

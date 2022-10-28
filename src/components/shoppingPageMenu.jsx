@@ -244,7 +244,7 @@ export default function ShoppingMenu() {
             _hover={{ bg: "gray.600" }}
             _expanded={{ bg: "blue.400" }}
           >
-            {t("Shape")}
+            {t("shape")}
 
             <ChevronDownIcon />
           </MenuButton>

@@ -1,9 +1,11 @@
 import Auth from "./auth";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState, useRef, useEffect } from "react";
+import { Fragment, useState, useRef, useEffect, Suspense, lazy } from "react";
 import { gsap } from "gsap";
-import ShoppingCartDrawer from "./shoppingCartDrawer";
-import PhoneDrawer from "./phoneDrawer";
+// import ShoppingCartDrawer from "./shoppingCartDrawer";
+const PhoneDrawer = lazy(() => import("./PhoneDrawer"));
+
+const ShoppingCartDrawer = lazy(() => import("./shoppingCartDrawer"));
 
 import {
   SignIn,
@@ -49,7 +51,9 @@ export default function navbar() {
     >
       <div className="flex  h-full justify-between lg:justify-around px-4 lg:px-0 items-center lg:py-7">
         <div className="lg:hidden flex">
-          <PhoneDrawer></PhoneDrawer>
+          <Suspense>
+            <PhoneDrawer></PhoneDrawer>
+          </Suspense>
         </div>
         <Link
           to={"/"}
@@ -132,7 +136,9 @@ export default function navbar() {
             <SignIn size={35} />
             {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
           </button>
-          <ShoppingCartDrawer></ShoppingCartDrawer>
+          <Suspense>
+            <ShoppingCartDrawer></ShoppingCartDrawer>
+          </Suspense>
         </div>
 
         <Transition appear show={isOpen} as={Fragment}>
