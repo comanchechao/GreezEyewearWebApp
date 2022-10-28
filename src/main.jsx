@@ -30,7 +30,7 @@ const ProductDetail = lazy(() => import("./views/productDetail"));
 const EditBlog = lazy(() => import("./views/blogEdit"));
 const CreateBlog = lazy(() => import("./views/CreateBlog"));
 
-const LensSelect = lazy(() => import("./views/LensSelect"));
+const LensSelect = lazy(() => import("./views/lensSelect"));
 const Checkout = lazy(() => import("./views/checkoutPage"));
 const Blog = lazy(() => import("./views/blog"));
 const Blogs = lazy(() => import("./components/blogs"));
