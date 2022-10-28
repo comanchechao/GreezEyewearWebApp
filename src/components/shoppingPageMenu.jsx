@@ -9,7 +9,7 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import shapeRectangle from "../assets/images/shapeRectangle.webp";
 import shapeSquare from "../assets/images/shapeSquare.webp";
@@ -26,6 +26,8 @@ import ShoppingMenuModal from "./shoppingPageModal";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
 import FilterImage from "./filterImage";
+
+const ShoppingMenuModal = lazy(() => import("./ShoppingMenuModal"));
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
@@ -126,7 +128,9 @@ export default function ShoppingMenu() {
     <div className=" h-24 w-full z-20 flex justify-start lg:px-0 px-9 lg:justify-center py-7 lg:space-x-4  items-center text-2xl">
       <div className="flex items-center space-x-2  ">
         <div className="lg:hidden flex">
-          <ShoppingMenuModal className="  " />
+          <Suspense>
+            <ShoppingMenuModal className="  " />
+          </Suspense>
         </div>
         <Menu closeOnSelect={false}>
           <MenuButton
