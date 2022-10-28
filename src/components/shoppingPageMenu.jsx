@@ -27,7 +27,7 @@ import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
 import FilterImage from "./filterImage";
 
-const ShoppingMenuModal = lazy(() => import("./ShoppingMenuModal"));
+const ShoppingMenuModal = lazy(() => import("./shoppingMenuModal"));
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
