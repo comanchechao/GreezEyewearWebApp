@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useRef, useEffect, Suspense, lazy } from "react";
 import { gsap } from "gsap";
 // import ShoppingCartDrawer from "./shoppingCartDrawer";
-const PhoneDrawer = lazy(() => import("./PhoneDrawer"));
+const PhoneDrawer = lazy(() => import("./phoneDrawer"));
 
 const ShoppingCartDrawer = lazy(() => import("./shoppingCartDrawer"));
 
