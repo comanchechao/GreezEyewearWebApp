@@ -24,7 +24,7 @@ import { StepsStyleConfig as Steps } from "chakra-ui-steps";
 const Admin = lazy(() => import("./views/Admin"));
 const FaceShape = lazy(() => import("./views/faceShape"));
 const FrameShape = lazy(() => import("./views/frameShape"));
-const NewBlog = lazy(() => import("./views/NewBlog"));
+const NewBlog = lazy(() => import("./views/newBlog"));
 const ShoppingPage = lazy(() => import("./views/shoppingPage"));
 const ProductDetail = lazy(() => import("./views/productDetail"));
 const EditBlog = lazy(() => import("./views/blogEdit"));
@@ -32,8 +32,8 @@ const CreateBlog = lazy(() => import("./views/CreateBlog"));
 
 const LensSelect = lazy(() => import("./views/LensSelect"));
 const Checkout = lazy(() => import("./views/checkoutPage"));
-const Blog = lazy(() => import("./views/Blog"));
-const Blogs = lazy(() => import("./components/Blogs"));
+const Blog = lazy(() => import("./views/blog"));
+const Blogs = lazy(() => import("./components/blogs"));
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
