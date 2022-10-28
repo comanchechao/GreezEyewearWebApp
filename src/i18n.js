@@ -69,6 +69,21 @@ i18next
             "Explore our glasses by face shape and find the right pair for you.",
           roundExplanation:
             "A round face is typically as wide as it's long without a prominent cheekbone.",
+
+          // CheckoutPage translations
+          checkout: "Checkout",
+          shippingAddress: "1.Shipping Address",
+          email: "Email",
+          fullName: "Full Name",
+          country: "Country",
+          address: "Address",
+          city: "City",
+          state: "State/Province",
+          phone: "Phone",
+          shippingMethod: "2.Shipping Method",
+          post: "Post",
+          express: "Express",
+          proceed: "Proceed To Payment",
         },
       },
       fa: {
@@ -128,6 +143,21 @@ i18next
           catEye: "گربه ای",
           aviator: "خلبانی",
           browline: "خط ابرو",
+
+          // CheckoutPage translations
+          checkout: "تکمیل خرید",
+          shippingAddress: "آدرس ارسال",
+          email: "ایمیل",
+          fullName: "اسم کامل",
+          country: "کشور",
+          address: "آدرس",
+          city: "شهر",
+          state: "استان",
+          phone: "شماره ی تلفن",
+          shippingMethod: "روش ارسال",
+          post: "پست پیشتاز",
+          express: "پست",
+          proceed: "ادامه به درگاه پرداخت",
         },
       },
     },
