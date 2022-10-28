@@ -22,11 +22,11 @@ import i18next from "./i18n";
 import { StepsStyleConfig as Steps } from "chakra-ui-steps";
 
 const Admin = lazy(() => import("./views/Admin"));
-const FaceShape = lazy(() => import("./views/FaceShape"));
-const FrameShape = lazy(() => import("./views/FrameShape"));
+const FaceShape = lazy(() => import("./views/faceShape"));
+const FrameShape = lazy(() => import("./views/frameShape"));
 const NewBlog = lazy(() => import("./views/NewBlog"));
-const ShoppingPage = lazy(() => import("./views/ShoppingPage"));
-const ProductDetail = lazy(() => import("./views/ProductDetail"));
+const ShoppingPage = lazy(() => import("./views/shoppingPage"));
+const ProductDetail = lazy(() => import("./views/productDetail"));
 const EditBlog = lazy(() => import("./views/blogEdit"));
 const CreateBlog = lazy(() => import("./views/CreateBlog"));
 
