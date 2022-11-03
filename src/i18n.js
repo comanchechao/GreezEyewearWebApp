@@ -70,6 +70,31 @@ i18next
           roundExplanation:
             "A round face is typically as wide as it's long without a prominent cheekbone.",
 
+          // lensSelect translations
+          prescription: "Prescription",
+          prescriptionDetail:
+            "Used for nearsightedness, farsightedness, astigmatism or presbyopia.",
+          non: "Non-Prescription",
+          nonDetail: "Used for fashion or eye protection",
+          left: "Left eye",
+          right: "Right eye",
+          clear: "Clear",
+          clearDetail:
+            "(Traditional, transparent lenses perfect for everyday use)",
+          blueLight: "Blue-light Blocking",
+          blueDetail: "(Clear lens, for everyday use with digital devices)",
+          driving: "Driving",
+          drivingDetail: "(Safer driving day and night)",
+          tint: "Tint",
+          tintDetail:
+            "(Permanently colored. Tint strength: light 20%, dark 80%)",
+          photo: "Photochromic",
+          photoDetail: "(Clear indoor, darken outside)",
+          polarized: "Polarized",
+          polarizedDetail: "(Reduce glare from shiny surfaces)",
+          confirm: "Confirm",
+          goBack: "Go Back",
+
           // CheckoutPage translations
           checkout: "Checkout",
           shippingAddress: "1.Shipping Address",
@@ -143,7 +168,27 @@ i18next
           catEye: "گربه ای",
           aviator: "خلبانی",
           browline: "خط ابرو",
-
+          // lensSelect translations
+          prescription: "با نسخه",
+          prescriptionDetail: "برای دوربینی، نزدیک بینی، آستیگمات و پیرچشمی",
+          non: "بدون نسخه",
+          nonDetail: "برای محافظت از چشم یا زیبایی",
+          left: "چشم چپ",
+          right: "چشم راست",
+          clear: "عادی",
+          clearDetail: "(لنز های عادی و بی رنگ برای استفاده ی روزمره)",
+          blueLight: "فیلتر نور آبی",
+          blueDetail: "(برای کار با وسایل دیجیتال)",
+          driving: "رانندگی",
+          drivingDetail: "(برای رانندگی امن تر در شب و روز)",
+          tint: "رنگی",
+          tintDetail: "(رنگ دلخواهتون رو انتخاب کنید)",
+          photo: "فتوکرومیک",
+          photoDetail: "(عادی در محیط داخل، تیره در محیط خارج)",
+          polarized: "پلاریزه",
+          polarizedDetail: "(کم کردن بازتاب نور از سطوح براق)",
+          confirm: "ادامه",
+          goBack: "مرحله ی قبل",
           // CheckoutPage translations
           checkout: "تکمیل خرید",
           shippingAddress: "آدرس ارسال",

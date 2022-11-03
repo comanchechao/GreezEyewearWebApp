@@ -1,20 +1,25 @@
 import { Step, Steps, useSteps } from "chakra-ui-steps";
 import { Flex, Button, Heading } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import Contents from "./contents";
+import { useTranslation } from "react-i18next";
+
 const steps = [
-  { label: "GLASS TYPE" },
-  { label: "PERSCRIPTION" },
-  { label: "LENS COLOR TYPE" },
-  { label: "LENS THICKNESS" },
-  { label: "CHECKOUT" },
+  { label: "نوع شیشه" },
+  { label: "نسخه" },
+  { label: "نوع رنگ لنز" },
+  { label: "قطر لنز" },
+  { label: "تکمیل خرید" },
 ];
 export const ProgressMenu = () => {
-  const { nextStep, prevStep, reset, activeStep } = useSteps({
-    initialStep: 1,
+  const { t, i18n } = useTranslation();
+  const { nextStep, prevStep, reset, activeStep, setStep } = useSteps({
+    initialStep: 0,
   });
   return (
     <Flex flexDir="column" width="100%">
       <Steps
+        responsive={false}
         onClickStep={(step) => setStep(step)}
         activeStep={activeStep}
         className="text-10xl px-10 font-black  my-5"
@@ -31,33 +36,33 @@ export const ProgressMenu = () => {
           </Step>
         ))}
       </Steps>
-      {activeStep === steps.length + 1 ? (
-        <Flex px={4} py={4} width="100%" flexDirection="column">
-          <Heading fontSize="xl" textAlign="center">
-            Woohoo! All steps completed!
-          </Heading>
-          <Button mx="auto" mt={6} size="sm" onClick={reset}>
-            Reset
-          </Button>
-        </Flex>
-      ) : (
-        <Flex width="100%" className="space-x-8" justify="flex-end">
-          <button
-            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
-            isDisabled={activeStep === 0}
-            mr={4}
-            onClick={prevStep}
+
+      <Flex width="100%" className="space-x-8" justify="flex-end">
+        <button
+          className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
+          isDisabled={activeStep === 0}
+          mr={4}
+          onClick={prevStep}
+        >
+          {t("goBack")}
+        </button>
+        {activeStep === steps.length - 1 ? (
+          <Link
+            className="px-12 text-mainWhite transition ease-in duration-300 border-l-8 hover:text-CoolGray-900
+            active:bg-mainBlue active:text-CoolGray-900 border-mainBlue hover:bg-mainBlue py-2 text-xl lg:text-2xl my-3 bg-CoolGray-900   rounded-full  "
+            to={"/checkoutPage"}
           >
-            Go Back
-          </button>
+            <button>{t("checkout")} </button>
+          </Link>
+        ) : (
           <button
-            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
             onClick={nextStep}
+            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
           >
-            {activeStep === steps.length ? "Finish" : "Confirm"}
+            {t("confirm")}
           </button>
-        </Flex>
-      )}
+        )}
+      </Flex>
     </Flex>
   );
 };

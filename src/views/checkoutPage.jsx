@@ -86,9 +86,11 @@ export default function Checkout() {
           className="h-auto  w-screen lg:px-20 mb-7 text-CoolGray-900"
         >
           <div className="h-full w-full pb-9 bg-mainCream ">
-            <h1 className="text-5xl font-black px-9 py-7"> {t("checkout")}</h1>
+            <h1 className="text-5xl my-5 bg-CoolGray-900 text-mainWhite px-9 py-7">
+              {t("checkout")}
+            </h1>
             <div className="h-full w-full lg:px-11 px-3 lg:space-y-0 space-y-5  flex item-center justify-center lg:space-x-4  lg:flex-row flex-col">
-              <div className=" h-carousel w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-start flex-col px-8">
+              <div className=" h-carousel w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-end flex-col px-8">
                 <div className="h-full w-full my-2 space-y-3">
                   <h1 className="text-3xl font-black my-2">
                     {t("shippingAddress")}
@@ -147,7 +149,7 @@ export default function Checkout() {
                   </FormControl>
                 </div>
               </div>
-              <div className=" text-right h-72 w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-start flex-col lg:mr-20 px-8">
+              <div className=" text-right h-72 w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-end flex-col lg:mr-20 px-8">
                 <h1 className="text-3xl font-black my-4 w-full">
                   {t("shippingMethod")}
                 </h1>
