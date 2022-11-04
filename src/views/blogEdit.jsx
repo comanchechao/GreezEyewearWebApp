@@ -147,7 +147,6 @@ export default function blogEdit() {
                 alt=""
                 className=" lg:w-1/2 lg:h-1/2 object-contain"
               />
-              
             ) : (
               <Spinner className="m-10 animate-spin" size={80} />
             )}
@@ -221,7 +220,7 @@ export default function blogEdit() {
             </div>
             <div className="flex justify-end items-center align-center space-x-3">
               <h2>by author</h2>
-              <h2>by Azim Eyewear</h2>
+              <h2>by Greez Eyewear</h2>
             </div>
           </div>
         </div>

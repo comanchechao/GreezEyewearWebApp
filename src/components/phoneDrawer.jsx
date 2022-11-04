@@ -53,7 +53,7 @@ export default function PhoneDrawer() {
                     className="text-mainWhite border-b-2 border-mainBlue pb-3 font-extrabold  my-3  transition  ease-in duration-200 flex flex-col  leading-none active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-4 items-center"
                   >
                     <span className=" font-SultanFont text-6xl font-bold leading-10 ">
-                      Azim
+                      Greez
                     </span>
                     <h4 className="text-2xl font-SultanFont leading-10   font-extralight  lg:ml-0 ml-28  flex items-center">
                       Eyewear <Eye className="ml-1" size={23}></Eye>

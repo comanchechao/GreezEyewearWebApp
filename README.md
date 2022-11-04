@@ -1,3 +1,3 @@
-# AzimOptics-WebApp
+# GreezEyewear-WebApp
 
-AzimOptic WebApp, a web app designed for Azim Optics, made using Vite/React/Supabase WebApp, a web app designed for Paint cafe, made using Vite/React/Supabase
+Greez Eyewear WebApp, a web app designed for Greez, made using Vite/React/Supabase
