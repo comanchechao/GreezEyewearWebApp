@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { useRef } from "react";
 import { supabase } from "../supabaseClient";
 import { useState } from "react";
-import { Box, Stack, Skeleton } from "@chakra-ui/react";
+import { Box, Stack, SkeletonCircle } from "@chakra-ui/react";
 const Menu = lazy(() => import("../components/shoppingPageMenu"));
 
 export default function shoppingPage() {
@@ -52,7 +52,7 @@ export default function shoppingPage() {
   }, []);
 
   return (
-    <div className="h-auto w-screen overflow-x-hidden">
+    <div className="h-full w-screen overflow-x-hidden">
       <Navbar />
       <div className="h-auto w-screen pt-20 lg:px-28 flex items-center justify-center bg-CoolGray-800">
         <div
@@ -74,12 +74,14 @@ export default function shoppingPage() {
               })}
             </div>
           ) : (
-            <div className=" w-full h-full rounded">
+            <div className=" w-full h-full rounded ">
               <Box padding="10" boxShadow="lg" bg="silver">
                 <Stack>
-                  <Skeleton height="80px" />
-                  <Skeleton height="80px" />
-                  <Skeleton height="80px" />
+                  <div className="h-full w-full flex items-center justify-around">
+                    <SkeletonCircle size="140" />
+                    <SkeletonCircle size="140" />
+                    <SkeletonCircle size="140" />
+                  </div>
                 </Stack>
               </Box>
             </div>

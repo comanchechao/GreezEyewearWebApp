@@ -10,7 +10,7 @@ import mainPagePicture from "./assets/images/mainPagePicture.webp";
 import mensPopular from "./assets/images/mensPopular.webp";
 import womansPopular from "./assets/images/womansPopular.webp";
 
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -150,11 +150,11 @@ function App() {
       </div>
       <div
         ref={firstContainer}
-        className="flex w-screen lg:h-auto py-14 h-screen bg-CoolGray-900 flex-col justify-between items-center"
+        className="flex w-screen lg:h-auto mb-9 py-14 h-screen bg-CoolGray-900 flex-col justify-between items-center"
       >
         <div
           ref={firstBox}
-          className="w-full h-full py-10 flex flex-col lg:flex-row justify-around items-center"
+          className="w-full h-full py-10 mb-6 flex flex-col lg:flex-row justify-around items-center"
         >
           <div className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:flex-row text-right items-center lg:items-start justify-center pl-5">
             <div className=" w-full lg:w-1/2 h-full bg-mainBlue flex flex-col items-start justify-center p-4">

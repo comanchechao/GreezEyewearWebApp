@@ -72,9 +72,10 @@ export default function Card(props) {
   const [value, setValue] = useState("1");
 
   return (
-    <div className="flex-col justify-center relative shadow-xl my-10 w-screen lg:w-96 h-rem26 border border-mainWhite bg-white flex justify-between pb-2 cursor-pointer items-start">
+    <div className="flex-col justify-center relative shadow-xl my-10 w-screen lg:w-96 h-rem26    border-CoolGray-900 border-2 border-dashed bg-white flex  pb-2 cursor-pointer items-start">
       {loading === false ? (
         <img
+          className="object-contain h-full w-full"
           src={firstImage}
           onMouseOver={(e) => (e.currentTarget.src = secondImage)}
           onMouseOut={(e) => (e.currentTarget.src = firstImage)}
@@ -90,12 +91,7 @@ export default function Card(props) {
           />
         </div>
       )}
-      <button
-        className="transition absolute p-5  top-40 left-64 lg:left-80 ml-8 flex ease-in duration-300 border-white hover:bg-mainBlue text-mainWhite hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900  text-3xl   bg-CoolGray-900  rounded-full  "
-        type="submit"
-      >
-        <ShoppingCart size={28} weight="fill" />
-      </button>
+
       <div className=" h-full w-full   flex justify-center items-center">
         <RadioGroup colorScheme="blackAlpha" onChange={setValue} value={value}>
           <Stack direction="row">
@@ -112,19 +108,28 @@ export default function Card(props) {
       </div>
       <div className="flex space-x-6 items-center  self-center">
         <div className="flex items-center flex-col">
-          <h2 className="text-2xl p-2 underline-offset-8 underline font-bold hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
+          <h2 className="text-3xl capitalize p-2 underline-offset-8 underline font-bold hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
             {product.Title}
           </h2>
           <h2 className="text-xl p-2">${product.Price}</h2>
         </div>
-        <Link to={`/productDetail/${product.id}`}>
+        <div className="flex items-center justify-center flex-col">
           <button
-            className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-2 text-2xl my-3 hover:text-CoolGray-900 bg-CoolGray-900 text-mainWhite rounded-full"
+            className="transition py-2 text-2xl w-full items-center justify-center  flex ease-in duration-300 border-mainBlue border-dashed border-2 hover:bg-mainBlue text-CoolGray-900  hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900 bg-white  rounded-sm  "
             type="submit"
           >
-            Learn More
+            Add to Cart
+            <ShoppingCart size={28} weight="fill" />
           </button>
-        </Link>
+          <Link to={`/productDetail/${product.id}`}>
+            <button
+              className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-2 text-2xl my-3 hover:text-CoolGray-900 bg-mainWhite text-CoolGray-900  rounded-sm border-2 border-dashed border-CoolGray-900"
+              type="submit"
+            >
+              Learn More
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

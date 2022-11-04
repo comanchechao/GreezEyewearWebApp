@@ -20,8 +20,10 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { useRef } from "react";
 import { supabase } from "../supabaseClient";
+import { useTranslation } from "react-i18next";
 
 export default function ProductDetail() {
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const [product, setProduct] = useState({});
 
@@ -99,30 +101,11 @@ export default function ProductDetail() {
           </div>
           <div
             ref={productBg}
-            className=" h-full w-full flex  px-32 my-10 items-center"
+            className=" h-auto lg:h-screen w-full flex  lg:px-32 my-10 flex-col lg:space-x-4 lg:flex-row items-center"
           >
-            <div className=" h-full w-2/4 bg-mainWhite py-36 px-16">
-              <Slider dots={true} autoplay="true" pauseOnDotsHover="true">
-                <InnerImageZoom
-                  src="https://images.unsplash.com/photo-1518112390430-f4ab02e9c2c8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
-                  zoomSrc="https://images.unsplash.com/photo-1518112390430-f4ab02e9c2c8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
-                  fullscreenOnMobile={true}
-                />
-                <InnerImageZoom
-                  src="https://images.unsplash.com/photo-1621605817954-50992699848a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
-                  zoomSrc="https://images.unsplash.com/photo-1621605817954-50992699848a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
-                  fullscreenOnMobile={true}
-                />
-                <InnerImageZoom
-                  src="https://images.unsplash.com/photo-1571333249291-a6ec5e134a21?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
-                  zoomSrc="https://images.unsplash.com/photo-1571333249291-a6ec5e134a21?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
-                  fullscreenOnMobile={true}
-                />
-              </Slider>
-            </div>
-            <div className=" h-full w-2/4 bg-gray-100 flex items-center flex-col p-28 space-y-10">
+            <div className=" h-full w-screen lg:w-2/4  bg-gray-100 flex items-center flex-col p-20 space-y-10">
               <div className="flex flex-col items-start text-left">
-                <h1 className="text-5xl text-CoolGray-900 font-black p-1  hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
+                <h1 className="text-6xl text-CoolGray-900 font-black p-1  hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
                   {product.Title}
                 </h1>
                 <h2 className=" text-lg p-1 text-CoolGray-500 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
@@ -131,7 +114,7 @@ export default function ProductDetail() {
               </div>
               <h3 className=" text-3xl font-black"> ${product.Price} </h3>
               <div className="h-full w-full flex flex-col space-y-2 items-center">
-                <h2 className=" text-2xl font-black">Select Colors: </h2>
+                <h2 className=" text-2xl font-black">{t("selectColors")} </h2>
                 <RadioGroup
                   colorScheme="gray"
                   onChange={setValue}
@@ -174,7 +157,7 @@ export default function ProductDetail() {
                 </RadioGroup>
               </div>
               <div className="h-full w-full flex flex-col space-y-2 items-center">
-                <h2 className=" text-2xl font-black">Select Size: </h2>
+                <h2 className=" text-2xl font-black">{t("selectSize")} </h2>
                 <RadioGroup
                   colorScheme="gray"
                   onChange={setValue2}
@@ -202,12 +185,37 @@ export default function ProductDetail() {
               </div>
               <Link to={`/lensSelect/${product.id}`}>
                 <button
-                  className="px-20 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-3xl my-3 bg-mainWhite   rounded-full  "
+                  className=" w-full px-9 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-2xl my-3 bg-mainWhite   rounded-full  "
                   type="submit"
                 >
-                  Select Lenses
+                  {t("selectLens")}{" "}
                 </button>
               </Link>
+            </div>
+            <div className=" w-screen lg:w-2/4">
+              <Slider
+                dots={true}
+                autoplay="true"
+                pauseOnDotsHover="true"
+                adaptiveHeight={true}
+                arrows={false}
+              >
+                <InnerImageZoom
+                  src="https://images.unsplash.com/photo-1518112390430-f4ab02e9c2c8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
+                  zoomSrc="https://images.unsplash.com/photo-1518112390430-f4ab02e9c2c8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
+                  fullscreenOnMobile={true}
+                />
+                <InnerImageZoom
+                  src="https://images.unsplash.com/photo-1621605817954-50992699848a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
+                  zoomSrc="https://images.unsplash.com/photo-1621605817954-50992699848a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
+                  fullscreenOnMobile={true}
+                />
+                <InnerImageZoom
+                  src="https://images.unsplash.com/photo-1571333249291-a6ec5e134a21?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
+                  zoomSrc="https://images.unsplash.com/photo-1571333249291-a6ec5e134a21?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
+                  fullscreenOnMobile={true}
+                />
+              </Slider>
             </div>
           </div>
         </div>

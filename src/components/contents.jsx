@@ -135,86 +135,86 @@ export default function Contents(props) {
       {props.index === 2 && (
         <div className=" h-full w-full my-5 text-10xl space-y-3">
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={clearLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl"> {t("clear")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2">
                 {t("clearDetail")}
               </h2>
             </div>
+            <img loading="lazy" src={clearLens} alt="" />
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={blueCutLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("blueLight")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
                 {t("blueDetail")}
               </h2>
             </div>
+            <img loading="lazy" src={blueCutLens} alt="" />
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={drivingLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl"> {t("driving")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
                 {t("drivingDetail")}
               </h2>
             </div>
+            <img loading="lazy" src={drivingLens} alt="" />
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={tintLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("tint")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
                 {t("tintDetail")}
               </h2>
             </div>
+            <img loading="lazy" src={tintLens} alt="" />
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={photoChromicLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("photo")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
                 {t("photoDetail")}
               </h2>
             </div>
+            <img loading="lazy" src={photoChromicLens} alt="" />
           </div>
           <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={polarizedLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("polarized")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
                 {t("polarizedDetail")}
               </h2>
             </div>
+            <img loading="lazy" src={polarizedLens} alt="" />
           </div>
         </div>
       )}
       {props.index === 3 && (
         <div className=" h-auto w-full my-5 text-10xl space-y-3">
-          <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={thickLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.50 Standard Spheric
               </h1>
             </div>
+            <img loading="lazy" src={thickLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={mediumLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.60 Super Thin Aspheric
               </h1>
             </div>
+            <img loading="lazy" src={mediumLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
-            <img loading="lazy" src={thinLens} alt="" />
-            <div className="h-full w-full   flex items-start justify-center px-4 flex-col">
+          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+            <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.74 Ultra Thin Aspheric
               </h1>
             </div>
+            <img loading="lazy" src={thinLens} alt="" />
           </div>
         </div>
       )}
