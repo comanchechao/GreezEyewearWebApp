@@ -116,7 +116,7 @@ function App() {
           className="  w-2/3  bg-mainWhite py-4  mt-2  flex  flex-col justify-center px-3 lg:pl-24 lg:pr-96 capitalize  items-center lg:items-start h-full"
         >
           <h2 className="  text-9xl leading-10  font-SultanFont mt-10 font-bold">
-            Greez
+            Azim
           </h2>
           <h4 className="text-3xl font-SultanFont my-3  font-extralight  lg:ml-0 ml-28  flex items-center">
             Eyewear <Eye className="ml-1" size={23}></Eye>

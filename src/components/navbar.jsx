@@ -59,7 +59,7 @@ export default function navbar() {
           to={"/"}
           className="text-mainWhite font-extrabold   transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-4 items-center"
         >
-          <span className=" font-SultanFont text-5xl font-bold">Greez</span>
+          <span className=" font-SultanFont text-5xl font-bold">Azim</span>
         </Link>
         <Link
           to={"/"}

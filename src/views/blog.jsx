@@ -217,7 +217,7 @@ export default function blog() {
             </div>
             <div className="flex justify-end items-center align-center space-x-3">
               <h2>by author</h2>
-              <h2>by Greez Eyewear</h2>
+              <h2>by Azim Eyewear</h2>
             </div>
           </div>
         </div>

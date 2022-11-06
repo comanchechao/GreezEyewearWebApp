@@ -20,7 +20,7 @@ i18next
           blogs: "Blogs",
           home: "Home",
           // main page translations
-          greez: "Greez",
+          azim: "Azim",
           eyewear: "Eyewear",
           shopNow: "Shop Now",
           find: "Find Your Best Fit For Glasses",
@@ -127,7 +127,7 @@ i18next
           home: "خونه",
 
           // main page translations
-          greez: "گریز",
+          azim: "عظیم",
           eyewear: "عینک",
           shopNow: "خرید",
           find: "بهترین عینک هارو اینجا پیدا کنید",
