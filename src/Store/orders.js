@@ -7,6 +7,7 @@ import {
   lensReducer,
   lensWidthReducer,
 } from "./shop/orderDetail";
+import { userReducer } from "./user/user.js";
 
 export default configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export default configureStore({
     glassType: glassTypeReducer,
     lensDetail: lensReducer,
     lensWidth: lensWidthReducer,
+    user: userReducer,
   },
 });
