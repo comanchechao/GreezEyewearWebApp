@@ -21,11 +21,32 @@ import { gsap } from "gsap";
 import { useRef } from "react";
 import { supabase } from "../supabaseClient";
 import { useTranslation } from "react-i18next";
+import { useSelector, useDispatch } from "react-redux";
+import { size, sizeActions, colorActions } from "../Store/shop/orderDetail";
 
 export default function ProductDetail() {
   const { t, i18n } = useTranslation();
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [sizeValue, setSizeValue] = useState();
+
+  // this value was set in homeDIR/Store/shop/orderDetail.js and dispatch do change state data
+
+  const size = useSelector((state) => {
+    return state.size.size;
+  });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(dispatch.setSize);
+  });
+
+  // value of color in HomeDIR/store/shop/orderDetail.js and despatch do change state data
+
+  const color = useSelector((state) => {
+    return state.color.color;
+  });
 
   // getting product detail
 
@@ -112,7 +133,13 @@ export default function ProductDetail() {
                   Rectangle Gray Brown Eyeglasses
                 </h2>
               </div>
-              <h3 className=" text-3xl font-black"> ${product.Price} </h3>
+              <h3 className=" text-3xl font-black">
+                ${product.Price}{" "}
+                <p className="text-black bg-red-500">
+                  {color}
+                  {size}
+                </p>
+              </h3>
               <div className="h-full w-full flex flex-col space-y-2 items-center">
                 <h2 className=" text-2xl font-black">{t("selectColors")} </h2>
                 <RadioGroup
@@ -124,34 +151,52 @@ export default function ProductDetail() {
                     <Radio
                       size="lg"
                       className=" bg-mainYellow p-3"
-                      value="1"
+                      value="yellow"
+                      onChange={(e) =>
+                        dispatch(colorActions.setColor(e.target.value))
+                      }
                     ></Radio>
 
                     <Radio
                       size="lg"
                       className=" bg-blue-700 p-3"
-                      value="2"
+                      value="blue"
+                      onChange={(e) =>
+                        dispatch(colorActions.setColor(e.target.value))
+                      }
                     ></Radio>
 
                     <Radio
                       size="lg"
                       className=" bg-red-700 p-3"
-                      value="3"
+                      value="red"
+                      onChange={(e) =>
+                        dispatch(colorActions.setColor(e.target.value))
+                      }
                     ></Radio>
                     <Radio
                       size="lg"
                       className=" bg-green-700 p-3"
-                      value="4"
+                      value="green"
+                      onChange={(e) =>
+                        dispatch(colorActions.setColor(e.target.value))
+                      }
                     ></Radio>
                     <Radio
                       size="lg"
                       className=" bg-purple-700 p-3"
-                      value="5"
+                      value="purple"
+                      onChange={(e) =>
+                        dispatch(colorActions.setColor(e.target.value))
+                      }
                     ></Radio>
                     <Radio
                       size="lg"
                       className=" bg-pink-700 p-3"
-                      value="6"
+                      value="pink"
+                      onChange={(e) =>
+                        dispatch(colorActions.setColor(e.target.value))
+                      }
                     ></Radio>
                   </Stack>
                 </RadioGroup>
@@ -168,18 +213,49 @@ export default function ProductDetail() {
                     direction="row"
                     className="flex items-center justify-center"
                   >
-                    <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
-                      L
-                    </span>
-                    <Switch size="lg" />
+                    <Switch
+                      onChange={(e) => {
+                        if (size !== "md") {
+                          dispatch(sizeActions.setSize("md"));
+                          console.log(e.target.value);
+                        } else {
+                          dispatch(sizeActions.setSize(""));
+                        }
+                      }}
+                      size="lg"
+                    />
                     <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
                       M
                     </span>
-                    <Switch size="lg" />
+                    <Switch
+                      onChange={(e) => {
+                        if (size !== "sm") {
+                          dispatch(sizeActions.setSize("sm"));
+                          console.log(e.target.value);
+                        } else {
+                          dispatch(sizeActions.setSize(""));
+                        }
+                      }}
+                      size="lg"
+                    />
                     <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
                       S
                     </span>
-                    <Switch size="lg"></Switch>
+                    <Switch
+                      onChange={(e) => {
+                        if (size !== "lg") {
+                          dispatch(sizeActions.setSize("lg"));
+                          console.log(e.target.value);
+                        } else {
+                          dispatch(sizeActions.setSize(""));
+                        }
+                      }}
+                      size="lg"
+                    >
+                      <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
+                        L
+                      </span>
+                    </Switch>
                   </Stack>
                 </RadioGroup>
               </div>

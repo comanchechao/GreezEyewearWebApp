@@ -1,6 +1,7 @@
 import React from "react";
 import { Suspense, lazy } from "react";
-
+import store from "./Store/orders";
+import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
@@ -53,24 +54,29 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider theme={theme}>
     <Suspense>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}></Route>
-          <Route path="/lensSelect/:id" element={<LensSelect />}></Route>
-          <Route path="/checkoutPage" element={<Checkout />}></Route>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />}></Route>
+            <Route path="/lensSelect/:id" element={<LensSelect />}></Route>
+            <Route path="/checkoutPage" element={<Checkout />}></Route>
 
-          <Route path="/productDetail/:id" element={<ProductDetail />}></Route>
-          <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
-          <Route path="/faceShape" element={<FaceShape />}></Route>
-          <Route path="/frameShape" element={<FrameShape />}></Route>
-          <Route path="/create" element={<CreateBlog />}></Route>
-          <Route path="/newBlog" element={<NewBlog />}></Route>
-          <Route path="/blogs/:id" element={<Blog />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/editBlog/:id" element={<EditBlog />}></Route>
-        </Routes>
-      </BrowserRouter>
+            <Route
+              path="/productDetail/:id"
+              element={<ProductDetail />}
+            ></Route>
+            <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
+            <Route path="/faceShape" element={<FaceShape />}></Route>
+            <Route path="/frameShape" element={<FrameShape />}></Route>
+            <Route path="/create" element={<CreateBlog />}></Route>
+            <Route path="/newBlog" element={<NewBlog />}></Route>
+            <Route path="/blogs/:id" element={<Blog />}></Route>
+            <Route path="/admin" element={<Admin />}></Route>
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/editBlog/:id" element={<EditBlog />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
     </Suspense>
   </ChakraProvider>
 );
