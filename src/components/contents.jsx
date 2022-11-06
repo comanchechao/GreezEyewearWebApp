@@ -115,7 +115,7 @@ export default function Contents(props) {
               <input
                 type="number"
                 onChange={(e) => {
-                  dispatch(lensActions.setCylinderOS(e.target.value));
+                  dispatch(lensActions.setCylinderOD(e.target.value));
                 }}
                 className="border-gray-200 text-center rounded border-2"
                 placeholder="0.00"
@@ -155,7 +155,7 @@ export default function Contents(props) {
               <input
                 type="number"
                 onChange={(e) => {
-                  dispatch(lensActions.setSphereOS(e.target.value));
+                  dispatch(lensActions.setCylinderOS(e.target.value));
                 }}
                 className="border-gray-200 text-center rounded border-2"
                 placeholder="0.00"
