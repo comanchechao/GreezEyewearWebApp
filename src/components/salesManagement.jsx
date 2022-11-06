@@ -248,7 +248,6 @@ export default function salesManagement() {
       const { data, error } = await supabase.from("Products").select();
 
       if (error) throw error;
-      alert("fetched niagga");
       console.log(data);
       setProducts(data);
     } catch (error) {
