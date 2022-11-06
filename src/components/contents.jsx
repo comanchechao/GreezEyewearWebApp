@@ -12,7 +12,12 @@ import polarizedLens from "../assets/images/polarizedLens.webp";
 import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { glassTypeActions } from "../Store/shop/orderDetail";
+import {
+  glassTypeActions,
+  lensActions,
+  lensTypeActions,
+  lensWidthActions,
+} from "../Store/shop/orderDetail";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
@@ -20,11 +25,17 @@ export default function Contents(props) {
   // getting actions from redux statemanager in HOMEDIR/store
 
   const glassType = useSelector((state) => state.glassType.type);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log(glassType);
+  const sphereOD = useSelector((state) => state.lensDetail.sphere.OD);
+  const sphereOS = useSelector((state) => state.lensDetail.sphere.OS);
+  const cylinderOD = useSelector((state) => state.lensDetail.cylinder.OD);
+  const cylinderOS = useSelector((state) => state.lensDetail.cylinder.OS);
+  const axisOD = useSelector((state) => state.lensDetail.axis.OD);
+  const axisOS = useSelector((state) => state.lensDetail.axis.OS);
+  const lensType = useSelector((state) => {
+    return state.lensType.lens;
   });
+  const lensWidth = useSelector((state) => state.lensWidth.width);
+  const dispatch = useDispatch();
 
   const { t, i18n } = useTranslation();
 
@@ -89,29 +100,38 @@ export default function Contents(props) {
             </div>
             <div className="flex items-center flex-col">
               <h1 className="font-black text-lg mb-5">Sphere (SPH)</h1>
-              <Select variant="outline" placeholder="0.00">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <input
+                type="number"
+                onChange={(e) => {
+                  dispatch(lensActions.setSphereOD(e.target.value));
+                }}
+                className="border-gray-200 text-center rounded border-2"
+                placeholder="sphere right"
+              />
             </div>
             <div className="flex items-center flex-col">
               <h1 className="font-black text-lg mb-5">Cylinder (CYL)</h1>
 
-              <Select variant="outline" placeholder="0.00">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <input
+                type="number"
+                onChange={(e) => {
+                  dispatch(lensActions.setCylinderOD(e.target.value));
+                }}
+                className="border-gray-200 text-center rounded border-2"
+                placeholder="0.00"
+              />
             </div>
             <div className="flex items-center flex-col">
               <h1 className="font-black text-lg mb-5">Axis</h1>
 
-              <Select variant="outline" placeholder="0.00">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <input
+                type="number"
+                onChange={(e) => {
+                  dispatch(lensActions.setAxisOD(e.target.value));
+                }}
+                className="border-gray-200 text-center rounded border-2"
+                placeholder="0.00"
+              />
             </div>
           </div>
           <div className="flex space-x-6 items-center">
@@ -122,25 +142,34 @@ export default function Contents(props) {
               <h2>( {t("left")})</h2>
             </div>
             <div>
-              <Select variant="outline" placeholder="0.00">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <input
+                type="number"
+                onChange={(e) => {
+                  dispatch(lensActions.setSphereOS(e.target.value));
+                }}
+                className="border-gray-200 text-center rounded border-2"
+                placeholder="left sphere"
+              />
             </div>
             <div>
-              <Select variant="outline" placeholder="0.00">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <input
+                type="number"
+                onChange={(e) => {
+                  dispatch(lensActions.setSphereOS(e.target.value));
+                }}
+                className="border-gray-200 text-center rounded border-2"
+                placeholder="0.00"
+              />
             </div>
             <div>
-              <Select variant="outline" placeholder="0.00">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </Select>
+              <input
+                type="number"
+                onChange={(e) => {
+                  dispatch(lensActions.setAxisOS(e.target.value));
+                }}
+                className="border-gray-200 text-center rounded border-2"
+                placeholder="0.00"
+              />
             </div>
           </div>
           <div className="flex items-center flex-col self-start mt-9">
@@ -148,17 +177,25 @@ export default function Contents(props) {
             <h2>(Pupillary Distance)</h2>
           </div>
           <div className="flex items-center self-start flex-col">
-            <Select variant="outline" placeholder="0.00">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </Select>
+            <input
+              type="number"
+              onChange={(e) => {
+                dispatch(lensDetail.setSphere(e.target.value));
+              }}
+              className="border-gray-200 text-center rounded border-2"
+              placeholder="0.00"
+            />
           </div>
         </div>
       )}
       {props.index === 2 && (
         <div className=" h-full w-full my-5 text-10xl space-y-3">
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(lensTypeActions.setLensType("clear"));
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl"> {t("clear")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2">
@@ -167,7 +204,12 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={clearLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(lensTypeActions.setLensType("blue light blocking"));
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("blueLight")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
@@ -176,7 +218,12 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={blueCutLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(lensTypeActions.setLensType("Driving"));
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl"> {t("driving")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
@@ -185,7 +232,12 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={drivingLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(lensTypeActions.setLensType("Tint"));
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("tint")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
@@ -194,7 +246,12 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={tintLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(lensTypeActions.setLensType("Photochrominc"));
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("photo")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
@@ -203,7 +260,12 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={photoChromicLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(lensTypeActions.setLensType("polarized"));
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-4xl">{t("polarized")}</h1>
               <h2 className="text-CoolGray-900  text-lg my-2 leading-5">
@@ -216,7 +278,12 @@ export default function Contents(props) {
       )}
       {props.index === 3 && (
         <div className=" h-auto w-full my-5 text-10xl space-y-3">
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(lensWidthActions.setLensWidth("1.50 standard spheric"));
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.50 Standard Spheric
@@ -224,7 +291,14 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={thickLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(
+                lensWidthActions.setLensWidth("1.60 Super Thin Aspheric")
+              );
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.60 Super Thin Aspheric
@@ -232,7 +306,14 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={mediumLens} alt="" />
           </div>
-          <div className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={(e) => {
+              dispatch(
+                lensWidthActions.setLensWidth("1.74 ultra thin aspheric")
+              );
+            }}
+            className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full   flex items-end justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl">
                 1.74 Ultra Thin Aspheric
@@ -242,7 +323,21 @@ export default function Contents(props) {
           </div>
         </div>
       )}
-      {props.index === 4 && <div className="h-96 w-96 bg-mainYellow"></div>}
+      {props.index === 4 && (
+        <div className="h-96 w-96 bg-mainYellow">
+          <div className="flex w-full h-full flex-col">
+            <h2>{glassType}</h2>
+            <h2>{lensType}</h2>
+            <h3>{sphereOD}</h3>
+            <h3>{sphereOS}</h3>
+            <h3>{cylinderOD}</h3>
+            <h3>{cylinderOS}</h3>
+            <h3>{axisOD}</h3>
+            <h3>{axisOS}</h3>
+            <h3>{lensWidth}</h3>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
