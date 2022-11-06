@@ -12,8 +12,20 @@ import polarizedLens from "../assets/images/polarizedLens.webp";
 import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { glassTypeActions } from "../Store/shop/orderDetail";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 export default function Contents(props) {
+  // getting actions from redux statemanager in HOMEDIR/store
+
+  const glassType = useSelector((state) => state.glassType.type);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(glassType);
+  });
+
   const { t, i18n } = useTranslation();
 
   const [glassesType, setGlassesType] = useState("");
@@ -29,7 +41,13 @@ export default function Contents(props) {
     <div>
       {props.index === 0 && (
         <div className=" h-64 w-full my-5 text-10xl space-y-3">
-          <div className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 focus:bg-blue-900 group-focus:bg-red-900 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={() => {
+              dispatch(glassTypeActions.setType("prescription"));
+            }}
+            value="prescription"
+            className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 focus:bg-blue-900 group-focus:bg-red-900 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full  items-end flex  justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl mt-2 text-left lg:text-4xl">
                 {t("prescription")}
@@ -40,7 +58,13 @@ export default function Contents(props) {
             </div>
             <img loading="lazy" src={perscriptionIcon} alt="" />
           </div>
-          <div className=" h-1/2 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center">
+          <div
+            onClick={() => {
+              dispatch(glassTypeActions.setType("NONprescription"));
+            }}
+            value="NONprescription"
+            className=" h-1/2 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+          >
             <div className="h-full w-full  items-end flex  justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl mt-2 text-left lg:text-4xl">
                 {" "}

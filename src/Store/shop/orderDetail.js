@@ -24,6 +24,20 @@ export const color = createSlice({
   },
 });
 
+export const glassType = createSlice({
+  name: "glassTypeSection",
+  initialState: {
+    type: "type",
+  },
+  reducers: {
+    setType: (state, action) => {
+      state.type = action.payload;
+    },
+  },
+});
+
+export const glassTypeActions = glassType.actions;
+export const glassTypeReducer = glassType.reducer;
 export const colorActions = color.actions;
 export const colorReducer = color.reducer;
 export const sizeActions = size.actions;
