@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const size = createSlice({
   name: "sizeSection",
   initialState: {
-    size: "md",
+    size: "size",
   },
   reducers: {
     setSize: (state, action) => {
@@ -12,5 +12,19 @@ export const size = createSlice({
   },
 });
 
+export const color = createSlice({
+  name: "colorSection",
+  initialState: {
+    color: "color",
+  },
+  reducers: {
+    setColor: (state, action) => {
+      state.color = action.payload;
+    },
+  },
+});
+
+export const colorActions = color.actions;
+export const colorReducer = color.reducer;
 export const sizeActions = size.actions;
 export const sizeReducer = size.reducer;

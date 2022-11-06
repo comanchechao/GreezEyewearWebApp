@@ -384,9 +384,10 @@ export default function salesManagement() {
                         }}
                         className="block lg:p-5 p-2 w-full text-CoolGray-900 bg-mainCream rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-CoolGray-500  dark:placeholder-gray-400 text-2xl dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="text"
-                        placeholder="Title"
+                        placeholder="enter Title ..."
                       />
                       <input
+                      placeholder="enter Price ..."
                         onChange={(e) => {
                           setPrice(e.target.value);
                         }}
@@ -401,6 +402,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">select brand</option>
                         {Brands.map((brand) => {
                           return (
                             <option value={brand.Title}>{brand.Title}</option>
@@ -415,6 +417,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">select genders</option>
                         {Genders.map((gender) => {
                           return (
                             <option value={gender.Title}>{gender.Title}</option>
@@ -429,6 +432,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">select shape</option>
                         {Shapes.map((shape) => {
                           return (
                             <option value={shape.Title}>{shape.Title}</option>
@@ -443,6 +447,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">select material</option>
                         {Material.map((mat) => {
                           return <option value={mat.Title}>{mat.Title}</option>;
                         })}
@@ -455,6 +460,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">select size</option>
                         {Sizes.map((size) => {
                           return (
                             <option value={size.Title}>{size.Title}</option>
@@ -469,7 +475,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
-                        <option value="">...</option>
+                        <option value="">select feature</option>
                         <option value="AdjustiableNosePad">
                           Adjustiable Nose Pad
                         </option>
@@ -486,6 +492,7 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
+                        <option value="">select rim</option>
                         {Rims.map((rim) => {
                           return <option value={rim.Title}>{rim.Title}</option>;
                         })}
