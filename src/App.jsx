@@ -270,7 +270,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-screen h-96 p-24 mb-24  flex flex-col space-y-4 items-center bg-mainBlue">
+      <div className="w-screen h-96 p-24  flex flex-col space-y-4 items-center bg-mainBlue">
         <h1 className="text-5xl text-CoolGray-900">
           مارو تو شبکه های اجتماعی دنبال کنید
         </h1>
@@ -285,6 +285,28 @@ function App() {
           <h2 className=" text-3xl">آدرس ما توی نقشه</h2>
           <MapPin size={40} weight="fill" />
         </button>
+      </div>
+      <div className="flex  justify-end items-center">
+        <a
+          href="https://www.instagram.com/comanchechao/?hl=en"
+          class="Chao text-xl text-mainWhite mx-3 transition
+ease-in
+duration-300 border-2 border-dashed border-mainBlue hover:bg-Indigo-800 rounded-sm p-2 "
+        >
+          🧙چاوو
+        </a>
+        <span className="text-mainWhite text-xl">و</span>
+        <a
+          href="https://www.instagram.com/just_greez/?hl=en"
+          class="Greez text-xl text-mainWhite mx-3 transition
+ease-in
+duration-300 border-2 border-dashed border-mainBlue hover:bg-Indigo-800 rounded-sm p-2 "
+        >
+          🐻گریز
+        </a>
+        <h1 className="text-xl p-4 my-2 text-mainWhite border-dashed border-mainWhite">
+          : طراحی و توسعه ی سایت توسط
+        </h1>
       </div>
     </div>
   );
