@@ -1,6 +1,14 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Eye } from "phosphor-react";
+import {
+  Eye,
+  InstagramLogo,
+  FacebookLogo,
+  WhatsappLogo,
+  TelegramLogo,
+  Phone,
+  MapPin,
+} from "phosphor-react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import EmblaCarousel from "./components/EmblaCarousel";
@@ -154,7 +162,7 @@ function App() {
       >
         <div
           ref={firstBox}
-          className="w-full h-full py-10 mb-6 flex flex-col lg:flex-row justify-around items-center"
+          className="w-full h-full py-10 mb-14 flex flex-col lg:flex-row justify-around items-center"
         >
           <div className="  h-full lg:h-rem26 w-full lg:w-2/5 bg-mainBlue flex flex-col lg:flex-row text-right items-center lg:items-start justify-center pl-5">
             <div className=" w-full lg:w-1/2 h-full bg-mainBlue flex flex-col items-start justify-center p-4">
@@ -225,7 +233,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="h-full w-screen bg-mainBlue flex flex-col items-center justify-between">
+      <div className="h-full w-screen bg-mainBlue flex  flex-col items-center justify-between">
         <h1 className="text-6xl  font-extrabold capitalize px-6 py-7 lg:py-20 text-center">
           {t("tailorMade")}
         </h1>
@@ -262,7 +270,22 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-screen h-96 bg-mainBlue"></div>
+      <div className="w-screen h-96 p-24 mb-24  flex flex-col space-y-4 items-center bg-mainBlue">
+        <h1 className="text-5xl text-CoolGray-900">
+          مارو تو شبکه های اجتماعی دنبال کنید
+        </h1>
+        <div className="flex items-center justify-between space-x-5">
+          <InstagramLogo size={50} weight="fill" />
+          <FacebookLogo size={50} weight="fill" />
+          <WhatsappLogo size={50} weight="fill" />
+          <TelegramLogo size={50} weight="fill" />
+          <Phone size={50} weight="fill" />
+        </div>
+        <button className=" space-x-3 py-2  px-24 transition items-center ease-in flex duration-300 border-2 hover:bg-CoolGray-900 border-CoolGray-900 hover:text-mainWhite text-CoolGray-900     my-6 border-dashed   rounded-full  ">
+          <h2 className=" text-3xl">آدرس ما توی نقشه</h2>
+          <MapPin size={40} weight="fill" />
+        </button>
+      </div>
     </div>
   );
 }

@@ -54,7 +54,7 @@ export default function shoppingPage() {
   return (
     <div className="h-full w-screen overflow-x-hidden">
       <Navbar />
-      <div className="h-auto w-screen pt-20 lg:px-28 flex items-center justify-center bg-CoolGray-800">
+      <div className="h-full w-screen pt-20 lg:px-28 flex items-center justify-center bg-CoolGray-800">
         <div
           ref={mainBg}
           className=" h-full w-screen  mb-16 bg-mainCream mt-9 justify-center items-center flex flex-col  "
@@ -77,10 +77,17 @@ export default function shoppingPage() {
             <div className=" w-full h-full rounded ">
               <Box padding="10" boxShadow="lg" bg="silver">
                 <Stack>
-                  <div className="h-full w-full flex items-center justify-around">
-                    <SkeletonCircle size="140" />
-                    <SkeletonCircle size="140" />
-                    <SkeletonCircle size="140" />
+                  <div className="h-full w-full flex flex-col items-center justify-around flex-wrap">
+                    <div>
+                      <SkeletonCircle size="140" />
+                      <SkeletonCircle size="140" />
+                      <SkeletonCircle size="140" />
+                    </div>
+                    <div>
+                      <SkeletonCircle size="140" />
+                      <SkeletonCircle size="140" />
+                      <SkeletonCircle size="140" />
+                    </div>
                   </div>
                 </Stack>
               </Box>

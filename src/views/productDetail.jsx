@@ -251,11 +251,10 @@ export default function ProductDetail() {
                         }
                       }}
                       size="lg"
-                    >
-                      <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
-                        L
-                      </span>
-                    </Switch>
+                    />
+                    <span className=" border-2 border-mainWhite text-CoolGray-900 font-black w-10 h-10 flex items-center justify-center rounded-sm text-2xl">
+                      L
+                    </span>
                   </Stack>
                 </RadioGroup>
               </div>

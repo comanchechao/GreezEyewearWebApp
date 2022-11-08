@@ -46,7 +46,14 @@ export default function Contents(props) {
     PD: 0,
   });
   const [lensePicker, setLensePicker] = useState({});
-
+  const [isClicked, setIsClicked] = useState(false);
+  const changeState = () => {
+    if (isClicked === false) {
+      setIsClicked(true);
+    } else {
+      setIsClicked(false);
+    }
+  };
   const [lenseThickness, setLenseThickness] = useState(1.5);
   return (
     <div>
@@ -54,10 +61,13 @@ export default function Contents(props) {
         <div className=" h-64 w-full my-5 text-10xl space-y-3">
           <div
             onClick={() => {
+              changeState();
               dispatch(glassTypeActions.setType("prescription"));
             }}
             value="prescription"
-            className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 focus:bg-blue-900 group-focus:bg-red-900 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+            className={` h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300   hover:bg-mainBlue cursor-pointer active:bg-mainCream flex justify-center items-center ${
+              isClicked ? "bg-mainBlue" : "bg-white"
+            }`}
           >
             <div className="h-full w-full  items-end flex  justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl mt-2 text-left lg:text-4xl">
@@ -71,10 +81,13 @@ export default function Contents(props) {
           </div>
           <div
             onClick={() => {
+              changeState();
               dispatch(glassTypeActions.setType("NONprescription"));
             }}
             value="NONprescription"
-            className=" h-1/2 w-full px-3 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
+            className={` h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300   hover:bg-mainBlue cursor-pointer active:bg-mainCream flex justify-center items-center ${
+              isClicked ? "bg-mainBlue" : "bg-white"
+            }`}
           >
             <div className="h-full w-full  items-end flex  justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl mt-2 text-left lg:text-4xl">
@@ -90,12 +103,10 @@ export default function Contents(props) {
         </div>
       )}
       {props.index === 1 && (
-        <div className=" h-96 w-full my-5 bg-white rounded-sm flex flex-col items-center justify-around p-20">
+        <div className=" h-96 w-full my-5 bg-white rounded-sm flex flex-col items-center justify-around p-10">
           <div className="flex space-x-6 items-center">
             <div className="flex items-center flex-col">
-              <h1 className=" text-lg my-2 tex to-CoolGray-900 font-bold">
-                OD
-              </h1>
+              <h1 className=" text-lg my-2   to-CoolGray-900 font-bold">OD</h1>
               <h2>( {t("right")})</h2>
             </div>
             <div className="flex items-center flex-col">
