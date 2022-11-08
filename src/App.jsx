@@ -291,7 +291,7 @@ function App() {
           href="https://www.instagram.com/comanchechao/?hl=en"
           class="Chao text-xl text-mainWhite mx-3 transition
 ease-in
-duration-300 border-2 border-dashed border-mainBlue hover:bg-Indigo-800 rounded-sm p-2 "
+duration-300 border-2 border-dashed border-mainBlue hover:bg-purple-900 rounded-sm p-2 "
         >
           🧙چاوو
         </a>
@@ -300,7 +300,7 @@ duration-300 border-2 border-dashed border-mainBlue hover:bg-Indigo-800 rounded-
           href="https://www.instagram.com/just_greez/?hl=en"
           class="Greez text-xl text-mainWhite mx-3 transition
 ease-in
-duration-300 border-2 border-dashed border-mainBlue hover:bg-Indigo-800 rounded-sm p-2 "
+duration-300 border-2 border-dashed border-mainBlue hover:bg-purple-900 rounded-sm p-2 "
         >
           🐻گریز
         </a>
