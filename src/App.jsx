@@ -270,9 +270,9 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-screen h-96 p-24  flex flex-col space-y-4 items-center bg-mainBlue">
-        <h1 className="text-5xl text-CoolGray-900">
-          مارو تو شبکه های اجتماعی دنبال کنید
+      <div className="w-screen h-96 p-10 lg:p-24  flex flex-col space-y-4 items-center bg-mainBlue">
+        <h1 className="text-5xl text-CoolGray-900 text-center">
+          {t("findUs")}
         </h1>
         <div className="flex items-center justify-between space-x-5">
           <InstagramLogo size={50} weight="fill" />
@@ -281,31 +281,31 @@ function App() {
           <TelegramLogo size={50} weight="fill" />
           <Phone size={50} weight="fill" />
         </div>
-        <button className=" space-x-3 py-2  px-24 transition items-center ease-in flex duration-300 border-2 hover:bg-CoolGray-900 border-CoolGray-900 hover:text-mainWhite text-CoolGray-900     my-6 border-dashed   rounded-full  ">
-          <h2 className=" text-3xl">آدرس ما توی نقشه</h2>
+        <button className=" space-x-3 py-2 px-10  lg:px-24 transition items-center ease-in flex duration-300 border-2 hover:bg-CoolGray-900 border-CoolGray-900 hover:text-mainWhite text-CoolGray-900     my-6 border-dashed   rounded-full  ">
+          <h2 className=" text-3xl">{t("findMap")}</h2>
           <MapPin size={40} weight="fill" />
         </button>
       </div>
       <div className="flex  justify-end items-center">
         <a
           href="https://www.instagram.com/comanchechao/?hl=en"
-          class="Chao text-xl text-mainWhite mx-3 transition
+          class="Chao text-xl text-mainWhite mx-1 p-1 lg:mx-3 transition
 ease-in
-duration-300 border-2 border-dashed border-mainBlue hover:bg-purple-900 rounded-sm p-2 "
+duration-300 border-2 border-dashed border-mainBlue hover:bg-purple-900 rounded-sm lg:p-2 "
         >
-          🧙چاوو
+          🧙{t("Chao")}
         </a>
         <span className="text-mainWhite text-xl">و</span>
         <a
           href="https://www.instagram.com/just_greez/?hl=en"
-          class="Greez text-xl text-mainWhite mx-3 transition
+          class="Greez text-xl text-mainWhite mx-1 p-1 lg:mx-3 transition
 ease-in
-duration-300 border-2 border-dashed border-mainBlue hover:bg-purple-900 rounded-sm p-2 "
+duration-300 border-2 border-dashed border-mainBlue hover:bg-purple-900 rounded-sm lg:p-2 "
         >
-          🐻گریز
+          🐻{t("Greez")}
         </a>
-        <h1 className="text-xl p-4 my-2 text-mainWhite border-dashed border-mainWhite">
-          : طراحی و توسعه ی سایت توسط
+        <h1 className="lg:text-xl text-lg p-2 lg:p-4 my-2 text-center text-mainWhite border-dashed border-mainWhite">
+          : {t("design")}
         </h1>
       </div>
     </div>
