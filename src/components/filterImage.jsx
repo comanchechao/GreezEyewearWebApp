@@ -15,11 +15,8 @@ export default function filterImage(props) {
         .from("filter-images")
         .download(props.filterImage);
 
-      console.log(props.filterImage);
-
       if (error) throw error;
       const url = URL.createObjectURL(data);
-      console.log(url);
       setImage(url);
     } catch (error) {
       console.log("Error downloading image: ", error.message);
@@ -35,7 +32,10 @@ export default function filterImage(props) {
   if (loading === true) {
     return (
       <div className="w-8 flex justify-center items-center h-8">
-        <Spinner className="animate-spin text-mainBlue object-contain w-12" size={15} />
+        <Spinner
+          className="animate-spin text-mainBlue object-contain w-12"
+          size={15}
+        />
       </div>
     );
   } else {

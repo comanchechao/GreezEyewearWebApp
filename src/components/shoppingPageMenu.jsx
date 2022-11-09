@@ -58,7 +58,6 @@ export default function ShoppingMenu() {
     try {
       const { data, error } = await supabase.from("Genders").select();
 
-      console.log(data);
       setGenders(data);
     } catch (error) {
       alert(error.message);
@@ -69,7 +68,6 @@ export default function ShoppingMenu() {
     try {
       const { data, error } = await supabase.from("Brands").select();
 
-      console.log(data);
       setBrands(data);
     } catch (error) {
       alert(error.message);
@@ -80,7 +78,6 @@ export default function ShoppingMenu() {
     try {
       const { data, error } = await supabase.from("Shapes").select();
 
-      console.log(data);
       setShapes(data);
     } catch (error) {
       alert(error.message);
@@ -91,7 +88,6 @@ export default function ShoppingMenu() {
     try {
       const { data, error } = await supabase.from("Material").select();
 
-      console.log(data);
       setMaterial(data);
     } catch (error) {
       alert(error.message);
@@ -102,7 +98,6 @@ export default function ShoppingMenu() {
     try {
       const { data, error } = await supabase.from("Sizes").select();
 
-      console.log(data);
       setSizes(data);
     } catch (error) {
       alert(error.message);
@@ -113,7 +108,6 @@ export default function ShoppingMenu() {
     try {
       const { data, error } = await supabase.from("Rims").select();
 
-      console.log(data);
       setRims(data);
     } catch (error) {
       alert(error.message);
@@ -256,7 +250,7 @@ export default function ShoppingMenu() {
             <div>
               {Shapes.map((shape) => {
                 return (
-                  <MenuItem>
+                  <MenuItem key={shape.id}>
                     <Checkbox size="lg">
                       <div className="flex justify-center items-center space-x-3">
                         <FilterImage
@@ -462,7 +456,7 @@ export default function ShoppingMenu() {
             <div>
               {Rims.map((rim) => {
                 return (
-                  <MenuItem>
+                  <MenuItem key={rim.id}>
                     <Checkbox size="lg">
                       <div className="flex justify-center items-center  space-x-3">
                         <FilterImage

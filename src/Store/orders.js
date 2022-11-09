@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { selectedFiltersReducer } from "./products/filterSelection";
 import {
   colorReducer,
   sizeReducer,
@@ -18,5 +19,6 @@ export default configureStore({
     lensDetail: lensReducer,
     lensWidth: lensWidthReducer,
     user: userReducer,
+    selectedFilters: selectedFiltersReducer,
   },
 });
