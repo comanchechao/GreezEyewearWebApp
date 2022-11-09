@@ -91,13 +91,13 @@ export default function shoppingPage() {
             <div className=" w-full h-full rounded ">
               <Box padding="10" boxShadow="lg" bg="silver">
                 <Stack>
-                  <div className="h-full w-full flex flex-col items-center justify-around flex-wrap">
-                    <div>
+                  <div className="h-full w-full flex flex-col items-center justify-around space-y-4 flex-wrap">
+                    <div className="flex items-center w-full lg:flex-row flex-col justify-around">
                       <SkeletonCircle size="140" />
                       <SkeletonCircle size="140" />
                       <SkeletonCircle size="140" />
                     </div>
-                    <div>
+                    <div className="flex items-center w-full lg:flex-row flex-col justify-around">
                       <SkeletonCircle size="140" />
                       <SkeletonCircle size="140" />
                       <SkeletonCircle size="140" />

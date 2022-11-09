@@ -19,6 +19,14 @@ i18next
           premiumBrands: "Premium Brands",
           blogs: "Blogs",
           home: "Home",
+
+          // footer translations
+          findUs: "Find Us on Social Media",
+          findMap: "Our Location on the Map",
+          design: "Design and Developement by",
+          Greez: "Greez",
+          Chao: "Chao",
+
           // main page translations
           azim: "Azim",
           eyewear: "Eyewear",
@@ -125,6 +133,12 @@ i18next
           premiumBrands: "برند",
           blogs: "وبلاگ",
           home: "خونه",
+          // footer translations
+          findUs: "مارو تو شبکه های اجتماعی پیدا کنید",
+          findMap: "موقعیت ما توی نقشه",
+          design: "طراحی و توسعه ی سایت توسط",
+          Greez: "گریز",
+          Chao: "چاوو",
 
           // main page translations
           azim: "عظیم",
