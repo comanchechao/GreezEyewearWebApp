@@ -31,6 +31,8 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import FilterImage from "./filterImage";
+import { selectedFiltersActions } from "../Store/products/filterSelection";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ShoppingMenuModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,6 +43,14 @@ export default function ShoppingMenuModal() {
   const [Material, setMaterial] = useState([]);
   const [Brands, setBrands] = useState([]);
   const [Rims, setRims] = useState([]);
+
+  // dispatch to connect to sselectedFilters store
+
+  const dispatch = useDispatch();
+
+  const gender = useSelector((state) => {
+    return state.selectedFilters.gender;
+  });
 
   const [filters, setFilter] = useState([]);
 
@@ -59,7 +69,6 @@ export default function ShoppingMenuModal() {
     try {
       const { data, error } = await supabase.from("Genders").select();
 
-      console.log(data);
       setGenders(data);
     } catch (error) {
       alert(error.message);
@@ -70,7 +79,6 @@ export default function ShoppingMenuModal() {
     try {
       const { data, error } = await supabase.from("Brands").select();
 
-      console.log(data);
       setBrands(data);
     } catch (error) {
       alert(error.message);
@@ -81,7 +89,6 @@ export default function ShoppingMenuModal() {
     try {
       const { data, error } = await supabase.from("Shapes").select();
 
-      console.log(data);
       setShapes(data);
     } catch (error) {
       alert(error.message);
@@ -92,7 +99,6 @@ export default function ShoppingMenuModal() {
     try {
       const { data, error } = await supabase.from("Material").select();
 
-      console.log(data);
       setMaterial(data);
     } catch (error) {
       alert(error.message);
@@ -103,7 +109,6 @@ export default function ShoppingMenuModal() {
     try {
       const { data, error } = await supabase.from("Sizes").select();
 
-      console.log(data);
       setSizes(data);
     } catch (error) {
       alert(error.message);
@@ -114,7 +119,6 @@ export default function ShoppingMenuModal() {
     try {
       const { data, error } = await supabase.from("Rims").select();
 
-      console.log(data);
       setRims(data);
     } catch (error) {
       alert(error.message);
@@ -186,7 +190,15 @@ export default function ShoppingMenuModal() {
                     <div className="w-full h-full flex flex-col">
                       {Brands.map((brand) => {
                         return (
-                          <Checkbox size="lg">
+                          <Checkbox
+                            onChange={() => {
+                              dispatch(
+                                selectedFiltersActions.setBrand(brand.Title)
+                              );
+                            }}
+                            key={brand.id}
+                            size="lg"
+                          >
                             <span className="text-3xl">{brand.Title}</span>
                           </Checkbox>
                         );
@@ -199,11 +211,11 @@ export default function ShoppingMenuModal() {
                         return (
                           <Checkbox
                             key={gender.id}
-                            onChange={(e) => {
-                              e.preventDefault();
-                              if (filters.indexOf("Unisex") === -1) {
-                                filters.push("Unisex");
-                              }
+                            onChange={() => {
+                              console.log(gender.Title);
+                              dispatch(
+                                selectedFiltersActions.setGender(gender.Title)
+                              );
                             }}
                             size="lg"
                           >
@@ -217,7 +229,7 @@ export default function ShoppingMenuModal() {
                     <div className="w-full h-full flex flex-col bg-mainWhite p-6 text-CoolGray-900">
                       {Shapes.map((shape) => {
                         return (
-                          <Checkbox size="lg">
+                          <Checkbox key={shape.id} size="lg">
                             <div className="flex justify-center items-center space-x-3">
                               <span className="text-3xl">{shape.Title}</span>
                               <FilterImage filterImage={shape.image} />
@@ -269,7 +281,7 @@ export default function ShoppingMenuModal() {
                     <div className="w-full h-full flex flex-col bg-mainWhite text-CoolGray-900 p-4">
                       {Rims.map((rim) => {
                         return (
-                          <Checkbox size="lg">
+                          <Checkbox key={rim.id} size="lg">
                             <div className="flex jusitify-center items-center space-x-3">
                               <span className="text-3xl">{rim.Title}</span>
                               <FilterImage filterImage={rim.image} alt="" />

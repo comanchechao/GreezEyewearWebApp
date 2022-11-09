@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { supabase } from "../supabaseClient";
 import { useState } from "react";
 import { Box, Stack, SkeletonCircle } from "@chakra-ui/react";
+import { useSelector, useDispatch } from "react-redux";
 const Menu = lazy(() => import("../components/shoppingPageMenu"));
 
 export default function shoppingPage() {
@@ -14,10 +15,21 @@ export default function shoppingPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // handing store , fetching products and filter selection
+
+  const dispatch = useDispatch();
+  const genders = useSelector((state) => state.selectedFilters.gender);
+  const brands = useSelector((state) => state.selectedFilters.brand)
+
   const getProducts = async () => {
     try {
+      console.log(genders)
+      console.log(brands)
       setLoading(true);
-      const { data, error } = await supabase.from("Products").select();
+      const { data, error } = await supabase
+        .from("Products")
+        .select()
+        .in('Brand' , brands)
 
       if (error) throw error;
       console.log(data);
@@ -31,7 +43,7 @@ export default function shoppingPage() {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  },[]);
   const mainBg = useRef();
   const filterMenu = useRef();
 
@@ -66,6 +78,8 @@ export default function shoppingPage() {
             <Suspense>
               <Menu className=""></Menu>
             </Suspense>
+
+            <div><button onClick={getProducts} className="text-6xl bg-red-500">get</button></div>
           </div>
           {loading === false ? (
             <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  px-5">
