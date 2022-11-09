@@ -8,8 +8,10 @@ import { gsap } from "gsap";
 import { useRef } from "react";
 import lensSelectPic from "../assets/images/lensSelectPic.webp";
 import { ShoppingBagOpen } from "phosphor-react";
+import { useTranslation, Trans } from "react-i18next";
 
 export default function LensSelect() {
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const breadCrumbMenu = useRef();
   const mainBg = useRef();
@@ -69,35 +71,14 @@ export default function LensSelect() {
           </div>
           <div
             ref={mainBg}
-            className="w-screen h-auto mb-11 flex flex-col lg:flex-row items-center "
+            className="w-screen h-auto mb-11 flex flex-col lg:flex-row items-center lg:px-24"
           >
-            <div className="h-full w-screen lg:w-3/5 px-14 mx-6 lg:px-8 py-7 bg-mainCream border-2 border-mainWhite  ">
-              <ProgressMenu></ProgressMenu>
-            </div>
-            <div className=" h-dialog px-24 mx-5 lg:w-2/5 bg-mainCream flex justify-center items-center">
-              <div className=" bg-white border-2 border-mainWhite h-2/3  flex justify-center  flex-col  p-6 w-full">
-                <img className=" object-contain" src={lensSelectPic} alt="" />
-                <div className=" w-full  ">
-                  <h1 className="text-3xl">Botanist</h1>
-                  <div className="flex">
-                    <h2 className=" text-2xl text-gray-500">Frame Price: </h2>
-                    <h2 className="text-2xl ml-3 text-CoolGray-900 font-black">
-                      $29.99
-                    </h2>
-                  </div>
-                  <div className="flex">
-                    <h2 className=" text-2xl text-gray-500">Lens Price: </h2>
-                    <h2 className="text-2xl ml-3 text-CoolGray-900 font-black">
-                      $59.99
-                    </h2>
-                  </div>
-                </div>
-                <Link to={"/checkoutPage"}>
-                  <button className="px-12 self-center flex items-center space-x-3 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-1 text-xl lg:text-2xl my-3 bg-mainCream   rounded-full  ">
-                    <span>Add To Cart</span>
-                    <ShoppingBagOpen size={30} weight="fill" />
-                  </button>
-                </Link>
+            <div className="h-full w-screen lg:px-40  px-14 mx-6  py-7 bg-mainCream  ">
+              <div className="  shadow-2xl   my-5">
+                <h1 className="text-5xl mb-5 text-right bg-CoolGray-900 text-mainWhite px-9 py-7">
+                  {t("lensSelect")}
+                </h1>
+                <ProgressMenu className=""></ProgressMenu>
               </div>
             </div>
           </div>

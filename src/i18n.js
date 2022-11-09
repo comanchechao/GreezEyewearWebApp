@@ -83,6 +83,7 @@ i18next
           selectLens: "Select Lens",
 
           // lensSelect translations
+          lensSelect: "Lens Select",
           prescription: "Prescription",
           prescriptionDetail:
             "Used for nearsightedness, farsightedness, astigmatism or presbyopia.",
@@ -192,6 +193,7 @@ i18next
           selectSize: "انتخاب سایز",
           selectLens: "انتخاب لنز",
           // lensSelect translations
+          lensSelect: "انتخاب لنز",
           prescription: "با نسخه",
           prescriptionDetail: "برای دوربینی، نزدیک بینی، آستیگمات و پیرچشمی",
           non: "بدون نسخه",

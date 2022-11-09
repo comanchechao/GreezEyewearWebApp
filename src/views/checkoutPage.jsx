@@ -12,6 +12,7 @@ import {
   Checkbox,
 } from "@chakra-ui/react";
 
+import { Cardholder } from "phosphor-react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -90,6 +91,40 @@ export default function Checkout() {
               {t("checkout")}
             </h1>
             <div className="h-full w-full lg:px-11 px-3 lg:space-y-0 space-y-5  flex item-center justify-center lg:space-x-4  lg:flex-row flex-col">
+              <div className="flex flex-col  justify-between">
+                <div className=" h-36 lg:w-96 w-full  bg-white border-2 border-mainWhite  shadow-xl flex justify-between items-center p-10">
+                  <div className="bg-mainBlue">
+                    <img src={sampleEyeglass} alt="" />
+                  </div>
+                  <div className="flex  items-center flex-col justify-center">
+                    <h1 className="font-black text-3xl  text-CoolGray-900">
+                      November
+                    </h1>
+                    <h2 className="font-light text-CoolGray-700 text-lg">
+                      Tortoise, Medium
+                    </h2>
+                  </div>
+                  <div>
+                    <span className="justify-self-end">X1</span>
+                  </div>
+                </div>
+                <button className="px-12 flex items-center transition ease-in duration-300 border-2 border-dashed border-CoolGray-900 hover:bg-mainBlue py-2 text-lg lg:text-2xl my-6 bg-mainCream   rounded-full  ">
+                  {t("proceed")}
+                  <Cardholder className="mx-2" size={40} weight="fill" />
+                </button>
+              </div>
+              <div className=" text-right h-72 w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-end flex-col lg:mr-20 px-8">
+                <h1 className="text-3xl font-black my-4 w-full">
+                  {t("shippingMethod")}
+                </h1>
+                <Checkbox size="lg">
+                  <span className="text-2xl">{t("express")}</span>
+                </Checkbox>
+                <Checkbox size="lg">
+                  <span className="text-2xl">{t("post")}</span>
+                </Checkbox>
+              </div>
+
               <div className=" h-carousel w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-end flex-col px-8">
                 <div className="h-full w-full my-2 space-y-3">
                   <h1 className="text-3xl font-black my-2">
@@ -148,38 +183,6 @@ export default function Checkout() {
                     <Input placeholder="شماره ی تلفن" />
                   </FormControl>
                 </div>
-              </div>
-              <div className=" text-right h-72 w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-end flex-col lg:mr-20 px-8">
-                <h1 className="text-3xl font-black my-4 w-full">
-                  {t("shippingMethod")}
-                </h1>
-                <Checkbox size="lg">
-                  <span className="text-2xl">{t("express")}</span>
-                </Checkbox>
-                <Checkbox size="lg">
-                  <span className="text-2xl">{t("post")}</span>
-                </Checkbox>
-              </div>
-              <div className="flex flex-col  justify-between">
-                <div className=" h-36 lg:w-96 w-full  bg-white border-2 border-mainWhite  shadow-xl flex justify-between items-center p-10">
-                  <div className="bg-mainBlue">
-                    <img src={sampleEyeglass} alt="" />
-                  </div>
-                  <div className="flex  items-center flex-col justify-center">
-                    <h1 className="font-black text-3xl  text-CoolGray-900">
-                      November
-                    </h1>
-                    <h2 className="font-light text-CoolGray-700 text-lg">
-                      Tortoise, Medium
-                    </h2>
-                  </div>
-                  <div>
-                    <span className="justify-self-end">X1</span>
-                  </div>
-                </div>
-                <button className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-lg lg:text-3xl my-6 bg-mainWhite   rounded-full  ">
-                  {t("proceed")}
-                </button>
               </div>
             </div>
           </div>

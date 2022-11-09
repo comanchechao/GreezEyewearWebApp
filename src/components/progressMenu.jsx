@@ -22,12 +22,12 @@ export const ProgressMenu = () => {
         responsive={false}
         onClickStep={(step) => setStep(step)}
         activeStep={activeStep}
-        className="text-10xl px-10 font-black  my-5"
+        className="text-10xl px-10 font-black   p-10 bg-CoolGray-900"
         labelOrientation="vertical"
       >
         {steps.map(({ label, description }, index) => (
           <Step
-            className="font-black"
+            className="font-black "
             label={label}
             key={label}
             description={description}
@@ -48,16 +48,17 @@ export const ProgressMenu = () => {
         </button>
         {activeStep === steps.length - 1 ? (
           <Link
-            className="px-12 text-mainWhite transition ease-in duration-300 border-l-8 hover:text-CoolGray-900
+            className="px-12 mx-4 text-mainWhite transition ease-in duration-300 border-l-8 hover:text-CoolGray-900
             active:bg-mainBlue active:text-CoolGray-900 border-mainBlue hover:bg-mainBlue py-2 text-xl lg:text-2xl my-3 bg-CoolGray-900   rounded-full  "
             to={"/checkoutPage"}
           >
-            <button>{t("checkout")} </button>
+            <button mr={4}>{t("checkout")} </button>
           </Link>
         ) : (
           <button
+            mr={4}
             onClick={nextStep}
-            className="px-12 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
+            className="px-12 mx-4 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-2 text-xl lg:text-2xl my-3 bg-mainWhite   rounded-full  "
           >
             {t("confirm")}
           </button>
