@@ -29,7 +29,7 @@ export default function shoppingPage() {
       const { data, error } = await supabase
         .from("Products")
         .select()
-        .in('Brand' , brands)
+        .in('Brand' , brands).in('Gender' , genders)
 
       if (error) throw error;
       console.log(data);

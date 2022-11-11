@@ -56,13 +56,17 @@ export default function ShoppingMenuModal() {
 
   // getting filters add putting them into a fliter array
 
-  const getFilters = () => {
+  const getFilters = async () => {
     getBrands();
     getGenders();
     getMaterial();
     getSizes();
     getShapes();
     getRims();
+  };
+
+  const sendFilters = () => {
+    dispatch(selectedFiltersActions.getBrands(Brands));
   };
 
   const getGenders = async () => {
@@ -82,6 +86,9 @@ export default function ShoppingMenuModal() {
       setBrands(data);
     } catch (error) {
       alert(error.message);
+    }finally{
+      console.log('shopping modal brands' , Brands)
+      dispatch(selectedFiltersActions.getBrands(Brands))
     }
   };
 

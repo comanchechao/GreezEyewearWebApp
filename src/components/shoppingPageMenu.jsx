@@ -26,6 +26,8 @@ import SemiRimless from "../assets/images/semiRimless.webp";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
 import FilterImage from "./filterImage";
+import { useDispatch } from "react-redux";
+import { selectedFiltersActions } from "../Store/products/filterSelection";
 
 const ShoppingMenuModal = lazy(() => import("./shoppingPageModal"));
 
@@ -43,6 +45,10 @@ export default function ShoppingMenu() {
   const [Brands, setBrands] = useState([]);
   const [Rims, setRims] = useState([]);
 
+  // store configurations
+
+  const dispatch = useDispatch();
+
   // getting filters add putting them into a fliter array
 
   const getFilters = () => {
@@ -55,22 +61,36 @@ export default function ShoppingMenu() {
   };
 
   const getGenders = async () => {
+    let genders = [];
     try {
       const { data, error } = await supabase.from("Genders").select();
 
       setGenders(data);
+      data.forEach((gender) => {
+        genders.push(gender.Title);
+      });
+
+      console.log(genders, "from genders shopping menu");
     } catch (error) {
       alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getGenders(genders));
     }
   };
 
   const getBrands = async () => {
+    let brands = [];
     try {
       const { data, error } = await supabase.from("Brands").select();
 
       setBrands(data);
+      data.forEach((brand) => {
+        brands.push(brand.Title);
+      });
     } catch (error) {
       alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getBrands(brands));
     }
   };
 
