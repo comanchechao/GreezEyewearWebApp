@@ -33,7 +33,8 @@ export default function shoppingPage() {
         .from("Products")
         .select()
         .in("Brand", brands)
-        .in("Gender", genders);
+        .in("Gender", genders)
+        .in("Shape", shapes);
 
       if (error) throw error;
       console.log(data);
