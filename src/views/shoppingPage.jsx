@@ -19,19 +19,20 @@ export default function shoppingPage() {
 
   const dispatch = useDispatch();
   const genders = useSelector((state) => state.selectedFilters.gender);
-  const brands = useSelector((state) => state.selectedFilters.brand)
-  const shapes = useSelector((state) => state.selectedFilters.shape)
+  const brands = useSelector((state) => state.selectedFilters.brand);
+  const shapes = useSelector((state) => state.selectedFilters.shape);
 
   const getProducts = async () => {
     try {
-      console.log(genders)
-      console.log(brands)
-      console.log(shapes)
+      console.log(genders);
+      console.log(brands);
+      console.log(shapes);
       setLoading(true);
       const { data, error } = await supabase
         .from("Products")
         .select()
-        .in('Brand' , brands).in('Gender' , genders)
+        .in("Brand", brands)
+        .in("Gender", genders);
 
       if (error) throw error;
       console.log(data);
@@ -45,7 +46,7 @@ export default function shoppingPage() {
 
   useEffect(() => {
     getProducts();
-  },[]);
+  }, []);
   const mainBg = useRef();
   const filterMenu = useRef();
 
@@ -68,6 +69,29 @@ export default function shoppingPage() {
   return (
     <div className="h-full w-screen overflow-x-hidden">
       <Navbar />
+      <div className="flex mt-20 w-full  h-96 justify-between flex-row">
+        {brands.map((brand) => {
+          return (
+            <div className="bg-red-500 flex flex-col w-full h-52" key={brand.id}>
+              <h2 className="text-3xl">{brand}</h2>
+            </div>
+          );
+        })}
+        {genders.map((gender) => {
+          return (
+            <div className="bg-red-500 flex flex-col w-full h-52" key={gender.id}>
+              <h2 className="text-3xl">{gender}</h2>
+            </div>
+          );
+        })}
+        {shapes.map((shape) => {
+          return (
+            <div className="bg-red-500 flex flex-col w-full h-52" key={shape.id}>
+              <h2 className="text-3xl">{shape}</h2>
+            </div>
+          );
+        })}
+      </div>
       <div className="h-full w-screen pt-20 lg:px-28 flex items-center justify-center bg-CoolGray-800">
         <div
           ref={mainBg}
@@ -81,8 +105,13 @@ export default function shoppingPage() {
               <Menu className=""></Menu>
             </Suspense>
 
-            <div><button onClick={getProducts} className="text-6xl bg-red-500">get</button></div>
+            <div>
+              <button onClick={getProducts} className="text-6xl bg-red-500">
+                get
+              </button>
+            </div>
           </div>
+
           {loading === false ? (
             <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  px-5">
               {products.map((product) => {
