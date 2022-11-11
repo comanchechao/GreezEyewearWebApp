@@ -131,12 +131,18 @@ export default function ShoppingMenu() {
   };
 
   const getRims = async () => {
+    let rims = [];
     try {
       const { data, error } = await supabase.from("Rims").select();
 
       setRims(data);
+      data.forEach((rim) => {
+        rims.push(rim.Title);
+      });
     } catch (error) {
       alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getRims(rims));
     }
   };
 
@@ -221,7 +227,7 @@ export default function ShoppingMenu() {
                   }}
                   key={brand.id}
                 >
-                  <Checkbox size="lg">
+                  <Checkbox value={brand.Title} size="lg">
                     <span className="text-2xl">{brand.Title}</span>
                   </Checkbox>
                 </MenuItem>
@@ -497,7 +503,12 @@ export default function ShoppingMenu() {
               {Rims.map((rim) => {
                 return (
                   <MenuItem key={rim.id}>
-                    <Checkbox size="lg">
+                    <Checkbox
+                      onChange={() => {
+                        dispatch(selectedFiltersActions.setRim(rim.Title));
+                      }}
+                      size="lg"
+                    >
                       <div className="flex justify-center items-center  space-x-3">
                         <FilterImage
                           className="object-contain w-12"

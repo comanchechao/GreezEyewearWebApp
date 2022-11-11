@@ -21,6 +21,7 @@ export default function shoppingPage() {
   const genders = useSelector((state) => state.selectedFilters.gender);
   const brands = useSelector((state) => state.selectedFilters.brand);
   const shapes = useSelector((state) => state.selectedFilters.shape);
+  const rims = useSelector((state) => state.selectedFilters.rim);
 
   const getProducts = async () => {
     try {
@@ -69,29 +70,49 @@ export default function shoppingPage() {
   return (
     <div className="h-full w-screen overflow-x-hidden">
       <Navbar />
-      <div className="flex mt-20 w-full  h-96 justify-between flex-row">
+      <div className="flex mt-24 w-full  h-52 justify-between flex-row">
         {brands.map((brand) => {
           return (
-            <div className="bg-red-500 flex flex-col w-full h-52" key={brand.id}>
+            <div
+              className="bg-blue-500 flex flex-col w-full h-52"
+              key={brand.id}
+            >
               <h2 className="text-3xl">{brand}</h2>
             </div>
           );
         })}
         {genders.map((gender) => {
           return (
-            <div className="bg-red-500 flex flex-col w-full h-52" key={gender.id}>
+            <div
+              className="bg-red-500 flex flex-col w-full h-52"
+              key={gender.id}
+            >
               <h2 className="text-3xl">{gender}</h2>
             </div>
           );
         })}
         {shapes.map((shape) => {
           return (
-            <div className="bg-red-500 flex flex-col w-full h-52" key={shape.id}>
+            <div
+              className="bg-green-500 flex flex-col w-full h-52"
+              key={shape.id}
+            >
               <h2 className="text-3xl">{shape}</h2>
             </div>
           );
         })}
+        {rims.map((rim) => {
+          return (
+            <div
+              className="bg-purple-500 flex flex-col w-full h-52"
+              key={rim.id}
+            >
+              <h2 className="text-3xl">{rim}</h2>
+            </div>
+          );
+        })}
       </div>
+
       <div className="h-full w-screen pt-20 lg:px-28 flex items-center justify-center bg-CoolGray-800">
         <div
           ref={mainBg}

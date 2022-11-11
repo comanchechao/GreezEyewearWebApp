@@ -49,20 +49,29 @@ export const selectedFilters = createSlice({
       state.size.push(action.payload);
     },
     setRim: (state, action) => {
-      if (state.rim.length > 3) {
+      if (state.rim.length > 2) {
         state.rim = [];
-        state.rim.push(action.payload);
+        if (state.rim.indexOf(action.payload) === -1) {
+          state.rim.push(action.payload);
+        } else {
+          state.rim.splice(state.rim.indexOf(action.payload), 1);
+        }
       } else {
-        state.rim.push(action.payload);
+        if (state.rim.indexOf(action.payload) === -1) {
+          state.rim.push(action.payload);
+        } else {
+          state.rim.splice(state.rim.indexOf(action.payload), 1);
+        }
       }
     },
+    getRims: (state, action) => {
+      state.rim = action.payload;
+    },
     setShape: (state, action) => {
-      if (state.shape.length > 7) {
+      if (state.shape.length > 6) {
         state.shape = [];
         if (state.shape.indexOf(action.payload) === -1) {
-          console.log(state.shape);
           state.shape.push(action.payload);
-          console.log(state.shape);
         } else {
           state.shape.splice(state.shape.indexOf(action.payload), 1);
           console.log(state.shape);
