@@ -95,12 +95,18 @@ export default function ShoppingMenu() {
   };
 
   const getShapes = async () => {
+    let shapes = [];
     try {
       const { data, error } = await supabase.from("Shapes").select();
 
       setShapes(data);
+      data.forEach((shape) => {
+        shapes.push(shape.Title);
+      });
     } catch (error) {
       alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getShapes(shapes));
     }
   };
 
@@ -276,7 +282,7 @@ export default function ShoppingMenu() {
                 return (
                   <MenuItem
                     onChange={() => {
-                      dispatch(selectedFiltersActions.setShapes(shape.Title));
+                      dispatch(selectedFiltersActions.setShape(shape.Title));
                     }}
                     key={shape.id}
                   >

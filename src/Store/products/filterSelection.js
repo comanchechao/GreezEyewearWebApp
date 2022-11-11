@@ -26,11 +26,19 @@ export const selectedFilters = createSlice({
     },
     setBrand: (state, action) => {
       if (state.brand.length > 4) {
-        console.log("function fired");
         state.brand = [];
-        state.brand.push(action.payload);
+        console.log("function fired");
+        if (state.brand.indexOf(action.payload) === -1) {
+          state.brand.push(action.payload);
+        } else {
+          state.brand.splice(state.brand.indexOf(action.payload), 1);
+        }
       } else {
-        state.brand.push(action.payload);
+        if (state.brand.indexOf(action.payload) === -1) {
+          state.brand.push(action.payload);
+        } else {
+          state.brand.splice(state.brand.indexOf(action.payload), 1);
+        }
       }
     },
     getBrands: (state, action) => {
@@ -49,7 +57,30 @@ export const selectedFilters = createSlice({
       }
     },
     setShape: (state, action) => {
-      state.shape.push(action.payload);
+      if (state.shape.length > 7) {
+        state.shape = [];
+        if (state.shape.indexOf(action.payload) === -1) {
+          console.log(state.shape);
+          state.shape.push(action.payload);
+          console.log(state.shape);
+        } else {
+          state.shape.splice(state.shape.indexOf(action.payload), 1);
+          console.log(state.shape);
+        }
+      } else {
+        if (state.shape.indexOf(action.payload) === -1) {
+          console.log(state.shape);
+          state.shape.push(action.payload);
+          console.log(state.shape);
+        } else {
+          state.shape.splice(state.shape.indexOf(action.payload), 1);
+          console.log(state.shape);
+        }
+      }
+    },
+    getShapes: (state, action) => {
+      console.log("this is from store shapes", action.payload);
+      state.shape = action.payload;
     },
     setMaterial: (state, action) => {
       state.material.push(action.payload);

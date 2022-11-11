@@ -20,11 +20,13 @@ export default function shoppingPage() {
   const dispatch = useDispatch();
   const genders = useSelector((state) => state.selectedFilters.gender);
   const brands = useSelector((state) => state.selectedFilters.brand)
+  const shapes = useSelector((state) => state.selectedFilters.shape)
 
   const getProducts = async () => {
     try {
       console.log(genders)
       console.log(brands)
+      console.log(shapes)
       setLoading(true);
       const { data, error } = await supabase
         .from("Products")

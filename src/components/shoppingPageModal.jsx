@@ -236,7 +236,9 @@ export default function ShoppingMenuModal() {
                     <div className="w-full h-full flex flex-col bg-mainWhite p-6 text-CoolGray-900">
                       {Shapes.map((shape) => {
                         return (
-                          <Checkbox key={shape.id} size="lg">
+                          <Checkbox onChange={(() => {
+                            dispatch(selectedFiltersActions.setShape(shape.Title))
+                          })} key={shape.id} size="lg">
                             <div className="flex justify-center items-center space-x-3">
                               <span className="text-3xl">{shape.Title}</span>
                               <FilterImage filterImage={shape.image} />
