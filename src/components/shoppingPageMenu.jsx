@@ -209,7 +209,12 @@ export default function ShoppingMenu() {
           <MenuList>
             {Brands.map((brand) => {
               return (
-                <MenuItem key={brand.id}>
+                <MenuItem
+                  onChange={() => {
+                    dispatch(selectedFiltersActions.setBrand(brand.Title));
+                  }}
+                  key={brand.id}
+                >
                   <Checkbox size="lg">
                     <span className="text-2xl">{brand.Title}</span>
                   </Checkbox>
@@ -236,14 +241,13 @@ export default function ShoppingMenu() {
           <MenuList>
             {Genders.map((gender) => {
               return (
-                <MenuItem key={gender.id}>
-                  <Checkbox
-                    onChange={(e) => {
-                      e.preventDefault;
-                      setUnisex((prev) => !prev);
-                    }}
-                    size="lg"
-                  >
+                <MenuItem
+                  onChange={() => {
+                    dispatch(selectedFiltersActions.setGender(gender.Title));
+                  }}
+                  key={gender.id}
+                >
+                  <Checkbox size="lg">
                     <span className="text-2xl">{gender.Title}</span>
                   </Checkbox>
                 </MenuItem>
@@ -270,7 +274,12 @@ export default function ShoppingMenu() {
             <div>
               {Shapes.map((shape) => {
                 return (
-                  <MenuItem key={shape.id}>
+                  <MenuItem
+                    onChange={() => {
+                      dispatch(selectedFiltersActions.setShapes(shape.Title));
+                    }}
+                    key={shape.id}
+                  >
                     <Checkbox size="lg">
                       <div className="flex justify-center items-center space-x-3">
                         <FilterImage
@@ -442,7 +451,12 @@ export default function ShoppingMenu() {
               </h1>
               {Sizes.map((size) => {
                 return (
-                  <MenuItem key={size.id}>
+                  <MenuItem
+                    onChange={() => {
+                      dispatch(selectedFiltersActions.setSize(size.Title));
+                    }}
+                    key={size.id}
+                  >
                     <Checkbox
                       onChange={(e) => {
                         e.preventDefault;
