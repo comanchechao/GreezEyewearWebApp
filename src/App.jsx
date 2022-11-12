@@ -73,7 +73,7 @@ function App() {
         trigger: mainContainer.current,
         start: "center center",
         end: "bottom top",
-        toggleActions: "play none resume reverse",
+        toggleActions: "play none resume reset",
       },
     });
     gsap.to(mainPicture.current, {
@@ -85,7 +85,7 @@ function App() {
         trigger: mainContainer.current,
         start: "center center",
         end: "bottom top",
-        toggleActions: "play none resume reverse",
+        toggleActions: "play none resume reset",
       },
     });
     var tl = gsap.timeline();
