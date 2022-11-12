@@ -93,12 +93,12 @@ export default function shoppingPage() {
             </Suspense>
 
             <div>
-              <button onClick={getProducts} className="text-6xl bg-red-500">
-                get
+              <button onClick={getProducts} className="text-6xl text-mainWhite">
+                Get
               </button>
             </div>
           </div>
-          <div className="bg-CoolGray-800 flex  item-center w-full">
+          <div className="bg-CoolGray-800 flex  item-center max-w-6xl px-24">
             {brands.map((brand) => {
               return (
                 <Tag
