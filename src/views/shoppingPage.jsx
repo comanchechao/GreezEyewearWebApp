@@ -6,7 +6,14 @@ import { gsap } from "gsap";
 import { useRef } from "react";
 import { supabase } from "../supabaseClient";
 import { useState } from "react";
-import { Box, Stack, SkeletonCircle } from "@chakra-ui/react";
+import {
+  Box,
+  Stack,
+  SkeletonCircle,
+  Tag,
+  TagCloseButton,
+  TagLabel,
+} from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 const Menu = lazy(() => import("../components/shoppingPageMenu"));
 
@@ -71,48 +78,6 @@ export default function shoppingPage() {
   return (
     <div className="h-full w-screen overflow-x-hidden">
       <Navbar />
-      <div className="flex mt-24 w-full  h-52 justify-between flex-row">
-        {brands.map((brand) => {
-          return (
-            <div
-              className="bg-blue-500 flex flex-col w-full h-52"
-              key={brand.id}
-            >
-              <h2 className="text-3xl">{brand}</h2>
-            </div>
-          );
-        })}
-        {genders.map((gender) => {
-          return (
-            <div
-              className="bg-red-500 flex flex-col w-full h-52"
-              key={gender.id}
-            >
-              <h2 className="text-3xl">{gender}</h2>
-            </div>
-          );
-        })}
-        {shapes.map((shape) => {
-          return (
-            <div
-              className="bg-green-500 flex flex-col w-full h-52"
-              key={shape.id}
-            >
-              <h2 className="text-3xl">{shape}</h2>
-            </div>
-          );
-        })}
-        {rims.map((rim) => {
-          return (
-            <div
-              className="bg-purple-500 flex flex-col w-full h-52"
-              key={rim.id}
-            >
-              <h2 className="text-3xl">{rim}</h2>
-            </div>
-          );
-        })}
-      </div>
 
       <div className="h-full w-screen pt-20 lg:px-28 flex items-center justify-center bg-CoolGray-800">
         <div
@@ -133,7 +98,64 @@ export default function shoppingPage() {
               </button>
             </div>
           </div>
-
+          <div className="bg-CoolGray-800 flex  item-center w-full">
+            {brands.map((brand) => {
+              return (
+                <Tag
+                  key={brand.id}
+                  borderRadius="full"
+                  variant="outline"
+                  colorScheme="blue"
+                  className="mx-1 my-3"
+                >
+                  <TagLabel>{brand}</TagLabel>
+                  <TagCloseButton />
+                </Tag>
+              );
+            })}
+            {genders.map((gender) => {
+              return (
+                <Tag
+                  key={gender.id}
+                  borderRadius="full"
+                  variant="outline"
+                  colorScheme="blue"
+                  className="mx-1 my-3"
+                >
+                  <h1>{gender}</h1>
+                  <TagCloseButton />
+                </Tag>
+              );
+            })}
+            {shapes.map((shape) => {
+              return (
+                <Tag
+                  key={shape.id}
+                  borderRadius="full"
+                  variant="outline"
+                  colorScheme="blue"
+                  className="mx-1 my-3"
+                >
+                  <TagLabel>{shape}</TagLabel>
+                  <TagCloseButton />
+                </Tag>
+              );
+            })}
+            {rims.map((rim) => {
+              return (
+                <Tag
+                  key={rim.id}
+                  borderRadius="full"
+                  variant="outline"
+                  colorScheme="blue"
+                  className="mx-1 my-3"
+                >
+                  <TagLabel>{rim}</TagLabel>
+                  <TagCloseButton />
+                </Tag>
+              );
+            })}
+          </div>
           {loading === false ? (
             <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  px-5">
               {products.map((product) => {
