@@ -19,7 +19,6 @@ export const selectedFilters = createSlice({
           .select()
           .in("Gender", state.gender);
         if (error) throw error;
-        console.log(data);
       } catch (error) {
         alert(error.message);
       }
@@ -27,7 +26,6 @@ export const selectedFilters = createSlice({
     setBrand: (state, action) => {
       if (state.brand.length > 4) {
         state.brand = [];
-        console.log("function fired");
         if (state.brand.indexOf(action.payload) === -1) {
           state.brand.push(action.payload);
         } else {
@@ -74,21 +72,16 @@ export const selectedFilters = createSlice({
           state.shape.push(action.payload);
         } else {
           state.shape.splice(state.shape.indexOf(action.payload), 1);
-          console.log(state.shape);
         }
       } else {
         if (state.shape.indexOf(action.payload) === -1) {
-          console.log(state.shape);
           state.shape.push(action.payload);
-          console.log(state.shape);
         } else {
           state.shape.splice(state.shape.indexOf(action.payload), 1);
-          console.log(state.shape);
         }
       }
     },
     getShapes: (state, action) => {
-      console.log("this is from store shapes", action.payload);
       state.shape = action.payload;
     },
     setMaterial: (state, action) => {
@@ -103,7 +96,6 @@ export const selectedFilters = createSlice({
       }
     },
     getGenders: (state, action) => {
-      console.log(action.payload, "this is from store selectedFIlters");
       state.gender = action.payload;
     },
     setPrice: (state, action) => {

@@ -70,7 +70,6 @@ export default function ShoppingMenu() {
         genders.push(gender.Title);
       });
 
-      console.log(genders, "from genders shopping menu");
     } catch (error) {
       alert(error.message);
     } finally {
@@ -90,6 +89,7 @@ export default function ShoppingMenu() {
     } catch (error) {
       alert(error.message);
     } finally {
+      console.log('new day' , brands)
       dispatch(selectedFiltersActions.getBrands(brands));
     }
   };
