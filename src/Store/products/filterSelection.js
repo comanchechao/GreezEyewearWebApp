@@ -43,6 +43,9 @@ export const selectedFilters = createSlice({
       console.log("logging action brands", action.payload);
       state.brand = action.payload;
     },
+    removeBrand: (state, action) => {
+      state.brand.splice(state.brand.indexOf(action.payload), 1);
+    },
     setSize: (state, action) => {
       state.size.push(action.payload);
     },
@@ -65,6 +68,9 @@ export const selectedFilters = createSlice({
     getRims: (state, action) => {
       state.rim = action.payload;
     },
+    removeRim: (state, action) => {
+      state.rim.splice(state.rim.indexOf(action.payload), 1);
+    },
     setShape: (state, action) => {
       if (state.shape.length > 6) {
         state.shape = [];
@@ -84,6 +90,9 @@ export const selectedFilters = createSlice({
     getShapes: (state, action) => {
       state.shape = action.payload;
     },
+    removeShape: (state, action) => {
+      state.shape.splice(state.shape.indexOf(action.payload), 1);
+    },
     setMaterial: (state, action) => {
       state.material.push(action.payload);
     },
@@ -97,6 +106,9 @@ export const selectedFilters = createSlice({
     },
     getGenders: (state, action) => {
       state.gender = action.payload;
+    },
+    removeGender: (state, action) => {
+      state.gender.splice(state.gender.indexOf(action.payload), 1);
     },
     setPrice: (state, action) => {
       state.price.push(action.payload);

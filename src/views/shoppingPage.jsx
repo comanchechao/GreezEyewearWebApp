@@ -15,6 +15,7 @@ import {
   TagLabel,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
+import { selectedFiltersActions } from "../Store/products/filterSelection";
 const Menu = lazy(() => import("../components/shoppingPageMenu"));
 
 export default function shoppingPage() {
@@ -39,6 +40,7 @@ export default function shoppingPage() {
       const { data, error } = await supabase
         .from("Products")
         .select()
+        .order("created_at", { ascending: false })
         .in("Brand", brands)
         .in("Gender", genders)
         .in("Shape", shapes);
@@ -52,6 +54,13 @@ export default function shoppingPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    let filtersLen =
+      genders.length + shapes.length + brands.length + rims.length;
+
+    console.log("lens is this what are you talking about ", filtersLen);
+  });
 
   useEffect(() => {
     getProducts();
@@ -99,20 +108,26 @@ export default function shoppingPage() {
             </div>
           </div>
           <div className="bg-CoolGray-800 flex  item-center max-w-6xl px-24">
-            {brands.map((brand) => {
-              return (
-                <Tag
-                  key={brand.id}
-                  borderRadius="full"
-                  variant="outline"
-                  colorScheme="blue"
-                  className="mx-1 my-3"
-                >
-                  <TagLabel>{brand}</TagLabel>
-                  <TagCloseButton />
-                </Tag>
-              );
-            })}
+            {brands.length < 4
+              ? brands.map((brand) => {
+                  return (
+                    <Tag
+                      key={brand.id}
+                      borderRadius="full"
+                      variant="outline"
+                      colorScheme="blue"
+                      className="mx-1 my-3"
+                    >
+                      <TagLabel>{brand}</TagLabel>
+                      <TagCloseButton
+                        onClick={() => {
+                          dispatch(selectedFiltersActions.removeBrand(brand));
+                        }}
+                      />
+                    </Tag>
+                  );
+                })
+              : null}
             {genders.map((gender) => {
               return (
                 <Tag
@@ -123,7 +138,11 @@ export default function shoppingPage() {
                   className="mx-1 my-3"
                 >
                   <h1>{gender}</h1>
-                  <TagCloseButton />
+                  <TagCloseButton
+                    onClick={() => {
+                      dispatch(selectedFiltersActions.removeGender(gender));
+                    }}
+                  />
                 </Tag>
               );
             })}
@@ -137,7 +156,11 @@ export default function shoppingPage() {
                   className="mx-1 my-3"
                 >
                   <TagLabel>{shape}</TagLabel>
-                  <TagCloseButton />
+                  <TagCloseButton
+                    onClick={() => {
+                      dispatch(selectedFiltersActions.removeShape(shape));
+                    }}
+                  />
                 </Tag>
               );
             })}
@@ -151,7 +174,11 @@ export default function shoppingPage() {
                   className="mx-1 my-3"
                 >
                   <TagLabel>{rim}</TagLabel>
-                  <TagCloseButton />
+                  <TagCloseButton
+                    onClick={() => {
+                      dispatch(selectedFiltersActions.removeRim(rim));
+                    }}
+                  />
                 </Tag>
               );
             })}
