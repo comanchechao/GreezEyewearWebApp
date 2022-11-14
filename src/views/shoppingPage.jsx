@@ -128,60 +128,66 @@ export default function shoppingPage() {
                   );
                 })
               : null}
-            {genders.map((gender) => {
-              return (
-                <Tag
-                  key={gender.id}
-                  borderRadius="full"
-                  variant="outline"
-                  colorScheme="blue"
-                  className="mx-1 my-3"
-                >
-                  <h1>{gender}</h1>
-                  <TagCloseButton
-                    onClick={() => {
-                      dispatch(selectedFiltersActions.removeGender(gender));
-                    }}
-                  />
-                </Tag>
-              );
-            })}
-            {shapes.map((shape) => {
-              return (
-                <Tag
-                  key={shape.id}
-                  borderRadius="full"
-                  variant="outline"
-                  colorScheme="blue"
-                  className="mx-1 my-3"
-                >
-                  <TagLabel>{shape}</TagLabel>
-                  <TagCloseButton
-                    onClick={() => {
-                      dispatch(selectedFiltersActions.removeShape(shape));
-                    }}
-                  />
-                </Tag>
-              );
-            })}
-            {rims.map((rim) => {
-              return (
-                <Tag
-                  key={rim.id}
-                  borderRadius="full"
-                  variant="outline"
-                  colorScheme="blue"
-                  className="mx-1 my-3"
-                >
-                  <TagLabel>{rim}</TagLabel>
-                  <TagCloseButton
-                    onClick={() => {
-                      dispatch(selectedFiltersActions.removeRim(rim));
-                    }}
-                  />
-                </Tag>
-              );
-            })}
+            {genders.length < 4
+              ? genders.map((gender) => {
+                  return (
+                    <Tag
+                      key={gender.id}
+                      borderRadius="full"
+                      variant="outline"
+                      colorScheme="blue"
+                      className="mx-1 my-3"
+                    >
+                      <h1>{gender}</h1>
+                      <TagCloseButton
+                        onClick={() => {
+                          dispatch(selectedFiltersActions.removeGender(gender));
+                        }}
+                      />
+                    </Tag>
+                  );
+                })
+              : null}
+            {shapes.length < 7
+              ? shapes.map((shape) => {
+                  return (
+                    <Tag
+                      key={shape.id}
+                      borderRadius="full"
+                      variant="outline"
+                      colorScheme="blue"
+                      className="mx-1 my-3"
+                    >
+                      <TagLabel>{shape}</TagLabel>
+                      <TagCloseButton
+                        onClick={() => {
+                          dispatch(selectedFiltersActions.removeShape(shape));
+                        }}
+                      />
+                    </Tag>
+                  );
+                })
+              : null}
+            {rims.length < 3
+              ? rims.map((rim) => {
+                  return (
+                    <Tag
+                      key={rim.id}
+                      borderRadius="full"
+                      variant="outline"
+                      colorScheme="blue"
+                      className="mx-1 my-3"
+                    >
+                      <TagLabel>{rim}</TagLabel>
+                      <TagCloseButton
+                        onClick={() => {
+                          dispatch(selectedFiltersActions.removeRim(rim));
+                        }}
+                      />
+                    </Tag>
+                  );
+                })
+              : null}
           </div>
           {loading === false ? (
             <div className="h-full w-full bg-mainCream grid justify-items-center grid-cols-1 lg:grid-cols-3 grid-rows-1  px-5">
