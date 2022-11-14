@@ -9,10 +9,16 @@ import {
   DrawerCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
+
 import { ShoppingBag } from "phosphor-react";
+import sampleEyeglass from "../assets/images/sampleEyeglass.webp";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
+
 export default function shoppingCartDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -35,19 +41,81 @@ export default function shoppingCartDrawer() {
           <div className="bg-mainWhite h-full w-full">
             <DrawerCloseButton />
             <DrawerHeader>
-              <div className="  w-full h-full text-CoolGray-900 text-3xl py-9 font-black underline-offset-8 underline">
+              <div className="  w-full h-full text-CoolGray-900 text-3xl py-9 font-black  ">
                 My Cart
               </div>
             </DrawerHeader>
 
             <DrawerBody>
-              <div className="bg-CoolGray-900 w-full h-full z-20">
-                sdfasdfklas
+              <div className="w-full my-3 h-24 bg-CoolGray-800 px-2 space-x-3 rounded-sm  flex justify-between items-center">
+                <div className="">
+                  <img
+                    className="object-cover rounded-full"
+                    src={sampleEyeglass}
+                    alt=""
+                  />
+                </div>
+                <div className="flex  items-center flex-col justify-center">
+                  <h1 className="font-black text-3xl  text-mainWhite">
+                    November
+                  </h1>
+                  <h2 className="font-light text-mainCream text-lg">
+                    Tortoise, Medium
+                  </h2>
+                </div>
+                <div>
+                  <span className="justify-self-end">X1</span>
+                </div>
+              </div>
+              <div className="w-full h-24 my-3 bg-CoolGray-800 px-2 space-x-3 rounded-sm  flex justify-between items-center">
+                <div className="">
+                  <img
+                    className="object-cover rounded-full"
+                    src={sampleEyeglass}
+                    alt=""
+                  />
+                </div>
+                <div className="flex  items-center flex-col justify-center">
+                  <h1 className="font-black text-3xl  text-mainWhite">
+                    November
+                  </h1>
+                  <h2 className="font-light text-mainCream text-lg">
+                    Tortoise, Medium
+                  </h2>
+                </div>
+                <div>
+                  <span className="justify-self-end">X1</span>
+                </div>
+              </div>
+              <div className="w-full my-3 h-24 bg-CoolGray-800 px-2 space-x-3 rounded-sm  flex justify-between items-center">
+                <div className="">
+                  <img
+                    className="object-cover rounded-full"
+                    src={sampleEyeglass}
+                    alt=""
+                  />
+                </div>
+                <div className="flex  items-center flex-col justify-center">
+                  <h1 className="font-black text-3xl  text-mainWhite">
+                    November
+                  </h1>
+                  <h2 className="font-light text-mainCream text-lg">
+                    Tortoise, Medium
+                  </h2>
+                </div>
+                <div>
+                  <span className="justify-self-end">X1</span>
+                </div>
               </div>
             </DrawerBody>
 
             <DrawerFooter>
-              <button>Save</button>
+              <button
+                className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-2 text-2xl my-3 hover:text-CoolGray-900 bg-mainWhite text-CoolGray-900  rounded-sm border-2 border-dashed border-CoolGray-900"
+                type="submit"
+              >
+                {t("checkout")}{" "}
+              </button>
             </DrawerFooter>
           </div>
         </DrawerContent>

@@ -107,7 +107,7 @@ export default function shoppingPage() {
               </button>
             </div>
           </div>
-          <div className="bg-CoolGray-800 flex  item-center max-w-6xl px-24">
+          <div className="bg-CoolGray-700 flex  item-center w-full px-6">
             {brands.length < 4
               ? brands.map((brand) => {
                   return (
