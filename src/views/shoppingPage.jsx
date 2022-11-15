@@ -208,7 +208,7 @@ export default function shoppingPage() {
               <Menu className=""></Menu>
             </Suspense>
 
-            <div className="flex flex-row-reverse justify-around w-52 items-center space-x-4">
+            <div className="flex flex-row-reverse justify-around items-center space-x-4">
               <button onClick={getProducts} className="text-6xl text-mainWhite">
                 Get
               </button>

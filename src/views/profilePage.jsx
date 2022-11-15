@@ -2,7 +2,7 @@ import Navbar from "../components/navbar";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useRef, useEffect } from "react";
-
+import { Package, Truck, Receipt } from "phosphor-react";
 import { Link } from "react-router-dom";
 import EditableControls from "../components/editableControls";
 import gsap from "gsap";
@@ -56,21 +56,36 @@ export default function Profile() {
         </div>
         <div
           ref={mainBg}
-          className="h-screen  w-screen lg:px-20 mb-7 text-CoolGray-900"
+          className="h-auto  w-screen lg:px-20 mb-7 text-CoolGray-900"
         >
           <div className="h-full w-full bg-mainWhite">
             <h1 className="text-3xl my-5 bg-CoolGray-900 text-mainWhite px-9 py-4">
               سفارش ها
             </h1>
-            <div className="w-full h-60 flex space-x-28 px-40">
-              <div className=" h-full w-1/3 bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95"></div>
-              <div className=" h-full w-1/3 bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95"></div>
-              <div className=" h-full w-1/3 bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95"></div>
+            <div className="w-full h-60 flex space-x-28 px-40 py-6">
+              <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
+                <h1 className="text-3xl text-mainWhite font-bold">
+                  تحویل داده شده
+                </h1>
+                <Receipt size={30} weight="fill" />
+              </div>
+              <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
+                <h1 className="text-3xl text-mainWhite font-bold">
+                  فرستاده شده
+                </h1>
+                <Truck size={30} weight="fill" />
+              </div>
+              <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
+                <h1 className="text-3xl text-mainWhite font-bold">
+                  درحال پردازش
+                </h1>
+                <Package size={30} weight="fill" />
+              </div>
             </div>
             <h1 className="text-3xl my-5 bg-CoolGray-900 text-mainWhite px-9 py-4">
               اطلاعات ارسال
             </h1>
-            <div className="w-full h-60 ">
+            <div className="w-full h-36 flex items-center justify-center ">
               <EditableControls></EditableControls>
             </div>
           </div>
