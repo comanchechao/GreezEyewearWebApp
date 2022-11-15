@@ -36,7 +36,7 @@ export default function EditableControls() {
   }
 
   return (
-    <div className="h-full w-full justify-center items-center flex flex-wrap px-24 text-2xl space-x-20">
+    <div className="h-full w-full justify-center items-center space-y-5 flex flex-wrap lg:px-24 text-2xl space-x-5 lg:space-y-0 lg:my-0 my-4 lg:space-x-20">
       <Editable
         className="bg-mainCream rounded-md"
         defaultValue="شماره تلفن"

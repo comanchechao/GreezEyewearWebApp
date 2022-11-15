@@ -62,17 +62,21 @@ export default function Profile() {
             <h1 className="text-3xl my-5 bg-CoolGray-900 text-mainWhite px-9 py-4">
               سفارش ها
             </h1>
-            <div className="w-full h-60 flex space-x-28 px-40 py-6">
-              <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
-                <h1 className="text-3xl  font-bold">تحویل داده شده</h1>
+            <div className="w-full h-auto lg:h-60 items-center flex lg:flex-row flex-col lg:space-y-0 space-y-9 lg:space-x-28 px-10 lg:px-40 py-6">
+              <div className=" h-full w-full lg:p-5 p-24 flex flex-col space-y-4 items-center justify-center bg-CoolGray-900 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
+                <h1 className="text-3xl  font-bold text-center">
+                  تحویل داده شده
+                </h1>
                 <Receipt size={30} weight="fill" />
               </div>
-              <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
-                <h1 className="text-3xl  font-bold">فرستاده شده</h1>
+              <div className=" h-full w-full lg:p-5 p-24 flex flex-col space-y-4 items-center justify-center bg-CoolGray-900 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
+                <h1 className="text-3xl  font-bold text-center">فرستاده شده</h1>
                 <Truck size={30} weight="fill" />
               </div>
-              <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
-                <h1 className="text-3xl  font-bold">درحال پردازش</h1>
+              <div className=" h-full w-full lg:p-5 p-24 flex flex-col space-y-4 items-center justify-center bg-CoolGray-900 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
+                <h1 className="text-3xl  font-bold text-center">
+                  درحال پردازش
+                </h1>
                 <Package size={30} weight="fill" />
               </div>
             </div>
