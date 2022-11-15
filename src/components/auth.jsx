@@ -1,6 +1,8 @@
 import { supabase } from "../supabaseClient";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { useDispatch } from "react-redux";
+import { userActions } from "../Store/user/user";
 
 export default function Auth() {
   const [loading, setLoading] = useState(false);
@@ -13,6 +15,19 @@ export default function Auth() {
   const [passwordSignUp, setPasswordSignUp] = useState("");
 
   let [isOpen, setIsOpen] = useState(false);
+
+  // get user currently logged user
+
+  const getSetUser = function () {
+    const user = supabase.auth.user();
+    if (user) {
+      dispatch(userActions.setUser(user));
+    }
+  };
+
+  // store configuration
+
+  const dispatch = useDispatch();
 
   function closeModal() {
     setIsOpen(false);
@@ -53,6 +68,7 @@ export default function Auth() {
       alert(error.error_description || error.message);
     } finally {
       setLoading(false);
+      getSetUser();
     }
   };
 

@@ -20,6 +20,8 @@ import {
 } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { user } from "../Store/user/user";
 
 const lngs = {
   en: { cut: "En", nativeName: "English" },
@@ -28,6 +30,10 @@ const lngs = {
 
 export default function navbar() {
   let [isOpen, setIsOpen] = useState(false);
+
+  // log check
+
+  const isLogged = useSelector((state) => state.user.isLogged);
 
   function closeModal() {
     setIsOpen(false);
@@ -98,12 +104,7 @@ export default function navbar() {
           <h1 className=" ">{t("premiumBrands")}</h1>
           <Copyright size={18} />
         </Link>
-        <Link
-          to={"/ProfilePage"}
-          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-        >
-          <User size={25} />
-        </Link>
+
         <Link
           to={"/blogs"}
           className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
@@ -135,6 +136,12 @@ export default function navbar() {
               </span>
             </button>
           ))}
+          <Link
+            to={"/ProfilePage"}
+            className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          >
+            <User size={25} />
+          </Link>
           <button
             onClick={openModal}
             className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
