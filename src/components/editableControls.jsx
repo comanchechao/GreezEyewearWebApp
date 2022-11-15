@@ -36,7 +36,7 @@ export default function EditableControls() {
   }
 
   return (
-    <div className="h-full w-full justify-end flex px-24 text-2xl space-x-20">
+    <div className="h-full w-full justify-center flex px-24 text-2xl space-x-20">
       <div>
         <Editable
           defaultValue="ایمیل"
