@@ -64,21 +64,15 @@ export default function Profile() {
             </h1>
             <div className="w-full h-60 flex space-x-28 px-40 py-6">
               <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
-                <h1 className="text-3xl text-mainWhite font-bold">
-                  تحویل داده شده
-                </h1>
+                <h1 className="text-3xl  font-bold">تحویل داده شده</h1>
                 <Receipt size={30} weight="fill" />
               </div>
               <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
-                <h1 className="text-3xl text-mainWhite font-bold">
-                  فرستاده شده
-                </h1>
+                <h1 className="text-3xl  font-bold">فرستاده شده</h1>
                 <Truck size={30} weight="fill" />
               </div>
               <div className=" h-full w-1/3 flex flex-col space-y-4 items-center justify-center bg-CoolGray-800 rounded-sm transition ease-in duration-300 hover:bg-mainBlue active:bg-mainBlue text-mainWhite hover:text-CoolGray-900 cursor-pointer transform hover:scale-95 active:scale-95">
-                <h1 className="text-3xl text-mainWhite font-bold">
-                  درحال پردازش
-                </h1>
+                <h1 className="text-3xl  font-bold">درحال پردازش</h1>
                 <Package size={30} weight="fill" />
               </div>
             </div>

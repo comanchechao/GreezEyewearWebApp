@@ -36,28 +36,10 @@ export default function EditableControls() {
   }
 
   return (
-    <div className="h-full w-full justify-center items-center flex px-24 text-2xl space-x-20">
-      <div>
-        <Editable
-          defaultValue="ایمیل"
-          isPreviewFocusable={true}
-          selectAllOnFocus={false}
-        >
-          <Tooltip label="برای ادیت کلیک کنید">
-            <EditablePreview
-              py={2}
-              px={4}
-              _hover={{
-                background: useColorModeValue("gray.100", "gray.700"),
-              }}
-            />
-          </Tooltip>
-          <Input py={2} px={4} as={EditableInput} />
-          <EditableControls />
-        </Editable>
-      </div>
+    <div className="h-full w-full justify-center items-center flex flex-wrap px-24 text-2xl space-x-20">
       <Editable
-        defaultValue="اسم کامل"
+        className="bg-mainCream rounded-md"
+        defaultValue="شماره تلفن"
         isPreviewFocusable={true}
         selectAllOnFocus={false}
       >
@@ -74,40 +56,7 @@ export default function EditableControls() {
         <EditableControls />
       </Editable>
       <Editable
-        defaultValue="کشور"
-        isPreviewFocusable={true}
-        selectAllOnFocus={false}
-      >
-        <Tooltip label="برای ادیت کلیک کنید">
-          <EditablePreview
-            py={2}
-            px={4}
-            _hover={{
-              background: useColorModeValue("gray.100", "gray.700"),
-            }}
-          />
-        </Tooltip>
-        <Input py={2} px={4} as={EditableInput} />
-        <EditableControls />
-      </Editable>
-      <Editable
-        defaultValue="آدرس"
-        isPreviewFocusable={true}
-        selectAllOnFocus={false}
-      >
-        <Tooltip label="برای ادیت کلیک کنید">
-          <EditablePreview
-            py={2}
-            px={4}
-            _hover={{
-              background: useColorModeValue("gray.100", "gray.700"),
-            }}
-          />
-        </Tooltip>
-        <Input py={2} px={4} as={EditableInput} />
-        <EditableControls />
-      </Editable>
-      <Editable
+        className="bg-mainCream rounded-md"
         defaultValue="شهر"
         isPreviewFocusable={true}
         selectAllOnFocus={false}
@@ -125,7 +74,63 @@ export default function EditableControls() {
         <EditableControls />
       </Editable>
       <Editable
-        defaultValue="شماره تلفن"
+        className="bg-mainCream rounded-md"
+        defaultValue="آدرس"
+        isPreviewFocusable={true}
+        selectAllOnFocus={false}
+      >
+        <Tooltip label="برای ادیت کلیک کنید">
+          <EditablePreview
+            py={2}
+            px={4}
+            _hover={{
+              background: useColorModeValue("gray.100", "gray.700"),
+            }}
+          />
+        </Tooltip>
+        <Input py={2} px={4} as={EditableInput} />
+        <EditableControls />
+      </Editable>
+      <Editable
+        className="bg-mainCream rounded-md"
+        defaultValue="کشور"
+        isPreviewFocusable={true}
+        selectAllOnFocus={false}
+      >
+        <Tooltip label="برای ادیت کلیک کنید">
+          <EditablePreview
+            py={2}
+            px={4}
+            _hover={{
+              background: useColorModeValue("gray.100", "gray.700"),
+            }}
+          />
+        </Tooltip>
+        <Input py={2} px={4} as={EditableInput} />
+        <EditableControls />
+      </Editable>
+      <Editable
+        className="bg-mainCream rounded-md"
+        defaultValue="ایمیل"
+        isPreviewFocusable={true}
+        selectAllOnFocus={false}
+      >
+        <Tooltip label="برای ادیت کلیک کنید">
+          <EditablePreview
+            py={2}
+            px={4}
+            _hover={{
+              background: useColorModeValue("gray.100", "gray.700"),
+            }}
+          />
+        </Tooltip>
+        <Input py={2} px={4} as={EditableInput} />
+        <EditableControls />
+      </Editable>
+
+      <Editable
+        className="bg-mainCream rounded-md"
+        defaultValue="اسم کامل"
         isPreviewFocusable={true}
         selectAllOnFocus={false}
       >
