@@ -30,7 +30,7 @@ const ShoppingPage = lazy(() => import("./views/shoppingPage"));
 const ProductDetail = lazy(() => import("./views/productDetail"));
 const EditBlog = lazy(() => import("./views/blogEdit"));
 const CreateBlog = lazy(() => import("./views/CreateBlog"));
-
+const ProfilePage = lazy(() => import("./views/profilePage"));
 const LensSelect = lazy(() => import("./views/lensSelect"));
 const Checkout = lazy(() => import("./views/checkoutPage"));
 const Blog = lazy(() => import("./views/blog"));
@@ -65,6 +65,8 @@ root.render(
               path="/productDetail/:id"
               element={<ProductDetail />}
             ></Route>
+            <Route path="/ProfilePage" element={<ProfilePage />}></Route>
+
             <Route path="/ShoppingPage" element={<ShoppingPage />}></Route>
             <Route path="/faceShape" element={<FaceShape />}></Route>
             <Route path="/frameShape" element={<FrameShape />}></Route>

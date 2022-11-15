@@ -16,6 +16,7 @@ import {
   Globe,
   Copyright,
   Eye,
+  User,
 } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -97,7 +98,12 @@ export default function navbar() {
           <h1 className=" ">{t("premiumBrands")}</h1>
           <Copyright size={18} />
         </Link>
-
+        <Link
+          to={"/ProfilePage"}
+          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+        >
+          <User size={25} />
+        </Link>
         <Link
           to={"/blogs"}
           className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
