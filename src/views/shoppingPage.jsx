@@ -23,6 +23,118 @@ export default function shoppingPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // handing clear filters
+
+  const [Genders, setGenders] = useState([]);
+  const [Shapes, setShapes] = useState([]);
+  const [Sizes, setSizes] = useState([]);
+  const [Brands, setBrands] = useState([]);
+  const [Rims, setRims] = useState([]);
+  const [Materials, setMaterials] = useState([]);
+
+  // continue handing clear filters
+
+  const getFilters = () => {
+    getMaterial();
+    getBrands();
+    getGenders();
+    getSizes();
+    getShapes();
+    getRims();
+  };
+
+  const getGenders = async () => {
+    let genders = [];
+    try {
+      const { data, error } = await supabase.from("Genders").select();
+
+      setGenders(data);
+      data.forEach((gender) => {
+        genders.push(gender.Title);
+      });
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getGenders(genders));
+    }
+  };
+
+  const getBrands = async () => {
+    let brands = [];
+    try {
+      const { data, error } = await supabase.from("Brands").select();
+
+      setBrands(data);
+      data.forEach((brand) => {
+        brands.push(brand.Title);
+      });
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getBrands(brands));
+    }
+  };
+
+  const getShapes = async () => {
+    let shapes = [];
+    try {
+      const { data, error } = await supabase.from("Shapes").select();
+
+      setShapes(data);
+      data.forEach((shape) => {
+        shapes.push(shape.Title);
+      });
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getShapes(shapes));
+    }
+  };
+
+  const getMaterial = async () => {
+    let materials = [];
+    try {
+      const { data, error } = await supabase.from("Material").select();
+      setMaterials(data);
+
+      data.forEach((material) => {
+        materials.push(material.Title);
+      });
+
+      console.log("this is the materials ", Materials);
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getMaterials(materials));
+    }
+  };
+
+  const getSizes = async () => {
+    try {
+      const { data, error } = await supabase.from("Sizes").select();
+
+      setSizes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const getRims = async () => {
+    let rims = [];
+    try {
+      const { data, error } = await supabase.from("Rims").select();
+
+      setRims(data);
+      data.forEach((rim) => {
+        rims.push(rim.Title);
+      });
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getRims(rims));
+    }
+  };
+
   // handing store , fetching products and filter selection
 
   const dispatch = useDispatch();
@@ -30,12 +142,10 @@ export default function shoppingPage() {
   const brands = useSelector((state) => state.selectedFilters.brand);
   const shapes = useSelector((state) => state.selectedFilters.shape);
   const rims = useSelector((state) => state.selectedFilters.rim);
+  const materials = useSelector((state) => state.selectedFilters.material);
 
   const getProducts = async () => {
     try {
-      console.log(genders);
-      console.log(brands);
-      console.log(shapes);
       setLoading(true);
       const { data, error } = await supabase
         .from("Products")
@@ -46,7 +156,6 @@ export default function shoppingPage() {
         .in("Shape", shapes);
 
       if (error) throw error;
-      console.log(data);
       setProducts(data);
     } catch (error) {
       alert(error.message);
@@ -58,8 +167,6 @@ export default function shoppingPage() {
   useEffect(() => {
     let filtersLen =
       genders.length + shapes.length + brands.length + rims.length;
-
-    console.log("lens is this what are you talking about ", filtersLen);
   });
 
   useEffect(() => {
@@ -101,14 +208,17 @@ export default function shoppingPage() {
               <Menu className=""></Menu>
             </Suspense>
 
-            <div>
+            <div className="flex flex-row-reverse justify-around w-52 items-center space-x-4">
               <button onClick={getProducts} className="text-6xl text-mainWhite">
                 Get
+              </button>
+              <button onClick={getFilters} className="text-3xl text-mainWhite">
+                clear
               </button>
             </div>
           </div>
           <div className="bg-CoolGray-700 flex  item-center w-full px-6">
-            {brands.length < 4
+            {brands.length < 8
               ? brands.map((brand) => {
                   return (
                     <Tag
@@ -122,6 +232,28 @@ export default function shoppingPage() {
                       <TagCloseButton
                         onClick={() => {
                           dispatch(selectedFiltersActions.removeBrand(brand));
+                        }}
+                      />
+                    </Tag>
+                  );
+                })
+              : null}
+            {materials.length < 8
+              ? materials.map((material) => {
+                  return (
+                    <Tag
+                      key={material.id}
+                      borderRadius="full"
+                      variant="outline"
+                      colorScheme="blue"
+                      className="mx-1 my-3"
+                    >
+                      <TagLabel>{material}</TagLabel>
+                      <TagCloseButton
+                        onClick={() => {
+                          dispatch(
+                            selectedFiltersActions.removeMaterial(material)
+                          );
                         }}
                       />
                     </Tag>

@@ -24,7 +24,7 @@ export const selectedFilters = createSlice({
       }
     },
     setBrand: (state, action) => {
-      if (state.brand.length > 4) {
+      if (state.brand.length > 8) {
         state.brand = [];
         if (state.brand.indexOf(action.payload) === -1) {
           state.brand.push(action.payload);
@@ -40,7 +40,6 @@ export const selectedFilters = createSlice({
       }
     },
     getBrands: (state, action) => {
-      console.log("logging action brands", action.payload);
       state.brand = action.payload;
     },
     removeBrand: (state, action) => {
@@ -94,7 +93,26 @@ export const selectedFilters = createSlice({
       state.shape.splice(state.shape.indexOf(action.payload), 1);
     },
     setMaterial: (state, action) => {
-      state.material.push(action.payload);
+      if (state.material.length > 8) {
+        state.material = [];
+        if (state.shape.indexOf(action.payload) === -1) {
+          state.material.push(action.payload);
+        } else {
+          state.material.splice(state.material.indexOf(action.payload), 1);
+        }
+      } else {
+        if (state.shape.indexOf(action.payload) === -1) {
+          state.material.push(action.payload);
+        } else {
+          state.material.splice(state.material.indexOf(action.payload), 1);
+        }
+      }
+    },
+    getMaterials: (state, action) => {
+      state.material = action.payload;
+    },
+    removeMaterial: (state, action) => {
+      state.material.splice(state.material.indexOf(action.payload), 1);
     },
     setGender: (state, action) => {
       if (state.gender.length > 3) {

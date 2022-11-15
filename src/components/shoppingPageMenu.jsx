@@ -41,9 +41,9 @@ export default function ShoppingMenu() {
   const [Genders, setGenders] = useState([]);
   const [Shapes, setShapes] = useState([]);
   const [Sizes, setSizes] = useState([]);
-  const [Material, setMaterial] = useState([]);
   const [Brands, setBrands] = useState([]);
   const [Rims, setRims] = useState([]);
+  const [Materials, setMaterials] = useState([]);
 
   // store configurations
 
@@ -52,9 +52,9 @@ export default function ShoppingMenu() {
   // getting filters add putting them into a fliter array
 
   const getFilters = () => {
+    getMaterial();
     getBrands();
     getGenders();
-    getMaterial();
     getSizes();
     getShapes();
     getRims();
@@ -69,7 +69,6 @@ export default function ShoppingMenu() {
       data.forEach((gender) => {
         genders.push(gender.Title);
       });
-
     } catch (error) {
       alert(error.message);
     } finally {
@@ -89,7 +88,6 @@ export default function ShoppingMenu() {
     } catch (error) {
       alert(error.message);
     } finally {
-      console.log('new day' , brands)
       dispatch(selectedFiltersActions.getBrands(brands));
     }
   };
@@ -111,12 +109,20 @@ export default function ShoppingMenu() {
   };
 
   const getMaterial = async () => {
+    let materials = [];
     try {
       const { data, error } = await supabase.from("Material").select();
+      setMaterials(data);
 
-      setMaterial(data);
+      data.forEach((material) => {
+        materials.push(material.Title);
+      });
+
+      console.log("this is the materials ", Materials);
     } catch (error) {
       alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getMaterials(materials));
     }
   };
 
@@ -325,118 +331,13 @@ export default function ShoppingMenu() {
           </MenuButton>
           <MenuList className="flex">
             <div className=" h-full w-full  ">
-              <h1 className="text-2xl font-black text-CoolGray-900 p-3">
-                Plastic
-              </h1>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setAcetate((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Acetate</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setTR((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">TR</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setMemoryPlastic((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Memory Plastic</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setUItem((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Ultem</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setSilicaGel((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Silica Gel</span>
-                </Checkbox>
-              </MenuItem>
-            </div>
-            <div className=" h-full w-full  ">
-              <h1 className="text-2xl font-black text-CoolGray-900 p-3">
-                Metal
-              </h1>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setMetal((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Metal</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setMemoryMetal((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Memory Metal</span>
-                </Checkbox>
-              </MenuItem>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setTitium((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl">Titanium</span>
-                </Checkbox>
-              </MenuItem>
-            </div>
-            <div className=" h-full w-full ">
-              <h1 className="text-2xl font-black text-CoolGray-900 p-3 ">
-                Mixed Material
-              </h1>
-              <MenuItem>
-                <Checkbox
-                  onChange={(e) => {
-                    e.preventDefault;
-                    setMixedMaterial((prev) => !prev);
-                  }}
-                  size="lg"
-                >
-                  <span className="text-xl text-center">Mixed Materials</span>
-                </Checkbox>
-              </MenuItem>
+              {Materials.map((material) => {
+                <MenuItem key={material.id}>
+                  <Checkbox size="lg">
+                    <span className="text-xl">{material.Title}</span>
+                  </Checkbox>
+                </MenuItem>;
+              })}
             </div>
           </MenuList>
         </Menu>
