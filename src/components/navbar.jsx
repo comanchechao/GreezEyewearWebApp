@@ -136,19 +136,22 @@ export default function navbar() {
               </span>
             </button>
           ))}
-          <Link
-            to={"/ProfilePage"}
-            className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-          >
-            <User size={25} />
-          </Link>
-          <button
-            onClick={openModal}
-            className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-          >
-            <SignIn size={35} />
-            {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
-          </button>
+          {isLogged ? (
+            <Link
+              to={"/ProfilePage"}
+              className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+            >
+              <User size={25} />
+            </Link>
+          ) : (
+            <button
+              onClick={openModal}
+              className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+            >
+              <SignIn size={35} />
+              {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
+            </button>
+          )}
           <Suspense>
             <ShoppingCartDrawer></ShoppingCartDrawer>
           </Suspense>

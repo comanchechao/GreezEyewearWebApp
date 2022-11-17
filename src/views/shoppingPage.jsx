@@ -144,6 +144,14 @@ export default function shoppingPage() {
   const rims = useSelector((state) => state.selectedFilters.rim);
   const materials = useSelector((state) => state.selectedFilters.material);
 
+  // get product on filter changes
+
+  useEffect(() => {
+   if(loading !== true){
+     getProducts();
+   }
+  }, [genders, brands, shapes, rims]);
+
   const getProducts = async () => {
     try {
       setLoading(true);
@@ -209,9 +217,6 @@ export default function shoppingPage() {
             </Suspense>
 
             <div className="flex flex-row-reverse justify-around items-center space-x-4">
-              <button onClick={getProducts} className="text-6xl text-mainWhite">
-                Get
-              </button>
               <button onClick={getFilters} className="text-3xl text-mainWhite">
                 clear
               </button>

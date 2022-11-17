@@ -29,6 +29,8 @@ export default function Auth() {
 
   const dispatch = useDispatch();
 
+  // modal functions
+
   function closeModal() {
     setIsOpen(false);
   }
@@ -69,6 +71,7 @@ export default function Auth() {
     } finally {
       setLoading(false);
       getSetUser();
+      closeModal();
     }
   };
 
