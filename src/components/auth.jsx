@@ -3,7 +3,13 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { userActions } from "../Store/user/user";
-
+import { useDisclosure } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 export default function Auth() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -13,7 +19,7 @@ export default function Auth() {
   const [loggedState, checkLog] = useState(false);
   const [emailSignUp, setEmailSignUp] = useState("");
   const [passwordSignUp, setPasswordSignUp] = useState("");
-
+  const [alert, setAlert] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
 
   // get user currently logged user
@@ -54,6 +60,7 @@ export default function Auth() {
       alert(error.error_description || error.message);
     } finally {
       setLoading(false);
+      setAlert(true);
     }
   };
 
@@ -72,6 +79,7 @@ export default function Auth() {
       setLoading(false);
       getSetUser();
       closeModal();
+      setAlert(true);
     }
   };
 
@@ -177,45 +185,54 @@ export default function Auth() {
           <h1 className="text-7xl capitalize font-extralight">login </h1>
           {/* <p className="text-8xl">کافه پینت</p> */}
         </div>
-        {loading ? (
-          "login in..."
-        ) : (
-          <form className="flex flex-col mt-2" onSubmit={handleLogin}>
-            <input
-              id="email"
-              className="inputField my-2 text-right p-2 rounded"
-              type="email"
-              placeholder="آدرس ایمیل"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              id="password"
-              className="inputField my-2 text-right p-2 rounded"
-              type="password"
-              placeholder="پسوورد"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <div className="lg:p-5 flex flex-col">
-              <button
-                className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
-                aria-live="polite"
-              >
-                login
-              </button>
-              <button
-                className="button block px-5 py-3 border-2 border-dashed   border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
-                onClick={(event) => {
-                  event.preventDefault();
-                  openModal();
-                }}
-              >
-                create a new account?
-              </button>
-            </div>
-          </form>
-        )}
+        {
+          (loading,
+          alert ? (
+            <Alert status="success" variant="solid">
+              <AlertIcon />
+              <span className="text-3xl text-CoolGray-900">
+                You have successfully logged in
+              </span>
+            </Alert>
+          ) : (
+            <form className="flex flex-col mt-2" onSubmit={handleLogin}>
+              <input
+                id="email"
+                className="inputField my-2 text-right p-2 rounded"
+                type="email"
+                placeholder="آدرس ایمیل"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                id="password"
+                className="inputField my-2 text-right p-2 rounded"
+                type="password"
+                placeholder="پسوورد"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div className="lg:p-5 flex flex-col">
+                <button
+                  className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
+                  aria-live="polite"
+                >
+                  login
+                </button>
+
+                <button
+                  className="button block px-5 py-3 border-2 border-dashed   border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
+                  onClick={(event) => {
+                    event.preventDefault();
+                    openModal();
+                  }}
+                >
+                  create a new account?
+                </button>
+              </div>
+            </form>
+          ))
+        }
       </div>
 
       {/* <div className="flex w-full">
