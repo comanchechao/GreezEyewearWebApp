@@ -147,9 +147,7 @@ export default function shoppingPage() {
   // get product on filter changes
 
   useEffect(() => {
-   if(loading !== true){
-     getProducts();
-   }
+    getProducts();
   }, [genders, brands, shapes, rims]);
 
   const getProducts = async () => {
