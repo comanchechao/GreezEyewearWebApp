@@ -112,12 +112,14 @@ export default function navbar() {
           <h1 className=" font-extralight ">{t("blogs")}</h1>
         </Link>
 
-        <Link
-          to={"/admin"}
-          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-        >
-          <Alien size={35} />
-        </Link>
+        {isLogged ? (
+          <Link
+            to={"/admin"}
+            className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+          >
+            <Alien size={35} />
+          </Link>
+        ) : null}
 
         <div className="flex space-x-4">
           {Object.keys(lngs).map((lng) => (

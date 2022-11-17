@@ -171,13 +171,13 @@ export default function shoppingPage() {
   };
 
   useEffect(() => {
-    let filtersLen =
-      genders.length + shapes.length + brands.length + rims.length;
-  });
-
-  useEffect(() => {
-    getProducts();
+    setTimeout(() => {
+      if (products === []) {
+        getProducts();
+      }
+    }, 7000);
   }, []);
+
   const mainBg = useRef();
   const filterMenu = useRef();
 
