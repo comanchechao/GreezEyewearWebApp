@@ -17,6 +17,7 @@ import {
   Copyright,
   Eye,
   User,
+  SignOut,
 } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -97,13 +98,6 @@ export default function navbar() {
           <h1 className="pr-3 font-extralight  ">{t("lenses")}</h1>
           <Eye size={30} />
         </Link>
-        <Link
-          to={"/blogs"}
-          className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-        >
-          <h1 className=" ">{t("premiumBrands")}</h1>
-          <Copyright size={18} />
-        </Link>
 
         <Link
           to={"/blogs"}
@@ -139,19 +133,23 @@ export default function navbar() {
             </button>
           ))}
           {isLogged ? (
-            <Link
-              to={"/ProfilePage"}
-              className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
-            >
-              <User size={25} />
-            </Link>
+            <div className="flex items-center space-x-2">
+              <Link
+                to={"/ProfilePage"}
+                className="  text-mainWhite transition  ease-in duration-200    active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+              >
+                <User size={30} />
+              </Link>
+              <button className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center">
+                <SignOut size={30} weight="fill" />
+              </button>
+            </div>
           ) : (
             <button
               onClick={openModal}
               className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
             >
               <SignIn size={35} />
-              {/* <h1 className="text-2xl mr-2">عضویت</h1> */}
             </button>
           )}
           <Suspense>

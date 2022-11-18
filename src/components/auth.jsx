@@ -10,7 +10,11 @@ import {
   AlertTitle,
   AlertDescription,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+
 export default function Auth() {
+  const { t, i18n } = useTranslation();
+
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,7 +59,6 @@ export default function Auth() {
         password: passwordSignUp,
       });
       if (error) throw error;
-      alert("Check your email for confirmation!");
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
@@ -71,15 +74,16 @@ export default function Auth() {
       setLoading(true);
       const { error } = await supabase.auth.signIn({ email, password });
       if (error) throw error;
-      alert("you are logged in !");
       checkLog(true);
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
       setLoading(false);
       getSetUser();
-      closeModal();
       setAlert(true);
+      setTimeout(() => {
+        closeModal();
+      }, 2000);
     }
   };
 
@@ -116,7 +120,9 @@ export default function Auth() {
                     className="text-lg self-center font-medium leading-6 "
                   >
                     <div className="flex w-full p-5 space-y-2 h-full flex-col align-center items-center justify-center">
-                      <h1 className="text-5xl text-CoolGray-900">Sign Up</h1>
+                      <h1 className="text-5xl text-CoolGray-900">
+                        {t("signUp")}
+                      </h1>
                       {/* <p className="text-7xl font-bold">کافه پینت</p> */}
                     </div>
                   </Dialog.Title>
@@ -124,50 +130,58 @@ export default function Auth() {
                     className="flex items-around flex-col m-1"
                     aria-live="polite"
                   >
-                    {loading ? (
-                      "signing up..."
-                    ) : (
-                      <form
-                        className="flex flex-col space-y-2 mt-2"
-                        onSubmit={handleSignUp}
-                      >
-                        <input
-                          id="email"
-                          className="inputField  text-right text-gray-900 p-2 rounded "
-                          type="email"
-                          placeholder="آدرس ایمیل"
-                          value={emailSignUp}
-                          onChange={(e) => setEmailSignUp(e.target.value)}
-                        />
-                        <input
-                          id="password"
-                          className="inputField  text-right text-gray-900 p-2 rounded"
-                          type="password"
-                          placeholder="پسوورد"
-                          value={passwordSignUp}
-                          onChange={(e) => setPasswordSignUp(e.target.value)}
-                        />
-                        <div className="p-5 flex flex-col ">
-                          <button
-                            className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
-                            aria-live="polite"
-                          >
-                            Sign In
-                          </button>
-                          <button
-                            className="button block px-5 py-3 border-2 border-dashed  border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
-                            onClick={(event) => {
-                              event.preventDefault();
-                              logState(false);
-                              setIsOpen(false);
-                              closeModal();
-                            }}
-                          >
-                            Go Back
-                          </button>
-                        </div>
-                      </form>
-                    )}
+                    {
+                      (loading,
+                      alert ? (
+                        <Alert status="success" variant="solid">
+                          <AlertIcon />
+                          <span className="text-xl text-CoolGray-900">
+                            {t("signUpSuccess")}
+                          </span>
+                        </Alert>
+                      ) : (
+                        <form
+                          className="flex flex-col space-y-2 mt-2"
+                          onSubmit={handleSignUp}
+                        >
+                          <input
+                            id="email"
+                            className="inputField  text-right text-gray-900 p-2 rounded "
+                            type="email"
+                            placeholder="آدرس ایمیل"
+                            value={emailSignUp}
+                            onChange={(e) => setEmailSignUp(e.target.value)}
+                          />
+                          <input
+                            id="password"
+                            className="inputField  text-right text-gray-900 p-2 rounded"
+                            type="password"
+                            placeholder="پسوورد"
+                            value={passwordSignUp}
+                            onChange={(e) => setPasswordSignUp(e.target.value)}
+                          />
+                          <div className="p-5 flex flex-col ">
+                            <button
+                              className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
+                              aria-live="polite"
+                            >
+                              {t("signIn")}
+                            </button>
+                            <button
+                              className="button block px-5 py-3 border-2 border-dashed  border-CoolGray-900 text-CoolGray-900 mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
+                              onClick={(event) => {
+                                event.preventDefault();
+                                logState(false);
+                                setIsOpen(false);
+                                closeModal();
+                              }}
+                            >
+                              {t("goBack")}
+                            </button>
+                          </div>
+                        </form>
+                      ))
+                    }
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -182,7 +196,7 @@ export default function Auth() {
         aria-live="polite"
       >
         <div className="flex w-full  space-y-2 mb-8 h-full flex-col align-center items-center justify-center">
-          <h1 className="text-7xl capitalize font-extralight">login </h1>
+          <h1 className="text-7xl capitalize font-extralight">{t("login")}</h1>
           {/* <p className="text-8xl">کافه پینت</p> */}
         </div>
         {
@@ -191,7 +205,7 @@ export default function Auth() {
             <Alert status="success" variant="solid">
               <AlertIcon />
               <span className="text-3xl text-CoolGray-900">
-                You have successfully logged in
+                {t("loginSuccess")}
               </span>
             </Alert>
           ) : (
@@ -217,7 +231,7 @@ export default function Auth() {
                   className="button block px-5 py-3 bg-CoolGray-900 text-mainWhite mb-2 capitalize rounded font-bold text-2xl transition ease-in-out duration-200 hover:bg-mainCream hover:text-CoolGray-900  "
                   aria-live="polite"
                 >
-                  login
+                  {t("login")}
                 </button>
 
                 <button
@@ -227,7 +241,7 @@ export default function Auth() {
                     openModal();
                   }}
                 >
-                  create a new account?
+                  {t("createAccount")}
                 </button>
               </div>
             </form>

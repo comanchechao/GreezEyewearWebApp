@@ -73,8 +73,8 @@ export default function LensSelect() {
             ref={mainBg}
             className="w-screen h-auto mb-11 flex flex-col lg:flex-row items-center lg:px-24"
           >
-            <div className="h-full w-screen lg:px-40  px-14 mx-6  py-7 bg-mainCream  ">
-              <div className="  shadow-2xl   my-5">
+            <div className="h-full w-screen lg:px-24  px-14 mx-6  py-7   ">
+              <div className="     my-5">
                 <h1 className="text-5xl mb-5 text-right bg-CoolGray-900 text-mainWhite px-9 py-7">
                   {t("lensSelect")}
                 </h1>

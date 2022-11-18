@@ -19,6 +19,12 @@ i18next
           premiumBrands: "Premium Brands",
           blogs: "Blogs",
           home: "Home",
+          login: "Login",
+          signUp: "Sign Up",
+          signIn: "Sign In",
+          createAccount: "Create A New Account",
+          loginSuccess: "You have successfully logged in",
+          signUpSuccess: "You have successfully signed up",
 
           // footer translations
           findUs: "Find Us on Social Media",
@@ -138,6 +144,12 @@ i18next
           premiumBrands: "برند",
           blogs: "وبلاگ",
           home: "خونه",
+          login: "ورود",
+          signUp: "ثبت نام",
+          signIn: "ورود",
+          createAccount: "ساخت حساب جدید",
+          loginSuccess: "شما با موفقیت وارد شدید",
+          signUpSuccess: "برای تکمیل ثبت نام ایمیلتون رو چک کنید",
           // footer translations
           findUs: "مارو تو شبکه های اجتماعی پیدا کنید",
           findMap: "موقعیت ما توی نقشه",
