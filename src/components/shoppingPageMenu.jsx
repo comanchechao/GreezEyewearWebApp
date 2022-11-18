@@ -26,7 +26,7 @@ import SemiRimless from "../assets/images/semiRimless.webp";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
 import FilterImage from "./filterImage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectedFiltersActions } from "../Store/products/filterSelection";
 
 const ShoppingMenuModal = lazy(() => import("./shoppingPageModal"));
@@ -44,6 +44,10 @@ export default function ShoppingMenu() {
   const [Brands, setBrands] = useState([]);
   const [Rims, setRims] = useState([]);
   const [Materials, setMaterials] = useState([]);
+  // const Genders = useSelector((state) => state.selectedFilters.gender);
+  // const Brands = useSelector((state) => state.selectedFilters.brand);
+  // const Materials = useSelector((state) => state.selectedFilters.material);
+  // const Sizes = useSelector((state) => state.selectedFilters.size);
 
   // store configurations
 
@@ -66,13 +70,8 @@ export default function ShoppingMenu() {
       const { data, error } = await supabase.from("Genders").select();
 
       setGenders(data);
-      data.forEach((gender) => {
-        genders.push(gender.Title);
-      });
     } catch (error) {
       alert(error.message);
-    } finally {
-      dispatch(selectedFiltersActions.getGenders(genders));
     }
   };
 
@@ -82,13 +81,8 @@ export default function ShoppingMenu() {
       const { data, error } = await supabase.from("Brands").select();
 
       setBrands(data);
-      data.forEach((brand) => {
-        brands.push(brand.Title);
-      });
     } catch (error) {
       alert(error.message);
-    } finally {
-      dispatch(selectedFiltersActions.getBrands(brands));
     }
   };
 
@@ -98,13 +92,8 @@ export default function ShoppingMenu() {
       const { data, error } = await supabase.from("Shapes").select();
 
       setShapes(data);
-      data.forEach((shape) => {
-        shapes.push(shape.Title);
-      });
     } catch (error) {
       alert(error.message);
-    } finally {
-      dispatch(selectedFiltersActions.getShapes(shapes));
     }
   };
 
@@ -114,15 +103,9 @@ export default function ShoppingMenu() {
       const { data, error } = await supabase.from("Material").select();
       setMaterials(data);
 
-      data.forEach((material) => {
-        materials.push(material.Title);
-      });
-
       console.log("this is the materials ", Materials);
     } catch (error) {
       alert(error.message);
-    } finally {
-      dispatch(selectedFiltersActions.getMaterials(materials));
     }
   };
 
@@ -142,13 +125,8 @@ export default function ShoppingMenu() {
       const { data, error } = await supabase.from("Rims").select();
 
       setRims(data);
-      data.forEach((rim) => {
-        rims.push(rim.Title);
-      });
     } catch (error) {
       alert(error.message);
-    } finally {
-      dispatch(selectedFiltersActions.getRims(rims));
     }
   };
 
@@ -233,7 +211,7 @@ export default function ShoppingMenu() {
                   }}
                   key={brand.id}
                 >
-                  <Checkbox value={brand.Title} size="lg">
+                  <Checkbox value={brand} size="lg">
                     <span className="text-2xl">{brand.Title}</span>
                   </Checkbox>
                 </MenuItem>
@@ -364,16 +342,10 @@ export default function ShoppingMenu() {
               </h1>
               {Sizes.map((size) => {
                 return (
-                  <MenuItem
-                    onChange={() => {
-                      dispatch(selectedFiltersActions.setSize(size.Title));
-                    }}
-                    key={size.id}
-                  >
+                  <MenuItem key={size.id}>
                     <Checkbox
                       onChange={(e) => {
-                        e.preventDefault;
-                        setSmall((prev) => !prev);
+                        dispatch(selectedFiltersActions.setSize(size.Title));
                       }}
                       size="lg"
                     >

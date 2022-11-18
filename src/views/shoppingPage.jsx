@@ -100,8 +100,6 @@ export default function shoppingPage() {
       data.forEach((material) => {
         materials.push(material.Title);
       });
-
-      console.log("this is the materials ", Materials);
     } catch (error) {
       alert(error.message);
     } finally {
@@ -110,12 +108,18 @@ export default function shoppingPage() {
   };
 
   const getSizes = async () => {
+    let sizes = [];
     try {
       const { data, error } = await supabase.from("Sizes").select();
 
       setSizes(data);
+      data.forEach((size) => {
+        sizes.push(size.Title);
+      });
     } catch (error) {
       alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getSizes(sizes));
     }
   };
 
@@ -146,11 +150,21 @@ export default function shoppingPage() {
 
   // get product on filter changes
 
+  const [delay, setDelay] = useState(true);
+
   useEffect(() => {
-    getProducts();
+    setTimeout(() => {
+      setDelay(false);
+    }, 5000);
+  });
+
+  useEffect(() => {
+    if (!delay) {
+      getProductsbyFilter();
+    }
   }, [genders, brands, shapes, rims]);
 
-  const getProducts = async () => {
+  const getProductsbyFilter = async () => {
     try {
       setLoading(true);
       const { data, error } = await supabase
@@ -169,13 +183,29 @@ export default function shoppingPage() {
       setLoading(false);
     }
   };
+  const getProducts = async () => {
+    try {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("Products")
+        .select()
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setProducts(data);
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    setTimeout(() => {
-      if (products === []) {
-        getProducts();
-      }
-    }, 7000);
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    getFilters();
   }, []);
 
   const mainBg = useRef();
@@ -277,6 +307,9 @@ export default function shoppingPage() {
                       <TagCloseButton
                         onClick={() => {
                           dispatch(selectedFiltersActions.removeGender(gender));
+                          console.log("fired");
+                          dispatch(selectedFiltersActions.getGenders(Genders));
+                          console.log(genders);
                         }}
                       />
                     </Tag>
