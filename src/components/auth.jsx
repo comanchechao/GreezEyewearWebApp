@@ -48,7 +48,20 @@ export default function Auth() {
   function openModal() {
     setIsOpen(true);
   }
-
+  const handleSignOut = async (e) => {
+    try {
+      let { error } = await supabase.auth.signOut();
+      if (error) throw error;
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+        setAlert(true);
+        window.location.reload();
+      }, 3000);
+    }
+  };
   const handleSignUp = async (e) => {
     e.preventDefault();
 

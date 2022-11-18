@@ -2,7 +2,13 @@ import Auth from "./auth";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useRef, useEffect, Suspense, lazy } from "react";
 import { gsap } from "gsap";
-// import ShoppingCartDrawer from "./shoppingCartDrawer";
+import { supabase } from "../supabaseClient";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 const PhoneDrawer = lazy(() => import("./phoneDrawer"));
 
 const ShoppingCartDrawer = lazy(() => import("./shoppingCartDrawer"));
@@ -30,6 +36,7 @@ const lngs = {
 };
 
 export default function navbar() {
+  const [alert, setAlert] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
 
   // log check
@@ -49,6 +56,20 @@ export default function navbar() {
   function openModal() {
     setIsOpen(true);
   }
+  const handleSignOut = async (e) => {
+    try {
+      let { error } = await supabase.auth.signOut();
+      if (error) throw error;
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setAlert(true);
+      setTimeout(() => {
+        console.log("fuck yeah");
+        window.location.reload();
+      }, 5000);
+    }
+  };
 
   const { t, i18n } = useTranslation();
 
@@ -141,7 +162,10 @@ export default function navbar() {
               >
                 <User size={30} />
               </Link>
-              <button className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center">
+              <button
+                onClick={handleSignOut}
+                className="  text-mainWhite transition  ease-in duration-200  flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
+              >
                 <SignOut size={30} weight="fill" />
               </button>
             </div>
@@ -153,6 +177,7 @@ export default function navbar() {
               <SignIn size={35} />
             </button>
           )}
+
           <Suspense>
             <ShoppingCartDrawer></ShoppingCartDrawer>
           </Suspense>
@@ -192,6 +217,18 @@ export default function navbar() {
           </Dialog>
         </Transition>
       </div>
+      {alert ? (
+        <div className="mx-auto flex items-center justify-center">
+          <Alert status="success" variant="solid">
+            <AlertIcon />
+            <span className="text-3xl text-CoolGray-900">
+              {t("signOutSuccess")}
+            </span>
+          </Alert>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
