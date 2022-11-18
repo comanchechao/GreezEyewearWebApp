@@ -86,9 +86,8 @@ export default function ShoppingMenuModal() {
       setBrands(data);
     } catch (error) {
       alert(error.message);
-    }finally{
-      console.log('shopping modal brands' , Brands)
-      dispatch(selectedFiltersActions.getBrands(Brands))
+    } finally {
+      dispatch(selectedFiltersActions.getBrands(Brands));
     }
   };
 
@@ -134,7 +133,6 @@ export default function ShoppingMenuModal() {
 
   useEffect(() => {
     getFilters();
-    console.log(filters);
   }, []);
 
   return (
@@ -219,7 +217,6 @@ export default function ShoppingMenuModal() {
                           <Checkbox
                             key={gender.id}
                             onChange={() => {
-                              console.log(gender.Title);
                               dispatch(
                                 selectedFiltersActions.setGender(gender.Title)
                               );
@@ -236,9 +233,15 @@ export default function ShoppingMenuModal() {
                     <div className="w-full h-full flex flex-col bg-mainWhite p-6 text-CoolGray-900">
                       {Shapes.map((shape) => {
                         return (
-                          <Checkbox onChange={(() => {
-                            dispatch(selectedFiltersActions.setShape(shape.Title))
-                          })} key={shape.id} size="lg">
+                          <Checkbox
+                            onChange={() => {
+                              dispatch(
+                                selectedFiltersActions.setShape(shape.Title)
+                              );
+                            }}
+                            key={shape.id}
+                            size="lg"
+                          >
                             <div className="flex justify-center items-center space-x-3">
                               <span className="text-3xl">{shape.Title}</span>
                               <FilterImage filterImage={shape.image} />
@@ -270,14 +273,7 @@ export default function ShoppingMenuModal() {
                         <div className="w-full h-full flex flex-col">
                           {Sizes.map((size) => {
                             return (
-                              <Checkbox
-                                key={size.id}
-                                onChange={(e) => {
-                                  e.preventDefault;
-                                  setSmall((prev) => !prev);
-                                }}
-                                size="lg"
-                              >
+                              <Checkbox key={size.id} size="lg">
                                 <span className="text-2xl">{size.Title}</span>
                               </Checkbox>
                             );
@@ -290,7 +286,15 @@ export default function ShoppingMenuModal() {
                     <div className="w-full h-full flex flex-col bg-mainWhite text-CoolGray-900 p-4">
                       {Rims.map((rim) => {
                         return (
-                          <Checkbox key={rim.id} size="lg">
+                          <Checkbox
+                            onChange={() => {
+                              dispatch(
+                                selectedFiltersActions.setRim(rim.Title)
+                              );
+                            }}
+                            key={rim.id}
+                            size="lg"
+                          >
                             <div className="flex jusitify-center items-center space-x-3">
                               <span className="text-3xl">{rim.Title}</span>
                               <FilterImage filterImage={rim.image} alt="" />

@@ -110,12 +110,18 @@ export default function shoppingPage() {
   };
 
   const getSizes = async () => {
+    let sizes = [];
     try {
       const { data, error } = await supabase.from("Sizes").select();
 
       setSizes(data);
+      data.forEach((size) => {
+        sizes.push(size.Title);
+      });
     } catch (error) {
       alert(error.message);
+    } finally {
+      dispatch(selectedFiltersActions.getSizes(sizes));
     }
   };
 
@@ -171,6 +177,13 @@ export default function shoppingPage() {
   };
 
   useEffect(() => {
+    if (genders === []) {
+      getFilters();
+    }
+  }, [genders]);
+
+  useEffect(() => {
+    getFilters();
     setTimeout(() => {
       if (products === []) {
         getProducts();

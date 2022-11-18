@@ -131,6 +131,9 @@ export const selectedFilters = createSlice({
     setPrice: (state, action) => {
       state.price.push(action.payload);
     },
+    getSizes: (state, action) => {
+      state.size = action.payload;
+    },
   },
 });
 
