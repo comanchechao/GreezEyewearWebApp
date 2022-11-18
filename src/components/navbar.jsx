@@ -67,7 +67,7 @@ export default function navbar() {
       setTimeout(() => {
         console.log("fuck yeah");
         window.location.reload();
-      }, 5000);
+      }, 2000);
     }
   };
 
