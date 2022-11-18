@@ -38,18 +38,16 @@ export default function ShoppingMenu() {
 
   // filters
 
-  // const [Genders, setGenders] = useState([]);
+  const [Genders, setGenders] = useState([]);
   const [Shapes, setShapes] = useState([]);
-  // const [Sizes, setSizes] = useState([]);
-  // const [Brands, setBrands] = useState([]);
+  const [Sizes, setSizes] = useState([]);
+  const [Brands, setBrands] = useState([]);
   const [Rims, setRims] = useState([]);
-  // const [Materials, setMaterials] = useState([]);
-  const Genders = useSelector((state) => state.selectedFilters.gender);
-  const Brands = useSelector((state) => state.selectedFilters.brand);
-  const Materials = useSelector((state) => state.selectedFilters.material);
-  const Sizes = useSelector((state) => state.selectedFilters.size);
-
-
+  const [Materials, setMaterials] = useState([]);
+  // const Genders = useSelector((state) => state.selectedFilters.gender);
+  // const Brands = useSelector((state) => state.selectedFilters.brand);
+  // const Materials = useSelector((state) => state.selectedFilters.material);
+  // const Sizes = useSelector((state) => state.selectedFilters.size);
 
   // store configurations
 
@@ -58,45 +56,35 @@ export default function ShoppingMenu() {
   // getting filters add putting them into a fliter array
 
   const getFilters = () => {
-    // getMaterial();
-    // getBrands();
-    // getGenders();
-    // getSizes();
+    getMaterial();
+    getBrands();
+    getGenders();
+    getSizes();
     getShapes();
     getRims();
   };
 
-  // const getGenders = async () => {
-  //   let genders = [];
-  //   try {
-  //     const { data, error } = await supabase.from("Genders").select();
+  const getGenders = async () => {
+    let genders = [];
+    try {
+      const { data, error } = await supabase.from("Genders").select();
 
-  //     setGenders(data);
-  //     data.forEach((gender) => {
-  //       genders.push(gender.Title);
-  //     });
-  //   } catch (error) {
-  //     alert(error.message);
-  //   } finally {
-  //     dispatch(selectedFiltersActions.getGenders(genders));
-  //   }
-  // };
+      setGenders(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-  // const getBrands = async () => {
-  //   let brands = [];
-  //   try {
-  //     const { data, error } = await supabase.from("Brands").select();
+  const getBrands = async () => {
+    let brands = [];
+    try {
+      const { data, error } = await supabase.from("Brands").select();
 
-  //     setBrands(data);
-  //     data.forEach((brand) => {
-  //       brands.push(brand.Title);
-  //     });
-  //   } catch (error) {
-  //     alert(error.message);
-  //   } finally {
-  //     dispatch(selectedFiltersActions.getBrands(brands));
-  //   }
-  // };
+      setBrands(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const getShapes = async () => {
     let shapes = [];
@@ -104,43 +92,32 @@ export default function ShoppingMenu() {
       const { data, error } = await supabase.from("Shapes").select();
 
       setShapes(data);
-      data.forEach((shape) => {
-        shapes.push(shape.Title);
-      });
     } catch (error) {
       alert(error.message);
-    } finally {
-      dispatch(selectedFiltersActions.getShapes(shapes));
     }
   };
 
-  // const getMaterial = async () => {
-  //   let materials = [];
-  //   try {
-  //     const { data, error } = await supabase.from("Material").select();
-  //     setMaterials(data);
+  const getMaterial = async () => {
+    let materials = [];
+    try {
+      const { data, error } = await supabase.from("Material").select();
+      setMaterials(data);
 
-  //     data.forEach((material) => {
-  //       materials.push(material.Title);
-  //     });
+      console.log("this is the materials ", Materials);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-  //     console.log("this is the materials ", Materials);
-  //   } catch (error) {
-  //     alert(error.message);
-  //   } finally {
-  //     dispatch(selectedFiltersActions.getMaterials(materials));
-  //   }
-  // };
+  const getSizes = async () => {
+    try {
+      const { data, error } = await supabase.from("Sizes").select();
 
-  // const getSizes = async () => {
-  //   try {
-  //     const { data, error } = await supabase.from("Sizes").select();
-
-  //     setSizes(data);
-  //   } catch (error) {
-  //     alert(error.message);
-  //   }
-  // };
+      setSizes(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const getRims = async () => {
     let rims = [];
@@ -148,13 +125,8 @@ export default function ShoppingMenu() {
       const { data, error } = await supabase.from("Rims").select();
 
       setRims(data);
-      data.forEach((rim) => {
-        rims.push(rim.Title);
-      });
     } catch (error) {
       alert(error.message);
-    } finally {
-      dispatch(selectedFiltersActions.getRims(rims));
     }
   };
 
@@ -235,12 +207,12 @@ export default function ShoppingMenu() {
               return (
                 <MenuItem
                   onChange={() => {
-                    dispatch(selectedFiltersActions.setBrand(brand));
+                    dispatch(selectedFiltersActions.setBrand(brand.Title));
                   }}
                   key={brand.id}
                 >
                   <Checkbox value={brand} size="lg">
-                    <span className="text-2xl">{brand}</span>
+                    <span className="text-2xl">{brand.Title}</span>
                   </Checkbox>
                 </MenuItem>
               );
@@ -267,12 +239,12 @@ export default function ShoppingMenu() {
               return (
                 <MenuItem
                   onChange={() => {
-                    dispatch(selectedFiltersActions.setGender(gender));
+                    dispatch(selectedFiltersActions.setGender(gender.Title));
                   }}
                   key={gender.id}
                 >
                   <Checkbox size="lg">
-                    <span className="text-2xl">{gender}</span>
+                    <span className="text-2xl">{gender.Title}</span>
                   </Checkbox>
                 </MenuItem>
               );
@@ -340,7 +312,7 @@ export default function ShoppingMenu() {
               {Materials.map((material) => {
                 <MenuItem key={material.id}>
                   <Checkbox size="lg">
-                    <span className="text-xl">{material}</span>
+                    <span className="text-xl">{material.Title}</span>
                   </Checkbox>
                 </MenuItem>;
               })}
@@ -370,19 +342,14 @@ export default function ShoppingMenu() {
               </h1>
               {Sizes.map((size) => {
                 return (
-                  <MenuItem
-                    onChange={() => {
-                      dispatch(selectedFiltersActions.setSize(size));
-                    }}
-                    key={size.id}
-                  >
+                  <MenuItem key={size.id}>
                     <Checkbox
                       onChange={(e) => {
-                        dispatch(selectedFiltersActions.setSize(size));
+                        dispatch(selectedFiltersActions.setSize(size.Title));
                       }}
                       size="lg"
                     >
-                      <span className="text-xl">{size}</span>
+                      <span className="text-xl">{size.Title}</span>
                     </Checkbox>
                   </MenuItem>
                 );

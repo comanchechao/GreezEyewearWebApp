@@ -21,8 +21,8 @@ export default function Card(props) {
   const [secondImage, setSecondImage] = useState("");
 
   useEffect(() => {
-    console.log(firstImage)
-  })
+    console.log(firstImage);
+  });
 
   // image download function
 

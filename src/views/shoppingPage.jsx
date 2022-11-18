@@ -100,8 +100,6 @@ export default function shoppingPage() {
       data.forEach((material) => {
         materials.push(material.Title);
       });
-
-      console.log("this is the materials ", Materials);
     } catch (error) {
       alert(error.message);
     } finally {
