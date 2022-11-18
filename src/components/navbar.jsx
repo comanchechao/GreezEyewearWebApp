@@ -14,7 +14,7 @@ import {
   Eyeglasses,
   Sunglasses,
   Globe,
-  Copyright,
+  Article,
   Eye,
   User,
   SignOut,
@@ -103,7 +103,8 @@ export default function navbar() {
           to={"/blogs"}
           className="  text-mainWhite transition  ease-in duration-200 hidden lg:flex  active:bg-mainBlue lg:hover:bg-mainBlue active:text-CoolGray-900 lg:hover:text-CoolGray-900 lg:p-6 items-center"
         >
-          <h1 className=" font-extralight ">{t("blogs")}</h1>
+          <h1 className="pr-3 font-extralight ">{t("blogs")}</h1>
+          <Article size={30} weight="fill" />
         </Link>
 
         {isLogged ? (
