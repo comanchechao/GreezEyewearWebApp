@@ -20,10 +20,6 @@ export default function Card(props) {
   const [firstImage, setFirstImage] = useState("");
   const [secondImage, setSecondImage] = useState("");
 
-  useEffect(() => {
-    console.log(firstImage);
-  });
-
   // image download function
 
   const downloadFirstImage = async () => {
