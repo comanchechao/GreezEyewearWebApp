@@ -165,6 +165,7 @@ export default function shoppingPage() {
   }, [genders, brands, shapes, rims]);
 
   const getProductsbyFilter = async () => {
+    console.log("brands", brands, "genders", genders, "shapes ", shapes);
     try {
       setLoading(true);
       const { data, error } = await supabase
@@ -307,9 +308,6 @@ export default function shoppingPage() {
                       <TagCloseButton
                         onClick={() => {
                           dispatch(selectedFiltersActions.removeGender(gender));
-                          console.log("fired");
-                          dispatch(selectedFiltersActions.getGenders(Genders));
-                          console.log(genders);
                         }}
                       />
                     </Tag>

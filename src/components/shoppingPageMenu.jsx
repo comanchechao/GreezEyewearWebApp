@@ -238,6 +238,7 @@ export default function ShoppingMenu() {
             {Genders.map((gender) => {
               return (
                 <MenuItem
+                  value={gender.Title}
                   onChange={() => {
                     dispatch(selectedFiltersActions.setGender(gender.Title));
                   }}
