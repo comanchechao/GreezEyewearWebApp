@@ -182,7 +182,11 @@ export default function shoppingPage() {
       getBrands();
       console.log("get Brands ########");
     }
-  }, [genders, brands, shapes]);
+    if (rims.length === 0 && !delay) {
+      getRims();
+      console.log("get rims baby ^^^^^^^^^");
+    }
+  }, [genders, brands, shapes, rims]);
 
   // getting products by filter function
 
@@ -196,7 +200,8 @@ export default function shoppingPage() {
         .order("created_at", { ascending: false })
         .in("Brand", brands)
         .in("Gender", genders)
-        .in("Shape", shapes);
+        .in("Shape", shapes)
+        .in("Rim", rims);
 
       if (error) throw error;
       setProducts(data);
