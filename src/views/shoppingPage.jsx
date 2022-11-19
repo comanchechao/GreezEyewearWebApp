@@ -284,7 +284,7 @@ export default function shoppingPage() {
             </div>
           </div>
           <div className="bg-CoolGray-700 flex  item-center w-full px-6">
-            {brands.length < 8
+            {brands.length < 9
               ? brands.map((brand) => {
                   return (
                     <Tag
@@ -346,7 +346,7 @@ export default function shoppingPage() {
                   );
                 })
               : null}
-            {shapes.length < 7
+            {shapes.length < 8
               ? shapes.map((shape) => {
                   return (
                     <Tag

@@ -24,7 +24,7 @@ export const selectedFilters = createSlice({
       }
     },
     setBrand: (state, action) => {
-      if (state.brand.length > 8) {
+      if (state.brand.length > 9) {
         state.brand = [];
         if (state.brand.indexOf(action.payload) === -1) {
           state.brand.push(action.payload);
@@ -71,7 +71,7 @@ export const selectedFilters = createSlice({
       state.rim.splice(state.rim.indexOf(action.payload), 1);
     },
     setShape: (state, action) => {
-      if (state.shape.length > 6) {
+      if (state.shape.length > 7) {
         state.shape = [];
         if (state.shape.indexOf(action.payload) === -1) {
           state.shape.push(action.payload);
