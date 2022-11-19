@@ -156,13 +156,35 @@ export default function shoppingPage() {
     setTimeout(() => {
       setDelay(false);
     }, 5000);
-  });
+  }, []);
+
+  // get products by filter mate
 
   useEffect(() => {
     if (!delay) {
+      console.log("getproducts by filter fired");
       getProductsbyFilter();
     }
   }, [genders, brands, shapes, rims]);
+
+  // getting the empty fliter and reseting
+
+  useEffect(() => {
+    if (genders.length === 0 && !delay) {
+      getGenders();
+      console.log("get gender *******");
+    }
+    if (shapes.length === 0 && !delay) {
+      getShapes();
+      console.log("get shapes &&&&&&&&&");
+    }
+    if (brands.length === 0 && !delay) {
+      getBrands();
+      console.log("get Brands ########");
+    }
+  }, [genders, brands, shapes]);
+
+  // getting products by filter function
 
   const getProductsbyFilter = async () => {
     console.log("brands", brands, "genders", genders, "shapes ", shapes);
@@ -184,6 +206,9 @@ export default function shoppingPage() {
       setLoading(false);
     }
   };
+
+  // get all the products
+
   const getProducts = async () => {
     try {
       setLoading(true);
@@ -211,6 +236,8 @@ export default function shoppingPage() {
 
   const mainBg = useRef();
   const filterMenu = useRef();
+
+  // Animations
 
   useEffect(() => {
     var tl = gsap.timeline();
