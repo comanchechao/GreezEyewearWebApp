@@ -156,8 +156,10 @@ export default function shoppingPage() {
   const [page, setPage] = useState(to - 1);
 
   useEffect(() => {
-    if (!delay) {
+    if (!delay && products.length !== 0) {
       getProducts();
+    } else {
+      getProductsbyFilter();
     }
     console.log(products.length);
   }, [to]);
