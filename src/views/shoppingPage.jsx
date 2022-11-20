@@ -24,19 +24,6 @@ export default function shoppingPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // handing pagination
-
-  const [to, setTo] = useState(2);
-  const [from, setFrom] = useState(1);
-  const [page, setPage] = useState(to - 1);
-
-  useEffect(() => {
-    if (!delay) {
-      getProducts();
-    }
-    console.log(products.length);
-  }, [to]);
-
   // handing clear filters
 
   const [Genders, setGenders] = useState([]);
@@ -162,6 +149,19 @@ export default function shoppingPage() {
   const rims = useSelector((state) => state.selectedFilters.rim);
   const materials = useSelector((state) => state.selectedFilters.material);
 
+  // handing pagination
+
+  const [to, setTo] = useState(2);
+  const [from, setFrom] = useState(1);
+  const [page, setPage] = useState(to - 1);
+
+  useEffect(() => {
+    if (!delay) {
+      getProductsbyFilter();
+    }
+    console.log(products.length);
+  }, [to]);
+
   // get product on filter changes
 
   const [delay, setDelay] = useState(true);
@@ -216,7 +216,7 @@ export default function shoppingPage() {
         .in("Gender", genders)
         .in("Shape", shapes)
         .in("Rim", rims)
-        .range(from, to + 4);
+        .range(from, to * 4);
 
       if (error) throw error;
       setProducts(data);
