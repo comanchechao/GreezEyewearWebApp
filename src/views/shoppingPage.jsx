@@ -157,7 +157,7 @@ export default function shoppingPage() {
 
   useEffect(() => {
     if (!delay) {
-      getProductsbyFilter();
+      getProducts();
     }
     console.log(products.length);
   }, [to]);
