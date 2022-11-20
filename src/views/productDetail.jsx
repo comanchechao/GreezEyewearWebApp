@@ -29,6 +29,7 @@ export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [sizeValue, setSizeValue] = useState();
+  const [loading, setLoading] = useState(false);
 
   // this value was set in homeDIR/Store/shop/orderDetail.js and dispatch do change state data
 
@@ -38,16 +39,81 @@ export default function ProductDetail() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(dispatch.setSize);
-  });
-
   // value of color in HomeDIR/store/shop/orderDetail.js and despatch do change state data
 
   const color = useSelector((state) => {
     return state.color.color;
   });
 
+  // getting product images and setting them in an array
+
+  const [images, setImages] = useState([]);
+
+  const [firstUrl, setFirstUrl] = useState();
+  const [secondUrl, setSecondUrl] = useState();
+  const [firstImage, setFirstImage] = useState("");
+  const [secondImage, setSecondImage] = useState("");
+  const [delay, setDelay] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDelay(false);
+    }, 5000);
+  }, []);
+
+  const downloadFirstImage = async () => {
+    if (firstUrl) {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase.storage
+          .from("product-images")
+          .download(firstUrl);
+
+        if (error) {
+          throw error;
+        }
+        const url = URL.createObjectURL(data);
+        setFirstImage(url);
+      } catch (error) {
+        console.log("Error downloading image: ", error.message);
+      } finally {
+        setLoading(false);
+        images.push(firstImage);
+      }
+    }
+  };
+
+  // image 2 download function
+
+  const downloadSecondImage = async () => {
+    if (secondUrl) {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase.storage
+          .from("product-images")
+          .download(secondUrl);
+
+        if (error) {
+          throw error;
+        }
+        const url = URL.createObjectURL(data);
+        setSecondImage(url);
+      } catch (error) {
+        console.log("Error downloading image: ", error.message);
+      } finally {
+        setLoading(false);
+        images.push(secondImage);
+      }
+    }
+  };
+
+  useEffect(() => {
+    console.log(firstUrl);
+    if (delay === false) {
+      downloadFirstImage();
+      downloadSecondImage();
+    }
+  }, [delay]);
   // getting product detail
 
   const getProduct = async () => {
@@ -58,10 +124,12 @@ export default function ProductDetail() {
         .eq("id", id);
       if (error) throw error;
       setProduct(data[0]);
-      downloadImage1(data[0].firstImage);
-      downloadImage2(data[0].secondImage);
+      setFirstUrl(data[0].firstImage);
+      setSecondUrl(data[0].secondImage);
     } catch (error) {
     } finally {
+      downloadFirstImage();
+      downloadSecondImage();
     }
   };
 
@@ -276,18 +344,13 @@ export default function ProductDetail() {
                 arrows={false}
               >
                 <InnerImageZoom
-                  src="https://images.unsplash.com/photo-1518112390430-f4ab02e9c2c8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
-                  zoomSrc="https://images.unsplash.com/photo-1518112390430-f4ab02e9c2c8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
+                  src={firstImage}
+                  zoomSrc={firstImage}
                   fullscreenOnMobile={true}
                 />
                 <InnerImageZoom
-                  src="https://images.unsplash.com/photo-1621605817954-50992699848a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
-                  zoomSrc="https://images.unsplash.com/photo-1621605817954-50992699848a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
-                  fullscreenOnMobile={true}
-                />
-                <InnerImageZoom
-                  src="https://images.unsplash.com/photo-1571333249291-a6ec5e134a21?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1280"
-                  zoomSrc="https://images.unsplash.com/photo-1571333249291-a6ec5e134a21?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTQ4MTA4OA&ixlib=rb-1.2.1&q=85&w=1600"
+                  src={secondImage}
+                  zoomSrc={secondImage}
                   fullscreenOnMobile={true}
                 />
               </Slider>
