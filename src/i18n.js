@@ -26,6 +26,9 @@ i18next
           loginSuccess: "You have successfully logged in",
           signUpSuccess: "You have successfully signed up",
           signOutSuccess: "You have successfully signed out",
+          addToCart: "Add to Cart",
+          productDetail: "Product Detail",
+
           // footer translations
           findUs: "Find Us on Social Media",
           findMap: "Our Location on the Map",
@@ -151,6 +154,8 @@ i18next
           loginSuccess: "شما با موفقیت وارد شدید",
           signUpSuccess: "برای تکمیل ثبت نام ایمیلتون رو چک کنید",
           signOutSuccess: "خروج موفقیت آمیز بود",
+          addToCart: "اضافه به",
+          productDetail: "جزئیات محصول",
           // footer translations
           findUs: "مارو تو شبکه های اجتماعی پیدا کنید",
           findMap: "موقعیت ما توی نقشه",

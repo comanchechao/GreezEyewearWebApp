@@ -1,15 +1,11 @@
-import cardPicture1 from "../assets/images/cardPicture1.webp";
-import cardPicture2 from "../assets/images/cardPicture2.webp";
-
 import { ShoppingCart } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { Radio, RadioGroup, Spinner, Stack } from "@chakra-ui/react";
 import { useState, useRef, useEffect } from "react";
 import { supabase } from "../supabaseClient";
 import React, { Component } from "react";
-// import { RadioGroup } from "@headlessui/react";
-// import { useState } from "react";
-// let [plan, setPlan] = useState("startup");
+import { useTranslation } from "react-i18next";
+
 export default function Card(props) {
   const product = props.product;
 
@@ -19,6 +15,7 @@ export default function Card(props) {
   const [path, setPath] = useState(null);
   const [firstImage, setFirstImage] = useState("");
   const [secondImage, setSecondImage] = useState("");
+  const { t, i18n } = useTranslation();
 
   // image download function
 
@@ -72,7 +69,7 @@ export default function Card(props) {
   const [value, setValue] = useState("1");
 
   return (
-    <div className="flex-col justify-center relative shadow-xl my-10 w-screen lg:w-96 h-rem26    border-CoolGray-900 border-2 border-dashed bg-white flex  pb-2 cursor-pointer items-start">
+    <div className="flex-col justify-center relative shadow-xl my-10 w-screen lg:w-96 h-rem26      bg-white flex  pb-2 cursor-pointer items-start">
       {loading === false ? (
         <img
           className="object-contain h-full w-full"
@@ -115,18 +112,18 @@ export default function Card(props) {
         </div>
         <div className="flex items-center justify-center flex-col">
           <button
-            className="transition py-2 text-2xl w-full items-center justify-center  flex ease-in duration-300 border-mainBlue border-dashed border-2 hover:bg-mainBlue text-CoolGray-900  hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900 bg-white  rounded-sm  "
+            className="transition py-2 text-xl w-full items-center justify-center space-x-3  flex ease-in duration-300 border-mainBlue border-dashed border-2 hover:bg-mainBlue text-CoolGray-900  hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900 bg-white  rounded-sm  "
             type="submit"
           >
-            Add to Cart
             <ShoppingCart size={28} weight="fill" />
+            {t("addToCart")}
           </button>
           <Link to={`/productDetail/${product.id}`}>
             <button
               className=" px-8 transition ease-in duration-300  hover:bg-mainBlue py-2 text-2xl my-3 hover:text-CoolGray-900 bg-mainWhite text-CoolGray-900  rounded-sm border-2 border-dashed border-CoolGray-900"
               type="submit"
             >
-              Learn More
+              {t("showMe")}
             </button>
           </Link>
         </div>

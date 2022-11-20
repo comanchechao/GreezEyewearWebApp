@@ -47,38 +47,37 @@ export default function Checkout() {
       <div className=" w-screen h-auto flex flex-col items-center  pt-20">
         <div
           ref={breadCrumbMenu}
-          className=" h-14 w-full drop-shadow-lg filter  mb-6 flex  items-center lg:px-7  text-lg bg-mainCream"
+          className=" h-14 w-full drop-shadow-lg filter   mb-6 flex justify-end items-center px-7  text-lg bg-mainCream"
         >
           <Breadcrumb
             spacing="8px"
             separator={<ChevronRightIcon color="gray.500" />}
           >
-            <BreadcrumbItem>
-              <Link to={"/"}>
-                <BreadcrumbLink>Home</BreadcrumbLink>
-              </Link>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem>
-              <Link to={"/ShoppingPage"}>
-                <BreadcrumbLink>Eyeglasses</BreadcrumbLink>
-              </Link>
+            <BreadcrumbItem isCurrentPage>
+              <BreadcrumbLink>
+                <span className="font-black"> {t("checkout")}</span>
+              </BreadcrumbLink>
             </BreadcrumbItem>
 
             <BreadcrumbItem>
               <Link to={"/productDetail"}>
-                <BreadcrumbLink>Product Detail</BreadcrumbLink>
+                <BreadcrumbLink> {t("productDetail")}</BreadcrumbLink>
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link to={"/lensSelect/:id"}>
-                <BreadcrumbLink>Select Lens</BreadcrumbLink>
+              <Link to={"/ShoppingPage"}>
+                <BreadcrumbLink> {t("eyeGlasses")}</BreadcrumbLink>
               </Link>
             </BreadcrumbItem>
-            <BreadcrumbItem isCurrentPage>
+            <BreadcrumbItem>
               <BreadcrumbLink>
-                <span className="font-black">Checkout</span>
+                <span className=""> {t("lensSelect")}</span>
               </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+              <Link to={"/"}>
+                <BreadcrumbLink> {t("home")}</BreadcrumbLink>
+              </Link>
             </BreadcrumbItem>
           </Breadcrumb>
         </div>

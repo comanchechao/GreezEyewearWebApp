@@ -39,33 +39,32 @@ export default function LensSelect() {
         <div className="h-full w-full flex flex-col items-center justify-center bg-CoolGray-800">
           <div
             ref={breadCrumbMenu}
-            className=" h-14 w-full drop-shadow-lg filter   mb-6 flex items-center px-7  text-lg bg-mainCream"
+            className=" h-14 w-full drop-shadow-lg filter   mb-6 flex justify-end items-center px-7  text-lg bg-mainCream"
           >
             <Breadcrumb
               spacing="8px"
               separator={<ChevronRightIcon color="gray.500" />}
             >
-              <BreadcrumbItem>
-                <Link to={"/"}>
-                  <BreadcrumbLink>Home</BreadcrumbLink>
-                </Link>
-              </BreadcrumbItem>
-
-              <BreadcrumbItem>
-                <Link to={"/ShoppingPage"}>
-                  <BreadcrumbLink>Eyeglasses</BreadcrumbLink>
-                </Link>
+              <BreadcrumbItem isCurrentPage>
+                <BreadcrumbLink>
+                  <span className="font-black"> {t("lensSelect")}</span>
+                </BreadcrumbLink>
               </BreadcrumbItem>
 
               <BreadcrumbItem>
                 <Link to={"/productDetail"}>
-                  <BreadcrumbLink>Product Detail</BreadcrumbLink>
+                  <BreadcrumbLink> {t("productDetail")}</BreadcrumbLink>
                 </Link>
               </BreadcrumbItem>
-              <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink>
-                  <span className="font-black">Select Lens</span>
-                </BreadcrumbLink>
+              <BreadcrumbItem>
+                <Link to={"/ShoppingPage"}>
+                  <BreadcrumbLink> {t("eyeGlasses")}</BreadcrumbLink>
+                </Link>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <Link to={"/"}>
+                  <BreadcrumbLink> {t("home")}</BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
             </Breadcrumb>
           </div>
