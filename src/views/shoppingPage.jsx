@@ -17,11 +17,25 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { selectedFiltersActions } from "../Store/products/filterSelection";
 const Menu = lazy(() => import("../components/shoppingPageMenu"));
+import { ArrowFatLineRight, ArrowFatLineLeft } from "phosphor-react";
 
 export default function shoppingPage() {
   // getting products
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // handing pagination
+
+  const [to, setTo] = useState(2);
+  const [from, setFrom] = useState(1);
+  const [page, setPage] = useState(to - 1);
+
+  useEffect(() => {
+    if (!delay) {
+      getProducts();
+    }
+    console.log(products.length);
+  }, [to]);
 
   // handing clear filters
 
@@ -201,7 +215,8 @@ export default function shoppingPage() {
         .in("Brand", brands)
         .in("Gender", genders)
         .in("Shape", shapes)
-        .in("Rim", rims);
+        .in("Rim", rims)
+        .range(from, to + 4);
 
       if (error) throw error;
       setProducts(data);
@@ -220,7 +235,8 @@ export default function shoppingPage() {
       const { data, error } = await supabase
         .from("Products")
         .select()
-        .order("created_at", { ascending: false });
+        .order("created_at", { ascending: false })
+        .range(from, to * 4);
 
       if (error) throw error;
       setProducts(data);
@@ -418,6 +434,27 @@ export default function shoppingPage() {
               </Box>
             </div>
           )}
+          <div className=" flex-row flex justify-around m-1 w-1/2 items-center align-center">
+            <p
+              className="rounded-full flex items-center bg-gray-50 w-8 h-8 justify-center align-center cursor-pointer"
+              onClick={(e) => {
+                setTo(to - 1);
+              }}
+            >
+              <ArrowFatLineLeft size={32} />
+            </p>
+            <p className="rounded-full flex items-center bg-gray-50 w-8 h-8 justify-center align-center cursor-pointer">
+              {to - 1}
+            </p>
+            <p
+              className="rounded-full flex items-center bg-gray-50 w-8 h-8 justify-center align-center cursor-pointer"
+              onClick={(e) => {
+                setTo(to + 1);
+              }}
+            >
+              <ArrowFatLineRight size={32} />
+            </p>
+          </div>
         </div>
       </div>
     </div>
