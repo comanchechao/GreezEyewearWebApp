@@ -156,12 +156,9 @@ export default function shoppingPage() {
   const [page, setPage] = useState(to - 1);
 
   useEffect(() => {
-    if (!delay && products.length !== 0) {
-      getProducts();
-    } else {
+    if (!delay) {
       getProductsbyFilter();
     }
-    console.log(products.length);
   }, [to]);
 
   // get product on filter changes
