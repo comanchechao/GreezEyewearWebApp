@@ -168,6 +168,7 @@ export default function shoppingPage() {
   useEffect(() => {
     setTimeout(() => {
       setDelay(false);
+      getFilters();
     }, 5000);
   }, []);
 
