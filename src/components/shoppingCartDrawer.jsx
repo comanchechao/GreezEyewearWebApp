@@ -9,16 +9,20 @@ import {
   DrawerCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
+import CartImage from "./cartImage";
 
 import { ShoppingBag } from "phosphor-react";
 import sampleEyeglass from "../assets/images/sampleEyeglass.webp";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 export default function shoppingCartDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
   const { t, i18n } = useTranslation();
+
+  const cart = useSelector((state) => state.cart.cart);
 
   return (
     <>
@@ -47,66 +51,32 @@ export default function shoppingCartDrawer() {
             </DrawerHeader>
 
             <DrawerBody>
-              <div className="w-full my-3 h-24 bg-CoolGray-800 px-2 space-x-3 rounded-sm  flex justify-between items-center">
-                <div className="">
-                  <img
-                    className="object-cover rounded-full"
-                    src={sampleEyeglass}
-                    alt=""
-                  />
-                </div>
-                <div className="flex  items-center flex-col justify-center">
-                  <h1 className="font-black text-3xl  text-mainWhite">
-                    November
-                  </h1>
-                  <h2 className="font-light text-mainCream text-lg">
-                    Tortoise, Medium
-                  </h2>
-                </div>
-                <div>
-                  <span className="justify-self-end">X1</span>
-                </div>
-              </div>
-              <div className="w-full h-24 my-3 bg-CoolGray-800 px-2 space-x-3 rounded-sm  flex justify-between items-center">
-                <div className="">
-                  <img
-                    className="object-cover rounded-full"
-                    src={sampleEyeglass}
-                    alt=""
-                  />
-                </div>
-                <div className="flex  items-center flex-col justify-center">
-                  <h1 className="font-black text-3xl  text-mainWhite">
-                    November
-                  </h1>
-                  <h2 className="font-light text-mainCream text-lg">
-                    Tortoise, Medium
-                  </h2>
-                </div>
-                <div>
-                  <span className="justify-self-end">X1</span>
-                </div>
-              </div>
-              <div className="w-full my-3 h-24 bg-CoolGray-800 px-2 space-x-3 rounded-sm  flex justify-between items-center">
-                <div className="">
-                  <img
-                    className="object-cover rounded-full"
-                    src={sampleEyeglass}
-                    alt=""
-                  />
-                </div>
-                <div className="flex  items-center flex-col justify-center">
-                  <h1 className="font-black text-3xl  text-mainWhite">
-                    November
-                  </h1>
-                  <h2 className="font-light text-mainCream text-lg">
-                    Tortoise, Medium
-                  </h2>
-                </div>
-                <div>
-                  <span className="justify-self-end">X1</span>
-                </div>
-              </div>
+              {cart.map((item) => {
+                return (
+                  <div
+                    key={item.id}
+                    className="w-full my-3 h-24 bg-CoolGray-800 px-2 space-x-3 rounded-sm  flex justify-between items-center"
+                  >
+                    <div className="">
+                      <CartImage
+                        cartImage={item.product.firstImage}
+                      ></CartImage>
+                    </div>
+                    <div className="flex  items-center flex-col justify-center">
+                      <h1 className="font-black text-3xl  text-mainWhite">
+                        {item.product.Title}
+                      </h1>
+                      <h2 className="font-light text-mainCream text-lg">
+                        price: {item.product.Price}
+                        quantity: {item.quantity}
+                      </h2>
+                    </div>
+                    <div>
+                      <span className="justify-self-end">X1</span>
+                    </div>
+                  </div>
+                );
+              })}
             </DrawerBody>
 
             <DrawerFooter>

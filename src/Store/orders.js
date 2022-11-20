@@ -9,6 +9,7 @@ import {
   lensWidthReducer,
 } from "./shop/orderDetail";
 import { userReducer } from "./user/user.js";
+import { cartReducers } from "./shop/shoppingCart";
 
 export default configureStore({
   reducer: {
@@ -20,5 +21,6 @@ export default configureStore({
     lensWidth: lensWidthReducer,
     user: userReducer,
     selectedFilters: selectedFiltersReducer,
+    cart: cartReducers,
   },
 });

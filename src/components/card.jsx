@@ -5,9 +5,15 @@ import { useState, useRef, useEffect } from "react";
 import { supabase } from "../supabaseClient";
 import React, { Component } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../Store/shop/shoppingCart";
 
 export default function Card(props) {
   const product = props.product;
+
+  //store configurations
+
+  const dispatch = useDispatch();
 
   // getting images
 
@@ -112,6 +118,11 @@ export default function Card(props) {
         </div>
         <div className="flex items-center justify-center flex-col">
           <button
+            onClick={() => {
+              dispatch(
+                cartActions.addToCart({ product: product, quantity: 1 })
+              );
+            }}
             className="transition py-2 text-xl w-full items-center justify-center space-x-3  flex ease-in duration-300 border-mainBlue border-dashed border-2 hover:bg-mainBlue text-CoolGray-900  hover:text-CoolGray-900 active:bg-mainBlue active:text-CoolGray-900 bg-white  rounded-sm  "
             type="submit"
           >
