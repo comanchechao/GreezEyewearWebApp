@@ -24,7 +24,7 @@ export const selectedFilters = createSlice({
       }
     },
     setBrand: (state, action) => {
-      if (state.brand.length > 10) {
+      if (state.brand.length > 11) {
         state.brand = [];
         if (state.brand.indexOf(action.payload) === -1) {
           state.brand.push(action.payload);

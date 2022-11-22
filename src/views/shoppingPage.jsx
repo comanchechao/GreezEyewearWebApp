@@ -216,7 +216,7 @@ export default function shoppingPage() {
         .in("Gender", genders)
         .in("Shape", shapes)
         .in("Rim", rims)
-        .range(from, to * 4);
+        .range(from - 1, to * 4);
 
       if (error) throw error;
       setProducts(data);
@@ -236,7 +236,7 @@ export default function shoppingPage() {
         .from("Products")
         .select()
         .order("created_at", { ascending: false })
-        .range(from, to * 4);
+        .range(from - 1, to * 4);
 
       if (error) throw error;
       setProducts(data);
@@ -300,7 +300,7 @@ export default function shoppingPage() {
             </div>
           </div>
           <div className="bg-CoolGray-700 flex  item-center w-full px-6">
-            {brands.length < 10
+            {brands.length < 11
               ? brands.map((brand) => {
                   return (
                     <Tag
