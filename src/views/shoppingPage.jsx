@@ -300,7 +300,7 @@ export default function shoppingPage() {
             </div>
           </div>
           <div className="bg-CoolGray-700 flex  item-center w-full px-6">
-            {brands.length < 9
+            {brands.length < 10
               ? brands.map((brand) => {
                   return (
                     <Tag
