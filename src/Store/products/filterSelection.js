@@ -8,7 +8,8 @@ export const selectedFilters = createSlice({
     shape: ["shape"],
     material: ["material"],
     gender: [],
-    price: ["price"],
+    maxPrice: 99999,
+    minPrice: 0,
     size: ["size"],
   },
   reducers: {
@@ -128,8 +129,11 @@ export const selectedFilters = createSlice({
     removeGender: (state, action) => {
       state.gender.splice(state.gender.indexOf(action.payload), 1);
     },
-    setPrice: (state, action) => {
-      state.price.push(action.payload);
+    setMinPrice: (state, action) => {
+      state.minPrice = action.payload;
+    },
+    setMaxPrice: (state, action) => {
+      state.maxPrice = action.payload;
     },
     getSizes: (state, action) => {
       state.size = action.payload;

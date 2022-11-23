@@ -148,6 +148,12 @@ export default function shoppingPage() {
   const shapes = useSelector((state) => state.selectedFilters.shape);
   const rims = useSelector((state) => state.selectedFilters.rim);
   const materials = useSelector((state) => state.selectedFilters.material);
+  const minPrice = useSelector((state) => state.selectedFilters.minPrice);
+  const maxPrice = useSelector((state) => state.selectedFilters.maxPrice);
+
+  useEffect(() => {
+    console.log(minPrice, maxPrice);
+  }, [minPrice, maxPrice]);
 
   // handing pagination
 
@@ -179,7 +185,7 @@ export default function shoppingPage() {
       console.log("getproducts by filter fired");
       getProductsbyFilter();
     }
-  }, [genders, brands, shapes, rims]);
+  }, [genders, brands, shapes, rims, maxPrice, minPrice]);
 
   // getting the empty fliter and reseting
 
@@ -205,7 +211,7 @@ export default function shoppingPage() {
   // getting products by filter function
 
   const getProductsbyFilter = async () => {
-    console.log("brands", brands, "genders", genders, "shapes ", shapes);
+    console.log("brands", brands, "genders", genders, "shapes ", shapes , 'prices' , maxPrice , minPrice);
     try {
       setLoading(true);
       const { data, error } = await supabase
@@ -216,7 +222,9 @@ export default function shoppingPage() {
         .in("Gender", genders)
         .in("Shape", shapes)
         .in("Rim", rims)
-        .range(from - 1, to * 4);
+        .range(from - 1, to * 4)
+        .lte("Price", maxPrice)
+        .gte("Price", minPrice);
 
       if (error) throw error;
       setProducts(data);
