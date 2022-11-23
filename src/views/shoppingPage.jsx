@@ -211,7 +211,7 @@ export default function shoppingPage() {
   // getting products by filter function
 
   const getProductsbyFilter = async () => {
-    console.log("brands", brands, "genders", genders, "shapes ", shapes);
+    console.log("brands", brands, "genders", genders, "shapes ", shapes , 'prices' , maxPrice , minPrice);
     try {
       setLoading(true);
       const { data, error } = await supabase

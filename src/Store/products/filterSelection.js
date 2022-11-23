@@ -8,7 +8,7 @@ export const selectedFilters = createSlice({
     shape: ["shape"],
     material: ["material"],
     gender: [],
-    maxPrice: 90000,
+    maxPrice: 99999,
     minPrice: 0,
     size: ["size"],
   },

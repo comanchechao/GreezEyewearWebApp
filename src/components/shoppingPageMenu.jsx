@@ -33,7 +33,7 @@ const ShoppingMenuModal = lazy(() => import("./shoppingPageModal"));
 
 export default function ShoppingMenu() {
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(300);
+  const [maxPrice, setMaxPrice] = useState(99999);
   const { t, i18n } = useTranslation();
 
   // filters
@@ -173,7 +173,7 @@ export default function ShoppingMenu() {
                   step={20}
                   aria-label={["min", "max"]}
                   max={100000}
-                  defaultValue={[0, 9000]}
+                  defaultValue={[0, 100000]}
                   onChangeEnd={(val) =>
                     setMinPrice(val[0]) & setMaxPrice(val[1])
                   }
