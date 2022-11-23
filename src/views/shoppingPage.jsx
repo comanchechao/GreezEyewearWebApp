@@ -444,7 +444,7 @@ export default function shoppingPage() {
           )}
           <div className=" flex-row flex justify-around    w-full items-center mt-6 align-center">
             <p
-              className="rounded-full flex flex-col space-y-4 text-2xl items-center my-6 transition ease-in hover:bg-mainBlue duration-300 px-24 py-4 bg-CoolGray-900 text-mainWhite hover:text-CoolGray-900 justify-center align-center cursor-pointer"
+              className="rounded-full flex flex-col space-y-4 text-2xl items-center my-6 transition ease-in hover:bg-mainBlue duration-300 px-24 py-2 bg-mainWhite text-CoolGray-900 border-2 border-dashed border-CoolGray-900 hover:text-CoolGray-900 justify-center align-center cursor-pointer"
               onClick={(e) => {
                 setTo(to + 1);
               }}
