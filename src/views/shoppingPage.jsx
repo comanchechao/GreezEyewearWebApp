@@ -17,7 +17,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { selectedFiltersActions } from "../Store/products/filterSelection";
 const Menu = lazy(() => import("../components/shoppingPageMenu"));
-import { ArrowFatLineRight, ArrowFatLineLeft } from "phosphor-react";
+import { ArrowDown, ArrowRight } from "phosphor-react";
 
 export default function shoppingPage() {
   // getting products
@@ -434,26 +434,27 @@ export default function shoppingPage() {
               </Box>
             </div>
           )}
-          <div className=" flex-row flex justify-around m-1 w-1/2 items-center align-center">
+          <div className=" flex-row flex justify-around    w-full items-center mt-6 align-center">
             <p
-              className="rounded-full flex items-center bg-gray-50 w-8 h-8 justify-center align-center cursor-pointer"
-              onClick={(e) => {
-                setTo(to - 1);
-              }}
-            >
-              <ArrowFatLineLeft size={32} />
-            </p>
-            <p className="rounded-full flex items-center bg-gray-50 w-8 h-8 justify-center align-center cursor-pointer">
-              {to - 1}
-            </p>
-            <p
-              className="rounded-full flex items-center bg-gray-50 w-8 h-8 justify-center align-center cursor-pointer"
+              className="rounded-full flex flex-col space-y-4 text-2xl items-center my-6 transition ease-in hover:bg-mainBlue duration-300 px-24 py-4 bg-CoolGray-900 text-mainWhite hover:text-CoolGray-900 justify-center align-center cursor-pointer"
               onClick={(e) => {
                 setTo(to + 1);
               }}
             >
-              <ArrowFatLineRight size={32} />
+              <span>بیشتر نشونم بده</span>
+              {/* <ArrowDown size={30} weight="fill" /> */}
             </p>
+            {/* <p className="rounded-full text-black text-2xl p-4 flex items-center bg-gray-50 w-10 h-10 justify-center align-center cursor-pointer">
+              {to - 1}
+            </p>
+            <p
+              className="rounded-full flex items-center my-6 transition ease-in hover:bg-mainBlue duration-300 bg-gray-50 w-12 h-12 justify-center align-center cursor-pointer"
+              onClick={(e) => {
+                setTo(to + 1);
+              }}
+            >
+              <ArrowRight size={20} weight="fill" />
+            </p> */}
           </div>
         </div>
       </div>
