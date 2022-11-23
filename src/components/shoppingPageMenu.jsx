@@ -53,6 +53,12 @@ export default function ShoppingMenu() {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    console.log(minPrice, maxPrice);
+    dispatch(selectedFiltersActions.setMinPrice(minPrice));
+    dispatch(selectedFiltersActions.setMaxPrice(maxPrice));
+  }, [minPrice, maxPrice]);
+
   // getting filters add putting them into a fliter array
 
   const getFilters = () => {
@@ -166,8 +172,8 @@ export default function ShoppingMenu() {
                   colorScheme="blue"
                   step={20}
                   aria-label={["min", "max"]}
-                  max={1000}
-                  defaultValue={[0, 300]}
+                  max={100000}
+                  defaultValue={[0, 9000]}
                   onChangeEnd={(val) =>
                     setMinPrice(val[0]) & setMaxPrice(val[1])
                   }
