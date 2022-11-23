@@ -90,6 +90,20 @@ i18next
             "Explore our glasses by face shape and find the right pair for you.",
           roundExplanation:
             "A round face is typically as wide as it's long without a prominent cheekbone.",
+          oval: "Oval",
+          ovalExplanation:
+            "An oval face is proportionally balanced with a slightly curved jawline that is a bit narrower than the forehead.",
+          squareExplanation:
+            "A square face typically has a wide forehead with a wide, angular jawline.",
+          diamond: "Diamond",
+          diamondExplanation:
+            "A diamond-shaped face is characterized by prominent cheekbones with a narrower forehead and an angular jawline.",
+          pear: "Pear",
+          pearExplanation:
+            "A pear-shaped face tends to have a broader jawline with less prominent cheekbones and a narrow forehead.",
+          heart: "Heart",
+          heartExplanation:
+            "A heart-shaped face typically has a broader forehead with a narrow chin and prominent cheekbones.",
           // productDetail translations
           selectColors: "Select Colors",
           selectSize: "Select Size",
@@ -215,6 +229,27 @@ i18next
           aviator: "خلبانی",
           browline: "خط ابرو",
 
+          // face page translations
+          comfortabely:
+            "به راحتی بر اساس فُرم صورت خودتون عینکتون رو انتخاب کنید",
+          explore:
+            "عینک ها رو بر اساس فُرم صورت کشف کنید و بهترین رو برای خودتون انتخاب کنید",
+          roundExplanation:
+            "یک صورت گرد معمولا عرض و طول تقریبا یکسانی دارد و گونه ها قابل رویت نیستند",
+          oval: "بیضی",
+          ovalExplanation:
+            "یک صورت بیضی معمولا فرمی متعادل دارد و فکی منحنی شکل دارد",
+          squareExplanation:
+            "یک صورت مربعی معمولا پیشانی عریضی دارد و فکی پهن دارد",
+          diamond: "الماسی",
+          diamondExplanation:
+            "یک صورت الماسی معمولا طولی کشیده همراه با گونه های پهن و قابل رویت دارد",
+          pear: "گلابی",
+          pearExplanation:
+            "یک صورت گلابی شکل معمولا پیشانی کوچک همراه با گونه هایی پهن و قابل رویت دارد",
+          heart: "قلبی",
+          heartExplanation:
+            "یک صورت قلبی معمولا پیشانی پهن و فک زاویه دار و تیزی دارد",
           // productDetail translations
           selectColors: "انتخاب رنگ",
           selectSize: "انتخاب سایز",

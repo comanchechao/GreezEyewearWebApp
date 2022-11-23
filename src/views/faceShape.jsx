@@ -19,10 +19,10 @@ export default function faceShape() {
       <Navbar />
       <div className=" h-full w-screen bg-CoolGray-900 pt-32 flex flex-col items-center justify-center">
         <h1 className="lg:text-7xl text-6xl mt-24 text-mainWhite font-extrabold text-center  max-w-2xl ">
-          Comfortabely Shop By Your Face Shape
+          {t("comfortabely")}
         </h1>
         <p className="text-center text-mainWhite text-3xl px-16 mt-10 mb-12">
-          Explore our glasses by face shape and find the right pair for you.
+          {t("explore")}
         </p>
         <div className="flex my-10 justify-around w-screen lg:px-24 items-center">
           <div className="flex items-center  lg:fle lg:flex-row flex-colrow flex-col">
@@ -34,12 +34,11 @@ export default function faceShape() {
             <div className="flex items-center flex-col">
               <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-                  Round
+                  {t("round")}
                 </span>
               </h1>
               <p className="text-center text-mainWhite text-3xl lg:px-16 lg:my-12 my-9">
-                A round face is typically as wide as it's long without a
-                prominent cheekbone.
+                {t("roundExplanation")}
               </p>
               <button
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
@@ -55,12 +54,11 @@ export default function faceShape() {
             <div className="flex items-center flex-col">
               <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-                  Oval
+                  {t("oval")}
                 </span>
               </h1>
               <p className="text-center text-mainWhite text-3xl px-16 lg:my-12 my-9">
-                An oval face is proportionally balanced with a slightly curved
-                jawline that is a bit narrower than the forehead.
+                {t("ovalExplanation")}
               </p>
               <button
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
@@ -86,12 +84,11 @@ export default function faceShape() {
             <div className="flex items-center flex-col">
               <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-                  Square
+                  {t("square")}
                 </span>
               </h1>
               <p className="text-center text-mainWhite text-3xl px-16 lg:my-12 my-9">
-                A square face typically has a wide forehead with a wide, angular
-                jawline.
+                {t("squareExplanation")}
               </p>
               <button
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
@@ -107,12 +104,11 @@ export default function faceShape() {
             <div className="flex items-center flex-col">
               <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-                  Diamond
+                  {t("diamond")}
                 </span>
               </h1>
               <p className="text-center text-mainWhite text-3xl px-16 lg:my-12 my-9">
-                A diamond-shaped face is characterized by prominent cheekbones
-                with a narrower forehead and an angular jawline.
+                {t("diamondExplanation")}
               </p>
               <button
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
@@ -138,12 +134,11 @@ export default function faceShape() {
             <div className="flex items-center flex-col">
               <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-                  Pear
+                  {t("pear")}
                 </span>
               </h1>
               <p className="text-center text-mainWhite text-3xl px-16 lg:my-12 my-9">
-                A pear-shaped face tends to have a broader jawline with less
-                prominent cheekbones and a narrow forehead.
+                {t("pearExplanation")}
               </p>
               <button
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
@@ -159,12 +154,11 @@ export default function faceShape() {
             <div className="flex items-center flex-col">
               <h1 className="text-5xl text-mainWhite lg:text-6xl font-black ">
                 <span className=" underline-offset-8 underline p-2 hover:bg-mainBlue transition ease-in duration-300 cursor-pointer hover:text-CoolGray-900">
-                  Heart
+                  {t("heart")}
                 </span>
               </h1>
               <p className="text-center text-mainWhite text-3xl px-16 lg:my-12 my-9">
-                A heart-shaped face typically has a broader forehead with a
-                narrow chin and prominent cheekbones.
+                {t("heartExplanation")}
               </p>
               <button
                 className=" px-16 transition ease-in duration-300 border-l-8 border-mainBlue hover:bg-mainBlue py-3 text-3xl my-3 bg-mainWhite text-CoolGray-900 rounded-full"
