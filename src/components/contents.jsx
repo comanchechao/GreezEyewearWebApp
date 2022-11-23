@@ -335,9 +335,28 @@ export default function Contents(props) {
         </div>
       )}
       {props.index === 4 && (
-        <div className="h-96 w-96 bg-mainYellow">
-          <div className="flex w-full h-full flex-col">
-            <h2>{glassType}</h2>
+        <div className="h-96 w-full bg-mainWhite flex flex-col items-center">
+          <h1 className="text-5xl border-b-4 border-dashed p-4 rounded-full my-4 border-CoolGray-900">
+            لنز انتخابی شما
+          </h1>
+          <div className="w-full h-full flex items-center justify-center flex-wrap space-x-4 space-y-4 p-14">
+            <div className=" w-60 h-20 bg-mainWhite flex items-center flex-col justify-center p-4 border-2 border-dashed border-CoolGray-900 ">
+              <h1 className="text-2xl "> نوع لنز </h1>
+              <h1 className="text-xl ">{lensType}</h1>
+            </div>
+            <div className=" w-60 h-20 bg-mainWhite flex items-center flex-col justify-center p-4 border-2 border-dashed border-CoolGray-900 ">
+              <h1 className="text-2xl "> قطر لنز </h1>
+              <h1 className="text-xl ">{lensWidth}</h1>
+            </div>{" "}
+            <div className=" w-60 h-20 bg-mainWhite flex items-center flex-col justify-center p-4 border-2 border-dashed border-CoolGray-900 ">
+              <h1 className="text-2xl "> چشم راست </h1>
+              <h1 className="text-xl ">{cylinderOD}</h1>
+            </div>{" "}
+            <div className=" w-60 h-20 bg-mainWhite flex items-center flex-col justify-center p-4 border-2 border-dashed border-CoolGray-900 ">
+              <h1 className="text-2xl ">چشم چپ</h1>
+              <h1 className="text-xl ">{cylinderOS}</h1>
+            </div>
+            {/* <h2>{glassType}</h2>
             <h2>{lensType}</h2>
             <h3>{sphereOD}</h3>
             <h3>{sphereOS}</h3>
@@ -345,7 +364,7 @@ export default function Contents(props) {
             <h3>{cylinderOS}</h3>
             <h3>{axisOD}</h3>
             <h3>{axisOS}</h3>
-            <h3>{lensWidth}</h3>
+            <h3>{lensWidth}</h3> */}
           </div>
         </div>
       )}
