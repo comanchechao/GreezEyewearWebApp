@@ -45,7 +45,7 @@ export default function Contents(props) {
     leftEye: { SPH: 0, CYL: 0, Axis: 0 },
     PD: 0,
   });
-  const [lensePicker, setLensePicker] = useState({});
+  const [lensPicker, setLensPicker] = useState({});
   const [isClicked, setIsClicked] = useState(false);
   const changeState = () => {
     if (isClicked === false) {
@@ -54,20 +54,24 @@ export default function Contents(props) {
       setIsClicked(false);
     }
   };
-  const [lenseThickness, setLenseThickness] = useState(1.5);
+  const [lensThickness, setLensThickness] = useState("");
   return (
     <div>
       {props.index === 0 && (
         <div className=" h-64 w-full my-5 text-10xl space-y-3">
           <div
+            style={{
+              backgroundColor:
+                glassesType === "prescription" ? "#00FFD1" : "white",
+            }}
             onClick={() => {
-              changeState();
+              setGlassesType("prescription");
               dispatch(glassTypeActions.setType("prescription"));
             }}
             value="prescription"
-            className={` h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300   hover:bg-mainBlue cursor-pointer active:bg-mainCream flex justify-center items-center ${
-              isClicked ? "bg-mainBlue" : "bg-white"
-            }`}
+            className=" h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300   hover:bg-mainBlue cursor-pointer active:bg-mainCream flex justify-center items-center ${
+             
+            "
           >
             <div className="h-full w-full  items-end flex  justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl mt-2 text-left lg:text-4xl">
@@ -80,14 +84,18 @@ export default function Contents(props) {
             <img loading="lazy" src={perscriptionIcon} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor:
+                glassesType === "NONprescription" ? "#00FFD1" : "white",
+            }}
             onClick={() => {
-              changeState();
+              setGlassesType("NONprescription");
               dispatch(glassTypeActions.setType("NONprescription"));
             }}
             value="NONprescription"
-            className={` h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300   hover:bg-mainBlue cursor-pointer active:bg-mainCream flex justify-center items-center ${
-              isClicked ? "bg-mainBlue" : "bg-white"
-            }`}
+            className="h-1/2 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300   hover:bg-mainBlue cursor-pointer active:bg-mainCream flex justify-center items-center ${
+              
+            "
           >
             <div className="h-full w-full  items-end flex  justify-center px-4 flex-col">
               <h1 className="text-CoolGray-900 text-2xl mt-2 text-left lg:text-4xl">
@@ -202,7 +210,11 @@ export default function Contents(props) {
       {props.index === 2 && (
         <div className=" h-full w-full my-5 text-10xl space-y-3">
           <div
+            style={{
+              backgroundColor: lensPicker === "clear" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensPicker("clear");
               dispatch(lensTypeActions.setLensType("clear"));
             }}
             className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
@@ -216,7 +228,12 @@ export default function Contents(props) {
             <img loading="lazy" src={clearLens} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor:
+                lensPicker === "blue light blocking" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensPicker("blue light blocking");
               dispatch(lensTypeActions.setLensType("blue light blocking"));
             }}
             className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
@@ -230,7 +247,11 @@ export default function Contents(props) {
             <img loading="lazy" src={blueCutLens} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor: lensPicker === "Driving" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensPicker("Driving");
               dispatch(lensTypeActions.setLensType("Driving"));
             }}
             className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
@@ -244,7 +265,11 @@ export default function Contents(props) {
             <img loading="lazy" src={drivingLens} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor: lensPicker === "Tint" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensPicker("Tint");
               dispatch(lensTypeActions.setLensType("Tint"));
             }}
             className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
@@ -258,7 +283,12 @@ export default function Contents(props) {
             <img loading="lazy" src={tintLens} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor:
+                lensPicker === "Photochrominc" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensPicker("Photochrominc");
               dispatch(lensTypeActions.setLensType("Photochrominc"));
             }}
             className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
@@ -272,7 +302,11 @@ export default function Contents(props) {
             <img loading="lazy" src={photoChromicLens} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor: lensPicker === "polarized" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensPicker("polarized");
               dispatch(lensTypeActions.setLensType("polarized"));
             }}
             className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
@@ -290,7 +324,11 @@ export default function Contents(props) {
       {props.index === 3 && (
         <div className=" h-auto w-full my-5 text-10xl space-y-3">
           <div
+            style={{
+              backgroundColor: lensThickness === "1.50" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensThickness("1.50");
               dispatch(lensWidthActions.setLensWidth("1.50 standard spheric"));
             }}
             className=" h-28 w-full px-8 transition shadow-lg rounded-sm ease-in duration-300 hover:bg-mainBlue cursor-pointer active:bg-mainCream bg-white flex justify-center items-center"
@@ -303,7 +341,11 @@ export default function Contents(props) {
             <img loading="lazy" src={thickLens} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor: lensThickness === "1.60" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensThickness("1.60");
               dispatch(
                 lensWidthActions.setLensWidth("1.60 Super Thin Aspheric")
               );
@@ -318,7 +360,11 @@ export default function Contents(props) {
             <img loading="lazy" src={mediumLens} alt="" />
           </div>
           <div
+            style={{
+              backgroundColor: lensThickness === "1.74" ? "#00FFD1" : "white",
+            }}
             onClick={(e) => {
+              setLensThickness("1.74");
               dispatch(
                 lensWidthActions.setLensWidth("1.74 ultra thin aspheric")
               );

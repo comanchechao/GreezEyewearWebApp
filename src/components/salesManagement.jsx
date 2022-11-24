@@ -387,7 +387,7 @@ export default function salesManagement() {
                         placeholder="enter Title ..."
                       />
                       <input
-                      placeholder="enter Price ..."
+                        placeholder="enter Price ..."
                         onChange={(e) => {
                           setPrice(e.target.value);
                         }}
@@ -475,14 +475,13 @@ export default function salesManagement() {
                         name=""
                         id=""
                       >
-                        <option value="">select feature</option>
-                        <option value="AdjustiableNosePad">
-                          Adjustiable Nose Pad
-                        </option>
-                        <option value="Lightweight">Lightweight</option>
-                        <option value="Bifocal">Bifocal</option>
-                        <option value="ForWideFace">For Wide Face</option>
-                        <option value="ForSmallFace">For Small Face</option>
+                        <option value="">select face shape</option>
+                        <option value="Oval">Oval</option>
+                        <option value="Square">Square</option>
+                        <option value="Round">Round</option>
+                        <option value="Diamod">Diamond</option>
+                        <option value="Pear">Pear</option>
+                        <option value="Heart">Heart</option>
                       </select>
                       <select
                         onChange={(e) => {

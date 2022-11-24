@@ -329,7 +329,7 @@ export default function shoppingPage() {
               <div>
                 <button
                   onClick={clearFilters}
-                  className="text-3xl text-mainWhite"
+                  className="p-2 text-3xl text-mainWhite"
                 >
                   clear
                 </button>
