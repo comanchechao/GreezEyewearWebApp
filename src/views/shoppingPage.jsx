@@ -6,6 +6,8 @@ import { gsap } from "gsap";
 import { useRef } from "react";
 import { supabase } from "../supabaseClient";
 import { useState } from "react";
+import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Box,
   Stack,
@@ -16,8 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectedFiltersActions } from "../Store/products/filterSelection";
-const Menu = lazy(() => import("../components/shoppingPageMenu"));
-import { ArrowDown, ArrowRight } from "phosphor-react";
+const MainMenu = lazy(() => import("../components/shoppingPageMenu"));
 
 export default function shoppingPage() {
   // getting products
@@ -42,6 +43,16 @@ export default function shoppingPage() {
     getSizes();
     getShapes();
     getRims();
+  };
+
+  const clearFilters = () => {
+    getMaterial();
+    getBrands();
+    getGenders();
+    getSizes();
+    getShapes();
+    getRims();
+    dispatch(selectedFiltersActions.clearPrices());
   };
 
   const getGenders = async () => {
@@ -155,7 +166,10 @@ export default function shoppingPage() {
     console.log(minPrice, maxPrice);
   }, [minPrice, maxPrice]);
 
-  // handing pagination
+  // handing pagination and ascention and order
+
+  const [ascendtion, setAscendtion] = useState(false);
+  const [order, setOrder] = useState("created_at");
 
   const [to, setTo] = useState(2);
   const [from, setFrom] = useState(1);
@@ -185,7 +199,7 @@ export default function shoppingPage() {
       console.log("getproducts by filter fired");
       getProductsbyFilter();
     }
-  }, [genders, brands, shapes, rims, maxPrice, minPrice]);
+  }, [genders, brands, shapes, rims, maxPrice, minPrice, ascendtion, order]);
 
   // getting the empty fliter and reseting
 
@@ -211,13 +225,23 @@ export default function shoppingPage() {
   // getting products by filter function
 
   const getProductsbyFilter = async () => {
-    console.log("brands", brands, "genders", genders, "shapes ", shapes , 'prices' , maxPrice , minPrice);
+    console.log(
+      "brands",
+      brands,
+      "genders",
+      genders,
+      "shapes ",
+      shapes,
+      "prices",
+      maxPrice,
+      minPrice
+    );
     try {
       setLoading(true);
       const { data, error } = await supabase
         .from("Products")
         .select()
-        .order("created_at", { ascending: false })
+        .order(order, { ascending: ascendtion })
         .in("Brand", brands)
         .in("Gender", genders)
         .in("Shape", shapes)
@@ -298,13 +322,57 @@ export default function shoppingPage() {
             className=" w-full h-24 flex items-center justify-start bg-CoolGray-900 z-10"
           >
             <Suspense>
-              <Menu className=""></Menu>
+              <MainMenu className=""></MainMenu>
             </Suspense>
 
-            <div className="flex flex-row-reverse justify-around items-center space-x-4">
-              <button onClick={getFilters} className="text-3xl text-mainWhite">
-                clear
-              </button>
+            <div className="flex  flex-row-reverse w-52 align-center justify-around items-center space-x-4">
+              <div>
+                <button
+                  onClick={clearFilters}
+                  className="text-3xl text-mainWhite"
+                >
+                  clear
+                </button>
+              </div>
+              <Menu>
+                <MenuButton
+                  className=" bg-CoolGray-900 text-mainWhite"
+                  minH="48px"
+                  px={4}
+                  py={2}
+                  transition="all 0.2s"
+                  borderRadius="sm"
+                  _hover={{ bg: "gray.600" }}
+                  _expanded={{ bg: "blue.400" }}
+                >
+                  Actions
+                  <ChevronDownIcon />
+                </MenuButton>
+                <MenuList>
+                  <MenuItem
+                    onClick={() => setOrder("Price") & setAscendtion(false)}
+                  >
+                    highest price
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => setOrder("Price") & setAscendtion(true)}
+                  >
+                    lowest price
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() =>
+                      setOrder("created_at") & setAscendtion(false)
+                    }
+                  >
+                    latest
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => setOrder("created_at") & setAscendtion(true)}
+                  >
+                    oldest
+                  </MenuItem>
+                </MenuList>
+              </Menu>
             </div>
           </div>
           <div className="bg-CoolGray-700 flex  item-center w-full px-6">

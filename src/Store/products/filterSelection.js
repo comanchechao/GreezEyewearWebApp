@@ -135,6 +135,10 @@ export const selectedFilters = createSlice({
     setMaxPrice: (state, action) => {
       state.maxPrice = action.payload;
     },
+    clearPrices: (state) => {
+      state.maxPrice = 99999;
+      state.minPrice = 0;
+    },
     getSizes: (state, action) => {
       state.size = action.payload;
     },

@@ -172,7 +172,7 @@ export default function ShoppingMenu() {
                   colorScheme="blue"
                   step={20}
                   aria-label={["min", "max"]}
-                  max={100000}
+                  max={99999}
                   defaultValue={[0, 100000]}
                   onChangeEnd={(val) =>
                     setMinPrice(val[0]) & setMaxPrice(val[1])
