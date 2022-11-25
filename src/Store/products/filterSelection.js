@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export const selectedFilters = createSlice({
   name: "selectedFilters",
   initialState: {
-    brand: ["brand"],
-    rim: ["rim"],
-    shape: ["shape"],
-    material: ["material"],
+    brand: [""],
+    rim: [""],
+    shape: [""],
+    material: [""],
     gender: [],
     maxPrice: 99999,
     minPrice: 0,
-    size: ["size"],
+    size: [""],
   },
   reducers: {
     getProducts: async (state, action) => {

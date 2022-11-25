@@ -11,6 +11,7 @@ import {
   Select,
   Checkbox,
 } from "@chakra-ui/react";
+import CartImage from "../components/cartImage";
 
 import { Cardholder } from "phosphor-react";
 import { useRef } from "react";
@@ -20,11 +21,22 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import gsap from "gsap";
 import sampleEyeglass from "../assets/images/sampleEyeglass.webp";
 import { useTranslation, Trans } from "react-i18next";
+import cartImage from "../components/cartImage";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../Store/shop/shoppingCart";
 
 export default function Checkout() {
+  const cart = useSelector((state) => state.cart.cart);
+  const total = useSelector((state) => state.cart.total);
   const { t, i18n } = useTranslation();
   const breadCrumbMenu = useRef();
   const mainBg = useRef();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(cartActions.getTotalPrice());
+  }, []);
 
   useEffect(() => {
     var tl = gsap.timeline();
@@ -90,28 +102,43 @@ export default function Checkout() {
               {t("checkout")}
             </h1>
             <div className="h-full w-full lg:px-11 px-3 lg:space-y-0 space-y-5  flex item-center justify-center lg:space-x-4  lg:flex-row flex-col">
-              <div className="flex flex-col  justify-between">
-                <div className=" h-36 lg:w-96 w-full  bg-white border-2 border-mainWhite  shadow-xl flex justify-between items-center p-10">
-                  <div className="bg-mainBlue">
-                    <img src={sampleEyeglass} alt="" />
-                  </div>
-                  <div className="flex  items-center flex-col justify-center">
-                    <h1 className="font-black text-3xl  text-CoolGray-900">
-                      November
-                    </h1>
-                    <h2 className="font-light text-CoolGray-700 text-lg">
-                      Tortoise, Medium
-                    </h2>
-                  </div>
-                  <div>
-                    <span className="justify-self-end">X1</span>
-                  </div>
-                </div>
+              <div className="flex flex-col  justify-around">
+                {cart.map((item) => {
+                  return (
+                    <div className=" h-36 lg:w-96 w-full  bg-white border-2 border-mainWhite  shadow-xl flex justify-between items-center p-10">
+                      <div className="bg-mainBlue">
+                        <CartImage
+                          cartImage={item.product.firstImage}
+                        ></CartImage>
+                      </div>
+                      <div className="flex  items-center flex-col justify-center">
+                        <h1 className="font-black text-3xl  text-CoolGray-900">
+                          {item.product.Title}
+                        </h1>
+                        <h2 className="font-light text-CoolGray-700 text-lg">
+                          price: {item.product.Price}
+                        </h2>
+                      </div>
+                      <div>
+                        <span className="justify-self-end">
+                          {item.quantity}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
                 <button className="px-12 flex items-center transition ease-in duration-300 border-2 border-dashed border-CoolGray-900 hover:bg-mainBlue py-2 text-lg lg:text-2xl my-6 bg-mainCream   rounded-full  ">
                   {t("proceed")}
                   <Cardholder className="mx-2" size={40} weight="fill" />
                 </button>
+                <div>
+                  <button className="px-12 space-x-2 flex items-around  transition ease-in duration-300 border-2 border-dashed border-CoolGray-900 bg-mainBlue py-2 text-lg lg:text-2xl my-6 bg-mainCream   rounded-full  ">
+                    <p> {total}</p>
+                    <p>تومان</p>
+                  </button>
+                </div>
               </div>
+
               <div className=" text-right h-72 w-full lg:w-96 bg-white border-2 border-mainWhite  shadow-xl flex items-end flex-col lg:mr-20 px-8">
                 <h1 className="text-3xl font-black my-4 w-full">
                   {t("shippingMethod")}
