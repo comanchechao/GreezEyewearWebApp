@@ -161,6 +161,7 @@ export default function shoppingPage() {
   const materials = useSelector((state) => state.selectedFilters.material);
   const minPrice = useSelector((state) => state.selectedFilters.minPrice);
   const maxPrice = useSelector((state) => state.selectedFilters.maxPrice);
+  const sizes = useSelector((state) => state.selectedFilters.size);
 
   useEffect(() => {
     console.log(minPrice, maxPrice);
@@ -199,7 +200,17 @@ export default function shoppingPage() {
       console.log("getproducts by filter fired");
       getProductsbyFilter();
     }
-  }, [genders, brands, shapes, rims, maxPrice, minPrice, ascendtion, order]);
+  }, [
+    genders,
+    brands,
+    shapes,
+    rims,
+    maxPrice,
+    minPrice,
+    ascendtion,
+    order,
+    sizes,
+  ]);
 
   // getting the empty fliter and reseting
 
@@ -219,6 +230,9 @@ export default function shoppingPage() {
     if (rims.length === 0 && !delay) {
       getRims();
       console.log("get rims baby ^^^^^^^^^");
+    }
+    if (sizes.length === 0 && !delay) {
+      getSizes();
     }
   }, [genders, brands, shapes, rims]);
 
@@ -246,6 +260,7 @@ export default function shoppingPage() {
         .in("Gender", genders)
         .in("Shape", shapes)
         .in("Rim", rims)
+        .in("Size", sizes)
         .range(from - 1, to * 4)
         .lte("Price", maxPrice)
         .gte("Price", minPrice);
@@ -472,6 +487,26 @@ export default function shoppingPage() {
                       <TagCloseButton
                         onClick={() => {
                           dispatch(selectedFiltersActions.removeRim(rim));
+                        }}
+                      />
+                    </Tag>
+                  );
+                })
+              : null}
+            {sizes.length < 2
+              ? sizes.map((size) => {
+                  return (
+                    <Tag
+                      key={size.id}
+                      borderRadius="full"
+                      variant="outline"
+                      colorScheme="blue"
+                      className="mx-1 my-3"
+                    >
+                      <TagLabel>{size}</TagLabel>
+                      <TagCloseButton
+                        onClick={() => {
+                          dispatch(selectedFiltersActions.removeSize(size));
                         }}
                       />
                     </Tag>

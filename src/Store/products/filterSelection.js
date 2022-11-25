@@ -46,9 +46,7 @@ export const selectedFilters = createSlice({
     removeBrand: (state, action) => {
       state.brand.splice(state.brand.indexOf(action.payload), 1);
     },
-    setSize: (state, action) => {
-      state.size.push(action.payload);
-    },
+
     setRim: (state, action) => {
       if (state.rim.length > 2) {
         state.rim = [];
@@ -138,6 +136,25 @@ export const selectedFilters = createSlice({
     clearPrices: (state) => {
       state.maxPrice = 99999;
       state.minPrice = 0;
+    },
+    removeSize: (state, action) => {
+      state.size.splice(state.size.indexOf(action.payload), 1);
+    },
+    setSize: (state, action) => {
+      if (state.size.length > 2) {
+        state.size = [];
+        if (state.size.indexOf(action.payload) === -1) {
+          state.size.push(action.payload);
+        } else {
+          state.size.splice(state.size.indexOf(action.payload), 1);
+        }
+      } else {
+        if (state.size.indexOf(action.payload) === -1) {
+          state.size.push(action.payload);
+        } else {
+          state.size.splice(state.size.indexOf(action.payload), 1);
+        }
+      }
     },
     getSizes: (state, action) => {
       state.size = action.payload;
