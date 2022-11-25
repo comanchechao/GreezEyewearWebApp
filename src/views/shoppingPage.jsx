@@ -217,24 +217,20 @@ export default function shoppingPage() {
   useEffect(() => {
     if (genders.length === 0 && !delay) {
       getGenders();
-      console.log("get gender *******");
     }
     if (shapes.length === 0 && !delay) {
       getShapes();
-      console.log("get shapes &&&&&&&&&");
     }
     if (brands.length === 0 && !delay) {
       getBrands();
-      console.log("get Brands ########");
     }
     if (rims.length === 0 && !delay) {
       getRims();
-      console.log("get rims baby ^^^^^^^^^");
     }
     if (sizes.length === 0 && !delay) {
       getSizes();
     }
-  }, [genders, brands, shapes, rims]);
+  }, [genders, brands, shapes, rims, sizes]);
 
   // getting products by filter function
 
