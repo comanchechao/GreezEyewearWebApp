@@ -16,6 +16,7 @@ import sampleEyeglass from "../assets/images/sampleEyeglass.webp";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function shoppingCartDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();

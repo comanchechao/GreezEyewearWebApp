@@ -218,7 +218,9 @@ export default function ShoppingMenu() {
                   key={brand.id}
                 >
                   <Checkbox value={brand} size="lg">
-                    <span className="text-2xl">{brand.Title}</span>
+                    <span className="text-2xl">
+                      {t(brand.Title.toLowerCase())}
+                    </span>
                   </Checkbox>
                 </MenuItem>
               );
@@ -251,7 +253,9 @@ export default function ShoppingMenu() {
                   key={gender.id}
                 >
                   <Checkbox size="lg">
-                    <span className="text-2xl">{gender.Title}</span>
+                    <span className="text-2xl">
+                      {t(gender.Title.toLowerCase())}
+                    </span>
                   </Checkbox>
                 </MenuItem>
               );
@@ -290,7 +294,9 @@ export default function ShoppingMenu() {
                           filterImage={shape.image}
                           alt=""
                         />
-                        <span className="text-2xl">{shape.Title}</span>
+                        <span className="text-2xl">
+                          {t(shape.Title.toLowerCase())}
+                        </span>
                       </div>
                     </Checkbox>
                   </MenuItem>
@@ -395,7 +401,7 @@ export default function ShoppingMenu() {
                           filterImage={rim.image}
                           alt=""
                         />
-                        <span className="text-2xl">{rim.Title}</span>
+                        <span className="text-2xl">{t(rim.Title)}</span>
                       </div>
                     </Checkbox>
                   </MenuItem>

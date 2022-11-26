@@ -149,6 +149,17 @@ i18next
           post: "Post",
           express: "Express",
           proceed: "Proceed To Payment",
+
+          // shapes
+
+          Round: "Round",
+          Square: "Square",
+          Polygon: "Polygon",
+          Rectangle: "Rectangle",
+          Horn: "Horn",
+          Aviator: "Aviator",
+          Oval: "Oval",
+          Cat: "Cat",
         },
       },
       fa: {
@@ -220,14 +231,14 @@ i18next
           // frame page translations
           easily: "به راحتی بهترین عینک رو بر اساس شکل فِرِم انتخاب کنید",
           pairFind: "عینک مورد نظرتون رو انتخاب کنید",
-          polygon: "چند ضلعی",
-          horn: "شاخ دار",
+          polygon: "چندضلعی",
+          horn: "شاخدار",
           round: "گِرد",
           square: "مربعی",
           rectangle: "مستطیلی",
-          catEye: "گربه ای",
+          cat: "گربه",
           aviator: "خلبانی",
-          browline: "خط ابرو",
+          browline: "خطابرو",
 
           // face page translations
           comfortabely:

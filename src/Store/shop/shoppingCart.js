@@ -17,6 +17,7 @@ const cart = createSlice({
         state.cart.push(action.payload);
       }
     },
+    selectLens: (state, action) => {},
     getTotalPrice: (state) => {
       state.cart.forEach((item) => {
         state.total = state.total + item.quantity * item.product.Price;

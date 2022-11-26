@@ -77,7 +77,7 @@ export default function LensSelect() {
                 <h1 className="text-5xl mb-5 text-right bg-CoolGray-900 text-mainWhite px-9 py-7">
                   {t("lensSelect")}
                 </h1>
-                <ProgressMenu className=""></ProgressMenu>
+                <ProgressMenu glassesID={id} className=""></ProgressMenu>
               </div>
             </div>
           </div>

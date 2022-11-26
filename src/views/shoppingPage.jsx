@@ -198,7 +198,9 @@ export default function shoppingPage() {
   useEffect(() => {
     if (!delay) {
       console.log("getproducts by filter fired");
-      getProductsbyFilter();
+      if(products.length !== 0){
+        getProductsbyFilter();
+      }
     }
   }, [
     genders,

@@ -393,11 +393,11 @@ export default function Contents(props) {
             <div className=" w-60 h-20 bg-mainWhite flex items-center flex-col justify-center p-4 border-2 border-dashed border-CoolGray-900 ">
               <h1 className="text-2xl "> قطر لنز </h1>
               <h1 className="text-xl ">{lensWidth}</h1>
-            </div>{" "}
+            </div>
             <div className=" w-60 h-20 bg-mainWhite flex items-center flex-col justify-center p-4 border-2 border-dashed border-CoolGray-900 ">
               <h1 className="text-2xl "> چشم راست </h1>
               <h1 className="text-xl ">{cylinderOD}</h1>
-            </div>{" "}
+            </div>
             <div className=" w-60 h-20 bg-mainWhite flex items-center flex-col justify-center p-4 border-2 border-dashed border-CoolGray-900 ">
               <h1 className="text-2xl ">چشم چپ</h1>
               <h1 className="text-xl ">{cylinderOS}</h1>
