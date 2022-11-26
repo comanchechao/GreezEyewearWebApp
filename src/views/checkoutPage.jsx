@@ -82,9 +82,11 @@ export default function Checkout() {
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <BreadcrumbLink>
-                <span className=""> {t("lensSelect")}</span>
-              </BreadcrumbLink>
+              <Link to={"/lensSelect"}>
+                <BreadcrumbLink>
+                  <span className=""> {t("lensSelect")}</span>
+                </BreadcrumbLink>
+              </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <Link to={"/"}>

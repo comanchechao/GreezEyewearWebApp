@@ -171,7 +171,7 @@ i18next
           addToCart: "اضافه به",
           productDetail: "جزئیات محصول",
           // footer translations
-          findUs: "مارو تو شبکه های اجتماعی پیدا کنید",
+          findUs: "ما رو تو شبکه های اجتماعی پیدا کنید",
           findMap: "موقعیت ما توی نقشه",
           design: "طراحی و توسعه ی سایت توسط",
           Greez: "گریز",

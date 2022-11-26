@@ -335,56 +335,51 @@ export default function shoppingPage() {
             <Suspense>
               <MainMenu className=""></MainMenu>
             </Suspense>
-
-            <div className="flex  flex-row-reverse w-52 align-center justify-around items-center space-x-4">
-              <div>
-                <button
-                  onClick={clearFilters}
-                  className="p-2 text-3xl text-mainWhite"
+          </div>
+          <div className="flex bg-CoolGray-900 w-full px-3 justify-start   items-center space-x-2">
+            <button
+              onClick={clearFilters}
+              className="p-4 text-md text-mainWhite transition ease-in duration-300 active:bg-mainBlue active:text-CoolGray-900 hover:bg-mainBlue hover:text-CoolGray-900 "
+            >
+              پاک کردن فیلترها
+            </button>
+            <Menu>
+              <MenuButton
+                className=" bg-CoolGray-900 text-mainWhite"
+                minH="48px"
+                px={4}
+                py={2}
+                transition="all 0.2s"
+                borderRadius="sm"
+                _hover={{ bg: "gray.600" }}
+                _expanded={{ bg: "blue.400" }}
+              >
+                چینش بر اساس
+                <ChevronDownIcon />
+              </MenuButton>
+              <MenuList>
+                <MenuItem
+                  onClick={() => setOrder("Price") & setAscendtion(false)}
                 >
-                  clear
-                </button>
-              </div>
-              <Menu>
-                <MenuButton
-                  className=" bg-CoolGray-900 text-mainWhite"
-                  minH="48px"
-                  px={4}
-                  py={2}
-                  transition="all 0.2s"
-                  borderRadius="sm"
-                  _hover={{ bg: "gray.600" }}
-                  _expanded={{ bg: "blue.400" }}
+                  گرون ترین
+                </MenuItem>
+                <MenuItem
+                  onClick={() => setOrder("Price") & setAscendtion(true)}
                 >
-                  Actions
-                  <ChevronDownIcon />
-                </MenuButton>
-                <MenuList>
-                  <MenuItem
-                    onClick={() => setOrder("Price") & setAscendtion(false)}
-                  >
-                    highest price
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => setOrder("Price") & setAscendtion(true)}
-                  >
-                    lowest price
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() =>
-                      setOrder("created_at") & setAscendtion(false)
-                    }
-                  >
-                    latest
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => setOrder("created_at") & setAscendtion(true)}
-                  >
-                    oldest
-                  </MenuItem>
-                </MenuList>
-              </Menu>
-            </div>
+                  ارزان ترین
+                </MenuItem>
+                <MenuItem
+                  onClick={() => setOrder("created_at") & setAscendtion(false)}
+                >
+                  جدیدترین
+                </MenuItem>
+                <MenuItem
+                  onClick={() => setOrder("created_at") & setAscendtion(true)}
+                >
+                  قدیمی ترین
+                </MenuItem>
+              </MenuList>
+            </Menu>
           </div>
           <div className="bg-CoolGray-700 flex  item-center w-full px-6">
             {brands.length < 11
@@ -521,11 +516,6 @@ export default function shoppingPage() {
               <Box padding="10" boxShadow="lg" bg="silver">
                 <Stack>
                   <div className="h-full w-full flex flex-col items-center justify-around space-y-20 flex-wrap">
-                    <div className="flex items-center w-full lg:flex-row flex-col justify-around">
-                      <SkeletonCircle size="180" />
-                      <SkeletonCircle size="180" />
-                      <SkeletonCircle size="180" />
-                    </div>
                     <div className="flex items-center w-full lg:flex-row flex-col justify-around">
                       <SkeletonCircle size="180" />
                       <SkeletonCircle size="180" />
