@@ -190,7 +190,7 @@ export default function shoppingPage() {
     setTimeout(() => {
       setDelay(false);
       getFilters();
-    }, 5000);
+    }, 2500);
   }, []);
 
   // get products by filter mate
@@ -198,9 +198,7 @@ export default function shoppingPage() {
   useEffect(() => {
     if (!delay) {
       console.log("getproducts by filter fired");
-      if(products.length !== 0){
-        getProductsbyFilter();
-      }
+      getProductsbyFilter();
     }
   }, [
     genders,
@@ -292,9 +290,9 @@ export default function shoppingPage() {
     }
   };
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   getProducts();
+  // }, []);
 
   useEffect(() => {
     getFilters();
